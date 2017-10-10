@@ -10,7 +10,7 @@ class main_body_controller extends CI_Controller {
 		
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/main_body',$data);
-		/*$this->load->view('templates/footer',$data);*/
+		$this->load->view('templates/footer',$data);
 		
 	}
 }
