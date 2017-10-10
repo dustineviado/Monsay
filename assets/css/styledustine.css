@@ -110,13 +110,10 @@
 		}
 		
 		
-		.whyimg{
+		.whycon{
 			cursor:pointer;
 			height:200px; 
-			width:300px;
-			border-radius:7px;
 			display:block;
-			margin:0 auto;
 		}
 		
 		.whycap{
@@ -129,9 +126,14 @@
 			font-weight:bold;
 			font-size:20px;
 		}		
+		
 		.whycaptxt2{
 			font-size:15px;
 		}
 			
+		.iconsize{
+			font-size:200px;
+			text-align:center;
+		}	
 	/* end of layer2(main_body) */
 	
