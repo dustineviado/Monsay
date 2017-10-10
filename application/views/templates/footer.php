@@ -3,11 +3,11 @@
 <hr />
 </div>
 
-<div class="row	fill">
-<div class="col-lg-4 col-md-4 ">
+<div class="row ">
+<div class="col-lg-4 col-md-4 fill">
 <ul class="footText">
 	<li class="footText">
-		<h1 class="bur">ACADEMICS</h1>
+		<p class="bur">ACADEMICS</p>
 		
 			          <ul>
  									<li><a  href="#"><i class="fa fa-angle-double-right"></i>Test Series Schedule</a></li>
@@ -26,10 +26,10 @@
 </ul>           
 </div>
 
-<div class="col-lg-4 col-md-4">
+<div class="col-lg-4 col-md-4 fill">
 <ul class="footText">
 	<li class="footText">
-		<h1 class="bur">Bratchi</h1>
+		<p class="bur">CONTACT US</p>
 		
 			          <ul>
  									<li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
@@ -48,10 +48,10 @@
 </ul>           
 </div>
 
-<div class="col-lg-4 col-md-4">
+<div class="col-lg-4 col-md-4 fill">
 <ul class="footText">
 	<li class="footText">
-		<h1 class="bur">Bratchi</h1>
+		<p class="bur">Bratchi</p>
 		
 			          <ul>
  									<li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
@@ -69,31 +69,12 @@
                             
 </ul>           
 </div>
-	<div class="divider">
-	<hr />
+	<div class="col-md-6 col-sm-6 text-center fill2">
+		<p class="text">© 2017, Ramon Magsaysay, All rights reserved</p> 
 	</div>
-
-			<div class="col-md-6 col-sm-6 col-lg-6 text-center">
-
-				
-
-					<p class="text">© 2017, Ramon Magsaysay, All rights reserved</p>
-
-			
-			</div>
-
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center">
-
-				
-
-				<p class="text">Thesis | Web Design & Development by Group 8</p>
-
-
-			</div>
-
-		
-
-		</div>
+	
+	<div class="col-md-6 col-sm-6 text-center fill2">
+		<p class="text">Thesis | Web Design & Development by Group 8</p>
 	</div>
 </div>
 

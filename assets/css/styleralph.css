@@ -1,5 +1,4 @@
-	
-	
+		
 	/* Start of footer */
 .border{
 	padding-top: 15px;
@@ -14,6 +13,10 @@
 	background-color:black;
 	height: 330px;
 }
+.fill2{
+	background-color:black;
+	height: 30px;
+}
 
 .footText{
 	margin-top: 10px;
@@ -22,6 +25,7 @@
 }
 .footText ul{
 	text-decoration: none;
+	padding: 0px;
 }
 .footText ul li{
 	font-color: black;
@@ -32,10 +36,11 @@
 	color:#cccc00;
 	font-family: 'Open Sans';
 	font-size: 30px;
+	font-weight: Bold;
 }
 
-.bur h1{
-	margin-left: 15px;
+.bur p{
+	margin-left: 0px auto;
 }
 body{
 	margin: 0px;
@@ -49,9 +54,5 @@ body{
 	font-family: 'Open Sans';
 	font-size: 14px;
 }
-.text p{
-	
-	padding-left:30px;
-	align:center;
-}
+
 /*end of footer*/
