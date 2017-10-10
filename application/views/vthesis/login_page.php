@@ -18,15 +18,7 @@
 	<!-- js bootstrap -->
 		<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<style >
-body{
 
-margin: 0 auto;
-background-repeat: no-repeat;
-background-size: 100%, 720px;
-height: 50px;
-
-
-}
 .container{
 
 	width: 500px;
@@ -38,6 +30,15 @@ height: 50px;
 	margin-top: 100px;
 	margin-bottom: 50px;
 	}
+body{
+
+margin: 0 auto;
+background-repeat: no-repeat;
+background-size: 100%, 720px;
+height: 50px;
+
+
+}
 </style>
 
 </head>
