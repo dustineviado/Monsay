@@ -1,0 +1,137 @@
+
+/* start of css for header */
+		#rmhsimg{
+			
+			cursor:pointer;
+			height:125px; 
+			width:125px;
+			float:left;
+			margin:0px 25px 0px 0px;
+		}
+		
+		#rmhstitle{
+			font-size:28px;
+			font-family:helvetica;
+			float:left;
+			font-weight:bold;
+			margin:25px 0px 0px 0px;
+		}
+		
+		#rmhstitle2{
+			font-size:28px;
+			font-family:helvetica;
+			float:left;
+			margin:0px 0px 0px 0px;
+		}
+		
+		#katawan{
+			margin:0;
+			padding:0;
+		}
+		
+		#asd2{
+			margin:-2px 0px 0px 0px;
+		}
+		
+		
+		#asd3{
+			color:#ffffff;
+			padding:12px 30px 10px;
+		}
+		
+		#asd3:hover{
+			color:#ffffff;
+			background-color:#3366ff;
+		}
+		
+		#dropbg:hover{
+			color:#ffffff;
+			background-color:#3366ff;
+		}
+		
+		.nav{
+			margin:0;
+			padding:0;
+		}
+		
+		.allbtn{
+			background-color:#3366ff;
+			border: none;
+			color: #ffffff;
+			border-radius:4px;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: bold;
+			display: inline-block;
+			font-size: 15px;
+			margin: 2px 1px;
+			cursor: pointer;
+		}
+		
+		.brandy{
+			font-weight:bold;
+			font-family:arial;
+		}
+		
+		.dropdown-menu{
+			margin:-1px 0px 0px 0px;
+		}
+		
+		
+		.dropdown:hover>.dropdown-menu {
+		display: block;
+		}
+	
+	/* end of css for header */
+		
+		
+	/* start of css for layer1(carousel) */
+		.car{
+			margin:0;
+			padding:0;
+		}
+	/* end of css for layer1(main_body) */
+
+	
+	/* start of layer2(main_body) */
+		.what{
+			font-family:Helvetica;
+			font-size:20px;
+			text-align:center;
+			color:#000000;
+			font-weight:bold;
+		}
+		
+		.current{
+			font-family:Helvetica;
+			font-size:15px;
+			text-align:center;
+			color:#000000;
+		}
+		
+		
+		.whyimg{
+			cursor:pointer;
+			height:200px; 
+			width:300px;
+			border-radius:7px;
+			display:block;
+			margin:0 auto;
+		}
+		
+		.whycap{
+			height:auto; 
+			width:300px;
+			margin:0 auto;
+		}			
+		
+		.whycaptxt1{
+			font-weight:bold;
+			font-size:20px;
+		}		
+		.whycaptxt2{
+			font-size:15px;
+		}
+			
+	/* end of layer2(main_body) */
+	
