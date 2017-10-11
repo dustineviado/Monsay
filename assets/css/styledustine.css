@@ -1,5 +1,5 @@
 
-/* start of css for header */
+	/* start of css for header */
 		#rmhsimg{
 			
 			cursor:pointer;
@@ -110,30 +110,57 @@
 		}
 		
 		
-		.whycon{
-			cursor:pointer;
-			height:200px; 
-			display:block;
-		}
-		
 		.whycap{
 			height:auto; 
 			width:300px;
-			margin:0 auto;
+			margin:10px auto 0px;
 		}			
 		
 		.whycaptxt1{
 			font-weight:bold;
 			font-size:20px;
+			color:#0039e6;
 		}		
 		
 		.whycaptxt2{
 			font-size:15px;
 		}
-			
+		
+		.whycon{
+			cursor:pointer;
+			height:150px;
+			width:150px;
+			display:block;
+			margin:auto;
+			border-radius:20px;
+		}
+		
 		.iconsize{
-			font-size:200px;
+			font-size:150px;
 			text-align:center;
 		}	
+		
+		.columndistance{
+			margin:20px 0px 0px 0px;
+		}
 	/* end of layer2(main_body) */
-	
+		.sample1{
+			height:500px;
+			width:100%;
+			background-color:blue;
+		}
+		
+		.hrline1{
+			height:2px;
+			border-width:100%;
+			border-style:solid;
+			border-color:black;
+		}
+		
+		.hrline2{
+			height:2px;
+			border-width:100%;
+			border-style:solid;
+		}
+	/* start of layer3(main_body)*/
+		
