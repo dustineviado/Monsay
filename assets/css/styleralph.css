@@ -3,9 +3,11 @@
 .border{
 	padding-top: 15px;
 }
+.divider{
+	width: 50%;
+}
 .divider hr{
 	color: black;
-	width: 100%;
 	padding-left: 25px;
 }
 
@@ -26,6 +28,7 @@
 .footText ul{
 	text-decoration: none;
 	padding: 0px;
+	font-size: 16px;
 }
 .footText ul li{
 	font-color: black;
@@ -33,9 +36,9 @@
 	list-style-type:none;
 }
 .bur{
-	color:#cccc00;
+	color:#fff;
 	font-family: 'Open Sans';
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: Bold;
 }
 
@@ -50,7 +53,7 @@ body{
 	padding: 0!Important;	
 }
 .text{
-	color:#cccc00;
+	color:#fff;
 	font-family: 'Open Sans';
 	font-size: 14px;
 }
