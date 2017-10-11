@@ -1,8 +1,13 @@
 <body>
-<div class="divider">
-<hr />
+<div class="container-fluid">
+	<div class ="row">
+		<div class="col-lg-12 col-md-12">
+			<div class="divider">
+				<hr />
+			</div>
+		</div>
+	</div>
 </div>
-
 <div class="row ">
 <div class="col-lg-4 col-md-4 fill">
 <ul class="footText">
@@ -10,8 +15,8 @@
 		<p class="bur">ACADEMICS</p>
 		
 			          <ul>
- 									<li><a  href="#"><i class="fa fa-angle-double-right"></i>Test Series Schedule</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i>Postal Coaching</a></li>
+ 									<li><a  href="#"><i class="fa fa-angle-double-right"></i>Test Series Schedule</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i>PG Dr. Bhatia Books</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i>UG Courses</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i>Satellite Education</a></li>
@@ -32,14 +37,10 @@
 		<p class="bur">CONTACT US</p>
 		
 			          <ul>
- 									<li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Postal Coaching</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  PG Dr. Bhatia Books</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  State P.G. Mocks</a></li>
-                                    <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> Results</a></li>
+ 									<li><a  href="#">Kuro kuroso St. España, Manila</li>
+                                    <li><a  href="#">Phone: 405-3441</a></li>
+                                    <li><a  href="#">WWW.Monsay.com</a></li>
+                                    
                                     
                       </ul>
                     
