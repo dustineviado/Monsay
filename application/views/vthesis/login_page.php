@@ -1,7 +1,10 @@
 
 <body id="loginbody">
-
+	<div class="row">
+		<div class="col-xs-1 col-sm-3 col-md-12"></div>
 <div class="logincontainer">
+	
+
 	<img src="images/png1.png">
 	<form>
 
@@ -11,7 +14,7 @@
 		</div>
 
 
-		<div class="form-input">
+		<div class="form-input1">
 			
 			<input type="password" name="password" placeholder="ENTER PASSWORD">
 		</div>

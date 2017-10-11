@@ -14,7 +14,7 @@ height: 50px;
 	height: 450px;
 	text-align: center;
 	background-color: rgba(52,73,94,0.7);
-	border-radius: 20px;
+	border-radius: 45px;
 	margin: 0 auto;
 	margin-top: 100px;
 	margin-bottom: 50px;
@@ -46,15 +46,24 @@ height: 50px;
 	position: absolute;
 	font-family: "FontAwesome";
 	font-size: 30px;
-	color: #9b569b
-	padding-left: 5px;
-	padding-top: 5px;
+	color: black;
+	padding-left: 9px;
+	padding-top: 0px;	
 	font-size: 35px;
 }
-.font-input:last-child::before{
-content: "\f023";
+.form-input1::before{
+	content: "\f023";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 30px;
+	color: black;
+	padding-left: 9px;
+	padding-top: 0px;
+	font-size: 35px;
 
 }
+
+
 
 .btn-login{
 
@@ -69,6 +78,7 @@ content: "\f023";
 
 }
 .ayo{
+	cursor: pointer;
 	color: #fff;
 	font-size: 18px;
 	
