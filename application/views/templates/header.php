@@ -64,10 +64,10 @@
 						<div class="collapse navbar-collapse" id="misnavbar">
 							<ul class="nav navbar-nav nav-fill mr-auto" id="asd2">
 								<li class="nav-item dropdown">
-									<a class="nav-link" id="asd3" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Home</a>
+									<a class="nav-link" id="asd3" id="dropdown1" aria-haspopup="true" aria-expanded="false">Home</a>
 								</li>
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown2" aria-haspopup="true" aria-expanded="false" href="#">About Us</a>
+									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown2" aria-haspopup="true" aria-expanded="false" >About Us</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown2">
 											<a class="dropdown-item" id="dropbg" href="#">Vision and Mission</a>
 											<a class="dropdown-item" id="dropbg" href="#">RMHS Hymn</a>
@@ -75,7 +75,7 @@
 										</div>
 								</li>
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown3" aria-haspopup="true" aria-expanded="false" href="#">Academics</a>
+									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown3" aria-haspopup="true" aria-expanded="false">Academics</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown3">
 											<a class="dropdown-item" id="dropbg" href="#">Elementary</a>
 											<a class="dropdown-item" id="dropbg" href="#">Junior High School</a>
@@ -83,14 +83,14 @@
 										</div>
 								</li>
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown4" aria-haspopup="true" aria-expanded="false" href="#">Announcements</a>
+									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown4" aria-haspopup="true" aria-expanded="false">Announcements</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown4">
 											<a class="dropdown-item" id="dropbg" href="#">News</a>
 											<a class="dropdown-item" id="dropbg" href="#">Events</a>
 										</div>
 								</li>
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown5" aria-haspopup="true" aria-expanded="false" href="#">Portals</a>
+									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown5" aria-haspopup="true" aria-expanded="false">Portals</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown5">
 											<a class="dropdown-item" id="dropbg" href="#">Students</a>
 											<a class="dropdown-item" id="dropbg" href="#">Parents</a>

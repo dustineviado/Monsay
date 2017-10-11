@@ -31,6 +31,7 @@
 		</div>	
 	<!--end of layer 1(carousel)-->	
 		<br/>
+		<br/>
 	<!--start of layer 2-->
 		<div class="container-fluid">
 			<div class="row">
@@ -51,21 +52,21 @@
 		</div>
 		<div class="container-fluid">
 			<div class="row">			
-				<div class="col-md-4">
+				<div class="col-md-4 columndistance">
 					<i class="fa fa-book iconsize whycon"></i>
 					<p class="whycap">
 						<span class="whycaptxt1">K-12 READY</span> <br/>
 						<span class="whycaptxt2">Ramon Magsaysay High School is K-12 ready school for the better future of your kids.</span>
 					</p>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 columndistance">
 					<i class="fa fa-star-o iconsize whycon"></i>
 					<p class="whycap">
 					<span class="whycaptxt1">EXCELLENCE</span> <br/>
 					<span class="whycaptxt2">Ramon Magsaysay High School continues to uphold the culture of excellence.</span>
 					</p>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 columndistance">
 					<i class="fa fa-trophy iconsize whycon"></i>
 					<p class="whycap">
 					<span class="whycaptxt1">LEADING</span> <br/>
@@ -77,6 +78,21 @@
 	<!--end of layer 2-->
 	<br/>
 	<br/>
-	<br/>
+		
+		<div class="conainer-fluid">
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-10">
+					
+						<hr class="hrline1">
+						<hr class="hrline2">
+			
+				</div>
+				<div class="col-md-1">
+				</div>
+			</div>
+		</div>
+
 	
 </body>
