@@ -96,7 +96,7 @@
 	/* start of layer2(main_body) */
 		.what{
 			font-family:Helvetica;
-			font-size:20px;
+			font-size:40px;
 			text-align:center;
 			color:#000000;
 			font-weight:bold;
@@ -121,7 +121,7 @@
 			font-size:20px;
 			color:#0039e6;
 		}		
-		
+
 		.whycaptxt2{
 			font-size:15px;
 		}
@@ -144,12 +144,8 @@
 			margin:20px 0px 0px 0px;
 		}
 	/* end of layer2(main_body) */
-		.sample1{
-			height:500px;
-			width:100%;
-			background-color:blue;
-		}
 		
+	/* start of layer3(main_body)*/
 		.hrline1{
 			height:2px;
 			border-width:100%;
@@ -162,5 +158,39 @@
 			border-width:100%;
 			border-style:solid;
 		}
-	/* start of layer3(main_body)*/
 		
+		.enroll{
+			font-family:Helvetica;
+			font-size:50px;
+			font-weight:bold;
+			text-align:center;
+		}
+		
+		.enroll2{
+			text-align:center;
+			font-size:20px;
+		}
+		
+		.divregbtncontainer{
+			margin:auto;
+			height:70px;
+			width:210px;
+		}
+		
+		.regbtn{
+			height:60px;
+			width:200px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding:16px 0px 0px 0px;
+			margin:0 auto;
+			font-size:20px;
+		}
+		
+		.regbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+		/* end of layer3(main_body)*/

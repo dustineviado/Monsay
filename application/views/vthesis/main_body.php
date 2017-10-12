@@ -10,13 +10,13 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="images/pubg1.jpg" alt="First slide">
+						<img class="d-block img-fluid" src="images/school1.jpg" alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="images/pubg1.jpg" alt="Second slide">
+						<img class="d-block img-fluid" src="images/school2.jpg" alt="Second slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="images/pubg1.jpg" alt="Third slide">
+						<img class="d-block img-fluid" src="images/school3.jpg" alt="Third slide">
 					</div>
 				</div>
 					<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -52,7 +52,9 @@
 		</div>
 		<div class="container-fluid">
 			<div class="row">			
-				<div class="col-md-4 columndistance">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-3 columndistance">
 					<i class="fa fa-book iconsize whycon"></i>
 					<p class="whycap">
 						<span class="whycaptxt1">K-12 READY</span> <br/>
@@ -66,12 +68,14 @@
 					<span class="whycaptxt2">Ramon Magsaysay High School continues to uphold the culture of excellence.</span>
 					</p>
 				</div>
-				<div class="col-md-4 columndistance">
+				<div class="col-md-3 columndistance">
 					<i class="fa fa-trophy iconsize whycon"></i>
 					<p class="whycap">
 					<span class="whycaptxt1">LEADING</span> <br/>
 					<span class="whycaptxt2">Ramon Magsaysay High School is one of the top three high schools here in manila.</span>
 					</p>
+				</div>
+				<div class="col-md-1">
 				</div>
 			</div>
 		</div>
@@ -84,10 +88,18 @@
 				<div class="col-md-1">
 				</div>
 				<div class="col-md-10">
-					
-						<hr class="hrline1">
-						<hr class="hrline2">
-			
+					<hr class="hrline1">
+						<br/>
+						<p class="enroll">
+						Register now at RMHS
+						</p>
+						<p class="enroll2">
+						You can register online with our Online Enrollment System 
+						<p/>
+							<div class="divregbtncontainer">
+								<a class="btn regbtn" role="button" href="">Register</a>
+							</div>	
+					<hr class="hrline2">
 				</div>
 				<div class="col-md-1">
 				</div>
