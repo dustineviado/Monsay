@@ -52,9 +52,9 @@
 					<span class="bur"><i class="fa fa-apple">&nbsp;FOLLOW US</i></span>
 						<hr class="hrline" />
 							<ul class="menu-social-icons">
-								<li class="menu-social-icons"><i class="fa fa-apple"></i></li>
-								<li class="menu-social-icons"><i class="fa fa-facebook"></i></li>
-								<li class="menu-social-icons"><i class="fa fa-twitter"></i></li>
+								<li class="menu-social-icons"><a href="#"><i class ="fa fa-apple"></i></a></li>
+								<li class="menu-social-icons"><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li class="menu-social-icons"><a href="#"><i class="fa fa-twitter"></i></a></li>
 							</ul>
 				</li>
 			</ul>
@@ -70,6 +70,4 @@
 	
 	</div>
 </div>
-</body>
-
 </html>
