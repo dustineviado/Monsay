@@ -49,11 +49,11 @@
 		<div class="col-md-3 col-xs-3 fill">
 			<ul class="footText">
 				<li class="footText">
-					<span class="bur"><i class="fa fa-angellist">&nbsp;FOLLOW US</i></span>
+					<span class="bur"><i class="fa fa-apple">&nbsp;FOLLOW US</i></span>
 						<hr class="hrline" />
 							<ul class="menu-social-icons">
 								<li class="menu-social-icons"><i class="fa fa-apple"></i></li>
-								<li class="menu-social-icons"><i class="fa fa-facebook-square"></i></li>
+								<li class="menu-social-icons"><i class="fa fa-facebook"></i></li>
 								<li class="menu-social-icons"><i class="fa fa-twitter"></i></li>
 							</ul>
 				</li>
