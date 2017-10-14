@@ -25,8 +25,6 @@
 
 </head>
 	<!--end of header-->
-	
-	<body>
 	<!--start of header-->
 		<br/>
 		<div class="container-fluid"> 
