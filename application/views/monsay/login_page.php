@@ -7,9 +7,9 @@
 
 	<img src="images/png1.png">
 	<form>
-
+		<?=form_open('login_page_controller/login')?>
 		<div class="form-input">
-			
+				
 			<input type="text" name="username" placeholder="ENTER USERNAME">
 		</div>
 
