@@ -23,10 +23,14 @@
 	<!-- js bootstrap -->
 		<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 
-</head>
+<title><?php echo $title?></title>
 	<!--end of header-->
+
+	
 	<!--start of header-->
 	<body>
+
+	<!--start of navbar-->
 		<br/>
 		<div class="container-fluid"> 
 			<div class="row">
@@ -100,3 +104,5 @@
 						</div>
 			</div>
 		</nav>
+	<!-- end of navbar -->	
+</head>		

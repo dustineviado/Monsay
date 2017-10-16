@@ -178,13 +178,14 @@
 		}
 		
 		.regbtn{
+			font-family:Helvetica;
 			height:60px;
 			width:200px;
 			background-color:#3366ff;
 			border:none;
 			border-style:none;
 			color:#ffffff;
-			padding:16px 0px 0px 0px;
+			padding:18px 0px 0px 0px;
 			margin:0 auto;
 			font-size:20px;
 		}
@@ -194,3 +195,38 @@
 			color:#000000;
 		}
 		/* end of layer3(main_body)*/
+		
+		/* start of register_page*/	
+		.regbord{
+			border: 1px solid #000000;
+		}
+		
+		.divsubbtncontainer{
+			margin:auto;
+			height:45px;
+			width:155px;
+		}
+		
+		.subbtn{
+			font-family:Helvetica;
+			background-color:#3366ff;
+			color:#ffffff;
+			height:40px;
+			width:150px;
+			font-size:17px;
+		}
+		
+		.subbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+		
+		.regform{
+			font-family:Helvetica;
+			font-size:50px;
+			font-weight:bold;
+		}
+		/* end of register_page*/
+		
+		
+		
