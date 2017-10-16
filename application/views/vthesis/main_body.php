@@ -38,7 +38,6 @@
 				<div class="col-md-1">
 				</div>				
 				<div class="col-md-10">
-					<!--<i class="fa fa-adjust"></i>-->
 					<p class="what">
 						Why Ramon Magsaysay High School?
 					</p>
@@ -83,7 +82,7 @@
 	<br/>
 	<br/>
 		
-		<div class="conainer-fluid">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-1">
 				</div>
