@@ -1,92 +1,49 @@
-#loginbody{
-
-margin: 0 auto;
-background-repeat: no-repeat;
-background-size: 100%, 720px;
-height: 50px;
-
-
-}
-
-.logincontainer{
-
-	width: 500px;
-	height: 450px;
-	text-align: center;
-	background-color: rgba(52,73,94,0.7);
-	border-radius: 45px;
-	margin: 0 auto;
-	margin-top: 100px;
-	margin-bottom: 50px;
-	}
-
-	
-.logincontainer img{
-
-	width: 120px;
-	height: 120px
-	border-radius: 10px;
+.user1{
 	margin-top: 60px;
+	margin-bottom: 20px;
+	width: 200px;
+	font-family: 'helvetica';
+
+}
+.pass1{
+	margin-bottom: 50px;
+	margin-top: 0px;
+	width: 200px;
+	font-family: 'helvetica'; 
+
+}
+.login1{
+	cursor: pointer;
+	font-family:Helvetica;
+	height:40px;
+	width:150px;
+	background-color:#3366ff;
+	border:none;
+	border-radius: 10px;
+	color:#ffffff;
 	margin-bottom: 30px;
+	font-size:15px;
+}
+.login1:hover{
+	background-color:#ffff1a;
+	color:#000000;
 
 }
-
- /*input[type="text"],input[type="password"] {
- 	height: 45px;
- 	width: 300px;
- 	font-size: 18px;
- 	margin-bottom: 20px;
- 	background-color: #fff;
- 	padding-left: 40px;
- }*/
-
-
-.form-input::before{
-	content: "\f007";
-	position: absolute;
-	font-family: "FontAwesome";
-	font-size: 30px;
+.regbordlogin{
+	border-radius: 8px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	height: 500px;
+	border: 1px solid;
+}
+.imglogin{
+	margin-top: 20px;
+	height: 150px;
+}
+.frgt{
+	margin-top: 100px;
+	font-family: 'helvetica';
+	font-size: 12px;
 	color: black;
-	padding-left: 9px;
-	padding-top: 0px;	
-	font-size: 35px;
-}
-.form-input1::before{
-	content: "\f023";
-	position: absolute;
-	font-family: "FontAwesome";
-	font-size: 30px;
-	color: black;
-	padding-left: 9px;
-	padding-top: 0px;
-	font-size: 35px;
-
-}
-
-
-
-.btn-login{
-
-	cursor: pointer;
-	padding: 20px 30px;
-	color: #fff;
-	border-radius: 5px;
-	border-style: solid;
-	background-color: green;
-	border-bottom: 3px, solid #27e55f;
-	margin-bottom: 10px;
-
-}
-.ayo{
-	cursor: pointer;
-	color: #fff;
-	font-size: 18px;
 	
 }
-
-
-
-
-
-
-
