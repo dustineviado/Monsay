@@ -1,27 +1,53 @@
-
-<body id="loginbody">
-	<div class="row">
-		<div class="col-xs-1 col-sm-3 col-md-12"></div>
-<div class="logincontainer">
+<body>
 	
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4 regbordlogin text-center" >
 
-	<img src="images/png1.png">
-	<form>
-		<?=form_open('login_page_controller/login')?>
-		<div class="form-input">
-				
-			<input type="text" name="username" placeholder="ENTER USERNAME">
-		</div>
+		<form>
+
+				<img class="imglogin" src="images/png1.png"><br>
+				<input type="username" class="user1" placeholder="Username"><br>
+				<input type="password" class="pass1" placeholder="Password"><br>
+				<input type="submit"  class="login1 btn" value="Login"><br>	
+
+				<a href="#" class="frgt">Forgot Password?</a>
 
 
-		<div class="form-input1">
-			
-			<input type="password" name="password" placeholder="ENTER PASSWORD">
-		</div>
-		<input type="submit" name="submit" value="LOGIN" class="btn-login">
-		<a class="ayo" href="#"><br>Forgot Password?</a>
-	</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</form>
+
+
+	</div>	
+	<div class="col-md-4">
+		
+	</div>
+
+
+
+	</div>
+
+
+
+
 </div>
-
 </body>
-</html>
