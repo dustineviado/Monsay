@@ -10,7 +10,7 @@ class regcontrol extends CI_Controller {
 	}
 	public function add(){
 		$user = array(
-			'fullname' => $this->input->post('fullname'),
+			'name' => $this->input->post('name'),
 			'email' => $this->input->post('email'),
 			'contact' => $this->input->post('contact'),
 			'password' => $this->input->post('password')

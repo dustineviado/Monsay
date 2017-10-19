@@ -1,7 +1,7 @@
 <div class="container-fluid">	
 	<div class="row">
 		
-		<div class="col-md-3 col-xs-3 fill">
+		<div class="col-md-3 fill">
 			<ul class="footText">
 				<li class="footText">
 					<span class="bur"><i class="fa fa-envelope">&nbsp;CONTACT US</i></span>
@@ -11,7 +11,6 @@
 							<li>Phone: 405-3441</li>
 							<li>Email: Abudi@gmail.com</li>
 							<li><a href="#">WWW.Abudi.com</a></li>
-								<ul>
 								
 						</ul>
 				</li>
@@ -39,8 +38,8 @@
 					<span class="bur"><i class="fa fa-info-circle">&nbsp;ABOUT US</i></span>
 						<hr class="hrline" />
 						<ul>
-							<li>----------------</li>
-							<li>----------------</li>
+							<li><a href="#">Vision</a></li>
+							<li><a href="#">Mission</a></li>
 							<li><a href="#">----------------</a></li>
 						</ul>
 				</li>

@@ -1,0 +1,41 @@
+.text ul{
+	padding: 0px;
+	text-decoration: none;
+	padding: 0px;
+	font-size: 16px;
+}
+.text ul li{
+	color: #464646;
+	text-decoration: none;
+	list-style-type:none;
+}
+.text ul li a{
+	text-decoration:none;
+	color: #464646;
+}
+.text ul li a:hover{
+	color:#3366ff;
+}
+.text-admin{
+	margin-left: 0px;
+	padding-left: 0px;
+	color:#ffff1a;
+	font-family: 'Helvetica';
+	font-size: 20px;
+	font-weight: Bold;
+	text-align: center;
+}
+
+.text-admin span{
+	font-family:'Helvetica';
+	margin-left: 0px;
+}
+.linya{
+padding-left: 0px;
+margin-left: 0px;
+height:2px;
+border-width:100%;
+border-style:solid;
+border-color:#464646;
+padding-bottom: 5px;
+}
