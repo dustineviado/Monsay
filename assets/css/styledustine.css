@@ -229,4 +229,19 @@
 		/* end of register_page*/
 		
 		
+		/* start of register_page_print */
+		.prtbtn{
+			font-family:Helvetica;
+			background-color:#3366ff;
+			border:1px solid #000000;
+			color:#ffffff;
+			height:40px;
+			width:150px;
+			font-size:17px;
+		}
 		
+		.prtbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+		/* end of register_page_print */
