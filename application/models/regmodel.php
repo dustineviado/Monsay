@@ -7,7 +7,7 @@
 		}
 		function insertUser($user){
 				$this->db->insert('register',$user);
-				$this->db->where('fullname !=',$user['fullname']);
+				$this->db->where('name !=',$user['name']);
 				$this->db->where('email !=',$user['email']);
 				$this->db->where('contact !=',$user['contact']);
 				$this->db->where('password !=',$user['password']);

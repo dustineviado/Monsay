@@ -1,5 +1,5 @@
 <?php
-	class model_login extends CI_Model{
+	class Model_login extends CI_Model{
 		private $table = "user_login";
 		
 		public function read($user){

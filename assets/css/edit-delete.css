@@ -1,0 +1,227 @@
+
+	/* start of css for header */
+		#rmhsimg{
+			
+			cursor:pointer;
+			height:125px; 
+			width:125px;
+			float:left;
+			margin:0px 25px 0px 0px;
+		}
+		
+		#rmhstitle{
+			font-size:28px;
+			font-family:helvetica;
+			float:left;
+			font-weight:bold;
+			margin:25px 0px 0px 0px;
+		}
+		
+		#rmhstitle2{
+			font-size:28px;
+			font-family:helvetica;
+			float:left;
+			margin:0px 0px 0px 0px;
+		}
+		
+		#katawan{
+			margin:0;
+			padding:0;
+		}
+		
+		#asd2{
+			margin:-2px 0px 0px 0px;
+		}
+		
+		
+		#asd3{
+			color:#ffffff;
+			padding:12px 30px 10px;
+		}
+		
+		#asd3:hover{
+			color:#ffffff;
+			background-color:#3366ff;
+		}
+		
+		#dropbg:hover{
+			color:#ffffff;
+			background-color:#3366ff;
+		}
+		
+		.nav{
+			margin:0;
+			padding:0;
+		}
+		
+		.allbtn{
+			background-color:#3366ff;
+			border: none;
+			color: #ffffff;
+			border-radius:4px;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: bold;
+			display: inline-block;
+			font-size: 15px;
+			margin: 2px 1px;
+			cursor: pointer;
+		}
+		
+		.brandy{
+			font-weight:bold;
+			font-family:arial;
+		}
+		
+		.dropdown-menu{
+			margin:-1px 0px 0px 0px;
+		}
+		
+		
+		.dropdown:hover>.dropdown-menu {
+		display: block;
+		}
+	
+	/* end of css for header */
+		
+		
+	/* start of css for layer1(carousel) */
+		.car{
+			margin:0;
+			padding:0;
+		}
+	/* end of css for layer1(main_body) */
+
+	
+	/* start of layer2(main_body) */
+		.what{
+			font-family:Helvetica;
+			font-size:40px;
+			text-align:center;
+			color:#000000;
+			font-weight:bold;
+		}
+		
+		.current{
+			font-family:Helvetica;
+			font-size:15px;
+			text-align:center;
+			color:#000000;
+		}
+		
+		
+		.whycap{
+			height:auto; 
+			width:300px;
+			margin:10px auto 0px;
+		}			
+		
+		.whycaptxt1{
+			font-weight:bold;
+			font-size:20px;
+			color:#0039e6;
+		}		
+
+		.whycaptxt2{
+			font-size:15px;
+		}
+		
+		.whycon{
+			cursor:pointer;
+			height:150px;
+			width:150px;
+			display:block;
+			margin:auto;
+			border-radius:20px;
+		}
+		
+		.iconsize{
+			font-size:150px;
+			text-align:center;
+		}	
+		
+		.columndistance{
+			margin:20px 0px 0px 0px;
+		}
+	/* end of layer2(main_body) */
+		
+	/* start of layer3(main_body)*/
+		.hrline1{
+			height:2px;
+			border-width:100%;
+			border-style:solid;
+			border-color:black;
+		}
+		
+		.hrline2{
+			height:2px;
+			border-width:100%;
+			border-style:solid;
+		}
+		
+		.enroll{
+			font-family:Helvetica;
+			font-size:50px;
+			font-weight:bold;
+			text-align:center;
+		}
+		
+		.enroll2{
+			text-align:center;
+			font-size:20px;
+		}
+		
+		.divregbtncontainer{
+			margin:auto;
+			height:70px;
+			width:210px;
+		}
+		
+		.regbtn{
+			font-family:Helvetica;
+			height:60px;
+			width:200px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding:18px 0px 0px 0px;
+			margin:0 auto;
+			font-size:20px;
+		}
+		
+		.regbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+		/* end of layer3(main_body)*/
+		
+		/* start of register_page*/	
+		.regbord{
+			border: 1px solid #000000;
+		}
+		
+		.divsubbtncontainer{
+			margin:auto;
+			height:45px;
+			width:155px;
+		}
+		
+		.subbtn{
+			font-family:Helvetica;
+			background-color:#3366ff;
+			color:#ffffff;
+			height:40px;
+			width:150px;
+			font-size:17px;
+		}
+
+		.regform{
+			font-family:Helvetica;
+			font-size:50px;
+			font-weight:bold;
+		}
+		/* end of register_page*/
+		
+		
+		

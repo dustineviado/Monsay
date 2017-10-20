@@ -1,6 +1,6 @@
 <?=form_open('regcontrol/add')?>
 		<div class="form-input">
-		<input type="text", name="fullname", placeholder="Name">
+		<input type="text", name="name", placeholder="Name">
 		</div>
 		<div class="form-input">
 			<input type="email", name="email", placeholder="Email">
