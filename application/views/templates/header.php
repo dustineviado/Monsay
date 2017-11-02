@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta http-equiv="no-cache">
 
 	<!-- jquery and popper JS CDN bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -65,11 +66,11 @@
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#misnavbar" aria-controls="misnavbar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-					<a class="navbar-brand brandy" href="#">RMHS</a>
+					<a class="navbar-brand brandy" href="http://localhost/ci/main_body_controller">RMHS</a>
 						<div class="collapse navbar-collapse" id="misnavbar">
 							<ul class="nav navbar-nav nav-fill mr-auto" id="asd2">
 								<li class="nav-item dropdown">
-									<a class="nav-link" id="asd3" id="dropdown1" aria-haspopup="true" aria-expanded="false">Home</a>
+									<a class="nav-link" id="asd3" id="dropdown1" aria-haspopup="true" aria-expanded="false" href="main_body_controller">Home</a>
 								</li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown2" aria-haspopup="true" aria-expanded="false" >About Us</a>
@@ -97,9 +98,9 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown5" aria-haspopup="true" aria-expanded="false">Portals</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown5">
-											<a class="dropdown-item" id="dropbg" href="#">Students</a>
-											<a class="dropdown-item" id="dropbg" href="#">Parents</a>
-											<a class="dropdown-item" id="dropbg" href="#">Teachers</a>
+											<a class="dropdown-item" id="dropbg" href="login_page_controller">Students</a>
+											<a class="dropdown-item" id="dropbg" href="login_page_controller">Parents</a>
+											<a class="dropdown-item" id="dropbg" href="login_page_controller">Teachers</a>
 										</div>
 								</li>
 							</ul>
