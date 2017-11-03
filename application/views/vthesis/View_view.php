@@ -18,7 +18,7 @@
 			<td><?php echo $row->fname;?></td>
 			<td><?php echo $row->lname;?></td>
 			<td><?php echo $row->birthday;?></td>
-			<td><?php echo $row->age?></td>
+			<td><?php echo $row->age;?></td>
 			<td><?php echo $row->gender;?></td>
 			<td><?php echo $row->address;?></td>
 			<td><?php echo $row->contact;?></td>
@@ -32,8 +32,9 @@
 </table>
  <script>  
       $(document).ready(function(){  
-           $('.deletedata').click(function(){  
-                var id = $(this).attr("id_num");  
+           $('.deletedata').click(function(){ 
+
+               var id = $(this).attr("id_num");  
                 if(confirm("Are you sure you want to delete this?"))  
                 {  
                      window.location="<?php echo base_url(); ?>view_ctr/deletedata/"+id;  

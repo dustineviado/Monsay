@@ -52,9 +52,9 @@
 					<span class="bur"><i class="fa fa-apple">&nbsp;FOLLOW US</i></span>
 						<hr class="hrline" />
 							<ul class="menu-social-icons">
-								<li class="menu-social-icons"><a href="#"><i class ="fa fa-apple"></i></a></li>
-								<li class="menu-social-icons"><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li class="menu-social-icons"><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li class="menu-social-icons"><a href="https://www.apple.com/" target="_blank"><i class ="fa fa-apple"></i></a></li>
+								<li class="menu-social-icons"><a href="https://www.facebook.com/pages/Ramon-Magsaysay-High-School/139261286091629" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li class="menu-social-icons"><a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
 							</ul>
 				</li>
 			</ul>

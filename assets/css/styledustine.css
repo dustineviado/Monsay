@@ -233,7 +233,7 @@
 		.prtbtn{
 			font-family:Helvetica;
 			background-color:#3366ff;
-			border:1px solid #000000;
+			border:none;
 			color:#ffffff;
 			height:40px;
 			width:150px;

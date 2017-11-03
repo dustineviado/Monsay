@@ -96,7 +96,7 @@
 						You can register online with our Online Enrollment System 
 						<p/>
 							<div class="divregbtncontainer">
-								<a class="btn regbtn" role="button" href="">Register</a>
+								<a class="btn regbtn" role="button" href="register_page_controller">Register</a>
 							</div>	
 					<hr class="hrline2">
 				</div>

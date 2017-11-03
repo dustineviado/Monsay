@@ -10,7 +10,7 @@
 				</p>
 				</div>
 				<div class="col-md-2">
-					<a href="Upd_ctr">View Students</a>
+					<a href="View_ctr">View Students</a>
 				</div>
 			</div>
 		

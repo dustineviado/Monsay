@@ -26,7 +26,7 @@
 						
 							<div class="col-md">
 								<label for="lastname" class="col-form-label">Name</label>
-								<input id="lastname" name="name1" type="text" class="form-control" placeholder="Last name">
+								<input id="lastname" name="name1" type="text" class="form-control" placeholder="Last, First Middle">
 							</div>
 						</div>
 						
@@ -44,7 +44,7 @@
 						<div class="row form-group">
 							<div class="col-md-5">
 								<label for="birthdate" class="col-form-label">Date of Birth</label>
-								<input id="birthdate" name="date1" type="date" min="2017-10-15" class="form-control">
+								<input id="birthdate" name="date1" type="date" max="2017-10-15" class="form-control">
 							</div>
 							<div class="col-md">
 								<label for="age" class="col-form-label">Age</label>
@@ -81,7 +81,7 @@
 							<div class="col-md">
 								<label for="mlastname" class="col-form-label">Name of Mother</label>
 								<small id="motherhelp" class="form-text text-muted">If you dont have a mother leave it blank.</small>
-								<input id="mlastname" name="mname1"type="text" class="form-control" placeholder="Last name">
+								<input id="mlastname" name="mname1"type="text" class="form-control" placeholder="Last, First Middle">
 							</div>
 
 						</div>
@@ -90,15 +90,15 @@
 							<div class="col-md">
 								<label for="flastname" class="col-form-label">Name of Father</label>
 								<small id="fatherhelp" class="form-text text-muted">If you dont have a father leave it blank.</small>
-								<input id="flastname" name="fname1"type="text" class="form-control" placeholder="Last name">
+								<input id="flastname" name="fname1"type="text" class="form-control" placeholder="Last, First Middle">
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="glastname" class="col-form-label">Name of Guardian</label>
-								<small id="guardianhelp" name="gname1" class="form-text text-muted">If you dont have a mother nor a father.</small>
-								<input id="glastname" type="text" class="form-control" placeholder="Last name">
+								<small id="guardianhelp" class="form-text text-muted">If you dont have a mother nor a father.</small>
+								<input id="glastname" name="gname1" type="text" class="form-control" placeholder="Last, First Middle">
 							</div>
 
 						</div>
