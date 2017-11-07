@@ -44,8 +44,8 @@
 					<div>	
 							<img id="rmhsimg" src="images/Rmhslogo.jpg">	
 						<p> 
-							<span id="rmhstitle">RAMON MAGSAYSAY</span> <br>
-							<span id="rmhstitle2">High School</span>
+							<span id="rmhstitle">RAMON MAGSAYSAY&nbsp</span> <br>
+							<span id="rmhstitle2">HIGH SCHOOL</span>
 						</p>
 					</div>	
 				</div>
@@ -61,14 +61,13 @@
 		
 		<br/>
 			
-		<nav class="nav navbar navbar-expand-md navbar-dark" style="background-color:#262626;">
-			<div class="container">
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#misnavbar" aria-controls="misnavbar" aria-expanded="false" aria-label="Toggle navigation">
+		<nav class="nav navbar navbar-expand-lg navbar-dark" style="background-color:#262626;">
+			<div class="container-fluid">
+				<button class="navbar-toggler navbar-toggler-right toggler1 " type="button" data-toggle="collapse" data-target="#misnavbar" aria-controls="misnavbar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-					<a class="navbar-brand brandy" href="http://localhost/ci/main_body_controller">RMHS</a>
 						<div class="collapse navbar-collapse" id="misnavbar">
-							<ul class="nav navbar-nav nav-fill mr-auto" id="asd2">
+							<ul class="nav navbar-nav nav-fill mr-auto ml-auto" id="asd2">
 								<li class="nav-item dropdown">
 									<a class="nav-link" id="asd3" id="dropdown1" aria-haspopup="true" aria-expanded="false" href="main_body_controller">Home</a>
 								</li>

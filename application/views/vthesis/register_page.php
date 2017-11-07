@@ -26,7 +26,7 @@
 						
 							<div class="col-md">
 								<label for="lastname" class="col-form-label">Name</label>
-								<input id="lastname" name="name1" type="text" class="form-control" placeholder="Last, First Middle">
+								<input id="lastname" name="name1" type="text" class="form-control" placeholder="Your name">
 							</div>
 						</div>
 						
@@ -81,7 +81,7 @@
 							<div class="col-md">
 								<label for="mlastname" class="col-form-label">Name of Mother</label>
 								<small id="motherhelp" class="form-text text-muted">If you dont have a mother leave it blank.</small>
-								<input id="mlastname" name="mname1"type="text" class="form-control" placeholder="Last, First Middle">
+								<input id="mlastname" name="mname1" type="text" class="form-control" placeholder="Mothers name">
 							</div>
 
 						</div>
@@ -90,7 +90,7 @@
 							<div class="col-md">
 								<label for="flastname" class="col-form-label">Name of Father</label>
 								<small id="fatherhelp" class="form-text text-muted">If you dont have a father leave it blank.</small>
-								<input id="flastname" name="fname1"type="text" class="form-control" placeholder="Last, First Middle">
+								<input id="flastname" name="fname1" type="text" class="form-control" placeholder="Fathers name">
 							</div>
 						</div>
 						
@@ -98,7 +98,7 @@
 							<div class="col-md">
 								<label for="glastname" class="col-form-label">Name of Guardian</label>
 								<small id="guardianhelp" class="form-text text-muted">If you dont have a mother nor a father.</small>
-								<input id="glastname" name="gname1" type="text" class="form-control" placeholder="Last, First Middle">
+								<input id="glastname" name="gname1" type="text" class="form-control" placeholder="Guardians name">
 							</div>
 
 						</div>

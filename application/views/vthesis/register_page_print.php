@@ -24,13 +24,9 @@
 		<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 
 <title><?php echo $title?></title>
-	<!--end of header-->
 
 	
 	<!--start of header-->
-	<body>
-
-	<!--start of navbar-->
 		<br/>
 		<div class="container-fluid"> 
 			<div class="row">
@@ -41,8 +37,8 @@
 					<div>	
 							<img id="rmhsimg" src="images/Rmhslogo.jpg">	
 						<p> 
-							<span id="rmhstitle">RAMON MAGSAYSAY</span> <br>
-							<span id="rmhstitle2">High School</span>
+							<span id="rmhstitle">RAMON MAGSAYSAY&nbsp</span> <br>
+							<span id="rmhstitle2">HIGH SCHOOL</span>
 						</p>
 					</div>	
 				</div>
@@ -114,7 +110,7 @@
 							      <td colspan="2"><?php echo $this->session->userdata('fname');?></td>
 							    </tr>
 							    <tr>
-							      <th colspan="1">Name of guardian</th>
+							      <th colspan="1">Name of Guardian</th>
 							      <td colspan="2"><?php echo $this->session->userdata('gname');?></td>
 							    </tr>
 							    <tr>
@@ -128,7 +124,7 @@
 						</div>
 			</div>
 			<div class="col-md-1">
-				
+				<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
 			</div>
 			
 		</div>
