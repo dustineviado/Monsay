@@ -21,9 +21,10 @@
 			font-size:28px;
 			font-family:helvetica;
 			float:left;
+			font-weight:bold;
 			margin:0px 0px 0px 0px;
 		}
-		
+
 		#katawan{
 			margin:0;
 			padding:0;
@@ -49,6 +50,10 @@
 			background-color:#3366ff;
 		}
 		
+		.toggler1{
+			margin:0px 0px 0px 10px;
+		}
+
 		.nav{
 			margin:0;
 			padding:0;
@@ -244,4 +249,9 @@
 			background-color:#ffff1a;
 			color:#000000;
 		}
+
+		.borderlines{
+			border:1px solid;
+		}
 		/* end of register_page_print */
+
