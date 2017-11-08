@@ -1,4 +1,3 @@
-
 <body id="katawan">
 	<!--start of layer 1(carousel)-->	
 		<div class="car container-fluid">
@@ -62,7 +61,7 @@
 				</div>
 				<div class="col-md-4 columndistance">
 					<i class="fa fa-star-o iconsize whycon"></i>
-					<p class="whycap">
+						<p class="whycap">
 					<span class="whycaptxt1">EXCELLENCE</span> <br/>
 					<span class="whycaptxt2">Ramon Magsaysay High School continues to uphold the culture of excellence.</span>
 					</p>

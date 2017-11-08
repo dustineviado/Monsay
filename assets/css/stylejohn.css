@@ -1,3 +1,5 @@
+/*start of login page */
+
 .user1{
 	margin-top: 60px;
 	margin-bottom: 20px;
@@ -46,4 +48,144 @@
 	font-size: 12px;
 	color: black;
 	
+}
+/* end of login page */
+
+/* start of news */
+
+}
+.sent1{
+	
+	margin-top: 100px;
+	margin-bottom: 0px;
+	text-align: justify;
+	font-family: 'helvetica';
+	font-size: 15px;
+}
+
+
+.butt1{
+	cursor: pointer;
+	font-family:'Helvetica';
+	font-color: white;
+	height:40px;
+	width:150px;
+	background-color:#3366ff;
+	border:none;
+	border-radius: 4px;
+	color:#ffffff;
+	margin-bottom: 30px;
+	font-size:20px;
+}
+.butt1:hover{
+	background-color:#ffff1a;
+	color:#000000;
+}
+
+
+.sent3{
+
+	margin-top: 20px;
+	text-align: justify;
+	font-family: 'helvetica';
+	font-size: 15px;
+}
+.header1{
+	margin-bottom: 50px;
+	margin-top: 40px;
+	font-family: 'helvetica';
+	font-size: 40px;	
+}
+
+.sent4{
+	margin-top: 60px;
+	text-align: center;
+	margin-top: 30px;
+	font-family: 'helvetica';
+	font-size: 20px;
+	margin-bottom: 100px;
+
+}
+
+/* end of news */
+
+
+
+
+/* start of events */
+.header2{
+	margin-bottom: 50px;
+	margin-top: 40px;
+	font-family: 'helvetica';
+	font-size: 40px;
+}
+
+.his1{
+	font-family: 'helvetica';
+	font-size: 15px;
+	text-align: justify;
+}
+.hisimg1{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	height: 300px;
+	width: 470px;
+}
+
+.hisimg2{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg3{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg4{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg5{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg6{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg7{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg8{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+}
+.hisimg9{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+
 }
