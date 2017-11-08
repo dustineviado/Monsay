@@ -129,7 +129,7 @@
 	margin-top: 20px;
 	margin-bottom: 40px;
 	height: 300px;
-	width: 470px;
+	width: 420px;
 }
 
 .hisimg2{
@@ -189,3 +189,28 @@
 	width: 200px;
 
 }
+
+/* start of hymm */
+.header3{
+	margin-bottom: 50px;
+	margin-top: 20px;
+	font-family: 'helvetica';
+	font-size: 40px;
+}
+.hymn1{
+	color: black;
+	margin-bottom: 60px;
+	margin-top: 20px;
+}
+.vid1{
+	height: 100%;
+	width:  100%;
+	max-width: 700px;
+	max-height: 700px;
+	float: center;
+	margin-top: 30px;	
+
+
+
+}
+

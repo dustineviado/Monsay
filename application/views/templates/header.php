@@ -75,7 +75,7 @@
 									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown2" aria-haspopup="true" aria-expanded="false" >About Us</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown2">
 											<a class="dropdown-item" id="dropbg" href="#">Vision and Mission</a>
-											<a class="dropdown-item" id="dropbg" href="#">RMHS Hymn</a>
+											<a class="dropdown-item" id="dropbg" href="hymn_controller">RMHS Hymn</a>
 											<a class="dropdown-item" id="dropbg" href="history_controller">History</a>
 										</div>
 								</li>
