@@ -28,7 +28,7 @@
 
 <title><?php echo $title?></title>
 	<!--end of header-->
-
+</head>
 	
 	<!--start of header-->
 	<body>
@@ -76,7 +76,7 @@
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown2">
 											<a class="dropdown-item" id="dropbg" href="#">Vision and Mission</a>
 											<a class="dropdown-item" id="dropbg" href="#">RMHS Hymn</a>
-											<a class="dropdown-item" id="dropbg" href="#">History</a>
+											<a class="dropdown-item" id="dropbg" href="history_controller">History</a>
 										</div>
 								</li>
 								<li class="nav-item dropdown">
@@ -90,7 +90,7 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown4" aria-haspopup="true" aria-expanded="false">Announcements</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown4">
-											<a class="dropdown-item" id="dropbg" href="#">News</a>
+											<a class="dropdown-item" id="dropbg" href="news_controller">News</a>
 											<a class="dropdown-item" id="dropbg" href="#">Events</a>
 										</div>
 								</li>
@@ -106,5 +106,4 @@
 						</div>
 			</div>
 		</nav>
-	<!-- end of navbar -->	
-</head>		
+	<!-- end of navbar -->			
