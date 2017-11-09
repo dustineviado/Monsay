@@ -1,8 +1,6 @@
 
   <h3>View Students </h3>
-  <?php if($msg = $this->session->flashdata('msg')):?>
-      <?php echo $msg;?>
-  <?php endif;?>
+  <script type ="text/javascript"> alert('Data Successfully Saved!')</script>
   <?php echo anchor('Adminctrl/add', 'Add Student', ['class'=>'btn btn-primary']);?>
     <table class="table table-striped table-hover ">
       <thead>

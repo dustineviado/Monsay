@@ -44,7 +44,7 @@ class Adminctrl extends CI_Controller{
 		else{
 			$this->session->set_flashdata('msg','Hindi na-Save');
 		}	
-		return redirect('Adminctrl','refresh');
+		 redirect('Adminctrl','refresh');
 	}
 	public function change($id){
 
@@ -63,7 +63,7 @@ class Adminctrl extends CI_Controller{
 		else{
 			$this->session->set_flashdata('msg','Failed');
 		}	
-		return redirect('Adminctrl','refresh');
+		 redirect('Adminctrl','refresh');
 		
 	}
 	public function delete($id){
@@ -74,7 +74,7 @@ class Adminctrl extends CI_Controller{
 		else{
 			$this->session->set_flashdata('msg','Data Successfully Deleted!');
 		}	
-		return redirect('Adminctrl','refresh');
+		 redirect('Adminctrl','refresh');
 	}
 
 
