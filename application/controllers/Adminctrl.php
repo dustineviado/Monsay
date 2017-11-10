@@ -8,8 +8,8 @@ class Adminctrl extends CI_Controller{
 
 		$this->load->view('templates/header',$data);
 		$this->load->model('Adminmodel');
-		$posts = $this->Adminmodel->gettbl();
-		$this->load->view('vthesis/Adminview',['posts'=>$posts]);
+		$students = $this->Adminmodel->gettbl();
+		$this->load->view('vthesis/Adminview',['students'=>$students]);
 		$this->load->view('templates/footer',$data);
 	}
 
@@ -24,47 +24,55 @@ class Adminctrl extends CI_Controller{
 		$data['title']="Ramon Magsaysay High School";
 		$this->load->view('templates/header',$data);
 		$this->load->model('Adminmodel');
-		$post = $this->Adminmodel->getval($id);
-		$this->load->view('vthesis/Adminupd',['post'=>$post]);
+		$upstud = $this->Adminmodel->getval($id);
+		$this->load->view('vthesis/Adminupd',['upstud'=>$upstud]);
 		$this->load->view('templates/footer');
 	}
 	public function save(){
-		$this->form_validation->set_rules('fname','fname','required');
-		$this->form_validation->set_rules('email','email','required');
-		$this->form_validation->set_rules('contact','contact','required');
-		$this->form_validation->set_rules('birthday','birthday','required');
-		$this->form_validation->set_rules('age','age','required');
-		$this->form_validation->set_rules('gender','gender','required');
-		$this->form_validation->set_rules('address','address','required');
-		$data =$this->input->post();
-		$this->load->model('Adminmodel');
-		if($this->Adminmodel->addStud($data)){
-			$this->session->set_flashdata('msg','Data Successfully Saved');
+		$this->form_validation->set_rules('fname','Your Name','required');
+		$this->form_validation->set_rules('email','Email','required');
+		$this->form_validation->set_rules('contact','Contact','required');
+		$this->form_validation->set_rules('birthday','Birthday','required');
+		$this->form_validation->set_rules('age','Age','required');
+		$this->form_validation->set_rules('gender','Gender','required');
+		$this->form_validation->set_rules('address','Address','required');
+		if($this->form_validation->run()){
+			$data = $this->input->post();
+			$this->load->model('Adminmodel');
+			$this->Adminmodel->addStud($data);
+			redirect('Adminctrl','refresh');	
+			
 		}
 		else{
-			$this->session->set_flashdata('msg','Hindi na-Save');
-		}	
-		 redirect('Adminctrl','refresh');
+		$data['title'] = "Add Student";
+		$this->load->view('templates/header',$data);
+		$this->load->view('vthesis/Create');
+		$this->load->view('templates/footer');
+		}
+		
 	}
 	public function change($id){
 
-		$this->form_validation->set_rules('fname','fname','required');
-		$this->form_validation->set_rules('email','email','required');
-		$this->form_validation->set_rules('contact','contact','required');
-		$this->form_validation->set_rules('birthday','birthday','required');
-		$this->form_validation->set_rules('age','age','required');
-		$this->form_validation->set_rules('gender','gender','required');
-		$this->form_validation->set_rules('address','address','required');
-		$data =$this->input->post();
-		$this->load->model('Adminmodel');
-		if($this->Adminmodel->UpdStud($data, $id)){
-			$this->session->set_flashdata('msg','Data Successfully Updated');
+		$this->form_validation->set_rules('fname','Your Name','required');
+		$this->form_validation->set_rules('email','Email','required');
+		$this->form_validation->set_rules('contact','Contact','required');
+		$this->form_validation->set_rules('birthday','Birthday','required');
+		$this->form_validation->set_rules('age','Age','required');
+		$this->form_validation->set_rules('gender','Gender','required');
+		$this->form_validation->set_rules('address','Address','required');
+		if($this->form_validation->run()){
+			$data =$this->input->post();
+			$this->load->model('Adminmodel');
+			$this->Adminmodel->UpdStud($data, $id);
+			redirect('Adminctrl','refresh');
 		}
 		else{
-			$this->session->set_flashdata('msg','Failed');
-		}	
-		 redirect('Adminctrl','refresh');
-		
+			$data['title'] = "Update Student";
+			$this->load->view('templates/header',$data);
+			$this->load->view('vthesis/Adminupd');
+			$this->load->view('templates/footer');
+
+		}
 	}
 	public function delete($id){
 		$this->load->model('Adminmodel');

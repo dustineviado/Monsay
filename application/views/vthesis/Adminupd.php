@@ -21,12 +21,13 @@
 			  </div>
 			  <div class="col-md-10 regbord">
 				  <div class="container">
-					<?=form_open("Adminctrl/change/{$post->id_num}");?>
+					<?=form_open("Adminctrl/change/{$upstud->id_num}");?>
 					<form>
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="fname" class="col-form-label">Name</label>
-								<?php echo form_input(['name'=>'fname','placeholder'=>'Your Name', 'class'=>'form-control', 'value'=>set_value('fname',$post->fname)]);?>
+								<?php echo form_input(['name'=>'fname','placeholder'=>'Your Name', 'class'=>'form-control', 'value'=>set_value('fname',$upstud->fname)]);?>
+								<?php echo form_error('fname','<div class="text-danger">','</div>'); ?>
 
 								
 							</div>
@@ -36,26 +37,31 @@
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="mail" class="col-form-label">Email</label>
-								<?php echo form_input(['name'=>'email','placeholder'=>'Email', 'class'=>'form-control', 'value'=>set_value('email',$post->email)]);?>
+								<?php echo form_input(['name'=>'email','placeholder'=>'Email', 'class'=>'form-control', 'value'=>set_value('email',$upstud->email)]);?>
+								<?php echo form_error('email','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="contact" class="col-form-label">Contact</label>
-								<?php echo form_input(['name'=>'contact','placeholder'=>'Contact', 'class'=>'form-control', 'value'=>set_value('contact',$post->contact)]);?>
+								<?php echo form_input(['name'=>'contact','placeholder'=>'Contact', 'class'=>'form-control', 'value'=>set_value('contact',$upstud->contact)]);?>
+								<?php echo form_error('contact','<div class="text-danger">','</div>'); ?>
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md-5">
 								<label for="birthdate" class="col-form-label">Date of Birth</label>
-								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth', 'class'=>'form-control', 'value'=>set_value('birthday',$post->birthday)]);?>
+								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth', 'class'=>'form-control', 'value'=>set_value('birthday',$upstud->birthday)]);?>
+								<?php echo form_error('birthday','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="age" class="col-form-label">Age</label>
-								<?php echo form_input(['name'=>'age','placeholder'=>'Age', 'class'=>'form-control', 'value'=>set_value('age',$post->age)]);?>
+								<?php echo form_input(['name'=>'age','placeholder'=>'Age', 'class'=>'form-control', 'value'=>set_value('age',$upstud->age)]);?>
+								<?php echo form_error('age','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="gender" class="col-form-label">Sex</label>
-								<?php echo form_input(['name'=>'gender','placeholder'=>'Sex', 'class'=>'form-control', 'value'=>set_value('gender',$post->gender)]);?>
+								<?php echo form_input(['name'=>'gender','placeholder'=>'Sex', 'class'=>'form-control', 'value'=>set_value('gender',$upstud->gender)]);?>
+								<?php echo form_error('gender','<div class="text-danger">','</div>'); ?>
 							</div>
 							
 						</div>
@@ -63,7 +69,8 @@
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="address" class="col-form-label">Address</label>
-								<?php echo form_input(['name'=>'address','placeholder'=>'Adress', 'class'=>'form-control', 'value'=>set_value('address',$post->address)]);?>
+								<?php echo form_input(['name'=>'address','placeholder'=>'Adress', 'class'=>'form-control', 'value'=>set_value('address',$upstud->address)]);?>
+								<?php echo form_error('address','<div class="text-danger">','</div>'); ?>
 							</div>
 						</div>
 						<br />
