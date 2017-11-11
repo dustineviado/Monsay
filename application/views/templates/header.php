@@ -30,7 +30,6 @@
 	<!--end of header-->
 </head>
 	
-	<!--start of header-->
 	<body>
 
 	<!--start of navbar-->
