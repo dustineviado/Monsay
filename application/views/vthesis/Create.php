@@ -27,7 +27,7 @@
 							<div class="col-md">
 								<label for="fname" class="col-form-label">Name</label>
 								<?php echo form_input(['name'=>'fname','placeholder'=>'Your Name', 'class'=>'form-control']);?>
-
+								<?php echo form_error('fname','<div class="text-danger">','</div>'); ?>
 								
 							</div>
 						
@@ -37,10 +37,12 @@
 							<div class="col-md">
 								<label for="mail" class="col-form-label">Email</label>
 								<?php echo form_input(['name'=>'email','placeholder'=>'Email', 'class'=>'form-control']);?>
+								<?php echo form_error('email','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="contact" class="col-form-label">Contact</label>
 								<?php echo form_input(['name'=>'contact','placeholder'=>'Contact', 'class'=>'form-control']);?>
+								<?php echo form_error('contact','<div class="text-danger">','</div>'); ?>
 							</div>
 						</div>
 						
@@ -48,14 +50,17 @@
 							<div class="col-md-5">
 								<label for="birthdate" class="col-form-label">Date of Birth</label>
 								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth', 'class'=>'form-control']);?>
+								<?php echo form_error('birthday','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="age" class="col-form-label">Age</label>
 								<?php echo form_input(['name'=>'age','placeholder'=>'Age', 'class'=>'form-control']);?>
+								<?php echo form_error('age','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="gender" class="col-form-label">Sex</label>
 								<?php echo form_input(['name'=>'gender','placeholder'=>'Sex', 'class'=>'form-control']);?>
+								<?php echo form_error('gender','<div class="text-danger">','</div>'); ?>
 							</div>
 							
 						</div>
@@ -64,6 +69,7 @@
 							<div class="col-md">
 								<label for="address" class="col-form-label">Address</label>
 								<?php echo form_input(['name'=>'address','placeholder'=>'Adress', 'class'=>'form-control']);?>
+								<?php echo form_error('address','<div class="text-danger">','</div>'); ?>
 							</div>
 						</div>
 						<br />
