@@ -39,7 +39,8 @@ class Adminctrl extends CI_Controller{
 		$data =$this->input->post();
 		$this->load->model('Adminmodel');
 		if($this->Adminmodel->addStud($data)){
-			$this->session->set_flashdata('msg','Data Successfully Saved');
+			// $this->session->set_flashdata('msg','Data Successfully Saved');
+			
 		}
 		else{
 			$this->session->set_flashdata('msg','Hindi na-Save');
