@@ -1,7 +1,7 @@
 <center>
 <div class="vid1">
 <div class="embed-responsive embed-responsive-21by9">
-    <video autostart="false" controls="controls" style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
+    <video autostart="false" controls="controls" poster="images/rmhslogo.jpg" style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
     class="embed-responsive-item">
         <source src="images/hymn.mp4" type="video/mp4">
     </video>

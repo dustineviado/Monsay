@@ -29,6 +29,7 @@ class Adminctrl extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 	public function save(){
+
 		$this->form_validation->set_rules('fname','Your Name','required');
 		$this->form_validation->set_rules('email','Email','required');
 		$this->form_validation->set_rules('contact','Contact','required');

@@ -112,7 +112,7 @@
 
 
 
-/* start of events */
+/* start of history and vision mission */
 .header2{
 	margin-bottom: 50px;
 	margin-top: 40px;
@@ -124,6 +124,7 @@
 	font-family: 'helvetica';
 	font-size: 15px;
 	text-align: justify;
+
 }
 .hisimg1{
 	margin-top: 20px;
@@ -187,6 +188,7 @@
 	margin-left: 100px;
 	height: 200px;
 	width: 200px;
+	/* end of history and vision mission */
 
 }
 
@@ -210,7 +212,7 @@
 	float: center;
 	margin-top: 30px;	
 
-
+/* end of hymn */
 
 }
 
