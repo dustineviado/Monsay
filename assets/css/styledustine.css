@@ -73,11 +73,6 @@
 			cursor: pointer;
 		}
 		
-		.brandy{
-			font-weight:bold;
-			font-family:arial;
-		}
-		
 		.dropdown-menu{
 			margin:-1px 0px 0px 0px;
 		}
@@ -94,6 +89,10 @@
 		.car{
 			margin:0;
 			padding:0;
+		}
+
+		.imgsize{
+			min-height: 250px;
 		}
 	/* end of css for layer1(main_body) */
 
@@ -190,7 +189,7 @@
 			border:none;
 			border-style:none;
 			color:#ffffff;
-			padding:18px 0px 0px 0px;
+			padding:auto;
 			margin:0 auto;
 			font-size:20px;
 		}
@@ -255,3 +254,62 @@
 		}
 		/* end of register_page_print */
 
+		/* start of sujects*/
+
+		.allfont{
+			font-family: helvetica;
+		}
+
+		.subjectfont{
+			font-weight: bold;
+			font-size:50px;
+		}
+
+		.searchfont{
+			font-size: 20px;
+		}
+
+		.searchbtn{
+			font-family:Helvetica;
+			background-color:#3366ff;
+			border:none;
+			color:#ffffff;
+			height:40px;
+			width:45px;
+		}
+
+		.searchbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+		.addsubbtn{
+			font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px;
+			font-size:19px;
+			float: right;
+		}
+		
+		.addsubbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+		.marginsrch{
+			margin-top:6px;
+		}
+
+		.lamesacon{
+			height:100%;
+			width:1100px;
+			margin:0px auto;
+		}
+
+		/* end of subjects*/
