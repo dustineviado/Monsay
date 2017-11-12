@@ -48,32 +48,32 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
+		<div class="container-fluid ctpadding">
 			<div class="row">			
-				<div class="col-md-1">
+				<div class="col-md">
 				</div>
-				<div class="col-md-3 columndistance">
-					<i class="fa fa-book iconsize whycon"></i>
-					<p class="whycap">
-						<span class="whycaptxt1">K-12 READY</span> <br/>
+				<div class="col-md-3">
+					<i class="fa fa-book iconsize whycon"></i><br>
+					<p>
+						<span class="whycaptxt1">K-12 READY</span> <br>
 						<span class="whycaptxt2">Ramon Magsaysay High School is K-12 ready school for the better future of your kids.</span>
 					</p>
 				</div>
-				<div class="col-md-4 columndistance">
-					<i class="fa fa-star-o iconsize whycon"></i>
-						<p class="whycap">
-					<span class="whycaptxt1">EXCELLENCE</span> <br/>
+				<div class="col-md-3">
+					<i class="fa fa-star-o iconsize whycon"></i><br>
+						<p>
+					<span class="whycaptxt1">EXCELLENCE</span> <br>
 					<span class="whycaptxt2">Ramon Magsaysay High School continues to uphold the culture of excellence.</span>
 					</p>
 				</div>
-				<div class="col-md-3 columndistance">
-					<i class="fa fa-trophy iconsize whycon"></i>
-					<p class="whycap">
-					<span class="whycaptxt1">LEADING</span> <br/>
+				<div class="col-md-3">
+					<i class="fa fa-trophy iconsize whycon"></i><br>
+					<p>
+					<span class="whycaptxt1">LEADING</span> <br>
 					<span class="whycaptxt2">Ramon Magsaysay High School is one of the top three high schools here in manila.</span>
 					</p>
 				</div>
-				<div class="col-md-1">
+				<div class="col-md">
 				</div>
 			</div>
 		</div>
