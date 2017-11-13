@@ -22,6 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/styleralph.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/styleralphadmin.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/edit-delete.css');?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/w3.css');?>">
 	
 	<!-- js bootstrap -->
 		<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
@@ -81,7 +82,7 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown3" aria-haspopup="true" aria-expanded="false">Academics</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown3">
-											<a class="dropdown-item" id="dropbg" href="#">Elementary</a>
+											<a class="dropdown-item" id="dropbg" href="grade_school_controller">Grade School</a>
 											<a class="dropdown-item" id="dropbg" href="#">Junior High School</a>
 											<a class="dropdown-item" id="dropbg" href="#">Senior High School</a>
 										</div>

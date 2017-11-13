@@ -107,6 +107,9 @@
 
 }
 
+	
+
+
 /* end of news */
 
 
@@ -216,3 +219,19 @@
 
 }
 
+
+/* start of grade school */
+
+.gsgallery{
+	margin-bottom: 50px;
+}
+
+.gsp{
+	margin-bottom: 50px;
+}
+.gsbord{
+	border:solid;
+	border-radius: 0px;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
