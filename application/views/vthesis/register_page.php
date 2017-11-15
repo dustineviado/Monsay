@@ -23,7 +23,6 @@
 					
 					<?=form_open('register_page_controller/reg')?>
 						<div class="row form-group">
-						
 							<div class="col-md">
 								<label for="lastname" class="col-form-label">Name</label>
 								<input id="lastname" name="name1" type="text" class="form-control" placeholder="Your name">
