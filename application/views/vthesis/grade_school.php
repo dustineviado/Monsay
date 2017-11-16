@@ -66,26 +66,26 @@
    		 <img src="images/sample4.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(4)" class="hover-shadow cursor"></div>
    	   	
 
-<div id="myModal" class="modal">
+<div id="myModal" class="PGmodal modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
+  <div class="PGmodal-content modal-content">
 
-    <div class="mySlides">
+    <div class="PGmySlides mySlides">
       <div class="numbertext">1 / 4</div>
       <img src="images/sample1.jpg" style="width:100%; height: 500px;">
     </div>
 
-    <div class="mySlides">
+    <div class="PGmySlides mySlides">
       <div class="numbertext">2 / 4</div>
       <img src="images/sample2.jpg" style="width:100%; height: 500px;">
     </div>
 
-    <div class="mySlides">
+    <div class="PGmySlides mySlides">
       <div class="numbertext">3 / 4</div>
       <img src="images/sample3.jpg" style="width:100%; height: 500px;">
     </div>
     
-    <div class="mySlides">
+    <div class="PGmySlides mySlides">
       <div class="numbertext">4 / 4</div>
       <img src="images/sample4.jpg" style="width:100%; height: 500px;">
     </div>

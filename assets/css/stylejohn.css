@@ -242,7 +242,7 @@
 }
 
 /* The Modal (background) */
-.modal {
+.PGmodal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -256,7 +256,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.PGmodal-content {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -282,7 +282,7 @@
   cursor: pointer;
 }
 
-.mySlides {
+.PGmySlides {
   display: none;
 }
 
