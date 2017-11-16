@@ -45,44 +45,207 @@
 		<!--end of grade school layer 2 -->
 
 
-		<!--start of grade school layer 3-->
-				<h2 class="header1 text-center" style="margin-top: 40px; margin-bottom: 0px;">Photo Gallery<i class="fa fa-camera" style="padding: 20px; color: blue;"></i></h2><br>
-				<div class="w3-container">
-				<div class="w3-row gsgallery">
-  <div class="w3-container w3-third">
-    <img src="images/sample1.jpg" alt="Sample1" style="width:100%;height: 350px; cursor:pointer" 
-    onclick="onClick(this)" class="w3-hover-opacity">
-    <h5>Sample Picture 1</h5>
-  </div>
-  <div class="w3-container w3-third">
-    <img src="images/sample2.jpg" alt="Sample2" style="width:100%; height: 350px;cursor:pointer" 
-    onclick="onClick(this)" class="w3-hover-opacity">
-    <h5>Sample Picture 2</h5>
-  </div>
-  <div class="w3-container w3-third">
-    <img src="images/sample3.jpg" alt="Sample3" style="width:100%; height: 350px; ;cursor:pointer" 
-    onclick="onClick(this)" class="w3-hover-opacity">
-    <h5>Sample Picture 3</h5>
-  </div>
-</div>
+		<!--start of grade school photo gallery -->
+	<div class="container-fluid">
+		<div class="row">	
+			<div class="col-lg-5">
+			<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px;">Photo Gallery <i class="fa fa-camera" style="padding: 20px; color: blue;"></i></h2>
+		
+			<div class="front1">
+   		 <img src="images/sample1.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"></div>
+   		
+   				<div class="front1">
+   		 <img src="images/sample2.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor"></div>
+			
 
-<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-  <span class="w3-button w3-hover-red w3-xsmall w3-display-topright">&times;</span>
-  <div class="w3-modal-content w3-animate-zoom">
-    <img id="img01" style="width:100%">
+   				<div class="front1">
+   		 <img src="images/sample3.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(3)" class="hover-shadow cursor"></div>
+   	
+
+   				<div class="front1">
+   		 <img src="images/sample4.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(4)" class="hover-shadow cursor"></div>
+   	   	
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="images/sample1.jpg" style="width:100%; height: 500px;">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="images/sample2.jpg" style="width:100%; height: 500px;">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="images/sample3.jpg" style="width:100%; height: 500px;">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="images/sample4.jpg" style="width:100%; height: 500px;">
+    </div>
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+     <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+
+    <center>
+    <div class="front1">
+      <img class="opa cursor" src="images/sample1.jpg" style="width:100%; height: 150px;" onclick="currentSlide(1)" alt="">
+    </div>
+    <div class="front1">
+      <img class="opa cursor" src="images/sample2.jpg" style="width:100%; height: 150px;" onclick="currentSlide(2)" alt="">
+    </div>
+    <div class="front1">
+      <img class="opa cursor" src="images/sample3.jpg" style="width:100%; height: 150px;" onclick="currentSlide(3)" alt="">
+    </div>
+    <div class="front1">
+      <img class="opa cursor" src="images/sample4.jpg" style="width:100%; height: 150px;" onclick="currentSlide(4)" alt="">
+    </div>
   </div>
+ </center>
 </div>
 
 <script type="text/javascript">
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("opa");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
+
 </div>
+<!-- end of grade school photo gallery-->
+
+<div class="col-lg-2"></div>
+
+<!-- start of grade school video gallery -->
+<div class="col-lg-5">
+<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px;">Video Gallery <i class="fa fa-video-camera" style="padding: 20px; color: blue;"></i></h2>
+			
+
+<center>
+<div class="vid1">
+<div class="embed-responsive embed-responsive-21by9">
+    <video autostart="false" controls="controls" poster="images/rmhslogo.jpg" style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
+    class="embed-responsive-item">
+        <source src="images/hymn.mp4" type="video/mp4">
+    </video>
+</div>
+</div>
+</center>
+
+
+<div class="front1">
+<div class="embed-responsive embed-responsive-21by9">
+    <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="openFullscreen();" 
+    class="embed-responsive-item">
+        <source src="images/samplevid1.mp4" type="video/mp4">
+    </video>
+</div>
+</div>
+
+
+<div class="front1">
+<div class="embed-responsive embed-responsive-21by9">
+    <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
+    class="embed-responsive-item">
+        <source src="images/samplevid2.mp4" type="video/mp4">
+    </video>
+</div>
+</div>
+
+<div class="front1">
+<div class="embed-responsive embed-responsive-21by9">
+    <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
+    class="embed-responsive-item">
+        <source src="images/samplevid3.mp4" type="video/mp4">
+    </video>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+				
 <hr style="border: solid;">
 
-<!-- end of grade school layer 3 -->
 
 <!-- start of grade school layer 4 -->
 
