@@ -369,4 +369,19 @@ img.hover-shadow {
 	font-size: 30px;
 }	
 
-
+/* css for video gallery */
+.vid2{
+	float: left;
+  width: 50%;
+  height: 200px;
+}
+.vgbord{
+	border: solid;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.pgbord{
+	border: solid;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
