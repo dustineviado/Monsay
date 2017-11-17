@@ -48,8 +48,8 @@
 		<!--start of grade school photo gallery -->
 	<div class="container-fluid">
 		<div class="row">	
-			<div class="col-lg-5">
-			<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px;">Photo Gallery <i class="fa fa-camera" style="padding: 20px; color: blue;"></i></h2>
+			<div class="col-lg-5 pgbord">
+			<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px; color: white;">Photo Gallery <i class="fa fa-camera" style="padding: 20px; color: blue;"></i></h2>
 		
 			<div class="front1">
    		 <img src="images/sample1.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"></div>
@@ -156,16 +156,14 @@ function showSlides(n) {
 
 </div>
 <!-- end of grade school photo gallery-->
-
-<div class="col-lg-2"></div>
-
+<div class="col-lg-2" style="background-color: black;"></div>
 <!-- start of grade school video gallery -->
-<div class="col-lg-5">
-<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px;">Video Gallery <i class="fa fa-video-camera" style="padding: 20px; color: blue;"></i></h2>
+<div class="col-lg-5 vgbord">
+<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px; color: white;">Video Gallery <i class="fa fa-video-camera" style="padding: 20px; color: blue;"></i></h2>
 			
 
 <center>
-<div class="vid1">
+<div class="vid2">
 <div class="embed-responsive embed-responsive-21by9">
     <video autostart="false" controls="controls" poster="images/rmhslogo.jpg" style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
     class="embed-responsive-item">
@@ -176,9 +174,9 @@ function showSlides(n) {
 </center>
 
 
-<div class="front1">
+<div class="vid2">
 <div class="embed-responsive embed-responsive-21by9">
-    <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="openFullscreen();" 
+    <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
     class="embed-responsive-item">
         <source src="images/samplevid1.mp4" type="video/mp4">
     </video>
@@ -186,7 +184,7 @@ function showSlides(n) {
 </div>
 
 
-<div class="front1">
+<div class="vid2">
 <div class="embed-responsive embed-responsive-21by9">
     <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
     class="embed-responsive-item">
@@ -195,7 +193,7 @@ function showSlides(n) {
 </div>
 </div>
 
-<div class="front1">
+<div class="vid2">
 <div class="embed-responsive embed-responsive-21by9">
     <video autostart="false" controls="controls"  style="cursor:pointer;"onclick="this.paused?this.play():this.pause();" 
     class="embed-responsive-item">
