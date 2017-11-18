@@ -7,9 +7,8 @@
         <tr>
           <th>ID Number</th>
           <th>Name</th>
-          <th>Birthday</th>
           <th>Age</th>
-          <th>Gender</th>
+          <th>Contact</th>
           <th>Year</th>
           <th>Section</th>
           <th>Actions</th>
@@ -20,10 +19,11 @@
       <?php foreach($students as $stud):?>
         <tr>
           <td><?php echo $stud->id_num;?></td>
-          <td><?php echo $stud->fname;?></td>
-          <td><?php echo $stud->birthday;?></td>
+          <td><?php echo $stud->fname;?>
+          <?php echo $stud->mname;?>
+          <?php echo $stud->lname;?></td>
           <td><?php echo $stud->age;?></td>
-          <td><?php echo $stud->gender;?></td>
+          <td><?php echo $stud->contact;?></td>
           <td><?php echo $stud->year;?></td>
           <td><?php echo $stud->section;?></td>
           <td>

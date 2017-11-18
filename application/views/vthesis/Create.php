@@ -25,9 +25,21 @@
 								<form>
 						<div class="row form-group">
 							<div class="col-md">
-								<label for="fname" class="col-form-label">Name</label>
-								<?php echo form_input(['name'=>'fname','placeholder'=>'Your Name', 'class'=>'form-control']);?>
+								<label for="fname" class="col-form-label">First Name</label>
+								<?php echo form_input(['name'=>'fname','placeholder'=>'First Name', 'class'=>'form-control']);?>
 								<?php echo form_error('fname','<div class="text-danger">','</div>'); ?>
+								
+							</div>
+							<div class="col-md">
+								<label for="mname" class="col-form-label">Middle Name</label>
+								<?php echo form_input(['name'=>'mname','placeholder'=>'Middle Name', 'class'=>'form-control']);?>
+								<?php echo form_error('mname','<div class="text-danger">','</div>'); ?>
+								
+							</div>
+							<div class="col-md">
+								<label for="lname" class="col-form-label">Last Name</label>
+								<?php echo form_input(['name'=>'lname','placeholder'=>'Last Name', 'class'=>'form-control']);?>
+								<?php echo form_error('lname','<div class="text-danger">','</div>'); ?>
 								
 							</div>
 						
@@ -49,12 +61,12 @@
 						<div class="row form-group">
 							<div class="col-md-5">
 								<label for="birthdate" class="col-form-label">Date of Birth</label>
-								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth', 'class'=>'form-control']);?>
+								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth','type'=>'date','class'=>'form-control']);?>
 								<?php echo form_error('birthday','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="age" class="col-form-label">Age</label>
-								<?php echo form_input(['name'=>'age','placeholder'=>'Age', 'class'=>'form-control']);?>
+								<?php echo form_input(['name'=>'age','placeholder'=>'Age','type'=>'number','class'=>'form-control']);?>
 								<?php echo form_error('age','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
@@ -70,6 +82,18 @@
 								<label for="address" class="col-form-label">Address</label>
 								<?php echo form_input(['name'=>'address','placeholder'=>'Adress', 'class'=>'form-control']);?>
 								<?php echo form_error('address','<div class="text-danger">','</div>'); ?>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md">
+								<label for="parent_guard" class="col-form-label">Parent/Guardian</label>
+								<?php echo form_input(['name'=>'parent_guard','placeholder'=>'Adress', 'class'=>'form-control']);?>
+								<?php echo form_error('parent_guard','<div class="text-danger">','</div>'); ?>
+							</div>
+							<div class="col-md">
+								<label for="pgcontact" class="col-form-label">Contact</label>
+								<?php echo form_input(['name'=>'pgcontact','placeholder'=>'Contact', 'class'=>'form-control']);?>
+								<?php echo form_error('pgcontact','<div class="text-danger">','</div>'); ?>
 							</div>
 						</div>
 						<br />

@@ -30,13 +30,17 @@ class Adminctrl extends CI_Controller{
 	}
 	public function save(){
 
-		$this->form_validation->set_rules('fname','Your Name','required');
+		$this->form_validation->set_rules('fname','First Name','required');
+		$this->form_validation->set_rules('mname','Middle  Name','required');
+		$this->form_validation->set_rules('lname','Last Name','required');
 		$this->form_validation->set_rules('email','Email','required');
 		$this->form_validation->set_rules('contact','Contact','required');
 		$this->form_validation->set_rules('birthday','Birthday','required');
 		$this->form_validation->set_rules('age','Age','required');
 		$this->form_validation->set_rules('gender','Gender','required');
 		$this->form_validation->set_rules('address','Address','required');
+		$this->form_validation->set_rules('parent_guard','Parent/Guardian','required');
+		$this->form_validation->set_rules('pgcontact','Contact','required');
 		if($this->form_validation->run()){
 			$data = $this->input->post();
 			$this->load->model('Adminmodel');
@@ -77,13 +81,8 @@ class Adminctrl extends CI_Controller{
 	}
 	public function delete($id){
 		$this->load->model('Adminmodel');
-		if($this->Adminmodel->bawas($id)){
-			$this->session->set_flashdata('msg','Failed');	
-		}
-		else{
-			$this->session->set_flashdata('msg','Data Successfully Deleted!');
-		}	
-		 redirect('Adminctrl','refresh');
+		$this->Adminmodel->bawas($id);
+		redirect('Adminctrl','refresh');
 	}
 
 
