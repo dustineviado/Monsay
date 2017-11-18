@@ -58,79 +58,110 @@
 								<td><?php echo $sub['subject']; ?></td>
 								<td><?php echo $sub['faculty']; ?></td>
 								<td><?php echo $sub['year_level']; ?></td>
-								<td>Delete | Edit</td>
+								<td>
+									 <a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>"  onclick="return confirm('Are you sure to delete this subject?')"  class="btn addsubbtn3">Delete</a>
+									<a href="#editmodal<?php echo $sub2 = $sub['subid']; ?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal">Edit</a>
+								</td>
 							</tr>
-						</tbody>
-						<?php endforeach; ?>
-						<?php else: echo 'Denied' ?>
+							<?php endforeach; ?>
+						<?php else: echo 'Error' ?>
 						<?php print_r($subjects) ?>
-						<?php endif; ?>
+						<?php endif; ?>	
+						</tbody>
 					</table>
 				
 				</div>
 
-				<div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="subjectmodal" aria-hidden="true">
-				  <div class="modal-dialog modal-lg" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h1 class="modal-title" id="subjectmodal"><b>Add Subject</b></h1>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body">
-				        <form>
-								<div class="row form-group">
-									<div class="col-md">
-										<label for="subjid" class="col-form-label formmodalfont">Subject ID</label>
-										<input id="subjid" name="subjectidname" type="text" class="form-control" placeholder="Subject ID">
-									</div>
-									<div class="col-md">
-										<label for="subjname" class="col-form-label formmodalfont">Subject Name</label>
-										<input id="subjname" name="subjectname" type="text" class="form-control" placeholder="Subject Name">
-									</div>
-									<div class="col-md">
-										<label for="subjfac" class="col-form-label formmodalfont">Subject Faculty</label>
-										<input id="subjfac" name="subjectfaculty" type="text" class="form-control" placeholder="Subject Faculty">
-									</div>
-									<div class="col-md">
-										<label for="subjlevel" class="col-form-label formmodalfont">Level</label>
-										<input id="subjlevel" name="subjectlevel" type="text" class="form-control" placeholder="Level">
-									</div>
-								</div> 
-				      </div>
-				      <div class="modal-footer">
-				       <button type="button" class="btn addsubbtn2">Add Subject</button>
-				      </div>
-				    </div>
-				  </div>
+				<!--start of Add Subject Modal -->
+			<div class="container-fluid">
+				<div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="addsubjectmodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		<div class="modal-content">
+
+
+				     		<div class="modal-header">
+				        		<h1 class="modal-title" id="addsubjectmodal"><b>Add Subject</b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>
+
+				      		<div class="modal-body">
+				      			<?=form_open('subject_controller/subjectadd')?>
+									<div class="row form-group">
+										<div class="col-md">
+											<label for="subjid" class="col-form-label formmodalfont">Subject ID</label>
+											<input id="subjid" name="subjectidname" type="text" class="form-control" placeholder="Subject ID">
+										</div>
+										<div class="col-md">
+											<label for="subjname" class="col-form-label formmodalfont">Subject Name</label>
+											<input id="subjname" name="subjectname" type="text" class="form-control" placeholder="Subject Name">
+										</div>
+										<div class="col-md">
+											<label for="subjfac" class="col-form-label formmodalfont">Subject Faculty</label>
+											<input id="subjfac" name="subjectfaculty" type="text" class="form-control" placeholder="Subject Faculty">
+										</div>
+										<div class="col-md">
+											<label for="subjlevel" class="col-form-label formmodalfont">Level</label>
+											<input id="subjlevel" name="subjectlevel" type="text" class="form-control" placeholder="Level">
+										</div>
+									</div> 
+					  		</div>
+
+							<div class="modal-footer">
+							    <button type="submit" class="btn addsubbtn2">Add Subject</button>
+							</div>
+								</form>
+						</div>
+					</div>
 				</div>
+				<!--end of Add Subject Modal -->
 
-						<!-- <h1><b>Add Subject<b></h1>
-							<br>
-							 <form>
-								<div class="row form-group">
-									<div class="col-md">
-										<label for="subjid" class="col-form-label formmodalfont">Subject ID</label>
-										<input id="subjid" name="subjectidname" type="text" class="form-control" placeholder="Subject ID">
-									</div>
-									<div class="col-md">
-										<label for="subjname" class="col-form-label formmodalfont">Subject Name</label>
-										<input id="subjname" name="subjectname" type="text" class="form-control" placeholder="Subject Name">
-									</div>
-									<div class="col-md">
-										<label for="subjfac" class="col-form-label formmodalfont">Subject Faculty</label>
-										<input id="subjfac" name="subjectfaculty" type="text" class="form-control" placeholder="Subject Faculty">
-									</div>
-									<div class="col-md">
-										<label for="subjlevel" class="col-form-label formmodalfont">Level</label>
-										<input id="subjlevel" name="subjectlevel" type="text" class="form-control" placeholder="Level">
-									</div>
-								</div> 
 
-								<div>
-									<button class="btn addsubbtn2">Add Subject</button>
-								</div> -->
+				<!--start of Edit Subject Modal -->
+				<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editsubjectmodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		<div class="modal-content">
+
+
+				     		<div class="modal-header">
+				        		<h1 class="modal-title" id="editsubjectmodal"><b>Edit Subject</b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>
+
+				      		<div class="modal-body">
+				      			<?=form_open('/')?>
+									<div class="row form-group">
+										<div class="col-md">
+											<label for="subjidedit" class="col-form-label formmodalfont">Subject ID</label>
+											<input id="subjidedit" name="subjectidnameedit" type="text" class="form-control" value="<?php echo $sub2; ?>">
+										</div>
+										<div class="col-md">
+											<label for="subjnameedit" class="col-form-label formmodalfont">Subject Name</label>
+											<input id="subjnameedit" name="subjectnameedit" type="text" class="form-control" placeholder="Subject Name">
+										</div>
+										<div class="col-md">
+											<label for="subjfacedit" class="col-form-label formmodalfont">Subject Faculty</label>
+											<input id="subjfacedit" name="subjectfacultyedit" type="text" class="form-control" placeholder="Subject Faculty">
+										</div>
+										<div class="col-md">
+											<label for="subjleveledit" class="col-form-label formmodalfont">Level</label>
+											<input id="subjleveledit" name="subjectleveledit" type="text" class="form-control" placeholder="Level">
+										</div>
+									</div> 
+					  		</div>
+
+							<div class="modal-footer">
+							    <button type="submit" class="btn addsubbtn2">Edit Subject</button>
+							</div>
+								</form>
+						</div>
+					</div>
+				</div>	
+			</div>
+				<!--end of Edit Subject Modal -->		
 
 		</div>
 

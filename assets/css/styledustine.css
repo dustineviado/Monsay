@@ -302,9 +302,8 @@
 		.selectmargin{
 			margin:0px 0px 0px 5px;
 		}
-		/* end of subjects*/
 
-		/* start of add subject modal*/
+		
 		.addsubmodal {
 		    display: none; /* Hidden by default */
 		    position: fixed; /* Stay in place */
@@ -318,8 +317,6 @@
 		    background-color: rgb(0,0,0); /* Fallback color */
 		    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 		}
-
-		/* Modal Content */
 
 		.formmodalfont{
 			font-size:15px;
@@ -342,4 +339,22 @@
 			background-color:#ffff1a;
 			color:#000000;
 		}
-		/* end of add subject modal */
+
+		.addsubbtn3{
+			font-family:Helvetica;
+			height:30px;
+			width:70px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 1px 1px 1px;
+			font-size:13px;
+		}
+		
+		.addsubbtn3:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+	/* end of subjects*/
