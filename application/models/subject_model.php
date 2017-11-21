@@ -103,11 +103,11 @@ class subject_model extends CI_Model {
 		}
 
 		function subjectdelete(){
-
 	        $id2 = $this->input->get('id');
 	        $this->db->where('subid', $id2);
 	        $this->db->delete('subject');
 		}
+
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */

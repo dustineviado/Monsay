@@ -28,6 +28,43 @@
 					</select>
 						<script type="text/javascript">
 	   						document.getElementById('pangalan').value = "<?php echo $_GET['selsub'];?>";
+
+	   						/* $(function(){
+	   							showallsubjects();
+
+	   							function showallsubjects(){
+	   								$.ajax({
+	   									type:'ajax',
+	   									url: '<?php echo base_url()?> subject_controller/subjectsubject',
+	   									async: false,
+	   									dataType:'json',
+	   									success:function(data){
+	   										var html= '' ;
+	   										var i;
+	   										for(i=0; i<data.length; i++){
+	   											html +='<tr>'+
+													'<td>'+ data[i].subid +'</td>'+
+													'<td>'+ data[i].subject +'</td>'+
+													'<td>'+ data[i].faculty +'</td>'+
+													'<td>'+ data[i].year_level +'</td>'+
+													'<td>'+
+
+													 '<a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>"  onclick="return confirm('Are you sure to delete this subject?')"  class="btn addsubbtn3">Delete</a>'+
+
+													'<a href="#editmodal<?php echo $sub2 = $sub['subid']; ?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal">Edit</a>'+
+
+													'</td>'+
+												'</tr>';
+	   										}
+	   										$('#subjected').html(html);
+	   									},
+	   									error: function(){
+	   										alert('Error');
+	   									}
+	   								});
+	   							}
+	   						}); */	
+
 						</script>
 					&nbsp &nbsp
 					<input type="text" class="form-control col-auto" placeholder="Search...">
@@ -51,22 +88,23 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php if ($subjects != null): ?>
-						<?php foreach($subjects as $sub): ?>
-							<tr>
-								<td><?php echo $sub['subid']; ?></td>
-								<td><?php echo $sub['subject']; ?></td>
-								<td><?php echo $sub['faculty']; ?></td>
-								<td><?php echo $sub['year_level']; ?></td>
-								<td>
-									 <a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>"  onclick="return confirm('Are you sure to delete this subject?')"  class="btn addsubbtn3">Delete</a>
-									<a href="#editmodal<?php echo $sub2 = $sub['subid']; ?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal">Edit</a>
-								</td>
-							</tr>
+							<?php if($subjects != null): ?>
+							<?php foreach($subjects as $sub): ?>
+								<tr>
+									<td> <?php echo $sub['subid'] ?> </td>
+									<td> <?php echo $sub['subject'] ?> </td>
+									<td> <?php echo $sub['faculty'] ?> </td>
+									<td> <?php echo $sub['year_level'] ?> </td>
+									<td>
+										<a href=" <?php echo base_url()."subject_controller/deletesubject>id=".$sub['subid']; ?>" onclick="return confirm('Are you sure to delete this subject?')" class="btn addsubbtn3"> Delete </a>
+
+										<a href="#editmodal <?php echo $sub2 = $sub['subid'];?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal"> Edit </a>
+									</td>
+								</tr>
 							<?php endforeach; ?>
-						<?php else: echo 'Error' ?>
-						<?php print_r($subjects) ?>
-						<?php endif; ?>	
+							<?php else: echo 'Error' ?>
+							<?php print_r($subjects); ?>
+							<?php endif; ?>
 						</tbody>
 					</table>
 				
