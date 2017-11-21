@@ -48,6 +48,11 @@ class subject_controller extends CI_Controller {
 	        $this->subject_model->subjectdelete($id);
 	        redirect('subject_controller?selsub=all','refresh');
 	}
+
+	/*public function subjectsubject(){
+		$subjects = $this->subject_model->selectsubjects();
+		echo json_encode($subjects);
+	}*/
 }
 /* End of file  subject_controller.php */
 /* Location: ./application/controllers/ subject_controller.php */
