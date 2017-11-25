@@ -5,7 +5,6 @@
 		<div class="col-lg-10">
 			<br>
 				<br>
-				<br>
 				<div class="container">
 					<h1 class="subjectfont">Subjects</h1>
 					<form class="form-row">
@@ -29,44 +28,8 @@
 						<script type="text/javascript">
 	   						document.getElementById('pangalan').value = "<?php echo $_GET['selsub'];?>";
 
-	   						/* $(function(){
-	   							showallsubjects();
-
-	   							function showallsubjects(){
-	   								$.ajax({
-	   									type:'ajax',
-	   									url: '<?php echo base_url()?> subject_controller/subjectsubject',
-	   									async: false,
-	   									dataType:'json',
-	   									success:function(data){
-	   										var html= '' ;
-	   										var i;
-	   										for(i=0; i<data.length; i++){
-	   											html +='<tr>'+
-													'<td>'+ data[i].subid +'</td>'+
-													'<td>'+ data[i].subject +'</td>'+
-													'<td>'+ data[i].faculty +'</td>'+
-													'<td>'+ data[i].year_level +'</td>'+
-													'<td>'+
-
-													 '<a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>"  onclick="return confirm('Are you sure to delete this subject?')"  class="btn addsubbtn3">Delete</a>'+
-
-													'<a href="#editmodal<?php echo $sub2 = $sub['subid']; ?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal">Edit</a>'+
-
-													'</td>'+
-												'</tr>';
-	   										}
-	   										$('#subjected').html(html);
-	   									},
-	   									error: function(){
-	   										alert('Error');
-	   									}
-	   								});
-	   							}
-	   						}); */	
-
 						</script>
-					&nbsp &nbsp
+					&nbsp
 					<input type="text" class="form-control col-auto" placeholder="Search...">
 					<button class="input-group-addon btn searchbtn"> <span class="fa fa-search searchfont"></span> </button>
 				</form>	
@@ -91,19 +54,18 @@
 							<?php if($subjects != null): ?>
 							<?php foreach($subjects as $sub): ?>
 								<tr>
-									<td> <?php echo $sub['subid'] ?> </td>
-									<td> <?php echo $sub['subject'] ?> </td>
-									<td> <?php echo $sub['faculty'] ?> </td>
-									<td> <?php echo $sub['year_level'] ?> </td>
+									<td id="ha1"> <?php echo $sub['subid'] ?> </td>
+									<td id="ha2"> <?php echo $sub['subject'] ?> </td>
+									<td id="ha3"> <?php echo $sub['faculty'] ?> </td>
+									<td id="ha4"> <?php echo $sub['year_level'] ?> </td>
 									<td>
-										<a href=" <?php echo base_url()."subject_controller/deletesubject>id=".$sub['subid']; ?>" onclick="return confirm('Are you sure to delete this subject?')" class="btn addsubbtn3"> Delete </a>
+										<a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>"  onclick="return confirm('Are you sure to delete this subject?')"  class="btn addsubbtn3">Delete</a>
 
-										<a href="#editmodal <?php echo $sub2 = $sub['subid'];?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal"> Edit </a>
+										<a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal" data-id="<?php echo $sub['subid'] ?>"> Edit </a>
 									</td>
 								</tr>
 							<?php endforeach; ?>
 							<?php else: echo 'Error' ?>
-							<?php print_r($subjects); ?>
 							<?php endif; ?>
 						</tbody>
 					</table>
@@ -170,23 +132,23 @@
 				      		</div>
 
 				      		<div class="modal-body">
-				      			<?=form_open('/')?>
+				      			<form>
 									<div class="row form-group">
 										<div class="col-md">
 											<label for="subjidedit" class="col-form-label formmodalfont">Subject ID</label>
-											<input id="subjidedit" name="subjectidnameedit" type="text" class="form-control" value="<?php echo $sub2; ?>">
+											<input id="subjidedit" name="subjectidnameedit" type="text" class="form-control" value="">
 										</div>
 										<div class="col-md">
 											<label for="subjnameedit" class="col-form-label formmodalfont">Subject Name</label>
-											<input id="subjnameedit" name="subjectnameedit" type="text" class="form-control" placeholder="Subject Name">
+											<input id="subjnameedit" name="subjectnameedit" type="text" class="form-control" value="">
 										</div>
 										<div class="col-md">
 											<label for="subjfacedit" class="col-form-label formmodalfont">Subject Faculty</label>
-											<input id="subjfacedit" name="subjectfacultyedit" type="text" class="form-control" placeholder="Subject Faculty">
+											<input id="subjfacedit" name="subjectfacultyedit" type="text" class="form-control" value="">
 										</div>
 										<div class="col-md">
 											<label for="subjleveledit" class="col-form-label formmodalfont">Level</label>
-											<input id="subjleveledit" name="subjectleveledit" type="text" class="form-control" placeholder="Level">
+											<input id="subjleveledit" name="subjectleveledit" type="text" class="form-control" value="">
 										</div>
 									</div> 
 					  		</div>
@@ -194,7 +156,7 @@
 							<div class="modal-footer">
 							    <button type="submit" class="btn addsubbtn2">Edit Subject</button>
 							</div>
-								</form>
+								</form>	
 						</div>
 					</div>
 				</div>	

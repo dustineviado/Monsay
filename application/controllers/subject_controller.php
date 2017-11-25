@@ -44,9 +44,13 @@ class subject_controller extends CI_Controller {
 	}
 
 	public function deletesubject(){
-			$id = $this->input->get('id');
-	        $this->subject_model->subjectdelete($id);
+	        $this->subject_model->subjectdelete();
 	        redirect('subject_controller?selsub=all','refresh');
+	}
+
+	public function editsubject(){
+	        $result = $this->subject_model->subjectedit();
+	        echo json_encode($result);
 	}
 
 	/*public function subjectsubject(){
