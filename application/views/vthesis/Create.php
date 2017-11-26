@@ -64,15 +64,20 @@
 								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth','type'=>'date','class'=>'form-control']);?>
 								<?php echo form_error('birthday','<div class="text-danger">','</div>'); ?>
 							</div>
-							<div class="col-md">
+							<div class="col-md">	
 								<label for="age" class="col-form-label">Age</label>
 								<?php echo form_input(['name'=>'age','placeholder'=>'Age','type'=>'number','class'=>'form-control']);?>
 								<?php echo form_error('age','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">
 								<label for="gender" class="col-form-label">Sex</label>
-								<?php echo form_input(['name'=>'gender','placeholder'=>'Sex', 'class'=>'form-control']);?>
-								<?php echo form_error('gender','<div class="text-danger">','</div>'); ?>
+								<?php  
+									$options = array(
+										"Male"=>"Male",
+										"Female"=>"Female"
+										);
+								?>
+								<?php echo form_dropdown('gender', $options, set_value('gender'), array("class"=>"form-control","id"=>"gender"));?>
 							</div>
 							
 						</div>
@@ -87,7 +92,7 @@
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="parent_guard" class="col-form-label">Parent/Guardian</label>
-								<?php echo form_input(['name'=>'parent_guard','placeholder'=>'Adress', 'class'=>'form-control']);?>
+								<?php echo form_input(['name'=>'parent_guard','placeholder'=>'Name of Guardian', 'class'=>'form-control']);?>
 								<?php echo form_error('parent_guard','<div class="text-danger">','</div>'); ?>
 							</div>
 							<div class="col-md">

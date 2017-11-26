@@ -27,7 +27,7 @@ class Login extends CI_Controller {
 			
 		}
 		else{
-		redirect('main_body_controller','refresh');
+		redirect('Adminprof','refresh');
 	}
 	}
 	
