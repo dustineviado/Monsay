@@ -30,6 +30,132 @@
 		</div>	
 
 <!-- end of JHS layer1 -->
+<div class="container-fluid" style="background-color: brown;">
+
+	<div class="row">
+<h1 style="margin-left: 20px; font-family: 'helvetica'; color: white;">Junior High School</h1>
+</div>
+</div>
+
+
+
+<div class="w3-container" style="margin-top: 30px;">
+	
+
+
+</div>
+
+<div class="w3-content" style="max-width:1200px">
+  <img class="mySlides" src="images/aa.jpg" style="width:100%; height: 300px;">
+  <img class="mySlides" src="images/ss.jpg" style="width:100%; height: 300px;">
+  <img class="mySlides" src="images/dd.jpg" style="width:100%; height: 300px;">
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s4">
+      <img class="JHSslide  w3-hover-sepia" src="images/aa.jpg" style="width:100%;height: 200px; cursor: pointer;" onclick="currentDiv(1)">
+    </div>
+    <div class="w3-col s4">
+      <img class="JHSslide  w3-hover-sepia" src="images/ss.jpg" style="width:100%;height: 200px; cursor: pointer;" onclick="currentDiv(2)">
+    </div>
+    <div class="w3-col s4">
+      <img class="JHSslide  w3-hover-sepia" src="images/dd.jpg" style="width:100%;height: 200px; cursor: pointer;" onclick="currentDiv(3)">
+    </div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("JHSslide");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-sepia", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-sepia";
+
+}
+</script>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-lg">	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- star of JHS layer 2 -->
 
