@@ -2,7 +2,8 @@
   <h3>View Students </h3>
   <script type ="text/javascript"> alert('Data Successfully Saved!')</script>
   <?php echo anchor('Adminctrl/add', 'Add Student', ['class'=>'btn btn-primary']);?>
-    <table class="table table-striped table-hover ">
+  <div class="container-fluid table-responsive">
+ <table class="table table-striped table-hover ">
       <thead>
         <tr>
           <th>ID Number</th>
@@ -41,3 +42,4 @@
         <?php endif;?>
       </tbody>
     </table> 
+  </div>
