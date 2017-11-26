@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2017 at 09:44 AM
+-- Generation Time: Nov 26, 2017 at 02:48 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -168,6 +168,39 @@ CREATE TABLE `grading` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pre_registration`
+--
+
+CREATE TABLE `pre_registration` (
+  `ctrl_num` int(25) NOT NULL,
+  `fname` varchar(25) NOT NULL,
+  `mname` varchar(25) NOT NULL,
+  `lname` varchar(25) NOT NULL,
+  `birthday` date NOT NULL,
+  `age` int(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `religion` varchar(25) NOT NULL,
+  `gender` varchar(25) NOT NULL,
+  `address` varchar(25) NOT NULL,
+  `contact` int(25) NOT NULL,
+  `parent_guard` varchar(25) NOT NULL,
+  `pgcontact` int(25) NOT NULL,
+  `status` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pre_registration`
+--
+
+INSERT INTO `pre_registration` (`ctrl_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
+(1, 'ralph jerome', 'daluyon', 'reyes', '2013-06-11', 4, '', '', 'male', 'asdkasjdasd', 1231231231, 'Shing Shang Fu', 12123121, ''),
+(2, 'John', 'John', 'John', '2005-03-24', 12, 'bentong@gmail.com', 'Roman Catholic', 'Male', 'Dito lang sa tabi', 1234567890, 'Omniknight', 2147483647, ''),
+(3, 'Havana', 'Ona', 'Na', '2002-05-27', 15, 'Obeybe@gmail.com', 'Roman Catholic', 'Female', 'asjdlasjdlk', 1231231231, 'asldjalksdj', 12312313, ''),
+(4, 'Kyrie', 'Drew', 'Irving', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `register`
 --
 
@@ -223,11 +256,12 @@ CREATE TABLE `section` (
 CREATE TABLE `student` (
   `id_num` int(20) NOT NULL,
   `fname` varchar(25) NOT NULL,
-  `lname` varchar(25) NOT NULL,
   `mname` varchar(25) NOT NULL,
+  `lname` varchar(25) NOT NULL,
   `birthday` varchar(25) NOT NULL,
   `age` int(25) NOT NULL,
   `gender` varchar(25) NOT NULL,
+  `religion` varchar(25) NOT NULL,
   `address` varchar(25) NOT NULL,
   `contact` int(25) NOT NULL,
   `status` varchar(25) NOT NULL,
@@ -242,8 +276,9 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id_num`, `fname`, `lname`, `mname`, `birthday`, `age`, `gender`, `address`, `contact`, `status`, `parent_guard`, `pgcontact`, `email`, `year`, `section`) VALUES
-(15, 'Ralph ', 'Reyes', 'Daluyon', '2006-03-30', 11, 'male', 'askdjaskld', 12381231, '', 'terry reyes', 293123121, 'alsasjdkad', '', '');
+INSERT INTO `student` (`id_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `gender`, `religion`, `address`, `contact`, `status`, `parent_guard`, `pgcontact`, `email`, `year`, `section`) VALUES
+(4, 'Ralph ', 'Pogi', 'Reyes', '2001-07-22', 16, 'Male', '', 'asjdlakjsdlkj', 2147483647, '', 'asdlkajlkdjaslkdj', 12313123, 'aslkdjaklsdjalkd', '', ''),
+(5, 'Jane', 'Burnik', 'Doe', '2000-03-17', 17, 'Female', '', 'New York Cubao', 1232111231, '', 'Mang Man Doe', 2147483647, 'alskjdalksdj', '', '');
 
 -- --------------------------------------------------------
 
@@ -267,6 +302,7 @@ CREATE TABLE `subject` (
 CREATE TABLE `teacher` (
   `teacher_id` int(20) NOT NULL,
   `fname` varchar(25) NOT NULL,
+  `mname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
   `birthday` date NOT NULL,
   `age` int(25) NOT NULL,
@@ -304,6 +340,12 @@ INSERT INTO `user_login` (`userID`, `username`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `pre_registration`
+--
+ALTER TABLE `pre_registration`
+  ADD PRIMARY KEY (`ctrl_num`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
@@ -314,10 +356,15 @@ ALTER TABLE `student`
 --
 
 --
+-- AUTO_INCREMENT for table `pre_registration`
+--
+ALTER TABLE `pre_registration`
+  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;COMMIT;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
