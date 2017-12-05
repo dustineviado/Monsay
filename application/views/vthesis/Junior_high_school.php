@@ -105,16 +105,12 @@ function showDivs(n) {
 
 <div class="container-fluid">
 	<div class="row">
-	<div class="col-lg">	
+	<div class="col-lg">
 
 
-
-
-
-
-
-
-
+<center>
+<p> Upcoming Events </p>
+</center>
 
 
 

@@ -291,8 +291,8 @@
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.gsprev,
+.gsnext {
   cursor: pointer;
   position: absolute;
   top: 40%;
@@ -308,19 +308,19 @@
   -webkit-user-select: none;
 }
 
-/* Position the "next button" to the right */
-.next {
+
+.gsnext {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-/prev:hover,
-.next:hover {
+
+.gsprev:hover,
+.gsnext:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Number text (1/3 etc) */
+
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
