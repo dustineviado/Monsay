@@ -33,10 +33,25 @@ class Adminprof extends CI_Controller{
 		$this->form_validation->set_rules('parent_guard','Parent/Guardian','required');
 		$this->form_validation->set_rules('pgcontact','Contact','required');
 		if($this->form_validation->run()){
-			$data = $this->input->post();
-			$this->load->model('Pre_enrol_model');
-			$this->Pre_enrol_model->newStud($data);
-			redirect('main_body_controller','refresh');	
+			$data = array(
+		'fname'=>$this->input->post('fname'),
+		'mname'=>$this->input->post('mname'),
+		'lname'=>$this->input->post('lname'),
+		'email'=>$this->input->post('email'),
+		'contact'=>$this->input->post('contact'),
+		'religion'=>$this->input->post('religion'),
+		'birthday'=>$this->input->post('birthday'),
+		'age'=>$this->input->post('age'),
+		'birthday'=>$this->input->post('birthday'),
+		'gender'=>$this->input->post('gender'),
+		'address'=>$this->input->post('address'),
+		'parent_guard'=>$this->input->post('parent_guard'),
+		'pgcontact'=>$this->input->post('pgcontact'),
+		'status'=>'Pending');
+
+		$this->load->model('pre_enrol_model');
+		$this->pre_enrol_model->newStud($data);
+		redirect('main_body_controller','refresh');
 			
 		}
 		else{
