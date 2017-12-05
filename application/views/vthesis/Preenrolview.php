@@ -27,7 +27,7 @@
           <?php echo $newstud->lname;?></td>
           <td><?php echo $newstud->age;?></td>
           <td><?php echo $newstud->contact;?></td>
-          <td></td>
+          <td><?php echo $newstud->status;?></td>
           <td>
           <?php echo anchor("Adminprof/confirm/{$newstud->ctrl_num}", 'Confirm', ['class'=>'label label-primary']);?>
           |
