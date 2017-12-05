@@ -90,8 +90,8 @@
       <img src="images/sample4.jpg" style="width:100%; height: 500px;">
     </div>
     
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <a class="gsprev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="gsnext" onclick="plusSlides(1)">&#10095;</a>
 
      <div class="caption-container">
       <p id="caption"></p>
