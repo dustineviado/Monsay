@@ -289,9 +289,8 @@
 			border-style:none;
 			color:#ffffff;
 			padding: auto;
-			margin:0px 0px 5px 0px;
+			margin:0px 0px 10px 15px;
 			font-size:19px;
-			float: right;
 		}
 		
 		.addsubbtn:hover{
