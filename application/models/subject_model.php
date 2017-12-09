@@ -6,114 +6,73 @@ class subject_model extends CI_Model {
 		function __construct(){
 			parent::__construct();
 		}
-		
-		function selectsubjects(){
-		$option = $this->input->get('selsub');
 
-			if ($option == 'all'){
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Kinder'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Preparatory'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Grade 1'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Grade 2'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Grade 3'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Grade 4'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 5'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 6'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 7'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 8'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 9'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}
-			else if($option == 'Grade 10'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 11'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}	
-			else if($option == 'Grade 12'){
-				$this->db->where('year_level',$option);
-				$query = $this->db->get('subject');
-				return $query->result_array();
-			}		
+		function addsubject($data){
+
+			$this->db->insert('subject',$data);
 		}
 
-		function addsubject($add){
-
-			$this->db->insert('subject',$add);
-			$this->db->where('subid !=',$add['subid']);
-			$this->db->where('subject !=',$add['subject']);
-			$this->db->where('faculty !=',$add['faculty']);
-
-			$query = $this->db->get('subject');
-			if($query->num_rows()!=0){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-
-		function subjectdelete(){
-	        $id2 = $this->input->get('id');
-	        $this->db->where('subid', $id2);
+		function subjectdelete($sid){
+	        $this->db->where('subid', $sid);
 	        $this->db->delete('subject');
 		}
 
-		function subjectedit(){
-			$id3 = $this->input->get('id');
-	        $this->db->where('subid', $id3);
-	        $query = $this->db->get('subject');
-	        return $query->result_array();
+		function subjectedit1($sid){
+			 $this->db->where('subid', $sid);  
+          	 $query=$this->db->get('subject');  
+           	return $query->result();
 		}
+
+		function subjectedit2($data){
+			$hiddenid = $this->input->post('hidid');
+			$this->db->where('subid', $hiddenid);
+			$this->db->update('subject', $data);
+		}
+
+		 var $table = "subject";  
+	      var $select_column = array("subid", "subject", "faculty", "year_level");  
+	      var $order_column = array("subid", "subject", "faculty" , "year_level", null);  
+	      
+	      function make_query()  
+	      {  
+	           $this->db->select($this->select_column);  
+	           $this->db->from($this->table);  
+	           if(isset($_POST["search"]["value"]))  
+	           {  
+	                $this->db->like("subid", $_POST["search"]["value"]);  
+	                $this->db->or_like("subject", $_POST["search"]["value"]);
+	                $this->db->or_like("faculty", $_POST["search"]["value"]);
+	                $this->db->or_like("year_level", $_POST["search"]["value"]);   
+	           }  
+	           if(isset($_POST["order"]))  
+	           {  
+	                $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);  
+	           }  
+	           else  
+	           {  
+	                $this->db->order_by('subid', 'DESC');  
+	           }  
+	      }  
+	      function make_datatables(){  
+	           $this->make_query();  
+	           if($_POST["length"] != -1)  
+	           {  
+	                $this->db->limit($_POST['length'], $_POST['start']);  
+	           }  
+	           $query = $this->db->get();  
+	           return $query->result();  
+	      }  
+	      function get_filtered_data(){  
+	           $this->make_query();  
+	           $query = $this->db->get();  
+	           return $query->num_rows();  
+	      }       
+	      function get_all_data()  
+	      {  
+	           $this->db->select("*");  
+	           $this->db->from($this->table);  
+	           return $this->db->count_all_results();  
+	      }  
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */
