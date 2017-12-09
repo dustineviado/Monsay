@@ -7,161 +7,182 @@
 				<br>
 				<div class="container">
 					<h1 class="subjectfont">Subjects</h1>
-					<form class="form-row">
-					<select class="form-control col-auto selectmargin" name="selsub" id="pangalan">
-							<option value="all">All Levels</option>
-							<option value="Kinder">Kinder</option>
-							<option value="Preparatory">Preparatory</option>
-							<option value="Grade 1">Grade 1</option>
-							<option value="Grade 2">Grade 2</option>
-							<option value="Grade 3">Grade 3</option>
-							<option value="Grade 4">Grade 4</option>
-							<option value="Grade 5">Grade 5</option>
-							<option value="Grade 6">Grade 6</option>
-							<option value="Grade 7">Grade 7</option>
-							<option value="Grade 8">Grade 8</option>
-							<option value="Grade 9">Grade 9</option>
-							<option value="Grade 10">Grade 10</option>
-							<option value="Grade 11">Grade 11</option>
-							<option value="Grade 12">Grade 12</option>
-					</select>
-						<script type="text/javascript">
-	   						document.getElementById('pangalan').value = "<?php echo $_GET['selsub'];?>";
+					<script type="text/javascript">
+							$(document).ready(function(){
 
+								$('#addmodalbtn').click(function(){  
+							           $('#addform')[0].reset();  
+							           $('.modal-title').text("Add Subject");  
+							           $('#subjecthid').val("Add");   
+							      });    
+
+							      var dataTable = $('#lamesa234').dataTable({  
+							           "processing":true,  
+							           "serverSide":true,
+							           "scrollY": '500px',  
+							           "order":[],  
+							           "ajax":{  
+							                url:"<?php echo base_url() . 'subject_controller/fetch_user'; ?>",  
+							                type:"POST"  
+							           },  
+							           "columnDefs":[  
+							                {  
+							                     "targets":[4],  
+							                     "orderable":false,  
+							                },  
+							           ],  
+							      });
+
+							      $(document).on('click', '#action', function(event){  
+							           event.preventDefault();
+							           var subjid = $('#subjectidname').val();  
+							           var subjname = $('#subjectname').val();  
+							           var subjfac = $('#subjectfaculty').val(); 
+							           var subjlevel = $('#subjectlevel').val();
+							           var subjhid = $('#subjecthid').val();
+							           var hiddenid = $('#hiddenid').val();  
+							           
+							           if(subjid != '' && subjname != '' && subjfac != '' && subjlevel != '')  
+							           {  
+							                $.ajax({  
+							                	type:"POST",
+							                     url:"<?php echo base_url() . 'subject_controller/subjectaction'; ?>",  
+							                     data:{
+							                     	id:subjid,
+							                     	name:subjname,
+							                     	fac:subjfac,
+							                     	lvl:subjlevel,
+							                     	hidden:subjhid,
+							                     	hidid:hiddenid
+							                     }, 
+							                     success:function(data)  
+							                     {  
+							                          alert(data);  
+							                          $('#subjectmodal').modal('hide');  
+							                          $('#lamesa234').DataTable().ajax.reload();  
+							                     }  
+							                });  
+							           }  
+							           else  
+							           {  
+							                alert("All Fields are Required"); 
+							           }  
+							      });
+
+							      $(document).on('click','.edit', function(){  
+							           var sid = $(this).attr("id");  
+							           $.ajax({  
+							                url:"<?php echo base_url() . 'subject_controller/fetch_single_user'; ?>",  
+							                method:"POST",  
+							                data:{sid:sid},  
+							                dataType:"json",  
+							                success:function(data)  
+							                {  	
+							                	 $('#addform')[0].reset();
+							                	 $('.modal-title').text("Edit Subject"); 
+							                     $('#subjectmodal').modal('show');  
+							                     $('#subjectidname').val(data.subjectidname);
+							                     $('#subjectname').val(data.subjectname);
+							                     $('#subjectfaculty').val(data.subjectfaculty);
+							                     $('#subjectlevel').val(data.subjectlevel); 
+							                     $('#subjecthid').val("Edit");
+							                     $('#hiddenid').val(sid); 
+							                }  
+							           });  
+							      });  
+
+							      $(document).on('click', '.delete', function(){  
+							           var sid = $(this).attr("id");  
+							           if(confirm("Are you sure you want to delete this?"))  
+							           {  
+							                $.ajax({  
+							                     url:"<?php echo base_url(); ?>subject_controller/deletesubject",  
+							                     method:"POST",  
+							                     data:{sid:sid},  
+							                     success:function(data)  
+							                     {  
+							                          alert(data);  
+							                          $('#lamesa234').DataTable().ajax.reload();  
+							                     }  
+							                });  
+							           }  
+							           else  
+							           {  
+							                return false;       
+							           }  
+							      });        
+							 });
 						</script>
-					&nbsp
-					<input type="text" class="form-control col-auto" placeholder="Search...">
-					<button class="input-group-addon btn searchbtn"> <span class="fa fa-search searchfont"></span> </button>
-				</form>	
-				<br>
-				<br>
-
+					<br>
 					<div>
-						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#addmodal">Add Subject</button>
+						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#subjectmodal">Add Subject</button>
 					</div>
+					<br>
 
-					<table class="table table-responsive table-striped">
+					<table id="lamesa234" class="table table-responsive table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th>Subject ID</th>
-								<th>Subject Name</th>
-								<th>Faculty</th>
-								<th>Level</th>
-								<th>Actions</th>
+								<th scope="col">Subject ID</th>
+								<th scope="col">Subject Name</th>
+								<th scope="col">Faculty</th>
+								<th scope="col">Level</th>
+								<th scope="col">Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							<?php if($subjects != null): ?>
-							<?php foreach($subjects as $sub): ?>
-								<tr>
-									<td id="ha1"> <?php echo $sub['subid'] ?> </td>
-									<td id="ha2"> <?php echo $sub['subject'] ?> </td>
-									<td id="ha3"> <?php echo $sub['faculty'] ?> </td>
-									<td id="ha4"> <?php echo $sub['year_level'] ?> </td>
-									<td>
-										<a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>"  onclick="return confirm('Are you sure to delete this subject?')"  class="btn addsubbtn3">Delete</a>
-
-										<a href="<?php echo base_url()."subject_controller/deletesubject?id=".$sub['subid'];?>" id="editmodalbtn" class="btn addsubbtn3" data-toggle="modal" data-target="#editmodal" data-id="<?php echo $sub['subid'] ?>"> Edit </a>
-									</td>
-								</tr>
-							<?php endforeach; ?>
-							<?php else: echo 'Error' ?>
-							<?php endif; ?>
-						</tbody>
 					</table>
-				
+					<br>
+
 				</div>
 
-				<!--start of Add Subject Modal -->
+			<!--start of Subject Modal -->
 			<div class="container-fluid">
-				<div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="addsubjectmodal" aria-hidden="true">
+				<div class="modal fade" id="subjectmodal" tabindex="-1" role="dialog" aria-labelledby="addsubjectmodal" aria-hidden="true">
 				  	<div class="modal-dialog modal-lg" role="document">
+				   		
+				  		<form method="post" id="addform">
 				   		<div class="modal-content">
-
-
-				     		<div class="modal-header">
-				        		<h1 class="modal-title" id="addsubjectmodal"><b>Add Subject</b></h1>
+							<div class="modal-header">
+				        		<h1 class="modal-title" id="addsubjectmodal"><b></b></h1>
 				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
-				      		</div>
+				      		</div>	
 
 				      		<div class="modal-body">
-				      			<?=form_open('subject_controller/subjectadd')?>
 									<div class="row form-group">
 										<div class="col-md">
-											<label for="subjid" class="col-form-label formmodalfont">Subject ID</label>
-											<input id="subjid" name="subjectidname" type="text" class="form-control" placeholder="Subject ID">
+											<label for="subjectidname" class="col-form-label formmodalfont">Subject ID</label>
+											<input id="subjectidname" name="subjectidname" type="text" class="form-control" placeholder="Subject ID">
 										</div>
 										<div class="col-md">
-											<label for="subjname" class="col-form-label formmodalfont">Subject Name</label>
-											<input id="subjname" name="subjectname" type="text" class="form-control" placeholder="Subject Name">
+											<label for="subjectname" class="col-form-label formmodalfont">Subject Name</label>
+											<input id="subjectname" name="subjectname" type="text" class="form-control" placeholder="Subject Name">
 										</div>
 										<div class="col-md">
-											<label for="subjfac" class="col-form-label formmodalfont">Subject Faculty</label>
-											<input id="subjfac" name="subjectfaculty" type="text" class="form-control" placeholder="Subject Faculty">
+											<label for="subjectfaculty" class="col-form-label formmodalfont">Subject Faculty</label>
+											<input id="subjectfaculty" name="subjectfaculty" type="text" class="form-control" placeholder="Subject Faculty">
 										</div>
 										<div class="col-md">
-											<label for="subjlevel" class="col-form-label formmodalfont">Level</label>
-											<input id="subjlevel" name="subjectlevel" type="text" class="form-control" placeholder="Level">
+											<label for="subjectlevel" class="col-form-label formmodalfont">Level</label>
+											<input id="subjectlevel" name="subjectlevel" type="text" class="form-control" placeholder="Level">
+											<input type="hidden" name="subjecthid" id="subjecthid" value="">
+											<input type="hidden" name="hiddenid" id="hiddenid">
 										</div>
 									</div> 
 					  		</div>
 
 							<div class="modal-footer">
-							    <button type="submit" class="btn addsubbtn2">Add Subject</button>
+								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
 							</div>
-								</form>
+							</form>
+							</div>
 						</div>
 					</div>
 				</div>
-				<!--end of Add Subject Modal -->
-
-
-				<!--start of Edit Subject Modal -->
-				<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editsubjectmodal" aria-hidden="true">
-				  	<div class="modal-dialog modal-lg" role="document">
-				   		<div class="modal-content">
-
-
-				     		<div class="modal-header">
-				        		<h1 class="modal-title" id="editsubjectmodal"><b>Edit Subject</b></h1>
-				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				         			<span aria-hidden="true">&times;</span>
-				        		</button>
-				      		</div>
-
-				      		<div class="modal-body">
-				      			<form>
-									<div class="row form-group">
-										<div class="col-md">
-											<label for="subjidedit" class="col-form-label formmodalfont">Subject ID</label>
-											<input id="subjidedit" name="subjectidnameedit" type="text" class="form-control" value="">
-										</div>
-										<div class="col-md">
-											<label for="subjnameedit" class="col-form-label formmodalfont">Subject Name</label>
-											<input id="subjnameedit" name="subjectnameedit" type="text" class="form-control" value="">
-										</div>
-										<div class="col-md">
-											<label for="subjfacedit" class="col-form-label formmodalfont">Subject Faculty</label>
-											<input id="subjfacedit" name="subjectfacultyedit" type="text" class="form-control" value="">
-										</div>
-										<div class="col-md">
-											<label for="subjleveledit" class="col-form-label formmodalfont">Level</label>
-											<input id="subjleveledit" name="subjectleveledit" type="text" class="form-control" value="">
-										</div>
-									</div> 
-					  		</div>
-
-							<div class="modal-footer">
-							    <button type="submit" class="btn addsubbtn2">Edit Subject</button>
-							</div>
-								</form>	
-						</div>
-					</div>
-				</div>	
-			</div>
-				<!--end of Edit Subject Modal -->		
+				<!--end of Subject Modal -->
+				<script type="text/javascript">
+					
+				</script>		
 
 		</div>
 
