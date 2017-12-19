@@ -5,28 +5,28 @@
 		</div>
 		<div class="col-lg-10">
 				<div class="container">
-					<h1 class="subjectfont">Subjects</h1>
+					<h1 class="sectionfont">Sections</h1>
 					<script type="text/javascript">
 							$(document).ready(function(){
 
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Subject");  
-							           $('#subjecthid').val("Add");   
+							           $('.modal-title').text("Add Section");  
+							           $('#sectionhid').val("Add");   
 							      });    
 
-							      var dataTable = $('#lamesa234').dataTable({  
+							      var dataTable = $('#sectiontable').dataTable({  
 							           "processing":true,  
 							           "serverSide":true,
 							           "scrollY": '500px',  
 							           "order":[],  
 							           "ajax":{  
-							                url:"<?php echo base_url() . 'subject_controller/fetch_user'; ?>",  
+							                url:"<?php echo base_url() . 'section_controller/fetch_user'; ?>",  
 							                type:"POST"  
 							           },  
 							           "columnDefs":[  
 							                {  
-							                     "targets":[4],  
+							                     "targets":[3],  
 							                     "orderable":false,  
 							                },  
 							           ],  
@@ -34,31 +34,29 @@
 
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
-							           var subjid = $('#subjectidname').val();  
-							           var subjname = $('#subjectname').val();  
-							           var subjfac = $('#subjectfaculty').val(); 
-							           var subjlevel = $('#subjectlevel').val();
-							           var subjhid = $('#subjecthid').val();
+							           var sectid = $('#sectionidname').val();  
+							           var sectname = $('#sectionname').val();  
+							           var sectlevel = $('#sectionlevel').val();
+							           var secthid = $('#sectionhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(subjid != '' && subjname != '' && subjfac != '' && subjlevel != '')  
+							           if(sectid != '' && sectname != '' && sectlevel != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
-							                     url:"<?php echo base_url() . 'subject_controller/subjectaction'; ?>",  
+							                     url:"<?php echo base_url() . 'section_controller/sectionaction'; ?>",  
 							                     data:{
-							                     	id:subjid,
-							                     	name:subjname,
-							                     	fac:subjfac,
-							                     	lvl:subjlevel,
-							                     	hidden:subjhid,
+							                     	id:sectid,
+							                     	name:sectname,
+							                     	lvl:sectlevel,
+							                     	hidden:secthid,
 							                     	hidid:hiddenid
 							                     }, 
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
-							                          $('#subjectmodal').modal('hide');  
-							                          $('#lamesa234').DataTable().ajax.reload();  
+							                          $('#sectionmodal').modal('hide');  
+							                          $('#sectiontable').DataTable().ajax.reload();  
 							                     }  
 							                });  
 							           }  
@@ -71,20 +69,19 @@
 							      $(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
 							           $.ajax({  
-							                url:"<?php echo base_url() . 'subject_controller/fetch_single_user'; ?>",  
+							                url:"<?php echo base_url() . 'section_controller/fetch_single_user'; ?>",  
 							                method:"POST",  
 							                data:{sid:sid},  
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
 							                	 $('#addform')[0].reset();
-							                	 $('.modal-title').text("Edit Subject"); 
-							                     $('#subjectmodal').modal('show');  
-							                     $('#subjectidname').val(data.subjectidname);
-							                     $('#subjectname').val(data.subjectname);
-							                     $('#subjectfaculty').val(data.subjectfaculty);
-							                     $('#subjectlevel').val(data.subjectlevel); 
-							                     $('#subjecthid').val("Edit");
+							                	 $('.modal-title').text("Edit Section"); 
+							                     $('#sectionmodal').modal('show');  
+							                     $('#sectionidname').val(data.sectionidname);
+							                     $('#sectionname').val(data.sectionname);
+							                     $('#sectionlevel').val(data.sectionlevel); 
+							                     $('#sectionhid').val("Edit");
 							                     $('#hiddenid').val(sid); 
 							                }  
 							           });  
@@ -95,13 +92,13 @@
 							           if(confirm("Are you sure you want to delete this?"))  
 							           {  
 							                $.ajax({  
-							                     url:"<?php echo base_url(); ?>subject_controller/deletesubject",  
+							                     url:"<?php echo base_url(); ?>section_controller/deletesection",  
 							                     method:"POST",  
 							                     data:{sid:sid},  
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
-							                          $('#lamesa234').DataTable().ajax.reload();  
+							                          $('#sectiontable').DataTable().ajax.reload();  
 							                     }  
 							                });  
 							           }  
@@ -114,16 +111,15 @@
 						</script>
 					<br>
 					<div>
-						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#subjectmodal">Add Subject</button>
+						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#sectionmodal">Add Section</button>
 					</div>
 					<br>
 
-					<table id="lamesa234" class="table table-responsive table-striped">
+					<table id="sectiontable" class="table table-responsive table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th scope="col">Subject ID</th>
-								<th scope="col">Subject Name</th>
-								<th scope="col">Faculty</th>
+								<th scope="col">Section ID</th>
+								<th scope="col">Section Name</th>
 								<th scope="col">Level</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -133,15 +129,15 @@
 
 				</div>
 
-			<!--start of Subject Modal -->
+			<!--start of Section Modal -->
 			<div class="container-fluid">
-				<div class="modal fade" id="subjectmodal" tabindex="-1" role="dialog" aria-labelledby="addsubjectmodal" aria-hidden="true">
+				<div class="modal fade" id="sectionmodal" tabindex="-1" role="dialog" aria-labelledby="addsectionmodal" aria-hidden="true">
 				  	<div class="modal-dialog modal-lg" role="document">
 				   		
 				  		<form method="post" id="addform">
 				   		<div class="modal-content">
 							<div class="modal-header">
-				        		<h1 class="modal-title" id="addsubjectmodal"><b></b></h1>
+				        		<h1 class="modal-title" id="addsectionmodal"><b></b></h1>
 				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
@@ -150,20 +146,16 @@
 				      		<div class="modal-body">
 									<div class="row form-group">
 										<div class="col-md">
-											<label for="subjectidname" class="col-form-label formmodalfont">Subject ID</label>
-											<input id="subjectidname" name="subjectidname" type="text" class="form-control" placeholder="Subject ID">
+											<label for="sectionidname" class="col-form-label formmodalfont">Section ID</label>
+											<input id="sectionidname" name="sectionidname" type="text" class="form-control" placeholder="section ID">
 										</div>
 										<div class="col-md">
-											<label for="subjectname" class="col-form-label formmodalfont">Subject Name</label>
-											<input id="subjectname" name="subjectname" type="text" class="form-control" placeholder="Subject Name">
+											<label for="sectionname" class="col-form-label formmodalfont">Section Name</label>
+											<input id="sectionname" name="sectionname" type="text" class="form-control" placeholder="section Name">
 										</div>
 										<div class="col-md">
-											<label for="subjectfaculty" class="col-form-label formmodalfont">Subject Faculty</label>
-											<input id="subjectfaculty" name="subjectfaculty" type="text" class="form-control" placeholder="Subject Faculty">
-										</div>
-										<div class="col-md">
-											<label for="subjectlevel" class="col-form-label formmodalfont">Level</label>
-											<select id="subjectlevel" name="subjectlevel" class="form-control">
+											<label for="sectionlevel" class="col-form-label formmodalfont">Level</label>
+											<select id="sectionlevel" name="sectionlevel" class="form-control">
 											    <option value="Kinder">Kinder</option>
 											    <option value="Preparatory">Preparatory</option>
 											    <option value="Grade 1">Grade 1</option>
@@ -179,7 +171,7 @@
 											    <option value="Grade 11">Grade 11</option>
 											    <option value="Grade 12">Grade 12</option>
 										    </select>
-											<input type="hidden" name="subjecthid" id="subjecthid" value="">
+											<input type="hidden" name="sectionhid" id="sectionhid" value="">
 											<input type="hidden" name="hiddenid" id="hiddenid">
 										</div>
 									</div> 
@@ -193,13 +185,7 @@
 						</div>
 					</div>
 				</div>
-				<!--end of Subject Modal -->
-				<script type="text/javascript">
-					
-				</script>		
-
 		</div>
-
 		<div class="col-lg-1">
 		</div>
 	</div>

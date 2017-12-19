@@ -251,7 +251,7 @@
 		}
 		/* end of register_page_print */
 
-		/* start of sujects*/
+		/* start of subjects*/
 
 		.allfont{
 			font-family: helvetica;
@@ -260,24 +260,6 @@
 		.subjectfont{
 			font-weight: bold;
 			font-size:50px;
-		}
-
-		.searchfont{
-			font-size: 20px;
-		}
-
-		.searchbtn{
-			font-family:Helvetica;
-			background-color:#3366ff;
-			border:none;
-			color:#ffffff;
-			height:40px;
-			width:45px;
-		}
-
-		.searchbtn:hover{
-			background-color:#ffff1a;
-			color:#000000;
 		}
 
 		.addsubbtn{
@@ -357,3 +339,79 @@
 			color:#000000;
 		}
 	/* end of subjects*/
+
+	/* start of section*/
+
+		.sectionfont{
+			font-weight: bold;
+			font-size:50px;
+		}
+
+		.addsecbtn{
+			font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 0px 10px 15px;
+			font-size:19px;
+		}
+		
+		.addsecbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+		.addsecmodal {
+		    display: none; /* Hidden by default */
+		    position: fixed; /* Stay in place */
+		    z-index:: 1; /* Sit on top */
+		    padding-top: 100px; /* Location of the box */
+		    left: 0;
+		    top: 0;
+		    width: 100%; /* Full width */
+		    height: 100%; /* Full height */
+		    overflow: auto; /* Enable scroll if needed */
+		    background-color: rgb(0,0,0); /* Fallback color */
+		    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		.addsecbtn2{
+			font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			font-size:19px;
+			float: right;
+		}
+		
+		.addsecbtn2:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+		.addsecbtn3{
+			font-family:Helvetica;
+			height:30px;
+			width:70px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 1px 1px 1px;
+			font-size:13px;
+		}
+		
+		.addsecbtn3:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+	/* end of section*/

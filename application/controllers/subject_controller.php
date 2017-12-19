@@ -51,13 +51,13 @@ class subject_controller extends CI_Controller {
 
 	public function deletesubject(){
 		       $this->load->model("subject_model");  
-	           $this->subject_model->subjectdelete($_POST["sid"]);  
+	           $this->mdl->subjectdelete($_POST["sid"]);  
 	           echo 'Subject Deleted';
 	}
 
 	function fetch_user(){  
            $this->load->model("subject_model");  
-           $fetch_data = $this->subject_model->make_datatables();  
+           $fetch_data = $this->mdl->make_datatables();  
            $data = array();  
            foreach($fetch_data as $row)  
            {  
@@ -70,8 +70,8 @@ class subject_controller extends CI_Controller {
                 $data[] = $sub_array;  
            }  
            $output = array(   
-                "recordsTotal"          =>      $this->subject_model->get_all_data(),  
-                "recordsFiltered"     =>     $this->subject_model->get_filtered_data(),  
+                "recordsTotal"          =>      $this->mdl->get_all_data(),  
+                "recordsFiltered"     =>     $this->mdl->get_filtered_data(),  
                 "data"                    =>     $data  
            );  
            echo json_encode($output);  
