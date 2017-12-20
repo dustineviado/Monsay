@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2017 at 02:48 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Dec 20, 2017 at 10:09 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -243,9 +243,17 @@ CREATE TABLE `schedule` (
 --
 
 CREATE TABLE `section` (
-  `year_level` varchar(25) NOT NULL,
-  `section_name` varchar(25) NOT NULL
+  `secid` int(10) NOT NULL,
+  `section_name` varchar(25) NOT NULL,
+  `year_level` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section`
+--
+
+INSERT INTO `section` (`secid`, `section_name`, `year_level`) VALUES
+(12345, 'Bethlehem', 'Grade 4');
 
 -- --------------------------------------------------------
 
@@ -255,30 +263,20 @@ CREATE TABLE `section` (
 
 CREATE TABLE `student` (
   `id_num` int(20) NOT NULL,
-  `fname` varchar(25) NOT NULL,
-  `mname` varchar(25) NOT NULL,
-  `lname` varchar(25) NOT NULL,
+  `studname` varchar(50) NOT NULL,
+  `email` varchar(25) NOT NULL,
   `birthday` varchar(25) NOT NULL,
   `age` int(25) NOT NULL,
+  `contact` int(25) NOT NULL,
   `gender` varchar(25) NOT NULL,
   `religion` varchar(25) NOT NULL,
   `address` varchar(25) NOT NULL,
-  `contact` int(25) NOT NULL,
-  `status` varchar(25) NOT NULL,
   `parent_guard` varchar(25) NOT NULL,
   `pgcontact` int(25) NOT NULL,
-  `email` varchar(25) NOT NULL,
   `year` varchar(25) NOT NULL,
-  `section` varchar(25) NOT NULL
+  `section` varchar(25) NOT NULL,
+  `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student`
---
-
-INSERT INTO `student` (`id_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `gender`, `religion`, `address`, `contact`, `status`, `parent_guard`, `pgcontact`, `email`, `year`, `section`) VALUES
-(4, 'Ralph ', 'Pogi', 'Reyes', '2001-07-22', 16, 'Male', '', 'asjdlakjsdlkj', 2147483647, '', 'asdlkajlkdjaslkdj', 12313123, 'aslkdjaklsdjalkd', '', ''),
-(5, 'Jane', 'Burnik', 'Doe', '2000-03-17', 17, 'Female', '', 'New York Cubao', 1232111231, '', 'Mang Man Doe', 2147483647, 'alskjdalksdj', '', '');
 
 -- --------------------------------------------------------
 
@@ -292,6 +290,15 @@ CREATE TABLE `subject` (
   `faculty` varchar(20) NOT NULL,
   `year_level` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`subid`, `subject`, `faculty`, `year_level`) VALUES
+(123213, 'wefwef', 'errgerg', 'Grade 1'),
+(32432, 'gerger', 'gerg', 'Grade 7'),
+(535223, 'gerg', 'wefwef', 'Grade 2');
 
 -- --------------------------------------------------------
 
@@ -360,11 +367,13 @@ ALTER TABLE `student`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
