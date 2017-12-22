@@ -29,8 +29,8 @@ class student_model extends CI_Model {
 		}
 
 		  var $table = "student";  
-	      var $select_column = array("id_num", "studname", "email", "birthday", "age", "contact", "gender", "religion", "address", "parent_guard", "pgcontact", "year", "section", "status");  
-	      var $order_column = array("id_num", "studname", "email", "birthday", "age", "contact", "gender", "religion", "address", "parent_guard", "pgcontact", "year", "section", "status", null);  
+	      var $select_column = array("id_num", "studname", "year", "section", "status");  
+	      var $order_column = array("id_num", "studname",  "year", "section", "status", null);  
 	      
 	      function make_query()  
 	      {  
@@ -40,15 +40,6 @@ class student_model extends CI_Model {
 	           {  
 	                $this->db->like("id_num", $_POST["search"]["value"], 'after');  
 	                $this->db->or_like("studname", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("email", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("birthday", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("age", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("contact", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("gender", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("religion", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("address", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("parent_guard", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("pgcontact", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("year", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("section", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
