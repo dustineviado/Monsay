@@ -63,7 +63,7 @@ class section_controller extends CI_Controller {
                 $sub_array[] = $row->secid;
                 $sub_array[] = $row->section_name; 
                 $sub_array[] = $row->year_level;   
-                $sub_array[] = '<button type="button" name="delete" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button>';
+                $sub_array[] = '<button type="button" name="delete" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button> <button type="button" name="assign" id="'.$row->section_name.'" class="btn addsecbtn3 btn-xs assign">Assign</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   

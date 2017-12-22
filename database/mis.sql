@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2017 at 10:09 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Dec 22, 2017 at 10:32 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -278,6 +278,14 @@ CREATE TABLE `student` (
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `section`, `status`) VALUES
+(1, '1', '1', '1', 1, 1, 'Male', 'Roman Catholic', '1', '1', 1, 'Kinder', '1', '1'),
+(2, '1', '1', '1', 1, 1, 'Male', 'Roman Catholic', '1', '1', 1, 'Kinder', '1', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -298,7 +306,16 @@ CREATE TABLE `subject` (
 INSERT INTO `subject` (`subid`, `subject`, `faculty`, `year_level`) VALUES
 (123213, 'wefwef', 'errgerg', 'Grade 1'),
 (32432, 'gerger', 'gerg', 'Grade 7'),
-(535223, 'gerg', 'wefwef', 'Grade 2');
+(535223, 'gerg', 'wefwef', 'Grade 2'),
+(23412, 'wgergw', 'wergwth', 'Grade 3'),
+(3456, 'erthb', 'tsgth', 'Grade 3'),
+(456345, 'hbsrthbrst', 'gsetg', 'Grade 9'),
+(3453457, 'fjtdyj', 'dtyjrd', 'Grade 11'),
+(34645, 'bdzfbadb', 'dzfbdb', 'Grade 7'),
+(9867, 'dfgvrg', 'rbverb', 'Preparatory'),
+(56786, 'ghndtym', '56756', 'Preparatory'),
+(235, 'gbrst', 'setgte', 'Grade 5'),
+(1, 'hreh', 'rethrth', 'Preparatory');
 
 -- --------------------------------------------------------
 
@@ -367,13 +384,11 @@ ALTER TABLE `student`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
