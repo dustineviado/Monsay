@@ -1,8 +1,10 @@
 <br/>
 <div class="container-fluid allfont">
 	<div class="row">
-		<div class="col-lg-12">
-				<div>
+		<div class="col-lg">
+		</div>
+		<div class="col-lg-10">
+				<div class="container">
 					<h1 class="studentfont">Students</h1>
 					<script type="text/javascript">
 							$(document).ready(function(){
@@ -13,7 +15,7 @@
 							           $('#studenthid').val("Add");   
 							      });    
 
-							      var dataTable = $('#studenttable').dataTable({  
+							      var dataTable = $('#studenttable').DataTable({  
 							           "processing":true,  
 							           "serverSide":true,
 							           "scrollY": '500px',  
@@ -24,7 +26,7 @@
 							           },  
 							           "columnDefs":[  
 							                {  
-							                     "targets":[14],  
+							                     "targets":[5],  
 							                     "orderable":false,  
 							                },  
 							           ],  
@@ -118,6 +120,35 @@
 							           });  
 							      });  
 
+								$(document).on('click','.view', function(){  
+							           var sid = $(this).attr("id");  
+							           $.ajax({  
+							                url:"<?php echo base_url() . 'student_controller/fetch_single_user'; ?>",  
+							                method:"POST",  
+							                data:{sid:sid},  
+							                dataType:"json",  
+							                success:function(data)  
+							                {  	
+							                	 $('.modal-title').text("View Student"); 
+							                     $('#student2modal').modal('show');  
+							                     $('#student2idname').text(data.studentidname);
+							                     $('#student2name').text(data.studentname);
+							                     $('#student2email').text(data.studentemail);
+											     $('#student2birthday').text(data.studentbirthday);
+												 $('#student2age').text(data.studentage);
+												 $('#student2contact').text(data.studentcontact);
+												 $('#student2gender').text(data.studentgender);
+												 $('#student2religion').text(data.studentreligion);
+												 $('#student2address').text(data.studentaddress);
+												 $('#student2parentguard').text(data.studentparentguard);
+												 $('#student2pgcontact').text(data.studentpgcontact);
+												 $('#student2year').text(data.studentyear);
+												 $('#student2section').text(data.studentsection);
+												 $('#student2status').text(data.studentstatus); 
+							                }  
+							           });  
+							      });
+
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id");  
 							           if(confirm("Are you sure you want to delete this?"))  
@@ -151,18 +182,9 @@
 							<tr>
 								<th scope="col">Student ID</th>
 								<th scope="col">Student Name</th>
-								<th scope="col">Email</th>
-								<th scope="col">Birthday</th>
-								<th scope="col">Age</th>
-								<th scope="col">Contact</th>
-								<th scope="col">Gender</th>
-								<th scope="col">Religion</th>
-								<th scope="col">Address</th>
-								<th scope="col">Parent or Guardian</th>
-								<th scope="col">PG Contact</th>
 								<th scope="col">Year</th>
 								<th scope="col">Section</th>
-								<th scope="col">Status</th>
+								<th scope="col">Status</th>	
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -300,10 +322,77 @@
 								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
 							</div>
 							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="container-fluid">
+				<div class="modal fade" id="student2modal" tabindex="-1" role="dialog" aria-labelledby="viewstudentmodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		
+				   		<div class="modal-content">
+							<div class="modal-header">
+				        		<h1 class="modal-title" id="viewstudentmodal"><b></b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>	
+
+				      		<div class="modal-body">
+									<h6 class="potgraph">Student ID:</h6>
+									<p id="student2idname"></p>
+
+									<h6 class="potgraph">Name:</h6>
+									<p id="student2name"></p>
+
+									<h6 class="potgraph">Email:</h6>
+									<p id="student2email"></p>
+
+									<h6 class="potgraph">Birthday:</h6>
+									<p id="student2birthday"></p>
+
+									<h6 class="potgraph">Age:</h6>
+									<p id="student2age"></p>
+
+									<h6 class="potgraph">Contact:</h6>
+									<p id="student2contact"></p>
+
+									<h6 class="potgraph">Gender:</h6>
+									<p id="student2gender"></p>
+
+									<h6 class="potgraph">Religion:</h6>
+									<p id="student2religion"></p>
+									
+									<h6 class="potgraph">Address:</h6>
+									<p id="student2address"></p>
+
+									<h6 class="potgraph">Parent or Guardian:</h6>
+									<p id="student2parentguard"></p>
+
+									<h6 class="potgraph">P/G Contact:</h6>
+									<p id="student2pgcontact"></p>
+
+									<h6 class="potgraph">Year:</h6>
+									<p id="student2year"></p>
+
+									<h6 class="potgraph">Section:</h6>
+									<p id="student2section"></p>
+
+									<h6 class="potgraph">Status:</h6>
+									<p id="student2status"></p>
+					  		</div>
+							<div class="modal-footer">
+								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
 							</div>
 						</div>
 					</div>
+
 				</div>
+			</div>
+		</div>
+		<div class="col-lg">
 		</div>
 	</div>
 </div>
