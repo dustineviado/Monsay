@@ -8,7 +8,7 @@
 						<hr class="hrline" />
 						<ul>
 
-							<li><a href="Adminprof/preenrolindex">Pre-Enrollee</a></li>
+							<li><a href="New_enrol_controller/fetch_user">Pre-Enrollee</a></li>
 							<li><a href="Adminctrl">Students</a></li>
 								
 						</ul>

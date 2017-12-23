@@ -26,7 +26,7 @@
 			  <div class="col-md-10 regbord">
 				  <div class="container">
 					
-					<?=form_open('Adminprof/save')?>
+					<?=form_open('New_enrol_controller/newStudAction')?>
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="fname" class="col-form-label">First Name</label>
