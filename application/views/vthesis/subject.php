@@ -1,9 +1,10 @@
-<br/>
 <div class="container-fluid allfont">
 	<div class="row">
 		<div class="col-lg-1">
 		</div>
 		<div class="col-lg-10">
+			<br>
+				<br>
 				<div class="container">
 					<h1 class="subjectfont">Subjects</h1>
 					<script type="text/javascript">
@@ -12,6 +13,7 @@
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
 							           $('.modal-title').text("Add Subject");  
+							  
 							           $('#subjecthid').val("Add");   
 							      });    
 
@@ -163,22 +165,7 @@
 										</div>
 										<div class="col-md">
 											<label for="subjectlevel" class="col-form-label formmodalfont">Level</label>
-											<select id="subjectlevel" name="subjectlevel" class="form-control">
-											    <option value="Kinder">Kinder</option>
-											    <option value="Preparatory">Preparatory</option>
-											    <option value="Grade 1">Grade 1</option>
-											    <option value="Grade 2">Grade 2</option>
-											    <option value="Grade 3">Grade 3</option>
-											    <option value="Grade 4">Grade 4</option>
-											    <option value="Grade 5">Grade 5</option>
-											    <option value="Grade 6">Grade 6</option>
-											    <option value="Grade 7">Grade 7</option>
-											    <option value="Grade 8">Grade 8</option>
-											    <option value="Grade 9">Grade 9</option>
-											    <option value="Grade 10">Grade 10</option>
-											    <option value="Grade 11">Grade 11</option>
-											    <option value="Grade 12">Grade 12</option>
-										    </select>
+											<input id="subjectlevel" name="subjectlevel" type="text" class="form-control" placeholder="Level">
 											<input type="hidden" name="subjecthid" id="subjecthid" value="">
 											<input type="hidden" name="hiddenid" id="hiddenid">
 										</div>
@@ -204,4 +191,3 @@
 		</div>
 	</div>
 </div>
-<br/>

@@ -26,7 +26,7 @@ class Adminprof extends CI_Controller{
 		$this->form_validation->set_rules('email','Email','required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
 		$this->form_validation->set_rules('contact','Contact','required|min_length[7]|max_length[11]');
 		$this->form_validation->set_rules('religion','Religion','required');
-		$this->form_validation->set_rules('birthday','Birthday','required');
+		$this->form_validation>set_rules('birthday','Birthday','required');
 		$this->form_validation->set_rules('age','Age','required');
 		$this->form_validation->set_rules('gender','Gender','required');
 		$this->form_validation->set_rules('address','Address','required');

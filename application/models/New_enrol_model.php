@@ -1,29 +1,38 @@
 <?php
-class Pre_enrol_model extends CI_Model{
-		
-		public function gettbl(){
-			$query = $this->db->get('pre_registration');
-				if($query->num_rows()>0){
-					return $query->result();
-				}
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-	}
-		public function newStud($data){
-			return $this->db->insert('pre_registration', $data);
+class New_enrol_model extends CI_Model {
+		
+		function __construct(){
+			parent::__construct();
 		}
-		function deleteEnrollee($sid){	
+
+		function addstudent($data){
+			$this->db->insert('pre_registration',$data);
+		}
+
+		function deleteEnrollee($sid){
 	        $this->db->where('ctrl_num', $sid);
 	        $this->db->delete('pre_registration');
 		}
-		function enrolleeInfo($sid){
+
+		function editEnrollee1($sid){
 			 $this->db->where('ctrl_num', $sid);  
           	 $query=$this->db->get('pre_registration');  
            	return $query->result();
-           	}
-          var $table = "pre_registration";  
-	      var $select_column = array("ctrl_num", "fname", "email", "birthday", "age", "contact", "gender", "religion", "address", "parent_guard", "pgcontact", "status");  
-	      var $order_column = array("ctrl_num", "fname", "email", "birthday", "age", "contact", "gender", "religion", "address", "parent_guard", "pgcontact", "status", null);
-           	function make_query()  
+		}
+
+		function editEnrollee2($data){
+			$hiddenid = $this->input->post('hidid');
+			$this->db->where('ctrl_num', $hiddenid);
+			$this->db->update('pre_registration', $data);
+		}
+
+		  var $table = "pre_registration";  
+	      var $select_column = array("ctrl_num", "fname", "contact", "status");  
+	      var $order_column = array("ctrl_num", "fname", "contact", "status", null);  
+	      
+	      function make_query()  
 	      {  
 	           $this->db->select($this->select_column);  
 	           $this->db->from($this->table);  
@@ -31,15 +40,7 @@ class Pre_enrol_model extends CI_Model{
 	           {  
 	                $this->db->like("ctrl_num", $_POST["search"]["value"], 'after');  
 	                $this->db->or_like("fname", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("email", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("birthday", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("age", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("contact", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("gender", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("religion", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("address", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("parent_guard", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("pgcontact", $_POST["search"]["value"], 'after');
+	                $this->db->or_like("contact", $_POST["search"]["value"], 'after');     
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
 	                   
 	           }  
@@ -51,8 +52,8 @@ class Pre_enrol_model extends CI_Model{
 	           {  
 	                $this->db->order_by('ctrl_num', 'ASC');  
 	           }  
-		}
-		 function make_datatables(){  
+	      }  
+	      function make_datatables(){  
 	           $this->make_query();  
 	           if($_POST["length"] != -1)  
 	           {  
@@ -73,4 +74,5 @@ class Pre_enrol_model extends CI_Model{
 	           return $this->db->count_all_results();  
 	      }  
 }
-?>
+/* End of file subject_model.php */
+/* Location: ./application/models/subject_model.php */
