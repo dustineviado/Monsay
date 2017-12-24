@@ -12,12 +12,11 @@
 
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Student");  
-							  
+							           $('.modal-title').text("Add Student");
 							           $('#newstudhid').val("Add");   
 							      });    
 
-							      var dataTable = $('newstudtable').dataTable({  
+							      var dataTable = $('#newstudtable').DataTable({  
 							           "processing":true,  
 							           "serverSide":true,
 							           "scrollY": '500px',  
@@ -57,7 +56,7 @@
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'New_enrol_controller/newStudAction'; ?>",  
 							                     data:{
-							                 		id:ctrl_num
+							                 		id:ctrl_num,
 							                     	name:fname,
 							                     	email:email,
 							                     	cont:contact,

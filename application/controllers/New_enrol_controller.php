@@ -36,7 +36,7 @@ class New_enrol_controller extends CI_Controller {
 	                     'address'=>$this->input->post('addr'),
 	                     'parent_guard'=>$this->input->post('pguard'),
 	                     'pgcontact'=>$this->input->post('pgcont'),  
-	                	 'status'=>'Pending');
+	                	 'status'=>"Pending");
 	               	
 	                $this->mdl->addstudent($insert_data);
 	                echo 'Subject Added';
@@ -90,8 +90,7 @@ class New_enrol_controller extends CI_Controller {
            echo json_encode($output);  
       }
 
-       function fetch_single_user()  
-	      {  
+       function fetch_single_user(){  
 	           $output = array();  
 	           $data = $this->mdl->editEnrollee1($_POST["sid"]);  
 	           foreach($data as $row)  
@@ -109,7 +108,8 @@ class New_enrol_controller extends CI_Controller {
 	           }  
 	           echo json_encode($output);  
 	      }    
- }  
+ }
+
 
 /* End of file  New_enrol_controller.php */
 /* Location: ./application/controllers/ New_enrol_controller.php */
