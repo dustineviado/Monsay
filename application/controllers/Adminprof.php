@@ -10,14 +10,7 @@ class Adminprof extends CI_Controller{
 		$this->load->view('templates/footer', $data);
 
 	}
-	public function preenrolindex(){ 
-		$data ['title']= "Pre Enrollee";
-		$this->load->view('templates/header', $data);
-		$this->load->model('Pre_enrol_model');
-		$prestud = $this->Pre_enrol_model->gettbl();
-		$this->load->view('vthesis/Preenrolview',['prestud'=>$prestud]);
-		$this->load->view('templates/footer', $data);
-	}
+
 	public function save(){
 
 		$this->form_validation->set_rules('fname','First Name','required');
