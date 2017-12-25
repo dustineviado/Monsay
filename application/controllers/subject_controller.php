@@ -77,7 +77,7 @@ class subject_controller extends CI_Controller {
            echo json_encode($output);  
       }
 
-       function fetch_single_user()  
+  	     function fetch_single_user()  
 	      {  
 	           $output = array();  
 	           $data = $this->mdl->subjectedit1($_POST["sid"]);  
