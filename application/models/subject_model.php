@@ -8,7 +8,6 @@ class subject_model extends CI_Model {
 		}
 
 		function addsubject($data){
-
 			$this->db->insert('subject',$data);
 		}
 
@@ -50,7 +49,7 @@ class subject_model extends CI_Model {
 	           }  
 	           else  
 	           {  
-	                $this->db->order_by('subid', 'DESC');  
+	                $this->db->order_by('subid', 'ASC');  
 	           }  
 	      }  
 	      function make_datatables(){  

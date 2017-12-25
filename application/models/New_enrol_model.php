@@ -1,36 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class student_model extends CI_Model {
+class New_enrol_model extends CI_Model {
 		
 		function __construct(){
 			parent::__construct();
 		}
 
 		function addstudent($data){
-			$this->db->insert('student',$data);
+			$this->db->insert('pre_registration',$data);
 		}
 
-		function studentdelete($sid){
-	        $this->db->where('id_num', $sid);
-	        $this->db->delete('student');
+		function deleteEnrollee($sid){
+	        $this->db->where('ctrl_num', $sid);
+	        $this->db->delete('pre_registration');
 		}
 
-		function studentedit1($sid){
-			 $this->db->where('id_num', $sid);  
-          	 $query=$this->db->get('student');  
+		function editEnrollee1($sid){
+			 $this->db->where('ctrl_num', $sid);  
+          	 $query=$this->db->get('pre_registration');  
            	return $query->result();
 		}
 
-		function studentedit2($data){
+		function editEnrollee2($data){
 			$hiddenid = $this->input->post('hidid');
-			$this->db->where('id_num', $hiddenid);
-			$this->db->update('student', $data);
+			$this->db->where('ctrl_num', $hiddenid);
+			$this->db->update('pre_registration', $data);
 		}
 
-		  var $table = "student";  
-	      var $select_column = array("id_num", "studname", "year", "section", "status");  
-	      var $order_column = array("id_num", "studname",  "year", "section", "status", null);  
+		  var $table = "pre_registration";  
+	      var $select_column = array("ctrl_num", "fname", "contact", "status");  
+	      var $order_column = array("ctrl_num", "fname", "contact", "status", null);  
 	      
 	      function make_query()  
 	      {  
@@ -38,10 +38,9 @@ class student_model extends CI_Model {
 	           $this->db->from($this->table);  
 	           if(isset($_POST["search"]["value"]))  
 	           {  
-	                $this->db->like("id_num", $_POST["search"]["value"], 'after');  
-	                $this->db->or_like("studname", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("year", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("section", $_POST["search"]["value"], 'after');
+	                $this->db->like("ctrl_num", $_POST["search"]["value"], 'after');  
+	                $this->db->or_like("fname", $_POST["search"]["value"], 'after');
+	                $this->db->or_like("contact", $_POST["search"]["value"], 'after');     
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
 	                   
 	           }  
@@ -51,7 +50,7 @@ class student_model extends CI_Model {
 	           }  
 	           else  
 	           {  
-	                $this->db->order_by('id_num', 'ASC');  
+	                $this->db->order_by('ctrl_num', 'ASC');  
 	           }  
 	      }  
 	      function make_datatables(){  

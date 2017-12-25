@@ -85,19 +85,10 @@ class student_controller extends CI_Controller {
                 $sub_array = array();  
                 $sub_array[] = $row->id_num;
                 $sub_array[] = $row->studname;
-                $sub_array[] = $row->email;
-                $sub_array[] = $row->birthday;
-                $sub_array[] = $row->age;
-                $sub_array[] = $row->contact;
-                $sub_array[] = $row->gender;
-                $sub_array[] = $row->religion;
-                $sub_array[] = $row->address;
-                $sub_array[] = $row->parent_guard;
-                $sub_array[] = $row->pgcontact;
                 $sub_array[] = $row->year;
                 $sub_array[] = $row->section;
                 $sub_array[] = $row->status;   
-                $sub_array[] = '<button type="button" name="delete" id="'.$row->id_num.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->id_num.'" class="btn addsecbtn3 btn-xs edit">Edit</button>';
+                $sub_array[] = '<button type="button" name="delete" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs edit">Edit</button> <button type="button" name="view" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs view">View</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   
