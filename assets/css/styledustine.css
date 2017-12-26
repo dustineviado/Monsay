@@ -455,3 +455,27 @@
 		}
 	/* end of student*/
 
+	/* start of schedule*/
+		.schedulefont{
+			font-weight: bold;
+			font-size:50px;
+		}
+
+		.insertbutton{
+			font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			font-size:19px;
+			margin: auto;
+		}
+		
+		.insertbutton:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+	/* end of schedule*/
