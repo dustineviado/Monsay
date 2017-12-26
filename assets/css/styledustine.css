@@ -308,6 +308,7 @@
 
 		.addsubbtn3{
 			font-family:Helvetica;
+			float: left;
 			height:30px;
 			width:70px;
 			background-color:#3366ff;
