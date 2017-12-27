@@ -44,7 +44,8 @@ class student_model extends CI_Model {
 	                $this->db->or_like("section", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
 	                   
-	           }  
+	           } 
+	            
 	           if(isset($_POST["order"]))  
 	           {  
 	                $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);  

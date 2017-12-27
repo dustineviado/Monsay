@@ -478,4 +478,22 @@
 			background-color:#ffff1a;
 			color:#000000;
 		}
+
+		.removeschedbtn{
+			font-family:Helvetica;
+			height:30px;
+			width:70px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 1px 1px 1px;
+			font-size:13px;
+		}
+		
+		.removeschedbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
 	/* end of schedule*/

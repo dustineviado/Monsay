@@ -313,8 +313,8 @@
 										<div class="col-md">
 											<label for="studentstatus" class="col-form-label formmodalfont">Status</label>
 											<input id="studentstatus" name="studentstatus" class="form-control" placeholder="Status">
-											<input type="text" name="studenthid" id="studenthid" value="">
-											<input type="text" name="hiddenid" id="hiddenid">
+											<input type="hidden" name="studenthid" id="studenthid" value="">
+											<input type="hidden" name="hiddenid" id="hiddenid">
 										</div>
 									</div>   
 					  		</div>
