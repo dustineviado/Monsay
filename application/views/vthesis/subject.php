@@ -8,6 +8,8 @@
 				<div class="container">
 					<h1 class="subjectfont">Subjects</h1>
 					<script type="text/javascript">
+
+
 							$(document).ready(function(){
 
 								$('#addmodalbtn').click(function(){  
@@ -30,9 +32,15 @@
 							                {  
 							                     "targets":[4],  
 							                     "orderable":false,  
-							                },  
-							           ],  
+
+							              
+							                },
+							           ],
+
+
+							        
 							      });
+
 
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
