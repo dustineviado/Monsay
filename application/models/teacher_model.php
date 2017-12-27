@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Teacher_model extends CI_Model {
+class teacher_model extends CI_Model {
 
-	function_construc(){
+	function __construct(){
 		parent::__construct();
 	}
 
 	var $table = "teacher";
-	var $select_column_teacher = array("teacher_id, fname, mname, lname, birthday, age, gender, email, advisory, subject, address, contact, status");
-	var $order_column_teacher = array("teacher_id, fname, mname, lname, birthday, age, gender, email, advisory, subject, address, contact, status");
-	}
+	var $select_column_teacher = array("teacher_id", "fname", "mname", "lname", "birthday", "age", "gender", "email", "advisory", "subject", "address", "contact", "status");
+	var $order_column_teacher = array("teacher_id", "fname", "mname", "lname", "birthday", "age", "gender", "email", "advisory", "subject", "address", "contact", "status");
+	
 
 
 	function make_query_teacher(){
@@ -20,19 +20,19 @@ class Teacher_model extends CI_Model {
 		if(isset($_POST["search"]["value"]))
 		{
 
-			$this->db->like("teacher_id", $_POST["search"]["value"]);
-			$this->db->or_like("fname", $_POST["search"]["value"]);
-			$this->db->or_like("mname", $_POST["search"]["value"]);
-			$this->db->or_like("lname", $_POST["search"]["value"]);
-			$this->db->or_like("birthday", $_POST["search"]["value"]);
-			$this->db->or_like("age", $_POST["search"]["value"]);
-			$this->db->or_like("gender", $_POST["search"]["value"]);
-			$this->db->or_like("email", $_POST["search"]["value"]);
-			$this->db->or_like("advisory", $_POST["search"]["value"]);
-			$this->db->or_like("subject", $_POST["search"]["value"]);
-			$this->db->or_like("address", $_POST["search"]["value"]);
-			$this->db->or_like("contact", $_POST["search"]["value"]);
-			$this->db->or_like("status", $_POST["search"]["value"]);
+			$this->db->like("teacher_id", $_POST["search"]["value"], 'after');
+			$this->db->or_like("fname", $_POST["search"]["value"], 'after');
+			$this->db->or_like("mname", $_POST["search"]["value"], 'after');
+			$this->db->or_like("lname", $_POST["search"]["value"], 'after');
+			$this->db->or_like("birthday", $_POST["search"]["value"], 'after');
+			$this->db->or_like("age", $_POST["search"]["value"], 'after');
+			$this->db->or_like("gender", $_POST["search"]["value"], 'after');
+			$this->db->or_like("email", $_POST["search"]["value"] 'after');
+			$this->db->or_like("advisory", $_POST["search"]["value"], 'after');
+			$this->db->or_like("subject", $_POST["search"]["value"], 'after');
+			$this->db->or_like("address", $_POST["search"]["value"], 'after');
+			$this->db->or_like("contact", $_POST["search"]["value"], 'after');
+			$this->db->or_like("status", $_POST["search"]["value"], 'after');
 		}
 
 		 if(isset($_POST["order"]))  
@@ -44,6 +44,8 @@ class Teacher_model extends CI_Model {
 	                $this->db->order_by('teacher_id', 'DESC');  
 	           }  
 	      
+	      }
+
 	      function make_datatables_teacher(){  
 	           $this->make_query_teacher();  
 	           if($_POST["length"] != -1)  
