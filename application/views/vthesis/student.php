@@ -177,7 +177,7 @@
 					</div>
 					<br>
 
-					<table id="studenttable" class="table table-responsive table-striped">
+					<table id="studenttable" class="table table-striped">
 						<thead class="thead-inverse">
 							<tr>
 								<th scope="col">Student ID</th>

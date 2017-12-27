@@ -8,8 +8,6 @@
 				<div class="container">
 					<h1 class="subjectfont">Subjects</h1>
 					<script type="text/javascript">
-
-
 							$(document).ready(function(){
 
 								$('#addmodalbtn').click(function(){  
@@ -32,15 +30,9 @@
 							                {  
 							                     "targets":[4],  
 							                     "orderable":false,  
-
-							              
-							                },
-							           ],
-
-
-							        
+							                },  
+							           ],  
 							      });
-
 
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
@@ -128,7 +120,7 @@
 					</div>
 					<br>
 
-					<table id="lamesa234" class="table table-responsive table-striped">
+					<table id="lamesa234" class="table table-striped">
 						<thead class="thead-inverse">
 							<tr>
 								<th scope="col">Subject ID</th>
