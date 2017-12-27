@@ -39,12 +39,24 @@ class subject_model extends CI_Model {
 	           $search = $_POST["search"]["value"];  
 	           if(isset($search))  
 	           {
-	           		
 	                $this->db->like("subid", $search);  
 	                $this->db->or_like("subject", $search);
 	                $this->db->or_like("faculty", $search);
-	                $this->db->or_like("year_level", $search);   
-	           }  
+	                $this->db->or_like("year_level", $search); 
+	           }
+
+	           /*$key_array = explode("|",$search);
+		       
+	           if(isset($search))  
+	           {	
+	           		foreach($key_array as $kw){
+		                $this->db->like("subid", $kw);  
+		                $this->db->or_like("subject", $kw);
+		                $this->db->or_like("faculty", $kw);
+		                $this->db->or_like("year_level", $kw);
+	                }   
+	           }*/
+
 	           if(isset($_POST["order"]))  
 	           {  
 	                $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);  
