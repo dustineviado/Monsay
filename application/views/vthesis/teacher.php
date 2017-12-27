@@ -22,7 +22,6 @@
 
 
 <script type="text/javascript" language="javascript">
-
  var dataTable = $('#Ttable').dataTable({  
 							           "processing":true,  
 							           "serverSide":true,
