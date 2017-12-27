@@ -35,13 +35,14 @@ class subject_model extends CI_Model {
 	      function make_query()  
 	      {  
 	           $this->db->select($this->select_column);  
-	           $this->db->from($this->table);  
-	           if(isset($_POST["search"]["value"]))  
-	           {  
-	                $this->db->like("subid", $_POST["search"]["value"]);  
-	                $this->db->or_like("subject", $_POST["search"]["value"]);
-	                $this->db->or_like("faculty", $_POST["search"]["value"]);
-	                $this->db->or_like("year_level", $_POST["search"]["value"]);   
+	           $this->db->from($this->table);
+	           $search = $_POST["search"]["value"];  
+	           if(isset($search))  
+	           {
+	                $this->db->like("subid", $search);  
+	                $this->db->or_like("subject", $search);
+	                $this->db->or_like("faculty", $search);
+	                $this->db->or_like("year_level", $search);   
 	           }  
 	           if(isset($_POST["order"]))  
 	           {  
