@@ -1,31 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class teacher_controller extends CI_Controller {
-
 	public function __construct(){
        
         parent::__construct();
         $this->load->model('teacher_model','mdl');
         $this->load->helper('url_helper');
-
     }
-
 	public function index()
 	{
-
 		$data['title'] = "Teacher | Ramon Magsaysay High School";
 		$this->load->view('templates/header', $data);
 		$this->load->view('vthesis/teacher', $data);
 		$this->load->view('templates/footer', $data);
 		
     }
-
-
-
-
 	function fetch_user_teacher(){
-
 		$this->load->model("teacher_model");
 		$fetch_data_teacher = $this->mdl->make_datatables_teacher();
 		$data = array();
@@ -46,28 +36,13 @@ class teacher_controller extends CI_Controller {
 			$sub_array[] =$lalagyan->contact;
 			$sub_array[] =$lalagyan->status;
 			$data[] = $sub_array;
-
 		}
-
-
 		$output = array(
-
 		"recordsTotal"          =>      $this->teacher_model->get_all_data(),  
                 "recordsFiltered"     =>     $this->teacher_model->get_filtered_data(),  
                 "data"                    =>     $data  
            );  
-
 			echo json_encode($output);
-
 		
-
-
 	}
-
-
 }
-
-
-
-/* End of file teacher_controller.php */
-/* Location: ./application/controllers/teacher_controller.php */
