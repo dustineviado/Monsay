@@ -39,6 +39,7 @@ class subject_model extends CI_Model {
 	           $search = $_POST["search"]["value"];  
 	           if(isset($search))  
 	           {
+	           		
 	                $this->db->like("subid", $search);  
 	                $this->db->or_like("subject", $search);
 	                $this->db->or_like("faculty", $search);
