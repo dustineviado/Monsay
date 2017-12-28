@@ -1,33 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class student_model extends CI_Model {
 		
 		function __construct(){
 			parent::__construct();
 		}
-
 		function addstudent($data){
 			$this->db->insert('student',$data);
 		}
-
 		function studentdelete($sid){
 	        $this->db->where('id_num', $sid);
 	        $this->db->delete('student');
 		}
-
 		function studentedit1($sid){
 			 $this->db->where('id_num', $sid);  
           	 $query=$this->db->get('student');  
            	return $query->result();
 		}
-
 		function studentedit2($data){
 			$hiddenid = $this->input->post('hidid');
 			$this->db->where('id_num', $hiddenid);
 			$this->db->update('student', $data);
 		}
-
 		  var $table = "student";  
 	      var $select_column = array("id_num", "studname", "year", "section", "status");  
 	      var $order_column = array("id_num", "studname",  "year", "section", "status", null);  
@@ -76,5 +70,3 @@ class student_model extends CI_Model {
 	           return $this->db->count_all_results();  
 	      }  
 }
-/* End of file subject_model.php */
-/* Location: ./application/models/subject_model.php */

@@ -1,26 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class student_controller extends CI_Controller {
-
 	public function __construct(){
        
         parent::__construct();
         $this->load->model('student_model','mdl');
         $this->load->helper('url_helper');
-
     }
-
 	public function index(){
-
 		$data['title'] = "Students | Ramon Magsaysay High School";
-
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/student',$data);
 		$this->load->view('templates/footer',$data);
-
 	}
-
 	public function studentaction(){
 			$hidden = $this->input->post('hidden');
 	 		
@@ -69,13 +61,11 @@ class student_controller extends CI_Controller {
 	           		echo 'Error';
 	           }
       	}
-
 	public function deletestudent(){
 		       $this->load->model("student_model");  
 	           $this->student_model->studentdelete($_POST["sid"]);  
 	           echo 'student Deleted';
 	}
-
 	function fetch_user(){  
            $this->load->model("student_model");  
            $fetch_data = $this->student_model->make_datatables();  
@@ -98,7 +88,6 @@ class student_controller extends CI_Controller {
            );  
            echo json_encode($output);  
       }
-
        function fetch_single_user()  
 	      {  
 	           $output = array();  
@@ -122,7 +111,5 @@ class student_controller extends CI_Controller {
 	           }  
 	           echo json_encode($output);  
 	      }    
- }  
-
-/* End of file  subject_controller.php */
-/* Location: ./application/controllers/ subject_controller.php */
+ }
+   

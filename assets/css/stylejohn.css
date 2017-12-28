@@ -214,11 +214,11 @@
 	max-height: 700px;
 	float: center;
 	margin-top: 30px;	
-
-/* end of hymn */
-
 }
-
+.controlhymn{
+	cursor: pointer;
+}
+/* end of hymn */
 
 /* start of grade school */
 * {
@@ -385,3 +385,45 @@ img.hover-shadow {
 	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.6);
 }
+
+.teacherfont{
+	font-weight: bold;
+	font-size: 50px;	
+}
+
+.addteacherbtn{
+font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 0px 10px 15px;
+			font-size:19px;
+}
+
+.addteacherbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+
+.gobtn{
+	font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 0px 10px 15px;
+			font-size:19px;
+}
+.gobtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+
+		}
