@@ -8,13 +8,11 @@
 					<h1 class="studentfont">Students</h1>
 					<script type="text/javascript">
 							$(document).ready(function(){
-
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
 							           $('.modal-title').text("Add Student");  
 							           $('#studenthid').val("Add");   
 							      });    
-
 							      var dataTable = $('#studenttable').DataTable({  
 							           "processing":true,  
 							           "serverSide":true,
@@ -31,7 +29,6 @@
 							                },  
 							           ],  
 							      });
-
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
 							           var studid = $('#studentidname').val();  
@@ -87,7 +84,6 @@
 							                alert("All Fields are Required"); 
 							           }  
 							      });
-
 							      $(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
 							           $.ajax({  
@@ -119,7 +115,6 @@
 							                }  
 							           });  
 							      });  
-
 								$(document).on('click','.view', function(){  
 							           var sid = $(this).attr("id");  
 							           $.ajax({  
@@ -148,7 +143,6 @@
 							                }  
 							           });  
 							      });
-
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id");  
 							           if(confirm("Are you sure you want to delete this?"))  
