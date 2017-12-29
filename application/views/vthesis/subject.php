@@ -123,11 +123,11 @@
 					<table id="lamesa234" class="table table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th scope="col">Subject ID</th>
-								<th scope="col">Subject Name</th>
-								<th scope="col">Faculty</th>
-								<th scope="col">Level</th>
-								<th scope="col">Action</th>
+								<th>Subject ID</th>
+								<th>Subject Name</th>
+								<th>Faculty</th>
+								<th>Level</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 					</table>

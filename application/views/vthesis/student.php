@@ -174,12 +174,12 @@
 					<table id="studenttable" class="table table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th scope="col">Student ID</th>
-								<th scope="col">Student Name</th>
-								<th scope="col">Year</th>
-								<th scope="col">Section</th>
-								<th scope="col">Status</th>	
-								<th scope="col">Action</th>
+								<th>Student ID</th>
+								<th>Student Name</th>
+								<th>Year</th>
+								<th>Section</th>
+								<th>Status</th>	
+								<th>Action</th>
 							</tr>
 						</thead>
 					</table>
@@ -378,7 +378,6 @@
 									<p id="student2status"></p>
 					  		</div>
 							<div class="modal-footer">
-								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
 							</div>
 						</div>
 					</div>

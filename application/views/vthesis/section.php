@@ -115,13 +115,13 @@
 					</div>
 					<br>
 
-					<table id="sectiontable" class="table table-responsive table-striped">
+					<table id="sectiontable" class="table table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th scope="col">Section ID</th>
-								<th scope="col">Section Name</th>
-								<th scope="col">Level</th>
-								<th scope="col">Action</th>
+								<th>Section ID</th>
+								<th>Section Name</th>
+								<th>Level</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 					</table>
