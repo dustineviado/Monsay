@@ -60,7 +60,7 @@ class New_enrol_controller extends CI_Controller {
 			$this->load->view('templates/footer');
 			}	
 		}
-		
+			
 
 	public function newStudAction(){
 			$hidden = $this->input->post('hidden');

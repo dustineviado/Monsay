@@ -10,6 +10,19 @@ class New_enrol_model extends CI_Model {
 		function addstudent($data){
 			$this->db->insert('pre_registration',$data);
 		}
+		function is_email_available($studemail)
+		{
+			$this->db->where('email', $studemail);
+			$query = $this->db-get('pre_registration');
+			if($query->num_rows() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 		function deleteEnrollee($sid){
 	        $this->db->where('ctrl_num', $sid);

@@ -3,9 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class register_page_controller extends CI_Controller {
 
-	function __construct(){
-			parent::__construct();
-	}
+	public function __construct(){
+       
+        parent::__construct();
+        $this->load->model('New_enrol_model','mdl');
+        $this->load->helper('url_helper');
+
+    }
 
 	public function index()
 	{
@@ -15,42 +19,68 @@ class register_page_controller extends CI_Controller {
 		$this->load->view('vthesis/register_page',$data);
 		$this->load->view('templates/footer',$data);
 	}	
+	public function save(){
+		
+		$this->form_validation->set_rules('fullname','Name','trim|required');
+		$this->form_validation->set_rules('studemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
+		$this->form_validation->set_rules('studcontact','Contact','trim|required|min_length[7]|max_length[11]');
+		$this->form_validation->set_rules('studreligion','Religion','trim|required');
+		$this->form_validation->set_rules('studbirthday','Birthday','trim|required');
+		$this->form_validation->set_rules('studage','Age','trim|required');
+		$this->form_validation->set_rules('studgender','Gender','trim|required');
+		$this->form_validation->set_rules('studaddress','Address','trim|required');
+		$this->form_validation->set_rules('studparent_guard','Parent/Guardian','trim|required');
+		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|min_length[7]|max_length[11]');
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+		if($this->form_validation->run()){
+			 
+			 $data = array(
+		'fname'=>$this->input->post('fullname'),
+		'email'=>$this->input->post('studemail'),
+		'contact'=>$this->input->post('studcontact'),
+		'religion'=>$this->input->post('studreligion'),
+		'birthday'=>$this->input->post('studbirthday'),
+		'age'=>$this->input->post('studage'),
+		'birthday'=>$this->input->post('studbirthday'),
+		'gender'=>$this->input->post('studgender'),
+		'address'=>$this->input->post('studaddress'),
+		'parent_guard'=>$this->input->post('studparent_guard'),
+		'pgcontact'=>$this->input->post('studpgcontact'),
+		'status'=>'Pending',);  
+		$this->load->model('New_enrol_model');
+		$this->New_enrol_model->addstudent($data);
+		redirect('main_body_controller','refresh');
+			
+		}
+		else{
+			$data['title'] = "Register";
+			$this->load->view('templates/header', $data);
+			$this->load->view('vthesis/register_page');
+			$this->load->view('templates/footer');
+			}	
+		}
 
-	public function reg(){
-		$regarr = array(
-			'name' => $this->input->post('name1'),
-			'email' => $this->input->post('email1'),
-			'contact' => $this->input->post('contact1'),
-			'date' => $this->input->post('date1'),
-			'age' => $this->input->post('age1'),
-			'sex' => $this->input->post('sex1'),
-			'religion' => $this->input->post('religion1'),
-			'address' => $this->input->post('address1'),
-			'mname' => $this->input->post('mname1'),
-			'fname' => $this->input->post('fname1'),
-			'gname' => $this->input->post('gname1'),
-			'pcontact' => $this->input->post('pcontact1')
-			);
+	function email_availability(){
+		$data['title'] = "Register";
 
-		$this->load->library('session');
-
-		$this->session->set_userdata('name',$regarr['name']);
-		$this->session->set_userdata('email',$regarr['email']);
-		$this->session->set_userdata('contact',$regarr['contact']);
-		$this->session->set_userdata('date',$regarr['date']);
-		$this->session->set_userdata('age',$regarr['age']);
-		$this->session->set_userdata('sex',$regarr['sex']);
-		$this->session->set_userdata('religion',$regarr['religion']);
-		$this->session->set_userdata('address',$regarr['address']);
-		$this->session->set_userdata('mname',$regarr['mname']);
-		$this->session->set_userdata('fname',$regarr['fname']);
-		$this->session->set_userdata('gname',$regarr['gname']);
-		$this->session->set_userdata('pcontact',$regarr['pcontact']);
-
-
-
-		redirect('register_page_print_controller','refresh');
+		$this->load->view('register_page', $data);
 	}
-}
-	
-?>
+	function check_email_availability(){
+		if(!filter_val($_POST['studemail'], FILTER_VALIDATE_EMAIL))
+		{
+			echo '<label class="text-danger"><span class="glyphicon glyphicon-remove></span> Invalid Email</span></label>';
+		}
+		else
+		{
+			$this->load->model('New_enrol_model_enrol');
+			if($this->New_enrol_model->is_email_available($_POST["studemail"]))
+			{
+				echo '<label class="text-danger"><span class="glyphicon glyphicon-remove></span>Email Already Exist</span></label>';
+			}
+			else
+			{
+				echo '<label class="text-danger"><span class="glyphicon glyphicon-ok></span>Email Available</span></label>';
+			}
+		}
+	}
+}	
