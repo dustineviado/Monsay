@@ -1,9 +1,4 @@
-<script>
-  function register(){
-    return alert("Registration Successful!");
 
-  }
-</script>
 <body>
 	<br/>
 		<div class="container-fluid">
@@ -25,25 +20,14 @@
 			  </div>
 			  <div class="col-md-10 regbord">
 				  <div class="container">
+				  	<div id="the-message"></div>
 					
-					<?=form_open('New_enrol_controller/newStudAction')?>
+					<?php echo form_open("New_enrol_controller/save", array("id" => "form-baby", "class" => "form-horizontal")) ?>
 						<div class="row form-group">
 							<div class="col-md">
-								<label for="fname" class="col-form-label">First Name</label>
-								<?php echo form_input(['name'=>'fname','placeholder'=>'First Name', 'class'=>'form-control']);?>
-								<?php echo form_error('fname','<div class="text-danger">','</div>'); ?>
-								
-							</div>
-							<div class="col-md">
-								<label for="mname" class="col-form-label">Middle Name</label>
-								<?php echo form_input(['name'=>'mname','placeholder'=>'Middle Name', 'class'=>'form-control']);?>
-								<?php echo form_error('mname','<div class="text-danger">','</div>'); ?>
-								
-							</div>
-							<div class="col-md">
-								<label for="lname" class="col-form-label">Last Name</label>
-								<?php echo form_input(['name'=>'lname','placeholder'=>'Last Name', 'class'=>'form-control']);?>
-								<?php echo form_error('lname','<div class="text-danger">','</div>'); ?>
+								<label for="fullname" class="col-form-label">Name</label>
+								<input id="fullname" name="fullname" type="text" class="form-control">
+								<?php echo form_error('fullname', '<div class="text-danger">','</div>');?>
 								
 							</div>
 						
@@ -51,70 +35,73 @@
 						
 						<div class="row form-group">
 							<div class="col-md">
-								<label for="mail" class="col-form-label">Email</label>
-								<?php echo form_input(['name'=>'email','placeholder'=>'Email', 'class'=>'form-control']);?>
-								<?php echo form_error('email','<div class="text-danger">','</div>'); ?>
+								<label for="studemail" class="col-form-label">Email</label>
+								<input id="studemail" name="studemail" type="text" class="form-control">
+								<?php echo form_error('studemail', '<div class="text-danger">','</div>');?>
 							</div>
 							<div class="col-md">
-								<label for="contact" class="col-form-label">Contact</label>
-								<?php echo form_input(['name'=>'contact','placeholder'=>'Contact', 'class'=>'form-control']);?>
-								<?php echo form_error('contact','<div class="text-danger">','</div>'); ?>
+								<label for="studcontact" class="col-form-label">Contact</label>
+								<input id="studcontact" name="studcontact" type="text" class="form-control">
+								<?php echo form_error('studcontact', '<div class="text-danger">','</div>');?>
 							</div>
 							<div class="col-md-5">
-								<label for="birthdate" class="col-form-label">Religion</label>
-								<?php echo form_input(['name'=>'religion','placeholder'=>'Religion','class'=>'form-control']);?>
-								<?php echo form_error('religion','<div class="text-danger">','</div>'); ?>
+								<label for="studreligion" class="col-form-label formmodalfont">Religion</label>
+								<input list ="studreligion" name="studreligion" class="form-control">
+								<datalist id ="studreligion">
+									<option value="Roman Catholic">Roman Catholic</option>
+									<option value="Born Again">Born Again</option>
+									<option value="Iglesia ni Cristo">Iglesia Ni Cristo</option>
+									<option value="Muslim">Muslim</option>
+								</datalist>
+								<?php echo form_error('studreligion', '<div class="text-danger">','</div>');?>
 							</div>
 						</div>
 
 						
 						<div class="row form-group">
 							<div class="col-md-5">
-								<label for="birthdate" class="col-form-label">Date of Birth</label>
-								<?php echo form_input(['name'=>'birthday','placeholder'=>'Date of Birth','type'=>'date','class'=>'form-control']);?>
-								<?php echo form_error('birthday','<div class="text-danger">','</div>'); ?>
+								<label for="studbirthday" class="col-form-label">Date of Birth</label>
+								<input id="studbirthday" name="studbirthday" type="date" class="form-control">
+								<?php echo form_error('studbirthday', '<div class="text-danger">','</div>');?>
 							</div>
 							<div class="col-md">	
-								<label for="age" class="col-form-label">Age</label>
-								<?php echo form_input(['name'=>'age','placeholder'=>'Age','type'=>'number','class'=>'form-control']);?>
-								<?php echo form_error('age','<div class="text-danger">','</div>'); ?>
+								<label for="studage" class="col-form-label">Age</label>
+								<input id="studage" name="studage" type="text" class="form-control">	
+								<?php echo form_error('studage', '<div class="text-danger">','</div>');?>						
 							</div>
 							<div class="col-md">
-								<label for="gender" class="col-form-label">Sex</label>
-								<?php  
-									$options = array(
-										"Male"=>"Male",
-										"Female"=>"Female"
-										);
-								?>
-								<?php echo form_dropdown('gender', $options, set_value('gender'), array("class"=>"form-control","id"=>"gender"));?>
+								<label for="studgender" class="col-form-label formmodalfont">Sex</label>
+								<select id="studgender" name="studgender" class="form-control" placeholder="Sex">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+								<?php echo form_error('studgender', '<div class="text-danger">','</div>');?>
 							</div>
-							
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md">
-								<label for="address" class="col-form-label">Address</label>
-								<?php echo form_input(['name'=>'address','placeholder'=>'Adress', 'class'=>'form-control']);?>
-								<?php echo form_error('address','<div class="text-danger">','</div>'); ?>
+								<label for="studaddress" class="col-form-label">Address</label>
+								<input id="studaddress" name="studaddress" type="text" class="form-control">
+								<?php echo form_error('studaddress', '<div class="text-danger">','</div>');?>
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md">
-								<label for="parent_guard" class="col-form-label">Parent/Guardian</label>
-								<?php echo form_input(['name'=>'parent_guard','placeholder'=>'Name of Guardian', 'class'=>'form-control']);?>
-								<?php echo form_error('parent_guard','<div class="text-danger">','</div>'); ?>
+								<label for="studparent_guard" class="col-form-label">Parent/Guardian Name</label>
+								<input id="studparent_guard" name="studparent_guard" type="text" class="form-control">
+								<?php echo form_error('studparent_guard', '<div class="text-danger">','</div>');?>
 							</div>
 							<div class="col-md">
-								<label for="pgcontact" class="col-form-label">Parent/Guardian Contact</label>
-								<?php echo form_input(['name'=>'pgcontact','placeholder'=>'Contact', 'class'=>'form-control']);?>
-								<?php echo form_error('pgcontact','<div class="text-danger">','</div>'); ?>
+								<label for="studpgcontact" class="col-form-label">Parent/Guardian Contact</label>
+								<input id="studpgcontact" name="studpgcontact" type="text" class="form-control">
+								<?php echo form_error('studpgcontact', '<div class="text-danger">','</div>');?>
 							</div>
 						</div>
 						<br />
 						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
-								<button type="submit" class="btn subbtn" onclick="return register()">Proceed</button>
+								<button type="submit" class="btn subbtn">Proceed</button>
 								<?php echo anchor('main_body_controller','Cancel',['class'=>'btn btn-danger']);?>
 							</div>
 						</div>
