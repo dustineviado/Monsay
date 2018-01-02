@@ -377,8 +377,12 @@
 									<h6 class="potgraph">Status:</h6>
 									<p id="student2status"></p>
 					  		</div>
+<<<<<<< Updated upstream
 							<div class="modal-footer">
 							</div>
+=======
+							
+>>>>>>> Stashed changes
 						</div>
 					</div>
 
