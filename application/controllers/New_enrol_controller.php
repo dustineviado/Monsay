@@ -20,39 +20,63 @@ class New_enrol_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 
 	}
+		public function save(){
+		
+		$this->form_validation->set_rules('fullname','Name','trim|required');
+		$this->form_validation->set_rules('studemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
+		$this->form_validation->set_rules('studcontact','Contact','trim|required|min_length[7]|max_length[11]');
+		$this->form_validation->set_rules('studreligion','Religion','trim|required');
+		$this->form_validation->set_rules('studbirthday','Birthday','trim|required');
+		$this->form_validation->set_rules('studage','Age','trim|required');
+		$this->form_validation->set_rules('studgender','Gender','trim|required');
+		$this->form_validation->set_rules('studaddress','Address','trim|required');
+		$this->form_validation->set_rules('studparent_guard','Parent/Guardian','trim|required');
+		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|min_length[7]|max_length[11]');
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+		if($this->form_validation->run()){
+			 
+			 $data = array(
+		'fname'=>$this->input->post('fullname'),
+		'email'=>$this->input->post('studemail'),
+		'contact'=>$this->input->post('studcontact'),
+		'religion'=>$this->input->post('studreligion'),
+		'birthday'=>$this->input->post('studbirthday'),
+		'age'=>$this->input->post('studage'),
+		'birthday'=>$this->input->post('studbirthday'),
+		'gender'=>$this->input->post('studgender'),
+		'address'=>$this->input->post('studaddress'),
+		'parent_guard'=>$this->input->post('studparent_guard'),
+		'pgcontact'=>$this->input->post('studpgcontact'),
+		'status'=>'Pending',);  
+		$this->load->model('New_enrol_model');
+		$this->New_enrol_model->addstudent($data);
+		redirect('main_body_controller','refresh');
+			
+		}
+		else{
+			$data['title'] = "Register";
+			$this->load->view('templates/header', $data);
+			$this->load->view('vthesis/register_page');
+			$this->load->view('templates/footer');
+			}	
+		}
+			
 
 	public function newStudAction(){
 			$hidden = $this->input->post('hidden');
 
-	 		if($hidden == "Add"){
-	                $insert_data = array(  
-	                     'fname'=>$this->input->post('name'),
-	                     'email'=>$this->input->post('email'),
-	                     'contact'=>$this->input->post('cont'),
-	                     'religion'=>$this->input->post('religion'),
-	                     'birthday'=>$this->input->post('bday'),
-	                     'age'=>$this->input->post('age'),
-	                     'gender'=>$this->input->post('gend'),
-	                     'address'=>$this->input->post('addr'),
-	                     'parent_guard'=>$this->input->post('pguard'),
-	                     'pgcontact'=>$this->input->post('pgcont'),  
-	                	 'status'=>"Pending");
-	               	
-	                $this->mdl->addstudent($insert_data);
-	                echo 'Subject Added';
-	           }
-	           else if($hidden == "Edit"){
+	 		if($hidden == "Edit"){
 	           		$updated_data = array(  
 	                     'fname'=>$this->input->post('name'),
 	                     'email'=>$this->input->post('email'),
 	                     'contact'=>$this->input->post('cont'),
-	                     'religion'=>$this->input->post('religion'),
+	                     'religion'=>$this->input->post('rel'),
 	                     'birthday'=>$this->input->post('bday'),
 	                     'age'=>$this->input->post('age'),
 	                     'gender'=>$this->input->post('gend'),
 	                     'address'=>$this->input->post('addr'),
 	                     'parent_guard'=>$this->input->post('pguard'),
-	                     'pgcontact'=>$this->input->post('pgcont'));  
+	                     'pgcontact'=>$this->input->post('pgcont'));
 	               	
 	                $this->mdl->editEnrollee2($updated_data);
 	                echo 'Enrollee Updated';
@@ -62,9 +86,9 @@ class New_enrol_controller extends CI_Controller {
 	           }
       	}
 
-	public function deleteEnrollee(){
+	public function removeEnrollee(){
 		       $this->load->model("New_enrol_model");  
-	           $this->New_enrol_model->deleteEnrolee($_POST["sid"]);  
+	           $this->New_enrol_model->deleteEnrollee($_POST["sid"]);  
 	           echo 'Enrollee Deleted';
 	}
 

@@ -10,11 +10,7 @@
 					<script type="text/javascript">
 							$(document).ready(function(){
 
-								$('#addmodalbtn').click(function(){  
-							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Student");
-							           $('#newstudhid').val("Add");   
-							      });    
+								
 
 							      var dataTable = $('#newstudtable').DataTable({  
 							           "processing":true,  
@@ -35,7 +31,6 @@
 
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
-							           
 							           var fname = $('#fullname').val();  
 							           var email = $('#studemail').val(); 
 							           var contact = $('#studcontact').val();
@@ -43,39 +38,36 @@
 							           var birthday = $('#studbirthday').val();
 							           var age = $('#studage').val();
 							           var gender = $('#studgender').val();
-							           var address = $('#address').val();
+							           var address = $('#studaddress').val();
 							           var parent_guard = $('#studparent_guard').val();
 							           var pgcontact = $('#studpgcontact').val();
-							           var status = $('#status').val();
 							           var newhid = $('#newstudhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(fname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '' && status != '')  
+							           if(fname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'New_enrol_controller/newStudAction'; ?>",  
 							                     data:{
-							                 		id:ctrl_num,
 							                     	name:fname,
 							                     	email:email,
 							                     	cont:contact,
-							                     	religion:religion,
+							                     	rel:religion,
 							                     	bday:birthday,
 							                     	age:age,
 							                     	gend:gender,
 							                     	addr:address,
 							                     	pguard:parent_guard,
 							                     	pgcont:pgcontact,
-							                     	stat:status,
-							                     	hidden:subjhid,
+							                     	hidden:newhid,
 							                     	hidid:hiddenid
 							                     }, 
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
 							                          $('#newstudmodal').modal('hide');  
-							                          $('newstudtable').DataTable().ajax.reload();  
+							                          $('#newstudtable').DataTable().ajax.reload();  
 							                     }  
 							                });  
 							           }  
@@ -118,13 +110,13 @@
 							           if(confirm("Are you sure you want to delete this?"))  
 							           {  
 							                $.ajax({  
-							                     url:"<?php echo base_url(); ?>New_enrol_controller/deleteEnrollee",  
+							                     url:"<?php echo base_url(); ?>New_enrol_controller/removeEnrollee",  
 							                     method:"POST",  
 							                     data:{sid:sid},  
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
-							                          $('newstudtable').DataTable().ajax.reload();  
+							                          $('#newstudtable').DataTable().ajax.reload();  
 							                     }  
 							                });  
 							           }  
@@ -136,9 +128,7 @@
 							 });
 						</script>
 					<br>
-					<div>
-						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#newstudmodal">Add Student</button>
-					</div>
+					
 					<br>
 
 					<table id="newstudtable" class="table table-responsive table-striped">
@@ -174,22 +164,22 @@
 									<div class="row form-group">
 										<div class="col-md">
 											<label for="fullname" class="col-form-label formmodalfont">Name</label>
-											<input id="fullname" name="fullname" type="text" class="form-control" placeholder="Name">
+											<input id="fullname" name="fullname" type="text" class="form-control">
 										</div>
 									</div>
 									<div class="row form-group">
 										<div class="col-md">
 											<label for="studemail" class="col-form-label formmodalfont">Email</label>
-											<input id="studemail" name="studemail" type="text" class="form-control" placeholder="Email">
+											<input id="studemail" name="studemail" type="text" class="form-control">
 										</div>
 										<div class="col-md">
 											<label for="studcontact" class="col-form-label formmodalfont">Contact</label>
-											<input id="studcontact" name="studcontact" type="text" class="form-control" placeholder="Contact">
+											<input id="studcontact" name="studcontact" type="text" class="form-control">
 										</div>
 										<div class="col-md">
 											<label for="studreligion" class="col-form-label formmodalfont">Religion</label>
-											<input list ="studreligion" name="studreligion" class="form-control" placeholder="Religion">
-											<datalist id ="studreligion">
+											<input list="religionlist" id="studreligion" name="studreligion" class="form-control">
+											<datalist id="religionlist">
 											<option value="Roman Catholic">Roman Catholic</option>
 											<option value="Born Again">Born Again</option>
 											<option value="Iglesia ni Cristo">Iglesia Ni Cristo</option>
@@ -204,11 +194,11 @@
 										</div>
 										<div class="col-md">
 											<label for="studage" class="col-form-label formmodalfont">Age</label>
-											<input id="studage" name="studage" type="text" class="form-control" placeholder="Age">
+											<input id="studage" name="studage" type="text" class="form-control">
 										</div>
 										<div class="col-md">
 											<label for="studgender" class="col-form-label formmodalfont">Sex</label>
-											<select id="studgender" name="studgender" class="form-control" placeholder="Sex">
+											<select id="studgender" name="studgender" class="form-control">
 											<option value="Male">Male</option>
 											<option value="Female">Female</option>
 											</select>
@@ -217,21 +207,22 @@
 									<div class="row form-group">
 									<div class="col-md">
 											<label for="studaddress" class="col-form-label formmodalfont">Address</label>
-											<input id="studaddress" name="studaddress" type="text" class="form-control" placeholder="Address">
+											<input id="studaddress" name="studaddress" type="text" class="form-control">
 										</div>
 									</div>
 									<div class="row form-group">
 									<div class="col-md">
 											<label for="studparent_guard" class="col-form-label formmodalfont">Parent/Guardian</label>
-											<input id="studparent_guard" name="studparent_guard" type="text" class="form-control" placeholder="Name of Guardian">
+											<input id="studparent_guard" name="studparent_guard" type="text" class="form-control">
 										</div>
 										<div class="col-md">
 											<label for="studpgcontact" class="col-form-label formmodalfont">Parent/Guardian Contact</label>
-											<input id="studpgcontact" name="studpgcontact" type="text" class="form-control" placeholder="Contact">
-											<input type="hidden" name="newstudhid" id="newstudhid" value="">
-											<input type="hidden" name="hiddenid" id="hiddenid">
+											<input id="studpgcontact" name="studpgcontact" type="text" class="form-control">
+											<input type="text" name="newstudhid" id="newstudhid" value="">
+											<input type="text" name="hiddenid" id="hiddenid">
 										</div>
-									</div> 
+									</div>
+									 
 					  		</div>
 
 							<div class="modal-footer">
