@@ -50,7 +50,7 @@
 
 
 
-	<div class="modal-body">
+							<div class="modal-body">
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="teacherid" class="col-form-label formmodalfont">Teacher ID</label>
