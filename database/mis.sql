@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2017 at 10:32 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Jan 05, 2018 at 06:29 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -228,13 +228,38 @@ INSERT INTO `register` (`name`, `email`, `contact`, `password`) VALUES
 --
 
 CREATE TABLE `schedule` (
-  `teacher` varchar(25) NOT NULL,
-  `year_level` varchar(25) NOT NULL,
-  `day` varchar(25) NOT NULL,
-  `time` time(6) NOT NULL,
-  `section` varchar(25) NOT NULL,
-  `adviser` varchar(25) NOT NULL
+  `scheid` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`scheid`) VALUES
+('SAM123'),
+('SAM231');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule_subject`
+--
+
+CREATE TABLE `schedule_subject` (
+  `scheid` varchar(10) NOT NULL,
+  `day` varchar(10) NOT NULL,
+  `time` varchar(10) NOT NULL,
+  `subid` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule_subject`
+--
+
+INSERT INTO `schedule_subject` (`scheid`, `day`, `time`, `subid`) VALUES
+('SAM123', '7:00', '8:00', 'M102'),
+('SAM123', '8:00', '7:00', 'S101'),
+('SAM231', '9:00', '10', 'H103');
 
 -- --------------------------------------------------------
 
@@ -283,8 +308,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `section`, `status`) VALUES
-(1, '1', '1', '1', 1, 1, 'Male', 'Roman Catholic', '1', '1', 1, 'Kinder', '1', '1'),
-(2, '1', '1', '1', 1, 1, 'Male', 'Roman Catholic', '1', '1', 1, 'Kinder', '1', '1');
+(1, '1', '1', '1', 1, 1, 'Male', 'Roman Catholic', '1', '1', 1, 'Kinder', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -293,7 +317,7 @@ INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contac
 --
 
 CREATE TABLE `subject` (
-  `subid` int(10) NOT NULL,
+  `subid` varchar(10) NOT NULL,
   `subject` varchar(50) NOT NULL,
   `faculty` varchar(20) NOT NULL,
   `year_level` varchar(25) NOT NULL
@@ -304,18 +328,9 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`subid`, `subject`, `faculty`, `year_level`) VALUES
-(123213, 'wefwef', 'errgerg', 'Grade 1'),
-(32432, 'gerger', 'gerg', 'Grade 7'),
-(535223, 'gerg', 'wefwef', 'Grade 2'),
-(23412, 'wgergw', 'wergwth', 'Grade 3'),
-(3456, 'erthb', 'tsgth', 'Grade 3'),
-(456345, 'hbsrthbrst', 'gsetg', 'Grade 9'),
-(3453457, 'fjtdyj', 'dtyjrd', 'Grade 11'),
-(34645, 'bdzfbadb', 'dzfbdb', 'Grade 7'),
-(9867, 'dfgvrg', 'rbverb', 'Preparatory'),
-(56786, 'ghndtym', '56756', 'Preparatory'),
-(235, 'gbrst', 'setgte', 'Grade 5'),
-(1, 'hreh', 'rethrth', 'Preparatory');
+('H103', 'Hekasi', 'History', 'Grade 4'),
+('M102', 'Basic Math', 'Math', 'Grade 1'),
+('S101', 'Biology', 'Science', 'Grade 2');
 
 -- --------------------------------------------------------
 
@@ -370,10 +385,29 @@ ALTER TABLE `pre_registration`
   ADD PRIMARY KEY (`ctrl_num`);
 
 --
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`scheid`);
+
+--
+-- Indexes for table `schedule_subject`
+--
+ALTER TABLE `schedule_subject`
+  ADD KEY `scheid` (`scheid`),
+  ADD KEY `subid` (`subid`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id_num`);
+
+--
+-- Indexes for table `subject`
+--
+ALTER TABLE `subject`
+  ADD PRIMARY KEY (`subid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -384,11 +418,24 @@ ALTER TABLE `student`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `schedule_subject`
+--
+ALTER TABLE `schedule_subject`
+  ADD CONSTRAINT `schedule_subject_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `schedule_subject_ibfk_2` FOREIGN KEY (`subid`) REFERENCES `subject` (`subid`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
