@@ -61,7 +61,7 @@ class schedules_controller extends CI_Controller {
            {  
                 $sub_array = array();  
                 $sub_array[] = $row->scheid;  
-                $sub_array[] = '<button type="button" name="delete" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs edit">Edit</button> <button type="button" name="view" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs view">View</button>';
+                $sub_array[] = '<button type="button" name="view" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs view">View</button> <button type="button" name="addsched" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs addsched">Add</button> <button type="button" name="delete" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs edit">Edit</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   
