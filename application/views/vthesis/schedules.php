@@ -58,6 +58,36 @@
 							                alert("All Fields are Required"); 
 							           }  
 							      });
+
+							      $(document).on('click', '.addsched', function(event){  
+							           event.preventDefault();    
+							           $('#schedule3modal').modal('show');
+
+							           if(scheduleid != '')  
+							           {  
+							                $.ajax({  
+							                	type:"POST",
+							                     url:"<?php echo base_url() . 'schedules_controller/scheduleaction'; ?>",  
+							                     data:{
+							                     	schedid:scheduleid,
+							                     	hidden:schedhid,
+							                     	hiddenid:hiddenid
+							                     }, 
+							                     success:function(data)  
+							                     {  
+							                          alert(data);  
+							                          $('#schedulemodal').modal('hide');  
+							                          $('#scheduletable').DataTable().ajax.reload();  
+							                     }  
+							                });  
+							           }  
+							           else  
+							           {  
+							                alert("All Fields are Required"); 
+							           }  
+							      });
+
+
 							      /*$(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
 							           $.ajax({  
@@ -140,7 +170,7 @@
 						</script>
 					<br>
 					<div>
-						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#schedulemodal">Add schedule</button>
+						<button id="addmodalbtn" class="btn addschebtn" data-toggle="modal" data-target="#schedulemodal">Add Schedule ID</button>
 					</div>
 					<br>
 
@@ -156,15 +186,15 @@
 
 				</div>
 
-			<!--start of schedule Modal -->
+			<!--start of add Schedule ID -->
 			<div class="container-fluid">
-				<div class="modal fade" id="schedulemodal" tabindex="-1" role="dialog" aria-labelledby="addschedulemodal" aria-hidden="true">
+				<div class="modal fade" id="schedulemodal" tabindex="-1" role="dialog" aria-labelledby="scheduleaddmodal" aria-hidden="true">
 				  	<div class="modal-dialog modal-lg" role="document">
 				   		
 				  		<form method="post" id="addform">
 				   		<div class="modal-content">
 							<div class="modal-header">
-				        		<h1 class="modal-title" id="addschedulemodal"><b></b></h1>
+				        		<h1 class="modal-title" id="scheduleaddmodal"><b></b></h1>
 				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
@@ -174,7 +204,7 @@
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="scheduleid" class="col-form-label formmodalfont">Schedule ID</label>
-											<input id="scheduleid" name="scheduleid" type="text" class="form-control" placeholder="schedule ID">
+											<input id="scheduleid" name="scheduleid" type="text" class="form-control" placeholder="Schedule ID">
 										</div>
 										<!--<div class="col-md">
 											<label for="sectionid" class="col-form-label formmodalfont">schedule Name</label>
@@ -193,7 +223,9 @@
 
 				</div>
 			</div>
+			<!--start of add Schedule ID -->
 
+			<!--Start of View Schedule Modal -->
 			<div class="container-fluid">
 				<div class="modal fade" id="schedule2modal" tabindex="-1" role="dialog" aria-labelledby="viewschedulemodal" aria-hidden="true">
 				  	<div class="modal-dialog modal-lg" role="document">
@@ -211,10 +243,10 @@
 									<thead class="thead-inverse">
 										<tr>
 											<th>Schedule Id</th>
-											<th>Schedule Id</th>
-											<th>Schedule Id</th>
-											<th>Schedule Id</th>
-											<th>Schedule Id</th>
+											<th>Day</th>
+											<th>Time</th>
+											<th>Subject</th>
+											<th>Year Level</th>
 										</tr>
 									</thead>
 									<tbody id="bodytable">
@@ -228,6 +260,55 @@
 
 				</div>
 			</div>
+			<!--End of View Schedule Modal -->
+
+			<!--Start of Schedule Add Modal-->
+			<div class="container-fluid">
+				<div class="modal fade" id="schedule3modal" tabindex="-1" role="dialog" aria-labelledby="scheduleaddmodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		
+				  		<form method="post" id="addform">
+				   		<div class="modal-content">
+							<div class="modal-header">
+				        		<h1 class="modal-title" id="scheduleaddmodal"><b></b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>	
+
+				      		<div class="modal-body">
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="scheduleid2" class="col-form-label formmodalfont">Schedule ID</label>
+											<input id="scheduleid2" name="scheduleid2" type="text" class="form-control" placeholder="Schedule ID">
+										</div>
+										<div class="col-md">
+											<label for="scheduleday" class="col-form-label formmodalfont">Day</label>
+											<input id="scheduleday" name="scheduleday" type="text" class="form-control" placeholder="Day">
+										</div>
+										<div class="col-md">
+											<label for="scheduletime" class="col-form-label formmodalfont">Time</label>
+											<input id="scheduletime" name="scheduletime" type="text" class="form-control" placeholder="Time">
+										</div>
+										<div class="col-md">
+											<label for="schedulesecid" class="col-form-label formmodalfont">Subject ID</label>
+											<input id="schedulesecid" name="schedulesecid" type="text" class="form-control" placeholder="Subject ID">
+										</div>
+										<input type="hidden" name="schedulehid" id="schedulehid" value="">
+										<input type="hidden" name="hiddenid" id="hiddenid">
+									</div>
+					  		</div>
+							<div class="modal-footer">
+								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
+							</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--End of Schedule Add Modal-->
+
 		</div>
 		<div class="col-lg">
 		</div>
