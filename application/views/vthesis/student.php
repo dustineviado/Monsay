@@ -333,7 +333,7 @@
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
 				      		</div>	
-
+				      		<div class="pre-scrollable">
 				      		<div class="modal-body">
 									<h6 class="potgraph">Student ID:</h6>
 									<p id="student2idname"></p>
@@ -377,17 +377,16 @@
 									<h6 class="potgraph">Status:</h6>
 									<p id="student2status"></p>
 					  		</div>
-<<<<<<< Updated upstream
 							<div class="modal-footer">
 							</div>
-=======
-							
->>>>>>> Stashed changes
+
+
 						</div>
 					</div>
 
 				</div>
 			</div>
+		</div>	
 		</div>
 		<div class="col-lg">
 		</div>

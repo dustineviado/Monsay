@@ -162,7 +162,7 @@
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
 				      		</div>	
-
+				      		<div class="pre-scrollable">
 				      		<div class="modal-body">
 									<h6 class="potgraph">Teacher ID:</h6>
 									<p id="teacher2id"></p>
@@ -204,6 +204,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<div class="col-lg">
 		</div>
 	</div>
@@ -217,7 +218,7 @@
   	$(document).ready(function(){
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Student");  
+							           $('.modal-title').text("Add Teacher");  
 							           $('#teacherhid').val("Add");   
 							      
 							      });

@@ -1,5 +1,28 @@
 /*start of login page */
 
+
+.login{
+	font-family:Helvetica;
+			height:40px;
+			width:150px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin-left: 1100px;
+			margin-bottom: 50px;
+			margin-top: 50px;
+			font-size:19px;
+			cursor: pointer;
+		}
+
+.login:hover{
+	background-color:#ffff1a;
+			color:#000000;
+		}
+
+
 .user1{
 	margin-top: 60px;
 	margin-bottom: 20px;
@@ -427,3 +450,4 @@ font-family:Helvetica;
 			color:#000000;
 
 		}
+
