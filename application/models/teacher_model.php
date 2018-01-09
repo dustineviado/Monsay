@@ -53,7 +53,7 @@ class teacher_model extends CI_Model {
 	      }
 	      function make_datatables_teacher(){  
 	           $this->make_query_teacher();  
-	           if($_POST["length"] != -1)  
+	           if($_POST["length"] != -1);  
 	           {  
 	                $this->db->limit($_POST['length'], $_POST['start']);  
 	           }  

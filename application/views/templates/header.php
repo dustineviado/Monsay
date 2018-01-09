@@ -54,10 +54,12 @@
 							<span id="rmhstitle">RAMON MAGSAYSAY&nbsp</span> <br>
 							<span id="rmhstitle2">HIGH SCHOOL</span>
 						</p>
+					</a>
 					</div>	
 				</div>
 				
 				<div class="col-md-5">
+					
 				</div>
 				
 				<div class="col-md-1">
@@ -101,44 +103,8 @@
 											<a class="dropdown-item" id="dropbg" href="#">Events</a>
 										</div>
 								</li>
-							<button class="btn" type="button" data-toggle="modal" data-target="#LoginModal" style="background-color: #262626; padding: 0; margin: 0; color: white;  width: 150px; cursor: pointer;">Login</button>
-
-								<div class="modal fade" id="LoginModal" role="document">
-									<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-														<img id="rmhsimg" src="images/Rmhslogo.jpg" style="margin: 0 auto;">
-													</div>
-							
-								
-								<div class="modal-body">
-									<select  class="form-control" style="cursor: pointer; width: 200px; margin: 0 auto;">
-								
 									
-									<option value="Student">Student</option>
-									<option value="Teacher">Teacher</option>
-									<option value="Parent">Parent</option>
-
-								</select>
-
-			
-		<?=form_open('login_page_controller/pasok')?>
-
-				<input type="username" name="username" class="user1" placeholder="Username" style="margin-left: 135px;"><br>
-				<input type="password" name="password" class="pass1" placeholder="Password" style="margin-left: 135px;"><br>
-				<input type="submit"   class="login1 btn" value="Login" style="margin-left: 160px;"><br>
-
-
-
-
-		</form>
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-
+							
 
 
 							</ul>
