@@ -516,4 +516,21 @@
 			background-color:#ffff1a;
 			color:#000000;
 		}
+
+		.insertrow{
+			font-family:Helvetica;
+			height:30px;
+			width:100px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			font-size:15px;
+		}
+		
+		.insertrow:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
 	/* end of schedules*/

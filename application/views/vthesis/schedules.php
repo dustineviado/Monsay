@@ -10,7 +10,7 @@
 							$(document).ready(function(){
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Schedule");  
+							           $('.modal-title').text("Add Schedule ID");  
 							           $('#schedulehid').val("Add");   
 							      });    
 							      var dataTable = $('#scheduletable').DataTable({  
@@ -59,25 +59,55 @@
 							           }  
 							      });
 
-							      $(document).on('click', '.addsched', function(event){  
-							           event.preventDefault();    
-							           $('#schedule3modal').modal('show');
+							      /*Start Add Schedule Subject*/
+							      $(document).on('click', '.addsched', function(event){
 
-							           if(scheduleid != '')  
+							      	   var sid = $(this).attr("id");  
+							           $('#addschedform')[0].reset();
+							           $("input[name*='scheduleid2']").val(sid);
+							           $('.modal-title').text("Add Subject Schedule");  
+							           $('#schedule3modal').modal('show'); 
+							           $('.addedrows').remove(); 
+							      
+
+
+							      });
+
+							      $(document).on('click', '#action2', function(event){  
+							           event.preventDefault();    
+							           var scheduleid = [];
+							           var scheduleday = [];
+							           var scheduletime = [];
+							           var schedulesubid = [];
+
+							           $('.scheduleid2').each(function(){
+							           		scheduleid.push($(this).val());
+							           	});
+							           $('.scheduleday').each(function(){
+							           		scheduleday.push($(this).val());
+							           	});
+							           $('.scheduletime').each(function(){
+							           		scheduletime.push($(this).val());
+							           	});
+							           $('.schedulesubid').each(function(){
+							           		schedulesubid.push($(this).val());
+							           	});
+   											
+							           if(scheduleid != '' && scheduleday != '' && scheduletime != '' && schedulesubid != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
-							                     url:"<?php echo base_url() . 'schedules_controller/scheduleaction'; ?>",  
+							                     url:"<?php echo base_url() . 'schedules_controller/addschedulesubjectaction'; ?>",  
 							                     data:{
-							                     	schedid:scheduleid,
-							                     	hidden:schedhid,
-							                     	hiddenid:hiddenid
+							                     	id:scheduleid,
+							                     	day:scheduleday,
+							                     	time:scheduletime,
+							                     	subid:schedulesubid
 							                     }, 
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
-							                          $('#schedulemodal').modal('hide');  
-							                          $('#scheduletable').DataTable().ajax.reload();  
+							                          $('#schedule3modal').modal('hide');  
 							                     }  
 							                });  
 							           }  
@@ -85,8 +115,17 @@
 							           {  
 							                alert("All Fields are Required"); 
 							           }  
-							      });
+							     	});
 
+									    $('.insertrow').click(function(e){
+									        e.preventDefault();
+									        $('.addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><a href='#' class='remove_field'>X</a></div>"); 
+									    });
+									    
+									    $('.addrowbody').on("click",".remove_field", function(e){
+									        e.preventDefault(); 
+									        $(this).parent('div').remove();
+									});
 
 							      /*$(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
@@ -119,6 +158,8 @@
 							                }  
 							           });  
 							      });*/  
+
+							      /*Start View Schedule Javascript*/
 								$(document).on('click','.view', function(){  
 							           var sid = $(this).attr("id");
 							           $('#viewtable tbody tr').remove();  
@@ -165,7 +206,8 @@
 							           {  
 							                return false;       
 							           }  
-							      });        
+							      });
+							      /*End View Schedule Javascript*/        
 							 });
 						</script>
 					<br>
@@ -264,42 +306,44 @@
 
 			<!--Start of Schedule Add Modal-->
 			<div class="container-fluid">
-				<div class="modal fade" id="schedule3modal" tabindex="-1" role="dialog" aria-labelledby="scheduleaddmodal" aria-hidden="true">
+				<div class="modal fade" id="schedule3modal" tabindex="-1" role="dialog" aria-labelledby="scheduleaddmodal2" aria-hidden="true">
 				  	<div class="modal-dialog modal-lg" role="document">
 				   		
-				  		<form method="post" id="addform">
+				  		<form method="post" id="addschedform">
 				   		<div class="modal-content">
 							<div class="modal-header">
-				        		<h1 class="modal-title" id="scheduleaddmodal"><b></b></h1>
+								<div>
+				        		<h1 class="modal-title" id="scheduleaddmodal2"><b></b></h1>
+				        		<input type="button" name="addrow" id="addrow" class="btn insertrow" value="Add Row">
+				        		</div>
 				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
 				      		</div>	
 
-				      		<div class="modal-body">
+				      		<div class="modal-body addrowbody">
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="scheduleid2" class="col-form-label formmodalfont">Schedule ID</label>
-											<input id="scheduleid2" name="scheduleid2" type="text" class="form-control" placeholder="Schedule ID">
+											<input name="scheduleid2" type="text" class="form-control scheduleid2" placeholder="Schedule ID" disabled="">
 										</div>
 										<div class="col-md">
 											<label for="scheduleday" class="col-form-label formmodalfont">Day</label>
-											<input id="scheduleday" name="scheduleday" type="text" class="form-control" placeholder="Day">
+											<input name="scheduleday" type="text" class="form-control scheduleday" placeholder="Day">
 										</div>
 										<div class="col-md">
 											<label for="scheduletime" class="col-form-label formmodalfont">Time</label>
-											<input id="scheduletime" name="scheduletime" type="text" class="form-control" placeholder="Time">
+											<input name="scheduletime" type="text" class="form-control scheduletime" placeholder="Time">
 										</div>
 										<div class="col-md">
-											<label for="schedulesecid" class="col-form-label formmodalfont">Subject ID</label>
-											<input id="schedulesecid" name="schedulesecid" type="text" class="form-control" placeholder="Subject ID">
+											<label for="schedulesubid" class="col-form-label formmodalfont">Subject ID</label>
+											<input name="schedulesubid" type="text" class="form-control schedulesubid" placeholder="Subject ID">
 										</div>
-										<input type="hidden" name="schedulehid" id="schedulehid" value="">
-										<input type="hidden" name="hiddenid" id="hiddenid">
 									</div>
 					  		</div>
+					  		<br>
 							<div class="modal-footer">
-								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
+								<input type="submit" name="action2" id="action2" class="btn addsubbtn2" value="Proceed">
 							</div>
 							</form>
 						</div>
