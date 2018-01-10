@@ -20,27 +20,26 @@ class register_page_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 	}	
 	public function save(){
-		
+		$validator = array('success' => false, 'messages' => array());
+
 		$this->form_validation->set_rules('fullname','Name','trim|required');
 		$this->form_validation->set_rules('studemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
-		$this->form_validation->set_rules('studcontact','Contact','trim|required|min_length[7]|max_length[11]');
+		$this->form_validation->set_rules('studcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_rules('studreligion','Religion','trim|required');
 		$this->form_validation->set_rules('studbirthday','Birthday','trim|required');
-		$this->form_validation->set_rules('studage','Age','trim|required');
 		$this->form_validation->set_rules('studgender','Gender','trim|required');
 		$this->form_validation->set_rules('studaddress','Address','trim|required');
 		$this->form_validation->set_rules('studparent_guard','Parent/Guardian','trim|required');
-		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|min_length[7]|max_length[11]');
+		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 		if($this->form_validation->run()){
-			 
+			 $validator['success'] = true;
 			 $data = array(
 		'fname'=>$this->input->post('fullname'),
 		'email'=>$this->input->post('studemail'),
 		'contact'=>$this->input->post('studcontact'),
 		'religion'=>$this->input->post('studreligion'),
 		'birthday'=>$this->input->post('studbirthday'),
-		'age'=>$this->input->post('studage'),
 		'birthday'=>$this->input->post('studbirthday'),
 		'gender'=>$this->input->post('studgender'),
 		'address'=>$this->input->post('studaddress'),
@@ -49,16 +48,19 @@ class register_page_controller extends CI_Controller {
 		'status'=>'Pending',);  
 		$this->load->model('New_enrol_model');
 		$this->New_enrol_model->addstudent($data);
+		alert('Data has been saved');
 		redirect('main_body_controller','refresh');
 			
 		}
-		else{
-			$data['title'] = "Register";
-			$this->load->view('templates/header', $data);
-			$this->load->view('vthesis/register_page');
-			$this->load->view('templates/footer');
-			}	
-		}
+		else
+		{
+		$data['title'] = "Pre Registration";
+		$this->load->view('templates/header',$data);
+		$this->load->view('vthesis/register_page');
+		$this->load->view('templates/footer');
+		}	
+		
+	}
 
 	function email_availability(){
 		$data['title'] = "Register";
