@@ -19,48 +19,7 @@ class New_enrol_controller extends CI_Controller {
 		$this->load->view('vthesis/new_enrollee',$data);
 		$this->load->view('templates/footer',$data);
 
-	}
-		public function save(){
-		
-		$this->form_validation->set_rules('fullname','Name','trim|required');
-		$this->form_validation->set_rules('studemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
-		$this->form_validation->set_rules('studcontact','Contact','trim|required|min_length[7]|max_length[11]');
-		$this->form_validation->set_rules('studreligion','Religion','trim|required');
-		$this->form_validation->set_rules('studbirthday','Birthday','trim|required');
-		$this->form_validation->set_rules('studage','Age','trim|required');
-		$this->form_validation->set_rules('studgender','Gender','trim|required');
-		$this->form_validation->set_rules('studaddress','Address','trim|required');
-		$this->form_validation->set_rules('studparent_guard','Parent/Guardian','trim|required');
-		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|min_length[7]|max_length[11]');
-		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-		if($this->form_validation->run()){
-			 
-			 $data = array(
-		'fname'=>$this->input->post('fullname'),
-		'email'=>$this->input->post('studemail'),
-		'contact'=>$this->input->post('studcontact'),
-		'religion'=>$this->input->post('studreligion'),
-		'birthday'=>$this->input->post('studbirthday'),
-		'age'=>$this->input->post('studage'),
-		'birthday'=>$this->input->post('studbirthday'),
-		'gender'=>$this->input->post('studgender'),
-		'address'=>$this->input->post('studaddress'),
-		'parent_guard'=>$this->input->post('studparent_guard'),
-		'pgcontact'=>$this->input->post('studpgcontact'),
-		'status'=>'Pending',);  
-		$this->load->model('New_enrol_model');
-		$this->New_enrol_model->addstudent($data);
-		redirect('main_body_controller','refresh');
-			
-		}
-		else{
-			$data['title'] = "Register";
-			$this->load->view('templates/header', $data);
-			$this->load->view('vthesis/register_page');
-			$this->load->view('templates/footer');
-			}	
-		}
-			
+	}	
 
 	public function newStudAction(){
 			$hidden = $this->input->post('hidden');
@@ -91,6 +50,12 @@ class New_enrol_controller extends CI_Controller {
 	           $this->New_enrol_model->deleteEnrollee($_POST["sid"]);  
 	           echo 'Enrollee Deleted';
 	}
+	public function change_status($id){
+		$status = array('ctrl_num' => $ctrl_num);
+		$this->load->mdl("New_enrol_model");
+		$this->New_enrol_model->change_status($status, 'pre_registration');
+		redirect('New_enrol_controller', 'refresh');
+	}
 
 	function fetch_user(){  
            $this->load->model("New_enrol_model");  
@@ -103,7 +68,7 @@ class New_enrol_controller extends CI_Controller {
                 $sub_array[] = $row->fname;  
                 $sub_array[] = $row->contact;
                 $sub_array[] = $row->status;
-                $sub_array[] = '<button type="button" name="delete" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs edit">Edit</button>';
+                $sub_array[] = '<button type="button" name="delete" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs edit">Edit</button> <button type="button" name="confirm" id="'.$row->ctrl_num.'" class="btn addstubtn3 btn-xs confirm">Confirm</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   
@@ -119,6 +84,7 @@ class New_enrol_controller extends CI_Controller {
 	           $data = $this->mdl->editEnrollee1($_POST["sid"]);  
 	           foreach($data as $row)  
 	           {  
+	           		$output['ctrlid'] = $row->ctrl_num;
 	                $output['fullname'] = $row->fname;  
 	                $output['studemail'] = $row->email;
 	                $output['studcontact'] = $row->contact;
@@ -129,6 +95,7 @@ class New_enrol_controller extends CI_Controller {
 	                $output['studaddress'] = $row->address;
 	                $output['studparent_guard'] = $row->parent_guard;
 	                $output['studpgcontact'] = $row->pgcontact;
+	                $output['studstatus'] = $row->status;
 	           }  
 	           echo json_encode($output);  
 	      }    

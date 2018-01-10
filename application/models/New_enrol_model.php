@@ -85,7 +85,25 @@ class New_enrol_model extends CI_Model {
 	           $this->db->select("*");  
 	           $this->db->from($this->table);  
 	           return $this->db->count_all_results();  
-	      }  
+	      } 
+	public function change_status($id){
+			$this->db->select('ctrl_num');
+			$this->db->from('pre_registration');
+			$this->db->where('status');
+			$result = $this->db->get()->result();
+
+			if($result->$status == 'Pending')
+			{
+				$this->db->set('status','Enrolled');
+			} 
+			else
+			{
+				$this->db->set('status','Pending');
+			}
+
+			$this->db->where('status');
+			$this->db->update('pre_registration');
+	} 
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */
