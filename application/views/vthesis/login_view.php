@@ -1,5 +1,6 @@
+<div class="container-fluid">
 <form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
-	<div class = "form-group" style="width: 200px; margin-top: 50px; margin-left: 575px;"><i class="fa fa-user"></i>
+	<div class = "form-group" style="width: 200px; margin-top: 50px; margin-left: 560px;"><i class="fa fa-user"></i>
 		<label>Enter Username</label>
 		<input type="text" name="username" class="form-control" required="">
 		<span class="text-danger"><?php echo form_error('username'); ?></span>
@@ -18,7 +19,7 @@
 </form>
 
 
-
+</div>
 
 
 

@@ -11,6 +11,7 @@ class teacher_controller extends CI_Controller {
 	{
 		$data['title'] = "Teacher | Ramon Magsaysay High School";
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/admin_sidebar', $data, 'refresh');
 		$this->load->view('vthesis/teacher', $data);
 		$this->load->view('templates/footer', $data);
 	}
@@ -117,4 +118,8 @@ class teacher_controller extends CI_Controller {
 	           }  
 	           echo json_encode($output);  
 	      }    
+
+
+
  }
+
