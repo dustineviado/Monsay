@@ -7,10 +7,6 @@
 				<div class="container">
 					<h1 class="teacherfont">Teachers</h1>
 
-
-
-
-
 <br>
 	<div>
 		<button id="addmodalbtn" class="btn addteacherbtn" data-toggle="modal" data-target="#teachermodal">Add Teacher</button>

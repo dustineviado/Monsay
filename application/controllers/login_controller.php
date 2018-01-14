@@ -34,7 +34,7 @@ class Login_controller extends CI_Controller {
 					'username' => $username
 				);
 				$this->session->set_userdata($session_data);
-				redirect(base_url() . 'login_controller/enter');
+				redirect(base_url() . 'admin_controller');
 			}
 			else
 			{
