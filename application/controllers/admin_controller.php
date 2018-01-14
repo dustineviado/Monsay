@@ -13,7 +13,7 @@ class Admin_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 		
 	}
-
+	
 }
 
 /* End of file admin_controller.php */

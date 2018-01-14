@@ -51,7 +51,6 @@ class Login_controller extends CI_Controller {
 	function enter(){
 		if($this->session->userdata('username') != '')
 		{
-			echo '<h1> Welcome - ' .$this->session->userdata('username') . '</h1>';
 			echo '<label><a href = " '.base_url(). 'login_controller/logout">Logout</a></label>'; 
 		}
 		else{
@@ -62,6 +61,7 @@ class Login_controller extends CI_Controller {
 
 	function logout()
 	{
+		echo
 		$this->session->unset_userdata('username');
 		redirect(base_url() . 'main_body_controller', 'refresh');
 	}
