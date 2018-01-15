@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
 <form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
 	<div class = "form-group" style="width: 200px; margin-top: 50px; margin-left: 560px;"><i class="fa fa-user"></i>
