@@ -33,7 +33,7 @@ class Login_controller extends CI_Controller {
 				$session_data = array(
 					'username' => $username
 				);
-				$this->session->set_userdata($session_data);
+				$this->session->set_userdata('login_session',$session_data);
 				redirect(base_url() . 'admin_controller');
 			}
 			else
@@ -49,23 +49,21 @@ class Login_controller extends CI_Controller {
 	}
 
 	function enter(){
-		if($this->session->userdata('username') != '')
+		if($this->session->userdata('login_session') != '')
 		{
-			echo '<label><a href = " '.base_url(). 'login_controller/logout">Logout</a></label>'; 
+			
 		}
 		else{
-
+			
 			redirect(base_url() . 'login_controller/login_view');
 		}
 	}
 
 	function logout()
 	{
-		echo
-		$this->session->unset_userdata('username');
+		
+		$this->session->sess_destroy('login_session');
 		redirect(base_url() . 'main_body_controller', 'refresh');
 	}
 }
 
-/* End of file login_controller.php */
-/* Location: ./application/controllers/login_controller.php */
