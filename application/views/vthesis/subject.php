@@ -17,7 +17,7 @@
 							           $('#subjecthid').val("Add");   
 							      });    
 
-							      var dataTable = $('#lamesa234').dataTable({  
+							      var dataTable = $('#lamesa234').DataTable({  
 							           "processing":true,  
 							           "serverSide":true,
 							           "scrollY": '500px',  
@@ -120,7 +120,7 @@
 					</div>
 					<br>
 
-					<table id="lamesa234" class="table table-striped">
+					<table id="lamesa234" class="table table-responsive table-striped table-bordered" cellspacing="0" width="100%">
 						<thead class="thead-inverse">
 							<tr>
 								<th>Subject ID</th>
