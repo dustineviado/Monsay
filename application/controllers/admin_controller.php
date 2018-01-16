@@ -16,5 +16,6 @@ class Admin_controller extends CI_Controller {
 	
 }
 
+
 /* End of file admin_controller.php */
 /* Location: ./application/controllers/admin_controller.php */
