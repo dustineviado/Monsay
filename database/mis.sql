@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2018 at 06:29 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Jan 17, 2018 at 03:01 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -38,8 +38,19 @@ CREATE TABLE `admins` (
   `address` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `contact` int(25) NOT NULL,
-  `status` varchar(25) NOT NULL
+  `status` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `position`, `fname`, `lname`, `birthday`, `age`, `address`, `email`, `contact`, `status`, `username`, `password`) VALUES
+(0, 'Head Admin', 'Dustine', 'Viado', '1997-01-20', 20, 'abad santos', 'dustineviado@gmail.com', 123456789, 'Single', 'Admin', 'admin123'),
+(2, 'Support', 'John', 'Julag-ay', '1997-04-09', 20, 'las pinas city', 'junjulagay@gmail.com', 123456789, 'Single', 'John Julag-ay', '12345'),
+(3, 'Carry', 'Ralph', 'Reyes', '1997-03-20', 20, 'tondo', 'reyesralph@gmail.com', 123456789, 'Single', 'Ralph Reyes', '12345');
 
 -- --------------------------------------------------------
 
@@ -196,7 +207,8 @@ INSERT INTO `pre_registration` (`ctrl_num`, `fname`, `mname`, `lname`, `birthday
 (1, 'ralph jerome', 'daluyon', 'reyes', '2013-06-11', 4, '', '', 'male', 'asdkasjdasd', 1231231231, 'Shing Shang Fu', 12123121, ''),
 (2, 'John', 'John', 'John', '2005-03-24', 12, 'bentong@gmail.com', 'Roman Catholic', 'Male', 'Dito lang sa tabi', 1234567890, 'Omniknight', 2147483647, ''),
 (3, 'Havana', 'Ona', 'Na', '2002-05-27', 15, 'Obeybe@gmail.com', 'Roman Catholic', 'Female', 'asjdlasjdlk', 1231231231, 'asldjalksdj', 12312313, ''),
-(4, 'Kyrie', 'Drew', 'Irving', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, '');
+(4, 'Kyrie', 'Drew', 'Irving', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, ''),
+(5, 'Nathalia Starr', '', '', '1997-03-02', 20, 'asaskda@gmail.com', 'Roman Catholic', 'Male', 'klasdklzxkclasdj', 23232123, 'aksjdaxzkcjz', 823712731, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -340,19 +352,24 @@ INSERT INTO `subject` (`subid`, `subject`, `faculty`, `year_level`) VALUES
 
 CREATE TABLE `teacher` (
   `teacher_id` int(20) NOT NULL,
-  `fname` varchar(25) NOT NULL,
-  `mname` varchar(25) NOT NULL,
-  `lname` varchar(25) NOT NULL,
+  `fullname` varchar(25) NOT NULL,
   `birthday` date NOT NULL,
   `age` int(25) NOT NULL,
   `gender` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `advisory` varchar(25) NOT NULL,
-  `subject` varchar(25) NOT NULL,
+  `faculty` varchar(25) NOT NULL,
   `address` varchar(25) NOT NULL,
   `contact` int(25) NOT NULL,
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`teacher_id`, `fullname`, `birthday`, `age`, `gender`, `email`, `advisory`, `faculty`, `address`, `contact`, `status`) VALUES
+(123123, 'lkjaslkdj', '0000-00-00', 1771, 'Male', 'lajsdlkajd', 'llkkjasdiuaysd', 'assiduy', 'iuuayssd', 87126387, 'lajsd');
 
 -- --------------------------------------------------------
 
@@ -372,7 +389,9 @@ CREATE TABLE `user_login` (
 --
 
 INSERT INTO `user_login` (`userID`, `username`, `email`, `password`) VALUES
-(123, 'gitgud', 'burnik@yahoo.com', '1234567');
+(123, 'gitgud', 'burnik@yahoo.com', '1234567'),
+(1, 'admin', 'rmhsadmin@gmail.com', 'admin1'),
+(2, 'John', 'John@gmail.com', '12345');
 
 --
 -- Indexes for dumped tables
@@ -417,14 +436,12 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT for table `pre_registration`
 --
 ALTER TABLE `pre_registration`
-  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
   MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
