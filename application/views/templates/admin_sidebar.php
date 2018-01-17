@@ -57,6 +57,10 @@ body {
 
 <div id="mySidenav" class="sidenav text-muted">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <b><p style="font-family: 'helvetica';font-size: 20px; margin-left: 60px;">Welcome  </p></b>
+  <b><p style="font-family: 'helvetica'; font-size: 20px; margin-left: 50px;"><?php echo $this->session->userdata('login_session');?></p></b>
+  <br>
+  <br>
   <a href="admin_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
   <a href="teacher_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-male"> / <i class="fa fa-female">&nbsp;&nbsp;Teacher</a></i></i>
   <a href="student_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-graduation-cap">&nbsp; &nbsp;Student</a></i>
@@ -70,18 +74,13 @@ body {
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
     <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
   
 </div>
 
 <div id="main">
 
-  <span style="font-size:20px;cursor:pointer; font-style: 'helvetica';"" onclick="openNav()">&#9776;&nbsp;&nbsp;&nbsp;&nbsp;Admin Menu</span>
+  <span style="font-size:20px;cursor:pointer; font-style: 'helvetica';"" onclick="openNav()">&#9776;&nbsp;&nbsp;Menu</span>
 </div>
 
 <script>
