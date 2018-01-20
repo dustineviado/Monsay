@@ -60,18 +60,26 @@
 							      });
 
 							      /*Start Add Schedule Subject*/
-							      $(document).on('click', '.addsched', function(event){
-
-							      	   var sid = $(this).attr("id");  
+							      var sid;
+							      $(document).on('click', '.addsched', function(){
+							      	   sid = $(this).attr("id");  
 							           $('#addschedform')[0].reset();
 							           $("input[name*='scheduleid2']").val(sid);
 							           $('.modal-title').text("Add Subject Schedule");  
 							           $('#schedule3modal').modal('show'); 
-							           $('.addedrows').remove(); 
-							      
+							           $('.addedrows').remove();
+						     	 });
 
-
-							      });
+							     $('.insertrow').click(function(event){
+							      		event.preventDefault();
+									        $('#addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID' disabled value='$sid'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><a href='#' class='remove_field'>X</a></div>"); 
+									        $("input[name*='scheduleid2']").val(sid);
+									    });
+									    
+									    $('#addrowbody').on("click",".remove_field", function(e){
+									        e.preventDefault(); 
+									        $(this).parent('div').remove();
+									}); 
 
 							      $(document).on('click', '#action2', function(event){  
 							           event.preventDefault();    
@@ -117,15 +125,23 @@
 							           }  
 							     	});
 
-									    $('.insertrow').click(function(e){
-									        e.preventDefault();
-									        $('.addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><a href='#' class='remove_field'>X</a></div>"); 
-									    });
-									    
-									    $('.addrowbody').on("click",".remove_field", function(e){
-									        e.preventDefault(); 
-									        $(this).parent('div').remove();
-									});
+										/*var original = $("#addrowbody").html();
+									    $(".insertrow").click(function(){
+										    $("#thisthis").clone().appendTo("#addrowbody");
+
+										    
+
+										    $('#schedule3modal').on('hidden.bs.modal', function () {
+											    $("#addrowbody").html(original);
+											})
+
+										    $('#addrowbody').on("click",".remove_field", function(e){
+									        	e.preventDefault(); 
+									        	$(this).parent('div').remove();
+									        });
+										});*/
+										
+										/*Start Add Schedule Subject*/
 
 							      /*$(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
@@ -321,24 +337,25 @@
 				        		</button>
 				      		</div>	
 
-				      		<div class="modal-body addrowbody">
+				      		<div class="modal-body" id="addrowbody">
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="scheduleid2" class="col-form-label formmodalfont">Schedule ID</label>
-											<input name="scheduleid2" type="text" class="form-control scheduleid2" placeholder="Schedule ID" disabled="">
+											<input name="scheduleid2" type="text" class="form-control scheduleid2" placeholder="" disabled="">
 										</div>
 										<div class="col-md">
 											<label for="scheduleday" class="col-form-label formmodalfont">Day</label>
-											<input name="scheduleday" type="text" class="form-control scheduleday" placeholder="Day">
+											<input name="scheduleday" type="text" class="form-control scheduleday" placeholder="">
 										</div>
 										<div class="col-md">
 											<label for="scheduletime" class="col-form-label formmodalfont">Time</label>
-											<input name="scheduletime" type="text" class="form-control scheduletime" placeholder="Time">
+											<input name="scheduletime" type="text" class="form-control scheduletime" placeholder="">
 										</div>
 										<div class="col-md">
 											<label for="schedulesubid" class="col-form-label formmodalfont">Subject ID</label>
-											<input name="schedulesubid" type="text" class="form-control schedulesubid" placeholder="Subject ID">
+											<input name="schedulesubid" type="text" class="form-control schedulesubid" placeholder="">
 										</div>
+										<p>&nbsp&nbsp</p>
 									</div>
 					  		</div>
 					  		<br>
