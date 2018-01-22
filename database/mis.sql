@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2018 at 03:01 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Jan 22, 2018 at 12:16 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -271,7 +271,9 @@ CREATE TABLE `schedule_subject` (
 INSERT INTO `schedule_subject` (`scheid`, `day`, `time`, `subid`) VALUES
 ('SAM123', '7:00', '8:00', 'M102'),
 ('SAM123', '8:00', '7:00', 'S101'),
-('SAM231', '9:00', '10', 'H103');
+('SAM231', '9:00', '10', 'H103'),
+('SAM123', '123', '123', 'S101'),
+('SAM123', '321', '321', 'S101');
 
 -- --------------------------------------------------------
 
@@ -280,17 +282,19 @@ INSERT INTO `schedule_subject` (`scheid`, `day`, `time`, `subid`) VALUES
 --
 
 CREATE TABLE `section` (
-  `secid` int(10) NOT NULL,
+  `secid` varchar(25) NOT NULL,
   `section_name` varchar(25) NOT NULL,
-  `year_level` varchar(25) NOT NULL
+  `year_level` varchar(25) NOT NULL,
+  `scheid` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `section`
 --
 
-INSERT INTO `section` (`secid`, `section_name`, `year_level`) VALUES
-(12345, 'Bethlehem', 'Grade 4');
+INSERT INTO `section` (`secid`, `section_name`, `year_level`, `scheid`) VALUES
+('12345', 'Bethlehem', 'Kinder', 'SAM123'),
+('54321', 'Amity', 'Preparatory', 'SAM231');
 
 -- --------------------------------------------------------
 
@@ -311,16 +315,9 @@ CREATE TABLE `student` (
   `parent_guard` varchar(25) NOT NULL,
   `pgcontact` int(25) NOT NULL,
   `year` varchar(25) NOT NULL,
-  `section` varchar(25) NOT NULL,
+  `secid` varchar(25) NOT NULL,
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student`
---
-
-INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `section`, `status`) VALUES
-(1, '1', '1', '1', 1, 1, 'Male', 'Roman Catholic', '1', '1', 1, 'Kinder', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -417,10 +414,18 @@ ALTER TABLE `schedule_subject`
   ADD KEY `subid` (`subid`);
 
 --
+-- Indexes for table `section`
+--
+ALTER TABLE `section`
+  ADD PRIMARY KEY (`secid`),
+  ADD KEY `scheid` (`scheid`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`id_num`);
+  ADD PRIMARY KEY (`id_num`),
+  ADD KEY `secid` (`secid`);
 
 --
 -- Indexes for table `subject`
@@ -437,11 +442,13 @@ ALTER TABLE `subject`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
@@ -452,6 +459,18 @@ ALTER TABLE `student`
 ALTER TABLE `schedule_subject`
   ADD CONSTRAINT `schedule_subject_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `schedule_subject_ibfk_2` FOREIGN KEY (`subid`) REFERENCES `subject` (`subid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `section`
+--
+ALTER TABLE `section`
+  ADD CONSTRAINT `section_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`secid`) REFERENCES `section` (`secid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

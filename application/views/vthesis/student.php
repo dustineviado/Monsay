@@ -139,6 +139,7 @@
 												 $('#student2pgcontact').text(data.studentpgcontact);
 												 $('#student2year').text(data.studentyear);
 												 $('#student2section').text(data.studentsection);
+												 $('#student2sectionname').text(data.studentsectionname);
 												 $('#student2status').text(data.studentstatus); 
 							                }  
 							           });  
@@ -177,7 +178,7 @@
 								<th>Student ID</th>
 								<th>Student Name</th>
 								<th>Year</th>
-								<th>Section</th>
+								<th>Section Name</th>
 								<th>Status</th>	
 								<th>Action</th>
 							</tr>
@@ -371,8 +372,11 @@
 									<h6 class="potgraph">Year:</h6>
 									<p id="student2year"></p>
 
-									<h6 class="potgraph">Section:</h6>
+									<h6 class="potgraph">Section ID:</h6>
 									<p id="student2section"></p>
+
+									<h6 class="potgraph">Section Name:</h6>
+									<p id="student2sectionname"></p>
 
 									<h6 class="potgraph">Status:</h6>
 									<p id="student2status"></p>
