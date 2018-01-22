@@ -31,7 +31,7 @@ class student_controller extends CI_Controller {
 	                     'parent_guard'=>$this->input->post('pargua'),
 	                     'pgcontact'=>$this->input->post('pgcont'),
 	                     'year'=>$this->input->post('yr'),
-	                     'section'=>$this->input->post('sect'),
+	                     'secid'=>$this->input->post('sect'),
 	                     'status'=>$this->input->post('stat'));  
 	               		
 	                $this->mdl->addstudent($insert_data);
@@ -51,7 +51,7 @@ class student_controller extends CI_Controller {
 	                     'parent_guard'=>$this->input->post('pargua'),
 	                     'pgcontact'=>$this->input->post('pgcont'),
 	                     'year'=>$this->input->post('yr'),
-	                     'section'=>$this->input->post('sect'),
+	                     'secid'=>$this->input->post('sect'),
 	                     'status'=>$this->input->post('stat'));
 	                       
 	               	
@@ -77,7 +77,7 @@ class student_controller extends CI_Controller {
                 $sub_array[] = $row->id_num;
                 $sub_array[] = $row->studname;
                 $sub_array[] = $row->year;
-                $sub_array[] = $row->section;
+                $sub_array[] = $row->section_name;
                 $sub_array[] = $row->status;   
                 $sub_array[] = '<button type="button" name="delete" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs edit">Edit</button> <button type="button" name="view" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs view">View</button>';
                 $data[] = $sub_array;  
@@ -107,7 +107,8 @@ class student_controller extends CI_Controller {
 	                $output['studentparentguard'] = $row->parent_guard;
 	                $output['studentpgcontact'] = $row->pgcontact;
 	                $output['studentyear'] = $row->year;
-	                $output['studentsection'] = $row->section;
+	                $output['studentsection'] = $row->secid;
+	                $output['studentsectionname'] = $row->section_name;
 	                $output['studentstatus'] = $row->status;
 	           }  
 	           echo json_encode($output);  

@@ -13,8 +13,11 @@ class student_model extends CI_Model {
 	        $this->db->delete('student');
 		}
 		function studentedit1($sid){
+			$this->db->select('student.id_num, student.studname, student.email, student.birthday, student.age, student.contact, student.gender, student.religion, student.address, student.parent_guard, student.pgcontact, student.year, section.secid, section.section_name, student.status');
+			$this->db->from('student');
+			$this->db->join('section', 'section.secid = student.secid');
 			 $this->db->where('id_num', $sid);  
-          	 $query=$this->db->get('student');  
+          	 $query=$this->db->get();  
            	return $query->result();
 		}
 		function studentedit2($data){
@@ -23,19 +26,21 @@ class student_model extends CI_Model {
 			$this->db->update('student', $data);
 		}
 		  var $table = "student";  
-	      var $select_column = array("id_num", "studname", "year", "section", "status");  
-	      var $order_column = array("id_num", "studname",  "year", "section", "status", null);  
+	      var $select_column = array("student.id_num", "student.studname", "student.year", "section.section_name", "student.status");  
+	      var $order_column = array("student.id_num", "student.studname",  "student.year", "section.section_name", "student.status", null);  
 	      
 	      function make_query()  
-	      {  
+	      {    
+
 	           $this->db->select($this->select_column);  
-	           $this->db->from($this->table);  
+	           $this->db->from($this->table);
+	           $this->db->join('section', 'section.secid = student.secid');
 	           if(isset($_POST["search"]["value"]))  
 	           {  
 	                $this->db->like("id_num", $_POST["search"]["value"], 'after');  
 	                $this->db->or_like("studname", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("year", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("section", $_POST["search"]["value"], 'after');
+	                $this->db->or_like("section_name", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
 	                   
 	           } 

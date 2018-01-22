@@ -30,8 +30,8 @@ class section_model extends CI_Model {
 		}
 
 		  var $table = "section";  
-	      var $select_column = array("secid", "section_name", "year_level");  
-	      var $order_column = array("secid", "section_name", "year_level", null);  
+	      var $select_column = array("secid", "section_name", "year_level", "scheid");  
+	      var $order_column = array("secid", "section_name", "year_level", "scheid", null);  
 	      
 	      function make_query()  
 	      {  

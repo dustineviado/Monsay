@@ -26,7 +26,7 @@
 							           },  
 							           "columnDefs":[  
 							                {  
-							                     "targets":[3],  
+							                     "targets":[4],  
 							                     "orderable":false,  
 							                },  
 							           ],  
@@ -37,10 +37,11 @@
 							           var sectid = $('#sectionidname').val();  
 							           var sectname = $('#sectionname').val();  
 							           var sectlevel = $('#sectionlevel').val();
+							           var schedid = $('#scheduleid').val();
 							           var secthid = $('#sectionhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(sectid != '' && sectname != '' && sectlevel != '')  
+							           if(sectid != '' && sectname != '' && sectlevel != '' && schedid != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
@@ -49,6 +50,7 @@
 							                     	id:sectid,
 							                     	name:sectname,
 							                     	lvl:sectlevel,
+							                     	sceid:schedid,
 							                     	hidden:secthid,
 							                     	hidid:hiddenid
 							                     }, 
@@ -80,7 +82,8 @@
 							                     $('#sectionmodal').modal('show');  
 							                     $('#sectionidname').val(data.sectionidname);
 							                     $('#sectionname').val(data.sectionname);
-							                     $('#sectionlevel').val(data.sectionlevel); 
+							                     $('#sectionlevel').val(data.sectionlevel);
+							                     $('#scheduleid').val(data.scheduleid); 
 							                     $('#sectionhid').val("Edit");
 							                     $('#hiddenid').val(sid); 
 							                }  
@@ -121,6 +124,7 @@
 								<th>Section ID</th>
 								<th>Section Name</th>
 								<th>Level</th>
+								<th>Schedule ID</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -171,6 +175,10 @@
 											    <option value="Grade 11">Grade 11</option>
 											    <option value="Grade 12">Grade 12</option>
 										    </select>
+										</div>
+										<div class="col-md">
+											<label for="scheduleid" class="col-form-label formmodalfont">Schedule ID</label>
+											<input id="scheduleid" name="scheduleid" type="text" class="form-control" placeholder="Schedule ID">
 											<input type="hidden" name="sectionhid" id="sectionhid" value="">
 											<input type="hidden" name="hiddenid" id="hiddenid">
 										</div>
