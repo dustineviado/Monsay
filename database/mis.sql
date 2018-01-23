@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2018 at 12:16 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Jan 23, 2018 at 04:12 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -184,9 +184,7 @@ CREATE TABLE `grading` (
 
 CREATE TABLE `pre_registration` (
   `ctrl_num` int(25) NOT NULL,
-  `fname` varchar(25) NOT NULL,
-  `mname` varchar(25) NOT NULL,
-  `lname` varchar(25) NOT NULL,
+  `studname` varchar(25) NOT NULL,
   `birthday` date NOT NULL,
   `age` int(25) NOT NULL,
   `email` varchar(25) NOT NULL,
@@ -203,12 +201,12 @@ CREATE TABLE `pre_registration` (
 -- Dumping data for table `pre_registration`
 --
 
-INSERT INTO `pre_registration` (`ctrl_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
-(1, 'ralph jerome', 'daluyon', 'reyes', '2013-06-11', 4, '', '', 'male', 'asdkasjdasd', 1231231231, 'Shing Shang Fu', 12123121, ''),
-(2, 'John', 'John', 'John', '2005-03-24', 12, 'bentong@gmail.com', 'Roman Catholic', 'Male', 'Dito lang sa tabi', 1234567890, 'Omniknight', 2147483647, ''),
-(3, 'Havana', 'Ona', 'Na', '2002-05-27', 15, 'Obeybe@gmail.com', 'Roman Catholic', 'Female', 'asjdlasjdlk', 1231231231, 'asldjalksdj', 12312313, ''),
-(4, 'Kyrie', 'Drew', 'Irving', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, ''),
-(5, 'Nathalia Starr', '', '', '1997-03-02', 20, 'asaskda@gmail.com', 'Roman Catholic', 'Male', 'klasdklzxkclasdj', 23232123, 'aksjdaxzkcjz', 823712731, 'Pending');
+INSERT INTO `pre_registration` (`ctrl_num`, `studname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
+(1, 'ralph jerome', '2013-06-11', 4, '', '', 'male', 'asdkasjdasd', 1231231231, 'Shing Shang Fu', 12123121, ''),
+(2, 'John', '2005-03-24', 12, 'bentong@gmail.com', 'Roman Catholic', 'Male', 'Dito lang sa tabi', 1234567890, 'Omniknight', 2147483647, ''),
+(3, 'Havana', '2002-05-27', 15, 'Obeybe@gmail.com', 'Roman Catholic', 'Female', 'asjdlasjdlk', 1231231231, 'asldjalksdj', 12312313, ''),
+(4, 'Kyrie', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, ''),
+(5, 'Nathalia Starr', '1997-03-02', 20, 'asaskda@gmail.com', 'Roman Catholic', 'Male', 'klasdklzxkclasdj', 23232123, 'aksjdaxzkcjz', 823712731, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -442,13 +440,11 @@ ALTER TABLE `subject`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

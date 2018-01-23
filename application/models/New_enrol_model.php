@@ -42,8 +42,8 @@ class New_enrol_model extends CI_Model {
 		}
 
 		  var $table = "pre_registration";  
-	      var $select_column = array("ctrl_num", "fname", "contact", "status");  
-	      var $order_column = array("ctrl_num", "fname", "contact", "status", null);  
+	      var $select_column = array("ctrl_num", "studname", "contact", "status");  
+	      var $order_column = array("ctrl_num", "studname", "contact", "status", null);  
 	      
 	      function make_query()  
 	      {  
@@ -52,11 +52,11 @@ class New_enrol_model extends CI_Model {
 	           if(isset($_POST["search"]["value"]))  
 	           {  
 	                $this->db->like("ctrl_num", $_POST["search"]["value"], 'after');  
-	                $this->db->or_like("fname", $_POST["search"]["value"], 'after');
+	                $this->db->or_like("studname", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("contact", $_POST["search"]["value"], 'after');     
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
 	                   
-	           }  
+	           } 
 	           if(isset($_POST["order"]))  
 	           {  
 	                $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);  
@@ -86,24 +86,28 @@ class New_enrol_model extends CI_Model {
 	           $this->db->from($this->table);  
 	           return $this->db->count_all_results();  
 	      } 
-	public function change_status($id){
-			$this->db->select('ctrl_num');
-			$this->db->from('pre_registration');
-			$this->db->where('status');
-			$result = $this->db->get()->result();
+	public function confirmation($data){
+			$this->db->where('ctrl_num',$data);
+			$q = $this->db->get('pre_registration');
+			$da=$q->result_array();
+			$da = array(
+				'studname'=>$da[0]['studname'],
+				'birthday'=>$da[0]['birthday'],
+				'email'=>$da[0]['email'],
+				'religion'=>$da[0]['religion'],
+				'gender'=>$da[0]['gender'],
+				'address'=>$da[0]['address'],
+				'contact'=>$da[0]['contact'],
+				'parent_guard'=>$da[0]['parent_guard'],
+				'pgcontact'=>$da[0]['pgcontact'],
+				'status'=>'Enrolled');
+			$this->db->insert('student', $da);
+			$this->db->delete('pre_registration', $data);
+			return $q->result_array();
 
-			if($result->$status == 'Pending')
-			{
-				$this->db->set('status','Enrolled');
+			
+			
 			} 
-			else
-			{
-				$this->db->set('status','Pending');
-			}
-
-			$this->db->where('status');
-			$this->db->update('pre_registration');
-	} 
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */

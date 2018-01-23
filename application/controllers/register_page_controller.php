@@ -33,9 +33,9 @@ class register_page_controller extends CI_Controller {
 		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 		if($this->form_validation->run()){
-			 $validator['success'] = true;
+			 //$validator['success'] = true;
 			 $data = array(
-		'fname'=>$this->input->post('fullname'),
+		'studname'=>$this->input->post('fullname'),
 		'email'=>$this->input->post('studemail'),
 		'contact'=>$this->input->post('studcontact'),
 		'religion'=>$this->input->post('studreligion'),
@@ -48,7 +48,7 @@ class register_page_controller extends CI_Controller {
 		'status'=>'Pending',);  
 		$this->load->model('New_enrol_model');
 		$this->New_enrol_model->addstudent($data);
-		alert('Data has been saved');
+		echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";
 		redirect('main_body_controller','refresh');
 			
 		}
