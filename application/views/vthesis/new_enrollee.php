@@ -27,12 +27,12 @@
 							                     "orderable":false,  
 							                },  
 							           ],  
-							      });
+								      });
 
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
 							           var ctrlid = $('#ctrlid').val();
-							           var fname = $('#fullname').val();  
+							           var studname = $('#fullname').val();  
 							           var email = $('#studemail').val(); 
 							           var contact = $('#studcontact').val();
 							           var religion = $('#studreligion').val();
@@ -46,14 +46,14 @@
 							           var newhid = $('#newstudhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(fname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
+							           if(studname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'New_enrol_controller/newStudAction'; ?>",  
 							                     data:{
 							                     	id:ctrlid,
-							                     	name:fname,
+							                     	name:studname,
 							                     	email:email,
 							                     	cont:contact,
 							                     	rel:religion,
@@ -110,11 +110,12 @@
 							      });  
 
 							      $(document).on('click','.confirm', function(){  
-							           var sid = $(this).attr("id");  
+							           var sid = $(this).attr("id"); 
+							           
 							           $.ajax({  
 							                url:"<?php echo base_url() . 'New_enrol_controller/fetch_single_user'; ?>",  
 							                method:"POST",  
-							                data:{sid:sid},  
+				               				data:{sid:sid},  
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
@@ -131,10 +132,13 @@
 												 $('#studparent_guard2').text(data.studparent_guard);
 												 $('#studpgcontact2').text(data.studpgcontact);
 												 $('#studstatus').text(data.studstatus);
-							                }  
+												 $('#newstudhid').val("Confirm");
+							           			 $('#userID').val(sid);
+								            }  
 							           });  
-							      });
 
+							        
+							      });
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id");  
 							           if(confirm("Are you sure you want to delete this?"))  
@@ -273,6 +277,7 @@
 				      		</div>	
 
 				      		<div class="modal-body">
+				      		<?=form_open('New_enrol_controller/confirmEnrollee')?>
 				      			<div class="row form-group">
 				      				<div class="col-md">
 									<h6 class="potgraph">Control Number:</h6>
@@ -301,7 +306,6 @@
 									<p id="studcontact2"></p>
 									</div>
 								</div>
-
 								<div class="row form-group">
 									<div class="col-md">
 									<h6 class="potgraph">Gender:</h6>
@@ -330,20 +334,23 @@
 									</div>
 								</div>
 
+
 								<div class="row form-group">
 									<div class="col-md">
 									<h6 class="potgraph">Status:</h6>
 									<p id="studstatus"></p>
+									<input type="hidden" name="newstudhid" id="newstudhid" value="">
+									<input type="hidden" name="hiddenid" id="userID">
 					  				</div>
 					  			</div>
 					  		</div>
 
 							<div class="modal-footer">
-								<?php echo anchor("New_enrol_controller/confirm/{$stud->ctrl_num}", 'Confirm', ['class'=>'label label-primary']);?>
+								<button type="submit" class="btn btn-success">Confirm</button>
 								<button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
-							</div>
+							</div> 
 							
-
+							</form>
 						</div>
 					</div>
 

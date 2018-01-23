@@ -28,12 +28,11 @@ class New_enrol_controller extends CI_Controller {
 
 	 		if($hidden == "Edit"){
 	           		$updated_data = array(  
-	                     'fname'=>$this->input->post('name'),
+	                     'studname'=>$this->input->post('name'),
 	                     'email'=>$this->input->post('email'),
 	                     'contact'=>$this->input->post('cont'),
 	                     'religion'=>$this->input->post('rel'),
 	                     'birthday'=>$this->input->post('bday'),
-	                     'age'=>$this->input->post('age'),
 	                     'gender'=>$this->input->post('gend'),
 	                     'address'=>$this->input->post('addr'),
 	                     'parent_guard'=>$this->input->post('pguard'),
@@ -52,11 +51,14 @@ class New_enrol_controller extends CI_Controller {
 	           $this->New_enrol_model->deleteEnrollee($_POST["sid"]);  
 	           echo 'Enrollee Deleted';
 	}
-	public function change_status($id){
-		$status = array('ctrl_num' => $ctrl_num);
-		$this->load->mdl("New_enrol_model");
-		$this->New_enrol_model->change_status($status, 'pre_registration');
+	public function confirmEnrollee(){
+
+		$this->load->model('New_enrol_model');
+		$qu =$this->New_enrol_model->confirmation($_POST['hiddenid']);
+		
+		
 		redirect('New_enrol_controller', 'refresh');
+
 	}
 
 	function fetch_user(){  
@@ -67,7 +69,7 @@ class New_enrol_controller extends CI_Controller {
            {  
                 $sub_array = array();  
                 $sub_array[] = $row->ctrl_num;  
-                $sub_array[] = $row->fname;  
+                $sub_array[] = $row->studname;  
                 $sub_array[] = $row->contact;
                 $sub_array[] = $row->status;
                 $sub_array[] = '<button type="button" name="delete" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs edit">Edit</button> <button type="button" name="confirm" id="'.$row->ctrl_num.'" class="btn addstubtn3 btn-xs confirm">Confirm</button>';
@@ -87,7 +89,7 @@ class New_enrol_controller extends CI_Controller {
 	           foreach($data as $row)  
 	           {  
 	           		$output['ctrlid'] = $row->ctrl_num;
-	                $output['fullname'] = $row->fname;  
+	                $output['fullname'] = $row->studname;  
 	                $output['studemail'] = $row->email;
 	                $output['studcontact'] = $row->contact;
 	                $output['studreligion'] = $row->religion;
