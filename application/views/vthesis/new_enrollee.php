@@ -132,7 +132,7 @@
 												 $('#studparent_guard2').text(data.studparent_guard);
 												 $('#studpgcontact2').text(data.studpgcontact);
 												 $('#studstatus').text(data.studstatus);
-												 $('#newstudhid').val("Confirm");
+												 // $('#newstudhid').val("Confirm");
 							           			 $('#userID').val(sid);
 								            }  
 							           });  
@@ -339,7 +339,7 @@
 									<div class="col-md">
 									<h6 class="potgraph">Status:</h6>
 									<p id="studstatus"></p>
-									<input type="hidden" name="newstudhid" id="newstudhid" value="">
+									<!-- <input type="hidden" name="newstudhid" id="newstudhid" value=""> -->
 									<input type="hidden" name="hiddenid" id="userID">
 					  				</div>
 					  			</div>

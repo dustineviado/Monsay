@@ -30,5 +30,3 @@ redirect('login_controller/login_view');
 
 
 	</div>
-
-

@@ -10,6 +10,7 @@ class schedules_controller extends CI_Controller {
 	public function index(){
 		$data['title'] = "Schedules | Ramon Magsaysay High School";
 		$this->load->view('templates/header',$data);
+		$this->load->view('templates/admin_sidebar' ,$data);
 		$this->load->view('vthesis/schedules',$data);
 		$this->load->view('templates/footer',$data);
 	}
