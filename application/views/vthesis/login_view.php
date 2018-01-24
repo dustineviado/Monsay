@@ -3,8 +3,12 @@
 	<div class="row">
 	<div class="col-lg-2">
 	</div>
-	<div class="col-lg-8" style="margin-top: 50px;">
-<form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
+
+	<div class="col-lg-8 " style="margin-top: 50px;">
+			<form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
+		
+	
+
 	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-user"></i>
 		<label>Enter Username</label>
 		<input type="text" name="username" class="form-control" required="">

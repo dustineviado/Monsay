@@ -102,12 +102,12 @@ class New_enrol_model extends CI_Model {
 				'pgcontact'=>$da[0]['pgcontact'],
 				'status'=>'Enrolled');
 			$this->db->insert('student', $da);
-			$this->db->delete('pre_registration', $data);
-			return $q->result_array();
+			
+			$this->db->where('ctrl_num', $data);
+			$this->db->delete('pre_registration');
 
-			
-			
-			} 
+			return $q->result_array();			
+			}		 
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */

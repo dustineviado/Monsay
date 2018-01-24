@@ -45,7 +45,7 @@ class register_page_controller extends CI_Controller {
 		'address'=>$this->input->post('studaddress'),
 		'parent_guard'=>$this->input->post('studparent_guard'),
 		'pgcontact'=>$this->input->post('studpgcontact'),
-		'status'=>'Pending',);  
+		'status'=>'Pending');  
 		$this->load->model('New_enrol_model');
 		$this->New_enrol_model->addstudent($data);
 		echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";

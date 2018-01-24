@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Admin_controller extends CI_Controller {
-
 	public function index()
 	{
 		$data['title'] = "Ramon Magsaysay High School";
@@ -14,8 +12,10 @@ class Admin_controller extends CI_Controller {
 		
 	}
 	
+	function logout()
+	{
+		
+		$this->session->sess_destroy('login_session');
+		redirect(base_url() . 'main_body_controller');
+	}
 }
-
-
-/* End of file admin_controller.php */
-/* Location: ./application/controllers/admin_controller.php */
