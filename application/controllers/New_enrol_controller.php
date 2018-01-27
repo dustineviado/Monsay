@@ -103,6 +103,7 @@ class New_enrol_controller extends CI_Controller {
 	           }  
 	           echo json_encode($output);  
 	      }    
+	      
  }
 
 

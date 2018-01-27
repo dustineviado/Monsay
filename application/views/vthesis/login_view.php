@@ -5,9 +5,17 @@
 	</div>
 
 	<div class="col-lg-8 " style="margin-top: 50px;">
-			<form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
+	<form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
 		
-	
+	<select class="form-control" name="selectlogin" style="width: 300px; margin: 0 auto;">
+		<option value="Admin">Admin</option>
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+      </select><br>
+      	
+
+
+
 
 	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-user"></i>
 		<label>Enter Username</label>

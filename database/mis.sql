@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2018 at 04:12 PM
+-- Generation Time: Jan 27, 2018 at 04:53 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -184,7 +184,7 @@ CREATE TABLE `grading` (
 
 CREATE TABLE `pre_registration` (
   `ctrl_num` int(25) NOT NULL,
-  `studname` varchar(25) NOT NULL,
+  `studname` varchar(50) NOT NULL,
   `birthday` date NOT NULL,
   `age` int(25) NOT NULL,
   `email` varchar(25) NOT NULL,
@@ -202,11 +202,7 @@ CREATE TABLE `pre_registration` (
 --
 
 INSERT INTO `pre_registration` (`ctrl_num`, `studname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
-(1, 'ralph jerome', '2013-06-11', 4, '', '', 'male', 'asdkasjdasd', 1231231231, 'Shing Shang Fu', 12123121, ''),
-(2, 'John', '2005-03-24', 12, 'bentong@gmail.com', 'Roman Catholic', 'Male', 'Dito lang sa tabi', 1234567890, 'Omniknight', 2147483647, ''),
-(3, 'Havana', '2002-05-27', 15, 'Obeybe@gmail.com', 'Roman Catholic', 'Female', 'asjdlasjdlk', 1231231231, 'asldjalksdj', 12312313, ''),
-(4, 'Kyrie', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, ''),
-(5, 'Nathalia Starr', '1997-03-02', 20, 'asaskda@gmail.com', 'Roman Catholic', 'Male', 'klasdklzxkclasdj', 23232123, 'aksjdaxzkcjz', 823712731, 'Pending');
+(5, 'Thalia Markova', '1997-03-02', 20, 'asaskda@gmail.com', 'Roman Catholic', 'Male', 'klasdklzxkclasdj', 23232123, 'aksjdaxzkcjz', 823712731, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -301,10 +297,10 @@ INSERT INTO `section` (`secid`, `section_name`, `year_level`, `scheid`) VALUES
 --
 
 CREATE TABLE `student` (
-  `id_num` int(20) NOT NULL,
+  `id_num` int(25) NOT NULL,
   `studname` varchar(50) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `birthday` varchar(25) NOT NULL,
+  `birthday` date NOT NULL,
   `age` int(25) NOT NULL,
   `contact` int(25) NOT NULL,
   `gender` varchar(25) NOT NULL,
@@ -314,8 +310,20 @@ CREATE TABLE `student` (
   `pgcontact` int(25) NOT NULL,
   `year` varchar(25) NOT NULL,
   `secid` varchar(25) NOT NULL,
-  `status` varchar(25) NOT NULL
+  `status` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`, `username`, `password`) VALUES
+(2, 'Havana', 'Obeybe@gmail.com', '2002-05-27', 0, 1231231231, 'Female', 'Roman Catholic', 'asjdlasjdlk', 'asldjalksdj', 12312313, 'Kinder', '12345', 'Enrolled', '', ''),
+(23423, 'acqaw', 'jbsddvisb', '0000-00-00', 32, 328772, 'Male', 'Roman Catholic', 'owehf9eorh943', '93urhwnierb', 24523, 'Kinder', '12345', 'qwifq', '', ''),
+(23424, 'John', 'bentong@gmail.com', '2005-03-24', 0, 1234567890, 'Male', 'Roman Catholic', 'Dito lang sa tabi', 'Omniknight', 2147483647, '', '', 'Enrolled', '', ''),
+(23425, 'Kyrie', 'uncledrew@gmail.com', '1992-04-21', 0, 23123123, 'Male', 'Roman Catholic', 'Boston Celtics', 'Earth is Flat', 2147483647, '', '', 'Enrolled', '', '');
 
 -- --------------------------------------------------------
 
@@ -364,7 +372,7 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `fullname`, `birthday`, `age`, `gender`, `email`, `advisory`, `faculty`, `address`, `contact`, `status`) VALUES
-(123123, 'lkjaslkdj', '0000-00-00', 1771, 'Male', 'lajsdlkajd', 'llkkjasdiuaysd', 'assiduy', 'iuuayssd', 87126387, 'lajsd');
+(1, 'teacher yany', '1998-01-02', 20, 'female', 'teacheryany', 'asd', 'asdasd', 'Manila', 1234567890, 'single');
 
 -- --------------------------------------------------------
 
@@ -444,7 +452,7 @@ ALTER TABLE `pre_registration`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23426;
 --
 -- Constraints for dumped tables
 --
@@ -461,12 +469,6 @@ ALTER TABLE `schedule_subject`
 --
 ALTER TABLE `section`
   ADD CONSTRAINT `section_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`secid`) REFERENCES `section` (`secid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
