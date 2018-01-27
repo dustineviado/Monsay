@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2018 at 04:53 AM
+-- Generation Time: Jan 27, 2018 at 03:05 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -39,7 +39,6 @@ CREATE TABLE `admins` (
   `email` varchar(25) NOT NULL,
   `contact` int(25) NOT NULL,
   `status` varchar(25) NOT NULL,
-  `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -47,10 +46,8 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`admin_id`, `position`, `fname`, `lname`, `birthday`, `age`, `address`, `email`, `contact`, `status`, `username`, `password`) VALUES
-(0, 'Head Admin', 'Dustine', 'Viado', '1997-01-20', 20, 'abad santos', 'dustineviado@gmail.com', 123456789, 'Single', 'Admin', 'admin123'),
-(2, 'Support', 'John', 'Julag-ay', '1997-04-09', 20, 'las pinas city', 'junjulagay@gmail.com', 123456789, 'Single', 'John Julag-ay', '12345'),
-(3, 'Carry', 'Ralph', 'Reyes', '1997-03-20', 20, 'tondo', 'reyesralph@gmail.com', 123456789, 'Single', 'Ralph Reyes', '12345');
+INSERT INTO `admins` (`admin_id`, `position`, `fname`, `lname`, `birthday`, `age`, `address`, `email`, `contact`, `status`, `password`) VALUES
+(12345, 'admin', 'admin', 'admin', '1997-01-30', 20, 'Las Pinas City', 'rmhsadmin@gmail.com', 123456789, 'Single', 'admin1');
 
 -- --------------------------------------------------------
 
@@ -311,7 +308,6 @@ CREATE TABLE `student` (
   `year` varchar(25) NOT NULL,
   `secid` varchar(25) NOT NULL,
   `status` varchar(25) NOT NULL,
-  `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -319,11 +315,12 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`, `username`, `password`) VALUES
-(2, 'Havana', 'Obeybe@gmail.com', '2002-05-27', 0, 1231231231, 'Female', 'Roman Catholic', 'asjdlasjdlk', 'asldjalksdj', 12312313, 'Kinder', '12345', 'Enrolled', '', ''),
-(23423, 'acqaw', 'jbsddvisb', '0000-00-00', 32, 328772, 'Male', 'Roman Catholic', 'owehf9eorh943', '93urhwnierb', 24523, 'Kinder', '12345', 'qwifq', '', ''),
-(23424, 'John', 'bentong@gmail.com', '2005-03-24', 0, 1234567890, 'Male', 'Roman Catholic', 'Dito lang sa tabi', 'Omniknight', 2147483647, '', '', 'Enrolled', '', ''),
-(23425, 'Kyrie', 'uncledrew@gmail.com', '1992-04-21', 0, 23123123, 'Male', 'Roman Catholic', 'Boston Celtics', 'Earth is Flat', 2147483647, '', '', 'Enrolled', '', '');
+INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`, `password`) VALUES
+(1, 'Gilberto Durugdug', 'GILBERT@gmail.com', '1997-04-09', 20, 1234567890, 'male', 'sad boys', 'Tuguegarao', 'Urduja', 123123123, '4th year', '12345', 'Single', '12345'),
+(2, 'Havana', 'Obeybe@gmail.com', '2002-05-27', 0, 1231231231, 'Female', 'Roman Catholic', 'asjdlasjdlk', 'asldjalksdj', 12312313, 'Kinder', '12345', 'Enrolled', ''),
+(23423, 'acqaw', 'jbsddvisb', '0000-00-00', 32, 328772, 'Male', 'Roman Catholic', 'owehf9eorh943', '93urhwnierb', 24523, 'Kinder', '12345', 'qwifq', ''),
+(23424, 'John', 'bentong@gmail.com', '2005-03-24', 0, 1234567890, 'Male', 'Roman Catholic', 'Dito lang sa tabi', 'Omniknight', 2147483647, '', '', 'Enrolled', ''),
+(23425, 'Kyrie', 'uncledrew@gmail.com', '1992-04-21', 0, 23123123, 'Male', 'Roman Catholic', 'Boston Celtics', 'Earth is Flat', 2147483647, '', '', 'Enrolled', '');
 
 -- --------------------------------------------------------
 
@@ -377,24 +374,23 @@ INSERT INTO `teacher` (`teacher_id`, `fullname`, `birthday`, `age`, `gender`, `e
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_login`
+-- Table structure for table `type`
 --
 
-CREATE TABLE `user_login` (
-  `userID` int(25) NOT NULL,
-  `username` varchar(25) NOT NULL,
+CREATE TABLE `type` (
+  `type` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
+  `id_number` int(25) NOT NULL,
   `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_login`
+-- Dumping data for table `type`
 --
 
-INSERT INTO `user_login` (`userID`, `username`, `email`, `password`) VALUES
-(123, 'gitgud', 'burnik@yahoo.com', '1234567'),
-(1, 'admin', 'rmhsadmin@gmail.com', 'admin1'),
-(2, 'John', 'John@gmail.com', '12345');
+INSERT INTO `type` (`type`, `email`, `id_number`, `password`) VALUES
+('Admin', 'rmhsadmin@gmail.com', 12345, 'admin1'),
+('Student', 'GILBERT@gmail.com', 1, '12345');
 
 --
 -- Indexes for dumped tables

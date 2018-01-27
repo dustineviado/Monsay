@@ -12,15 +12,12 @@
         <option value="Student">Student</option>
         <option value="Teacher">Teacher</option>
       </select><br>
-      	
-
-
 
 
 	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-user"></i>
-		<label>Enter Username</label>
-		<input type="text" name="username" class="form-control" required="">
-		<span class="text-danger"><?php echo form_error('username'); ?></span>
+		<label>Enter Id Number</label>
+		<input type="text" name="id_number" class="form-control" required="">
+		<span class="text-danger"><?php echo form_error('id_number'); ?></span>
 
 	</div>
 	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-lock"></i>
