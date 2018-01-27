@@ -275,7 +275,7 @@
 				         			<span aria-hidden="true">&times;</span>
 				        		</button>
 				      		</div>	
-
+				      		<div class="pre-scrollable">
 				      		<div class="modal-body">
 				      		<?=form_open('New_enrol_controller/confirmEnrollee')?>
 				      			<div class="row form-group">
@@ -356,7 +356,7 @@
 
 				</div>
 			</div>
-
+</div>
 				<!--end of Subject Modal -->
 				<script type="text/javascript">
 					

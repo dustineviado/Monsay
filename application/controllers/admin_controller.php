@@ -12,10 +12,5 @@ class Admin_controller extends CI_Controller {
 		
 	}
 	
-	function logout()
-	{
-		
-		$this->session->sess_destroy('login_session');
-		redirect(base_url() . 'main_body_controller');
-	}
+
 }
