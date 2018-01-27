@@ -1,3 +1,8 @@
+
+<?php  $username=$this->session->userdata('login_session');
+if(! $username ){
+redirect('login_controller/login_view');
+}?>
 <br/>
 <div class="container-fluid allfont">
 	<div class="row">
