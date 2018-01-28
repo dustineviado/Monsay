@@ -8,7 +8,20 @@ class New_enrol_model extends CI_Model {
 		}
 
 		function addstudent($data){
-			$this->db->insert('pre_registration',$data);
+		$data = array(
+		'studname'=>$this->input->post('fullname'),
+		'email'=>$this->input->post('studemail'),
+		'contact'=>$this->input->post('studcontact'),
+		'religion'=>$this->input->post('studreligion'),
+		'birthday'=>$this->input->post('studbirthday'),
+		'birthday'=>$this->input->post('studbirthday'),
+		'gender'=>$this->input->post('studgender'),
+		'address'=>$this->input->post('studaddress'),
+		'parent_guard'=>$this->input->post('studparent_guard'),
+		'pgcontact'=>$this->input->post('studpgcontact'),
+		'status'=>'Pending');
+		
+		$this->db->insert('pre_registration',$data);
 		}
 		function is_email_available($studemail)
 		{
