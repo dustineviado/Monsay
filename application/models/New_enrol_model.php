@@ -87,27 +87,13 @@ class New_enrol_model extends CI_Model {
 	           return $this->db->count_all_results();  
 	      } 
 	public function confirmation($data){
-			$this->db->where('ctrl_num',$data);
-			$q = $this->db->get('pre_registration');
-			$da=$q->result_array();
-			$da = array(
-				'studname'=>$da[0]['studname'],
-				'birthday'=>$da[0]['birthday'],
-				'email'=>$da[0]['email'],
-				'religion'=>$da[0]['religion'],
-				'gender'=>$da[0]['gender'],
-				'address'=>$da[0]['address'],
-				'contact'=>$da[0]['contact'],
-				'parent_guard'=>$da[0]['parent_guard'],
-				'pgcontact'=>$da[0]['pgcontact'],
-				'status'=>'Enrolled');
-			$this->db->insert('student', $da);
-			
+			$this->db->insert('student',$data);
+			}		
+
+	public function confirmationdelete($data){	
 			$this->db->where('ctrl_num', $data);
 			$this->db->delete('pre_registration');
-
-			return $q->result_array();			
-			}		 
+			} 
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */

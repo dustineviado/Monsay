@@ -56,6 +56,7 @@ class schedules_controller extends CI_Controller {
     	$day = $this->input->post('day');
     	$time = $this->input->post('time');
     	$subid = $this->input->post('subid');
+    	$teachid = $this->input->post('teachid');
 
 	    	for($i=0; $i<$count; $i++){
 
@@ -63,7 +64,8 @@ class schedules_controller extends CI_Controller {
 				           'scheid'=>$id[$i],
 				           'day'=>$day[$i],
 				           'time'=>$time[$i],
-				           'subid'=>$subid[$i]		
+				           'subid'=>$subid[$i],
+				           'teacher_id'=>$teachid[$i]		
 				       );
 
 	    				$this->mdl->addschedulesubject($schedule_data);
@@ -95,8 +97,7 @@ class schedules_controller extends CI_Controller {
            echo json_encode($output);  
       }
        function fetch_single_user()  
-	      {  
-	            
+	      {    
 	           $data = $this->mdl->scheduleedit1($_POST["sid"]); 
 	           echo json_encode($data);  
 	      }    

@@ -53,8 +53,26 @@ class New_enrol_controller extends CI_Controller {
 	}
 	public function confirmEnrollee(){
 
+	                $confirm_data = array(  
+	                     'studname'=>$this->input->post('fullname2'),
+	                     'email'=>$this->input->post('studemail2'),
+	                     'birthday'=>$this->input->post('studbirthday2'),
+	                     'age'=>$this->input->post('studage2'),
+	                     'contact'=>$this->input->post('studcontact2'),
+	                     'gender'=>$this->input->post('studgender2'),
+	                     'religion'=>$this->input->post('studreligion2'),
+	                     'address'=>$this->input->post('studaddress2'),
+	                     'parent_guard'=>$this->input->post('studparent_guard2'),
+	                     'pgcontact'=>$this->input->post('studpgcontact2'),
+	                     'year'=>$this->input->post('studyear2'),
+	                     'secid'=>$this->input->post('studsection2'),
+	                     'status'=>'Enrolled'); 
+
+	                $ctrlid = $this->input->post('userID'); 
+
 		$this->load->model('New_enrol_model');
-		$qu =$this->New_enrol_model->confirmation($_POST['hiddenid']);
+		$this->New_enrol_model->confirmation($confirm_data);
+		$this->New_enrol_model->confirmationdelete($ctrlid);
 		
 		
 		redirect('New_enrol_controller', 'refresh');
