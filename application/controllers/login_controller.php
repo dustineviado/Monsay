@@ -33,21 +33,21 @@ class Login_controller extends CI_Controller {
 	function login_validation()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('id_number', 'id_number', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if($this->form_validation->run())
 		{
-			$username = $this->input->post('username');
+			$id_number = $this->input->post('id_number');
 			$password = $this->input->post('password');
 			$this->load->model('login_model');
-			if($this->login_model->can_login($username, $password))
+			if($this->login_model->can_login($id_number, $password))
 			{
-				$this->session->set_userdata('login_session',$username);
+				$this->session->set_userdata('login_session', $id_number);
 				redirect(base_url() . 'admin_controller');
 			}
 			else
 			{
-				 $this->session->set_flashdata('error', 'Invalid Username and Password');
+				 $this->session->set_flashdata('error', 'Invalid Id Number and Password');
 				 redirect(base_url() . 'login_controller');
 			}
 		}
