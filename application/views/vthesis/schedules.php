@@ -77,7 +77,7 @@ redirect('login_controller/login_view');
 
 							     $('.insertrow').click(function(event){
 							      		event.preventDefault();
-									        $('#addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID' disabled value='$sid'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><a href='#' class='remove_field'>X</a></div>"); 
+									        $('#addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID' disabled value='$sid'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><div class='col-md'><label for='scheduleteacher' class='col-form-label formmodalfont'></label><input name='scheduleteacher' type='text' class='form-control scheduleteacher' placeholder='Teacher ID'></div><a href='#' class='remove_field'>X</a></div>"); 
 									        $("input[name*='scheduleid2']").val(sid);
 									    });
 									    
@@ -92,6 +92,7 @@ redirect('login_controller/login_view');
 							           var scheduleday = [];
 							           var scheduletime = [];
 							           var schedulesubid = [];
+							           var scheduleteacher = [];
 
 							           $('.scheduleid2').each(function(){
 							           		scheduleid.push($(this).val());
@@ -105,8 +106,11 @@ redirect('login_controller/login_view');
 							           $('.schedulesubid').each(function(){
 							           		schedulesubid.push($(this).val());
 							           	});
+							           $('.scheduleteacher').each(function(){
+							           		scheduleteacher.push($(this).val());
+							           	});
    											
-							           if(scheduleid != '' && scheduleday != '' && scheduletime != '' && schedulesubid != '')  
+							           if(scheduleid != '' && scheduleday != '' && scheduletime != '' && schedulesubid != '' && scheduleteacher != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
@@ -115,7 +119,8 @@ redirect('login_controller/login_view');
 							                     	id:scheduleid,
 							                     	day:scheduleday,
 							                     	time:scheduletime,
-							                     	subid:schedulesubid
+							                     	subid:schedulesubid,
+							                     	teachid:scheduleteacher
 							                     }, 
 							                     success:function(data)  
 							                     {  
@@ -202,6 +207,8 @@ redirect('login_controller/login_view');
 							                		sched_data +='<td>'+data[i].time+'</td>';
 							                		sched_data +='<td>'+data[i].subject+'</td>';
 							                		sched_data +='<td>'+data[i].year_level+'</td>';
+							                		sched_data +='<td>'+data[i].teacher_id+'</td>';
+							                		sched_data +='<td>'+data[i].fullname+'</td>';
 							                		sched_data +='</tr>';
 							                	} 
 							                	$('#bodytable').html(sched_data);
@@ -310,6 +317,8 @@ redirect('login_controller/login_view');
 											<th>Time</th>
 											<th>Subject</th>
 											<th>Year Level</th>
+											<th>Teacher ID</th>
+											<th>Teacher Name</th>
 										</tr>
 									</thead>
 									<tbody id="bodytable">
@@ -346,19 +355,23 @@ redirect('login_controller/login_view');
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="scheduleid2" class="col-form-label formmodalfont">Schedule ID</label>
-											<input name="scheduleid2" type="text" class="form-control scheduleid2" placeholder="" disabled="">
+											<input name="scheduleid2" type="text" class="form-control scheduleid2" placeholder="" readonly="">
 										</div>
 										<div class="col-md">
 											<label for="scheduleday" class="col-form-label formmodalfont">Day</label>
-											<input name="scheduleday" type="text" class="form-control scheduleday" placeholder="">
+											<input name="scheduleday" type="text" class="form-control scheduleday" placeholder="Day">
 										</div>
 										<div class="col-md">
 											<label for="scheduletime" class="col-form-label formmodalfont">Time</label>
-											<input name="scheduletime" type="text" class="form-control scheduletime" placeholder="">
+											<input name="scheduletime" type="text" class="form-control scheduletime" placeholder="Time">
 										</div>
 										<div class="col-md">
 											<label for="schedulesubid" class="col-form-label formmodalfont">Subject ID</label>
-											<input name="schedulesubid" type="text" class="form-control schedulesubid" placeholder="">
+											<input name="schedulesubid" type="text" class="form-control schedulesubid" placeholder="Subject ID">
+										</div>
+										<div class="col-md">
+											<label for="scheduleteacher" class="col-form-label formmodalfont">Teacher ID</label>
+											<input name="scheduleteacher" type="text" class="form-control scheduleteacher" placeholder="Teacher ID">
 										</div>
 										<p>&nbsp&nbsp</p>
 									</div>

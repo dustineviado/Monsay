@@ -17,10 +17,11 @@ class schedules_model extends CI_Model {
 	        $this->db->delete('schedule');
 		}
 		function scheduleedit1($sid){
-          	 $this->db->select('schedule.scheid, schedule_subject.day, schedule_subject.time, subject.subject, subject.year_level');  
+          	 $this->db->select('schedule.scheid, schedule_subject.day, schedule_subject.time, subject.subject, subject.year_level, teacher.teacher_id, teacher.fullname');  
           	 $this->db->from('schedule');
           	 $this->db->join('schedule_subject', 'schedule_subject.scheid = schedule.scheid');
           	 $this->db->join('subject', 'subject.subid = schedule_subject.subid');
+          	 $this->db->join('teacher', 'teacher.teacher_id = schedule_subject.teacher_id');
           	 $this->db->where('schedule.scheid', $sid);
           	 $query=$this->db->get();  
            	 return $query->result();
