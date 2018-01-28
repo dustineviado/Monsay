@@ -32,34 +32,22 @@ class register_page_controller extends CI_Controller {
 		$this->form_validation->set_rules('studparent_guard','Parent/Guardian','trim|required');
 		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-		if($this->form_validation->run()){
-			 //$validator['success'] = true;
-			 $data = array(
-		'studname'=>$this->input->post('fullname'),
-		'email'=>$this->input->post('studemail'),
-		'contact'=>$this->input->post('studcontact'),
-		'religion'=>$this->input->post('studreligion'),
-		'birthday'=>$this->input->post('studbirthday'),
-		'birthday'=>$this->input->post('studbirthday'),
-		'gender'=>$this->input->post('studgender'),
-		'address'=>$this->input->post('studaddress'),
-		'parent_guard'=>$this->input->post('studparent_guard'),
-		'pgcontact'=>$this->input->post('studpgcontact'),
-		'status'=>'Pending');  
-		$this->load->model('New_enrol_model');
-		$this->New_enrol_model->addstudent($data);
-		echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";
-		redirect('main_body_controller','refresh');
-			
+		$this->form_validation->set_message('integer', 'The {field} must be a number');
+		if($this->form_validation->run() == true)
+		{
+			 $this->load->model('New_enrol_model');
+			 $this->New_enrol_model->addstudent();
+			 // $validator['success'] = true;
+			 // $validator['messages'] = 'Successfully Registered';
+		
 		}
 		else
 		{
-		$data['title'] = "Pre Registration";
-		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/register_page');
-		$this->load->view('templates/footer');
-		}	
-		
+			// foreach($_POST as $key => $value){
+			// 	$validator['messages'][$key] = form_error($key);
+			// }
+		}
+		//echo json_encode($validator);
 	}
 
 	function email_availability(){
@@ -85,4 +73,4 @@ class register_page_controller extends CI_Controller {
 			}
 		}
 	}
-}	
+}
