@@ -93,6 +93,7 @@
 								
 							</div>
 						</div>
+							
 						<br />
 						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
@@ -114,41 +115,39 @@
 <script>
 	$('#form-baby').submit(function(e){
 		e.preventDefault();
-		var me = $(this);
-		// ajax
+		var form = $(this);
+
 		$.ajax({
-			url: me.attr('action'),
-			type: "POST",
-			data: me.serialize(),
+			url: form.attr('action'),
+			type: 'POST',
+			data: form.serialize(),
 			dataType: 'json',
 			success: function(response){
-				if(response.success == true){
+				if(response.success == true)
+				{
 					// alert('success');
-					$('#the-message').append('<div class="alert alert-success">' + 
-						'<span class="fa fa-check"></span>' 
-						+ ' You have Successfully Registered!' + '</div>' );
-					$('.form-group').removeClass('has-error')
-									.removeClass('has-success');
-					$('.text-danger').remove();
-					me[0].reset();
-					$('.alert-success').delay(500).show(10, function() {
-						$(this).delay(3000).hide(10, function() {
-							$(this).remove();
-						});
-					})
+					$('#the-message').append('<div class ="alert alert-success">' + '<span class="fa fa-check"></span>' + 
+						' You have Successfully Registered!' + '</div>');
+
+					$('#form-baby')[0].reset();
+					$('text-danger').remove();
+					$('.form-group').removeClass('has-error').removeClass('has-success');
 				}
-				else{
+				else
+				{
 					$.each(response.messages, function(key, value){
 						var element = $('#' + key);
-						
+
 						element.closest('.form-group')
+						.removeClass('has-error')
+						.removeClass('has-success')
 						.addClass(value.length > 0 ? 'has-error' : 'has-success')
 						.find('.text-danger').remove();
 						element.after(value);
+
 					});
 				}
 			}
-
-		});	
-	});	
+		});
+	});
 </script>
