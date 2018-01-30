@@ -33,21 +33,23 @@ class register_page_controller extends CI_Controller {
 		$this->form_validation->set_rules('studpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 		$this->form_validation->set_message('integer', 'The {field} must be a number');
-		if($this->form_validation->run() == true)
+		if($this->form_validation->run())
 		{
-			 $this->load->model('New_enrol_model');
-			 $this->New_enrol_model->addstudent();
-			 // $validator['success'] = true;
+
+			$this->load->model('New_enrol_model');
+			$this->New_enrol_model->addstudent($data); 
+			 $validator['success'] = true;
 			 // $validator['messages'] = 'Successfully Registered';
+			
 		
 		}
 		else
 		{
-			// foreach($_POST as $key => $value){
-			// 	$validator['messages'][$key] = form_error($key);
-			// }
+			foreach($_POST as $key => $value){
+				$validator['messages'][$key] = form_error($key);
+			}
 		}
-		//echo json_encode($validator);
+		echo json_encode($validator);
 	}
 
 	function email_availability(){

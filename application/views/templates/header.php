@@ -31,6 +31,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/styledustine.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/stylejohn.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/styleralph.css');?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/ralphforms.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/styleralphadmin.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/edit-delete.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/w3.css');?>">
