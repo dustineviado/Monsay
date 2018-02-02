@@ -1,13 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-
--- Generation Time: Jan 28, 2018 at 01:58 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
-
+-- Generation Time: Feb 02, 2018 at 10:09 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -183,8 +181,10 @@ CREATE TABLE `grading` (
 
 CREATE TABLE `pre_registration` (
   `ctrl_num` int(25) NOT NULL,
-  `studname` varchar(25) NOT NULL,
-  `birthday` date NOT NULL,
+  `fname` varchar(25) NOT NULL,
+  `mname` varchar(25) NOT NULL,
+  `lname` varchar(25) NOT NULL,
+  `birthday` varchar(25) NOT NULL,
   `age` int(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `religion` varchar(25) NOT NULL,
@@ -200,11 +200,9 @@ CREATE TABLE `pre_registration` (
 -- Dumping data for table `pre_registration`
 --
 
-INSERT INTO `pre_registration` (`ctrl_num`, `studname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
-(1, 'ralph jerome', '2013-06-11', 4, '', '', 'male', 'asdkasjdasd', 1231231231, 'Shing Shang Fu', 12123121, ''),
-(2, 'John', '2005-03-24', 12, 'bentong@gmail.com', 'Roman Catholic', 'Male', 'Dito lang sa tabi', 1234567890, 'Omniknight', 2147483647, ''),
-(3, 'Havana', '2002-05-27', 15, 'Obeybe@gmail.com', 'Roman Catholic', 'Female', 'asjdlasjdlk', 1231231231, 'asldjalksdj', 12312313, ''),
-(4, 'Kyrie', '1992-04-21', 25, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston Celtics', 23123123, 'Earth is Flat', 2147483647, '');
+INSERT INTO `pre_registration` (`ctrl_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
+(1, 'Oh', 'Sean', 'Park', '2010-10-22', 0, 'ohsean@gmail.com', 'Roman Catholic', 'Female', 'Manila', 92134612, 'Paz Sig', 91235123, 'Pending'),
+(2, 'Kyrie', 'Drew', 'Irving', '2005-05-24', 0, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston', 91102231, 'Uncle Wes', 92132621, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -299,7 +297,9 @@ INSERT INTO `section` (`secid`, `section_name`, `year_level`, `scheid`) VALUES
 
 CREATE TABLE `student` (
   `id_num` int(20) NOT NULL,
-  `studname` varchar(50) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `mname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
   `email` varchar(25) NOT NULL,
   `birthday` varchar(25) NOT NULL,
   `age` int(25) NOT NULL,
@@ -312,17 +312,18 @@ CREATE TABLE `student` (
   `year` varchar(25) NOT NULL,
   `secid` varchar(25) NOT NULL,
   `status` varchar(25) NOT NULL
-
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id_num`, `studname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`) VALUES
-(2, 'Nathalia Starr', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Grade 1', '12345', 'Enrolled'),
-(3, 'Nathalia Starr', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Kinder', '12345', 'Enrolled'),
-(4, 'Nathalia Starr', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Grade 2', '12345', 'Enrolled');
+INSERT INTO `student` (`id_num`, `fname`, `mname`, `lname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`) VALUES
+(2, 'Nathalia ', 'Violet', 'Starr', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Grade 1', '12345', 'Enrolled'),
+(3, 'Nathalia Starr', '', '', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Kinder', '12345', 'Enrolled'),
+(4, 'Nathalia Starr', '', '', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Grade 2', '12345', 'Enrolled'),
+(6, 'ralph jerome', '', '', '', '2013-06-11', 4, 1231231231, 'male', '', 'asdkasjdasd', 'Shing Shang Fu', 12123121, 'Kinder', '123', 'Enrolled'),
+(7, 'PANGET', '', '', 'Obeybe@gmail.com', '2002-05-27', 15, 1231231231, 'Female', 'Roman Catholic', 'asjdlasjdlk', 'asldjalksdj', 12312313, 'Kinder', '54321', 'Enrolled');
 
 -- --------------------------------------------------------
 
@@ -452,14 +453,12 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `pre_registration`
 --
 ALTER TABLE `pre_registration`
-  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
