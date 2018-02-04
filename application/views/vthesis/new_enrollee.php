@@ -37,7 +37,9 @@ redirect('login_controller/login_view');
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
 							           var ctrlid = $('#ctrlid').val();
-							           var studname = $('#fullname').val();  
+							           var fname = $('#studfname').val();
+							           var mname = $('#studmname').val(); 
+							           var lname = $('#studlname').val(); 
 							           var email = $('#studemail').val(); 
 							           var contact = $('#studcontact').val();
 							           var religion = $('#studreligion').val();
@@ -51,14 +53,16 @@ redirect('login_controller/login_view');
 							           var newhid = $('#newstudhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(studname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
+							           if(fname != '' && mname != '' && lname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'New_enrol_controller/newStudAction'; ?>",  
 							                     data:{
 							                     	id:ctrlid,
-							                     	name:studname,
+							                     	fame:fname,
+							                     	mame:mname,
+							                     	lame:lname,
 							                     	email:email,
 							                     	cont:contact,
 							                     	rel:religion,
@@ -98,7 +102,9 @@ redirect('login_controller/login_view');
 							                	 $('#addform')[0].reset();
 							                	 $('.modal-title').text("Edit Enrollee"); 
 							                     $('#newstudmodal').modal('show');  
-							                     $('#fullname').val(data.fullname);
+							                     $('#studfname').val(data.studfname);
+							                     $('#studmname').val(data.studmname);
+							                     $('#studlname').val(data.studlname);
 							                     $('#studemail').val(data.studemail);
 							                     $('#studcontact').val(data.studcontact);
 							                     $('#studreligion').val(data.studreligion);
@@ -127,7 +133,9 @@ redirect('login_controller/login_view');
 							                	 $('.modal-title').text("Enrollee Info"); 
 							                     $('#newstudmodal2').modal('show');
 							                     $('#ctrlid').val(data.ctrlid);							                      
-							                     $('#fullname2').val(data.fullname);
+							                     $('#studfname2').val(data.studfname);
+							                     $('#studmname2').val(data.studmname);
+							                     $('#studlname2').val(data.studlname);
 							                     $('#studemail2').val(data.studemail);
 							                     $('#studcontact2').val(data.studcontact);
 											     $('#studreligion2').val(data.studreligion);
@@ -174,9 +182,10 @@ redirect('login_controller/login_view');
 					<table id="newstudtable" class="table table-responsive table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th scope="col">Control Number</th>
-								<th scope="col">Enrollee Name</th>
-								<th scope="col">Contact</th>
+								<th scope="col" width="15%">Control No.</th>
+								<th scope="col">Given Name</th>
+								<th scope="col">Middle Name</th>
+								<th scope="col">Last Name</th>
 								<th scope="col">Status</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -203,8 +212,16 @@ redirect('login_controller/login_view');
 				      		<div class="modal-body">
 									<div class="row form-group">
 										<div class="col-md">
-											<label for="fullname" class="col-form-label formmodalfont">Name</label>
-											<input id="fullname" name="fullname" type="text" class="form-control">
+											<label for="studfname" class="col-form-label formmodalfont">First Name</label>
+											<input id="studfname" name="studfname" type="text" class="form-control">
+										</div>
+										<div class="col-md">
+											<label for="studmname" class="col-form-label formmodalfont">Middle Name</label>
+											<input id="studmname" name="studmname" type="text" class="form-control">
+										</div>
+										<div class="col-md">
+											<label for="studlname" class="col-form-label formmodalfont">Last Name</label>
+											<input id="studlname" name="studlname" type="text" class="form-control">
 										</div>
 									</div>
 									<div class="row form-group">
@@ -228,11 +245,10 @@ redirect('login_controller/login_view');
 										</div>
 									</div>
 									<div class="row form-group">
-									<div class="col-md">
-											<label for="studbirthday" class="col-form-label formmodalfont">Date of Birth</label>
+										<div class="col-md-5">
+										<label for="studbirthday" class="col-form-label">Date of Birth</label>
 											<input id="studbirthday" name="studbirthday" type="date" class="form-control">
 										</div>
-										
 										<div class="col-md">
 											<label for="studgender" class="col-form-label formmodalfont">Sex</label>
 											<select id="studgender" name="studgender" class="form-control">
@@ -286,8 +302,16 @@ redirect('login_controller/login_view');
 				      		<?=form_open('New_enrol_controller/confirmEnrollee')?>
 				      			<div class="row form-group">
 										<div class="col-md">
-											<label for="fullname2" class="col-form-label formmodalfont">Name</label>
-											<input id="fullname2" name="fullname2" type="text" class="form-control" readonly="">
+											<label for="studfname2" class="col-form-label formmodalfont">First Name</label>
+											<input id="studfname2" name="studfname2" type="text" class="form-control" readonly="">
+										</div>
+										<div class="col-md">
+											<label for="studmname2" class="col-form-label formmodalfont">Middle Name</label>
+											<input id="studmname2" name="studmname2" type="text" class="form-control" readonly="">
+										</div>
+										<div class="col-md">
+											<label for="studlname2" class="col-form-label formmodalfont">Last Name</label>
+											<input id="studlname2" name="studlname2" type="text" class="form-control" readonly="">
 										</div>
 									</div>
 									<div class="row form-group">

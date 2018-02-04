@@ -23,14 +23,26 @@
 					
 					<?php echo form_open("register_page_controller/save", array("id" => "form-baby", "class" => "form-horizontal")) ?>
 						<div class="row form-group">
-							<div class="col-md">
-								<label for="fullname" class="col-form-label">Name</label>
-								<input id="fullname" name="fullname" value="<?php echo set_value('fullname');?>" type="text" class="form-control">
-
+							<div class="col-md">	
+								<label for="studfname" class="col-form-label">First Name</label>
+								<input id="studfname" name="studfname" value="<?php echo set_value('studfname');?>" type="text" class="form-control">
 							</div>
 						
 						</div>
+						<div class="row form-group">
+							<div class="col-md">	
+								<label for="studmname" class="col-form-label">Middle Name</label>
+								<input id="studmname" name="studmname" value="<?php echo set_value('studmname');?>" type="text" class="form-control">
+							</div>
 						
+						</div>
+						<div class="row form-group">
+							<div class="col-md">	
+								<label for="studlname" class="col-form-label">Last Name</label>
+								<input id="studlname" name="studlname" value="<?php echo set_value('studlname');?>" type="text" class="form-control">
+							</div>
+						
+						</div>
 						<div class="row form-group">
 							<div class="col-md">
 								<label for="studemail" class="col-form-label">Email</label>
@@ -125,13 +137,13 @@
 			success: function(response){
 				if(response.success == true)
 				{
-					// alert('success');
-					$('#the-message').append('<div class ="alert alert-success">' + '<span class="fa fa-check"></span>' + 
-						' You have Successfully Registered!' + '</div>');
+					 alert('success');
+					// $('#the-message').append('<div class ="alert alert-success">' + '<span class="fa fa-check"></span>' + 
+					// 	' You have Successfully Registered!' + '</div>');
 
-					$('#form-baby')[0].reset();
-					$('text-danger').remove();
-					$('.form-group').removeClass('has-error').removeClass('has-success');
+					// $('#form-baby')[0].reset();
+					// $('text-danger').remove();
+					// $('.form-group').removeClass('has-error').removeClass('has-success');
 				}
 				else
 				{

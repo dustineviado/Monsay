@@ -22,7 +22,9 @@ class register_page_controller extends CI_Controller {
 	public function save(){
 		$validator = array('success' => false, 'messages' => array());
 
-		$this->form_validation->set_rules('fullname','Name','trim|required');
+		$this->form_validation->set_rules('studfname','First Name','trim|required');
+		$this->form_validation->set_rules('studmname','Middle Name','trim|required');
+		$this->form_validation->set_rules('studlname','Last Name','trim|required');
 		$this->form_validation->set_rules('studemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
 		$this->form_validation->set_rules('studcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_rules('studreligion','Religion','trim|required');
@@ -38,6 +40,8 @@ class register_page_controller extends CI_Controller {
 
 			$this->load->model('New_enrol_model');
 			$this->New_enrol_model->addstudent($data); 
+			// echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";
+			
 			 $validator['success'] = true;
 			 // $validator['messages'] = 'Successfully Registered';
 			

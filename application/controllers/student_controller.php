@@ -20,7 +20,9 @@ class student_controller extends CI_Controller {
 	 		if($hidden == "Add"){
 	                $insert_data = array(  
 	                     'id_num'=>$this->input->post('id'),
-	                     'studname'=>$this->input->post('name'),
+	                     'fname'=>$this->input->post('fame'),
+	                     'mname'=>$this->input->post('mame'),
+	                     'lname'=>$this->input->post('lame'),
 	                     'email'=>$this->input->post('email'),
 	                     'birthday'=>$this->input->post('bday'),
 	                     'age'=>$this->input->post('age'),
@@ -40,7 +42,9 @@ class student_controller extends CI_Controller {
 	           else if($hidden == "Edit"){
 	           		$updated_data = array(  
 	                     'id_num'=>$this->input->post('id'),
-	                     'studname'=>$this->input->post('name'),
+	                     'fname'=>$this->input->post('fame'),
+	                     'mname'=>$this->input->post('mame'),
+	                     'lname'=>$this->input->post('lame'),
 	                     'email'=>$this->input->post('email'),
 	                     'birthday'=>$this->input->post('bday'),
 	                     'age'=>$this->input->post('age'),
@@ -75,10 +79,11 @@ class student_controller extends CI_Controller {
            {  
                 $sub_array = array();  
                 $sub_array[] = $row->id_num;
-                $sub_array[] = $row->studname;
+                $sub_array[] = $row->fname;
+                $sub_array[] = $row->mname;
+                $sub_array[] = $row->lname;
                 $sub_array[] = $row->year;
-                $sub_array[] = $row->section_name;
-                $sub_array[] = $row->status;   
+                $sub_array[] = $row->section_name;   
                 $sub_array[] = '<button type="button" name="delete" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs edit">Edit</button> <button type="button" name="view" id="'.$row->id_num.'" class="btn addstubtn3 btn-xs view">View</button>';
                 $data[] = $sub_array;  
            }  
@@ -96,7 +101,9 @@ class student_controller extends CI_Controller {
 	           foreach($data as $row)  
 	           {  
 	                $output['studentidname'] = $row->id_num;
-	                $output['studentname'] = $row->studname;
+	                $output['studentfname'] = $row->fname;
+	                $output['studentmname'] = $row->mname;
+	                $output['studentlname'] = $row->lname;
 	                $output['studentemail'] = $row->email;
 	                $output['studentbirthday'] = $row->birthday;
 	                $output['studentage'] = $row->age;

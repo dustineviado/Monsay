@@ -37,7 +37,9 @@ redirect('login_controller/login_view');
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
 							           var studid = $('#studentidname').val();  
-							           var studname = $('#studentname').val();  
+							           var studfname = $('#studentfname').val();
+							           var studmname = $('#studentmname').val();
+							           var studlname = $('#studentlname').val();  
 							           var studemail = $('#studentemail').val();
 							           var studbirthday = $('#studentbirthday').val();
 							           var studage = $('#studentage').val();
@@ -53,14 +55,16 @@ redirect('login_controller/login_view');
 							           var studhid = $('#studenthid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(studid != '' && studname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '' && studsection != '' && studstatus != '')  
+							           if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '' && studsection != '' && studstatus != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'student_controller/studentaction'; ?>",  
 							                     data:{
 							                     	id:studid,
-							                     	name:studname,
+							                     	fame:studfname,
+							                     	mame:studmname,
+							                     	lame:studlname,
 							                     	email:studemail,
 							                     	bday:studbirthday,
 							                     	age:studage,
@@ -102,7 +106,9 @@ redirect('login_controller/login_view');
 							                	 $('.modal-title').text("Edit Student"); 
 							                     $('#studentmodal').modal('show');  
 							                     $('#studentidname').val(data.studentidname);
-							                     $('#studentname').val(data.studentname);
+							                     $('#studentfname').val(data.studentfname);
+							                     $('#studentmname').val(data.studentmname);
+							                     $('#studentlname').val(data.studentlname);
 							                     $('#studentemail').val(data.studentemail);
 											     $('#studentbirthday').val(data.studentbirthday);
 												 $('#studentage').val(data.studentage);
@@ -132,7 +138,9 @@ redirect('login_controller/login_view');
 							                	 $('.modal-title').text("View Student"); 
 							                     $('#student2modal').modal('show');  
 							                     $('#student2idname').text(data.studentidname);
-							                     $('#student2name').text(data.studentname);
+							                     $('#student2fname').text(data.studentfname);
+							                     $('#student2mname').text(data.studentmname);
+							                     $('#student2lname').text(data.studentlname);
 							                     $('#student2email').text(data.studentemail);
 											     $('#student2birthday').text(data.studentbirthday);
 												 $('#student2age').text(data.studentage);
@@ -181,10 +189,11 @@ redirect('login_controller/login_view');
 						<thead class="thead-inverse">
 							<tr>
 								<th>Student ID</th>
-								<th>Student Name</th>
+								<th>Given Name</th>
+								<th>Middle Name</th>
+								<th>Last Name</th>
 								<th>Year</th>
-								<th>Section Name</th>
-								<th>Status</th>	
+								<th>Section Name</th>	
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -214,8 +223,16 @@ redirect('login_controller/login_view');
 											<input id="studentidname" name="studentidname" type="text" class="form-control" placeholder="Student ID">
 										</div>
 										<div class="col-md">
-											<label for="studentname" class="col-form-label formmodalfont">Student Name</label>
-											<input id="studentname" name="studentname" type="text" class="form-control" placeholder="Student Name">
+											<label for="studentfname" class="col-form-label formmodalfont">First Name</label>
+											<input id="studentfname" name="studentfname" type="text" class="form-control" placeholder="Student Name">
+										</div>
+										<div class="col-md">
+											<label for="studentmname" class="col-form-label formmodalfont">Middle Name</label>
+											<input id="studentmname" name="studentmname" type="text" class="form-control" placeholder="Student Name">
+										</div>
+										<div class="col-md">
+											<label for="studentlname" class="col-form-label formmodalfont">Last Name</label>
+											<input id="studentlname" name="studentlname" type="text" class="form-control" placeholder="Student Name">
 										</div>
 										<div class="col-md">
 											<label for="studentemail" class="col-form-label formmodalfont">Email</label>
@@ -344,8 +361,14 @@ redirect('login_controller/login_view');
 									<h6 class="potgraph">Student ID:</h6>
 									<p id="student2idname"></p>
 
-									<h6 class="potgraph">Name:</h6>
-									<p id="student2name"></p>
+									<h6 class="potgraph">First Name:</h6>
+									<p id="student2fname"></p>
+
+									<h6 class="potgraph">Middle Name:</h6>
+									<p id="student2mname"></p>
+
+									<h6 class="potgraph">Last Name:</h6>
+									<p id="student2lname"></p>
 
 									<h6 class="potgraph">Email:</h6>
 									<p id="student2email"></p>
