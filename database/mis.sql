@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2018 at 10:09 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Feb 06, 2018 at 04:57 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -167,10 +167,10 @@ CREATE TABLE `archive_teacher` (
 --
 
 CREATE TABLE `grading` (
-  `id_num` int(25) NOT NULL,
-  `year_level` varchar(25) NOT NULL,
-  `subject` varchar(25) NOT NULL,
-  `grade` int(25) NOT NULL
+  `id_num` int(20) NOT NULL,
+  `subid` varchar(10) NOT NULL,
+  `grade` varchar(3) NOT NULL,
+  `quarter` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -243,7 +243,7 @@ CREATE TABLE `schedule` (
 
 INSERT INTO `schedule` (`scheid`) VALUES
 ('SAM123'),
-('SAM231');
+('SAM321');
 
 -- --------------------------------------------------------
 
@@ -252,11 +252,11 @@ INSERT INTO `schedule` (`scheid`) VALUES
 --
 
 CREATE TABLE `schedule_subject` (
-  `scheid` varchar(10) NOT NULL,
+  `scheid` varchar(10) DEFAULT NULL,
   `day` varchar(10) NOT NULL,
   `time` varchar(10) NOT NULL,
-  `subid` varchar(10) NOT NULL,
-  `teacher_id` int(20) NOT NULL
+  `subid` varchar(10) DEFAULT NULL,
+  `teacher_id` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -264,8 +264,9 @@ CREATE TABLE `schedule_subject` (
 --
 
 INSERT INTO `schedule_subject` (`scheid`, `day`, `time`, `subid`, `teacher_id`) VALUES
-('SAM231', 'M/T/W/Th/F', '8:00-7:00 ', 'S101', 123),
-('SAM123', 'wefwe', '54352', 'H103', 123);
+('SAM123', 'M/T/W/Th/F', '8:00-7:00 ', 'S101', 123),
+('SAM321', 'M/T/W/Th/F', '8:00-7:00 ', 'H103', 321),
+('SAM123', 'M/T/W/Th/F', '9:00-10:00', 'M102', 321);
 
 -- --------------------------------------------------------
 
@@ -277,7 +278,7 @@ CREATE TABLE `section` (
   `secid` varchar(25) NOT NULL,
   `section_name` varchar(25) NOT NULL,
   `year_level` varchar(25) NOT NULL,
-  `scheid` varchar(10) NOT NULL
+  `scheid` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -286,8 +287,7 @@ CREATE TABLE `section` (
 
 INSERT INTO `section` (`secid`, `section_name`, `year_level`, `scheid`) VALUES
 ('123', 'Amity', 'Kinder', 'SAM123'),
-('12345', 'Bethlehem', 'Kinder', 'SAM123'),
-('54321', 'Amity', 'Preparatory', 'SAM231');
+('321', 'Bethlehem', 'Kinder', 'SAM321');
 
 -- --------------------------------------------------------
 
@@ -310,7 +310,7 @@ CREATE TABLE `student` (
   `parent_guard` varchar(25) NOT NULL,
   `pgcontact` int(25) NOT NULL,
   `year` varchar(25) NOT NULL,
-  `secid` varchar(25) NOT NULL,
+  `secid` varchar(25) DEFAULT NULL,
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -319,11 +319,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id_num`, `fname`, `mname`, `lname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`) VALUES
-(2, 'Nathalia ', 'Violet', 'Starr', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Grade 1', '12345', 'Enrolled'),
-(3, 'Nathalia Starr', '', '', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Kinder', '12345', 'Enrolled'),
-(4, 'Nathalia Starr', '', '', 'asaskda@gmail.com', '1997-03-02', 20, 23232123, 'Male', 'Roman Catholic', 'klasdklzxkclasdj', 'aksjdaxzkcjz', 823712731, 'Grade 2', '12345', 'Enrolled'),
 (6, 'ralph jerome', '', '', '', '2013-06-11', 4, 1231231231, 'male', '', 'asdkasjdasd', 'Shing Shang Fu', 12123121, 'Kinder', '123', 'Enrolled'),
-(7, 'PANGET', '', '', 'Obeybe@gmail.com', '2002-05-27', 15, 1231231231, 'Female', 'Roman Catholic', 'asjdlasjdlk', 'asldjalksdj', 12312313, 'Kinder', '54321', 'Enrolled');
+(321, 'wefwe', 'f', 'qwer', 'wefw@gmail.com', '234', 23, 234235, 'Male', 'Roman Catholic', 'erg345', 'rtgrt', 345345, 'Kinder', '321', 'Enrolled');
 
 -- --------------------------------------------------------
 
@@ -372,7 +369,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `fullname`, `birthday`, `age`, `gender`, `email`, `advisory`, `faculty`, `address`, `contact`, `status`) VALUES
-(123, 'wew', '2018-01-09', 25, 'Male', 'wew@gmail.com', 'qwq', 'Math', '523dfgew', 12342345, 'Active');
+(123, 'wew', '2018-01-09', 25, 'Male', 'wew@gmail.com', 'qwq', 'Math', '523dfgew', 12342345, 'Active'),
+(321, 'wefwef', '2017-12-15', 23, 'wfgwg', 'wefwe@gmail.com', 'wew', 'wfwf', '234wef', 234234, 'Active');
 
 -- --------------------------------------------------------
 
@@ -454,11 +452,13 @@ ALTER TABLE `teacher`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
+
 --
 -- Constraints for dumped tables
 --
@@ -467,21 +467,21 @@ ALTER TABLE `student`
 -- Constraints for table `schedule_subject`
 --
 ALTER TABLE `schedule_subject`
-  ADD CONSTRAINT `schedule_subject_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `schedule_subject_ibfk_2` FOREIGN KEY (`subid`) REFERENCES `subject` (`subid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `schedule_subject_ibfk_3` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`teacher_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `schedule_subject_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `schedule_subject_ibfk_2` FOREIGN KEY (`subid`) REFERENCES `subject` (`subid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `schedule_subject_ibfk_3` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`teacher_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `section`
 --
 ALTER TABLE `section`
-  ADD CONSTRAINT `section_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `section_ibfk_1` FOREIGN KEY (`scheid`) REFERENCES `schedule` (`scheid`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student`
 --
 ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`secid`) REFERENCES `section` (`secid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`secid`) REFERENCES `section` (`secid`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

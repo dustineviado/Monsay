@@ -43,7 +43,7 @@ class schedules_controller extends CI_Controller {
 	                       
 	               	
 	                $this->mdl->scheduleedit2($updated_data);
-	                echo 'schedule Updated';
+	                echo 'Schedule Updated';
 	           }
 	           else{
 	           		echo 'Error';
@@ -74,8 +74,9 @@ class schedules_controller extends CI_Controller {
     }
 
 	public function deleteschedule(){
+				$sid=$this->input->post('sid');
 		       $this->load->model("schedules_model");  
-	           $this->schedules_model->scheduledelete($_POST["sid"]);  
+	           $this->schedules_model->scheduledelete($sid);  
 	           echo 'Schedule Deleted';
 	}
 	function fetch_user(){  

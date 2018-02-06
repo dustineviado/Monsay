@@ -1,5 +1,3 @@
-
-
 <?php  $username=$this->session->userdata('login_session');
 if(! $username ){
 redirect('login_controller/login_view');
@@ -9,7 +7,6 @@ redirect('login_controller/login_view');
 		<div class="col-lg-1">
 		</div>
 		<div class="col-lg-10">
-			<br>
 				<br>
 				<div class="container">
 					<h1 class="subjectfont">Subjects</h1>
@@ -125,18 +122,19 @@ redirect('login_controller/login_view');
 						<button id="addmodalbtn" class="btn addsubbtn" data-toggle="modal" data-target="#subjectmodal">Add Subject</button>
 					</div>
 					<br>
-
-					<table id="lamesa234" class="table table-responsive table-striped table-bordered" cellspacing="0" width="100%">
-						<thead class="thead-inverse">
-							<tr>
-								<th>Subject ID</th>
-								<th>Subject Name</th>
-								<th>Faculty</th>
-								<th>Level</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-					</table>
+					<div class=" table-responsive">
+						<table id="lamesa234" class="table table-striped table-bordered" cellspacing="0" width="100%">
+							<thead class="thead-inverse">
+								<tr>
+									<th>Subject ID</th>
+									<th>Subject Name</th>
+									<th>Faculty</th>
+									<th>Level</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+						</table>
+					</div>	
 					<br>
 
 				</div>

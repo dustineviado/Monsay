@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class grading_controller extends CI_Controller {
 
+	public function __construct(){
+       
+        parent::__construct();
+        $this->load->model('grading_model','mdl');
+        $this->load->helper('url_helper');
+
+    }
+
 	public function index(){
 		$data['title'] = "Grading | Ramon Magsaysay High School";
 
@@ -13,11 +21,37 @@ class grading_controller extends CI_Controller {
 	}
 
 	public function displaysection(){
-		$id = $this->input->post('idhere');
+		$sid =$this->input->post('sid');
+		$data = $this->mdl->sectiondisplay($sid);
+		echo json_encode($data);
 
-		echo "<script type='text/javascript'>alert($id);</script>";
+	}
 
-		redirect('grading_controller','refresh');
+	public function gettingstudents(){
+		$sid=$this->input->post('sid');
+		$data = $this->mdl->getstudent($sid);
+		echo json_encode($data);
+	}
+
+	public function gradeaction(){
+		$count = count($this->input->post('id'));
+    	$id = $this->input->post('id');
+    	$subid = $this->input->post('subid');
+    	$grade = $this->input->post('grade');
+    	$quarter = $this->input->post('quarter');
+
+	    	for($i=0; $i<$count; $i++){
+
+			    	$grade_data = array(  
+				           'id_num'=>$id[$i],
+				           'subid'=>$subid[$i],
+				           'grade'=>$grade[$i],
+				           'quarter'=>$quarter	
+				       );
+
+	    				$this->mdl->actiongrade($grade_data);
+	    			}
+	     echo 'Schedule Subject Added';
 	}
 
 }
