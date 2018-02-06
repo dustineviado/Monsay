@@ -60,7 +60,7 @@ class student_controller extends CI_Controller {
 	                       
 	               	
 	                $this->mdl->studentedit2($updated_data);
-	                echo 'student Updated';
+	                echo 'Student Updated';
 	           }
 	           else{
 	           		echo 'Error';

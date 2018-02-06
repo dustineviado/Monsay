@@ -1,4 +1,3 @@
-
 <?php  $username=$this->session->userdata('login_session');
 if(! $username ){
 redirect('login_controller/login_view');
@@ -153,37 +152,48 @@ redirect('login_controller/login_view');
 										
 										/*Start Add Schedule Subject*/
 
-							      /*$(document).on('click','.edit', function(){  
+								  /*Start of Edit Schedule JS*/
+							      $(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
 							           $.ajax({  
-							                url:"<?php echo base_url() . 'schedule_controller/fetch_single_user'; ?>",  
+							                url:"<?php echo base_url() . 'schedules_controller/fetch_single_user'; ?>",  
 							                method:"POST",  
 							                data:{sid:sid},  
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
-							                	 $('#addform')[0].reset();
-							                	 $('.modal-title').text("Edit schedule"); 
-							                     $('#schedulemodal').modal('show');  
-							                     $('#scheduleidname').val(data.scheduleidname);
-							                     $('#schedulename').val(data.schedulename);
-							                     $('#scheduleemail').val(data.scheduleemail);
-											     $('#schedulebirthday').val(data.schedulebirthday);
-												 $('#scheduleage').val(data.scheduleage);
-												 $('#schedulecontact').val(data.schedulecontact);
-												 $('#schedulegender').val(data.schedulegender);
-												 $('#schedulereligion').val(data.schedulereligion);
-												 $('#scheduleaddress').val(data.scheduleaddress);
-												 $('#scheduleparentguard').val(data.scheduleparentguard);
-												 $('#schedulepgcontact').val(data.schedulepgcontact);
-												 $('#scheduleyear').val(data.scheduleyear);
-												 $('#schedulesection').val(data.schedulesection);
-												 $('#schedulestatus').val(data.schedulestatus);
-							                     $('#schedulehid').val("Edit");
-							                     $('#hiddenid').val(sid); 
+							                	 
+							                	 $('.modal-title').text("Edit Schedule"); 
+							                     $('#scheduleeditmodal').modal('show');  
+							                     var edit_data= '';
+							                	 var i;
+							                	 for(i=0; i<data.length; i++){
+							                	 	edit_data +="<div class='row form-group'>";	
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='editscheid' class='col-form-label formmodalfont'>Schedule ID</label><input id='editscheid' name='editscheid' type='text' class='form-control editscheid' readonly='' value='"+ data[i].scheid +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='editday' class='col-form-label formmodalfont'>Day</label><input id='editday' name='editday' type='text' class='form-control editday' value='"+ data[i].day +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='edittime' class='col-form-label formmodalfont'>Time</label><input id='edittime' name='edittime' type='text' class='form-control edittime' value='"+ data[i].time +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='subid' class='col-form-label formmodalfont'>Subject ID</label><input id='subid' name='subid' type='text' class='form-control subid' readonly='' value='"+ data[i].subid +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='editsubject' class='col-form-label formmodalfont'>Subject Name</label><input id='editsubject' name='editsubject' type='text' class='form-control editsubject' readonly='' value='"+ data[i].subject +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='editteacher' class='col-form-label formmodalfont'>Teacher ID</label><input id='editteacher' name='editteacher' type='text' class='form-control editteacher' value='"+ data[i].teacher_id +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="</div>";
+							                	} 
+							                	$('#editbody').html(edit_data);
 							                }  
 							           });  
-							      });*/  
+							      });  
+							      /*End of Edit Schedule JS*/
 
 							      /*Start View Schedule Javascript*/
 								$(document).on('click','.view', function(){  
@@ -215,6 +225,7 @@ redirect('login_controller/login_view');
 							                }  
 							           });  
 							      });
+								
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id");  
 							           if(confirm("Are you sure you want to delete this?"))  
@@ -243,15 +254,16 @@ redirect('login_controller/login_view');
 						<button id="addmodalbtn" class="btn addschebtn" data-toggle="modal" data-target="#schedulemodal">Add Schedule ID</button>
 					</div>
 					<br>
-
-					<table id="scheduletable" class="table table-striped">
-						<thead class="thead-inverse">
-							<tr>
-								<th>Schedule ID</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-					</table>
+					<div class="table-responsive">
+						<table id="scheduletable" class="table table-striped">
+							<thead class="thead-inverse">
+								<tr>
+									<th>Schedule ID</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+						</table>
+					</div>	
 					<br>
 
 				</div>
@@ -309,21 +321,23 @@ redirect('login_controller/login_view');
 				      		</div>	
 
 				      		<div class="modal-body">
-								<table id="viewtable" class="table table-responsive table-striped">
-									<thead class="thead-inverse">
-										<tr>
-											<th>Schedule Id</th>
-											<th>Day</th>
-											<th>Time</th>
-											<th>Subject</th>
-											<th>Year Level</th>
-											<th>Teacher ID</th>
-											<th>Teacher Name</th>
-										</tr>
-									</thead>
-									<tbody id="bodytable">
-									</tbody>
-								</table>	
+				      			<div class="table-responsive">
+									<table id="viewtable" class="table table-striped">
+										<thead class="thead-inverse">
+											<tr>
+												<th>Schedule Id</th>
+												<th>Day</th>
+												<th>Time</th>
+												<th>Subject</th>
+												<th>Year Level</th>
+												<th>Teacher ID</th>
+												<th>Teacher Name</th>
+											</tr>
+										</thead>
+										<tbody id="bodytable">
+										</tbody>
+									</table>
+								</div>	
 					  		</div>
 							<div class="modal-footer">
 							</div>
@@ -387,6 +401,33 @@ redirect('login_controller/login_view');
 				</div>
 			</div>
 			<!--End of Schedule Add Modal-->
+
+			<!--Start of Edit Schedule Modal -->
+			<div class="container-fluid">
+				<div class="modal fade" id="scheduleeditmodal" tabindex="-1" role="dialog" aria-labelledby="editschedulemodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		
+				   		<div class="modal-content">
+							<div class="modal-header">
+				        		<h1 class="modal-title" id="editschedulemodal"><b></b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>	
+
+				      		<div class="modal-body"  id="editbody">
+				      			<div class="row form-group">
+								</div>	
+					  		</div>
+							<div class="modal-footer">
+								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>	
+			<!--End of Edit Schedule Modal -->
 
 		</div>
 		<div class="col-lg">
