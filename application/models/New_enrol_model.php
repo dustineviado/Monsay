@@ -8,22 +8,7 @@ class New_enrol_model extends CI_Model {
 		}
 
 		function addstudent($data){
-		$data = array(
-		'fname'=>$this->input->post('studfname'),
-		'mname'=>$this->input->post('studmname'),
-		'lname'=>$this->input->post('studlname'),
-		'email'=>$this->input->post('studemail'),
-		'contact'=>$this->input->post('studcontact'),
-		'religion'=>$this->input->post('studreligion'),
-		'birthday'=>$this->input->post('studbirthday'),
-		'birthday'=>$this->input->post('studbirthday'),
-		'gender'=>$this->input->post('studgender'),
-		'address'=>$this->input->post('studaddress'),
-		'parent_guard'=>$this->input->post('studparent_guard'),
-		'pgcontact'=>$this->input->post('studpgcontact'),
-		'status'=>'Pending');
-		
-		$this->db->insert('pre_registration',$data);
+		$this->db->insert('pre_registration', $data);
 		}
 		function is_email_available($studemail)
 		{
@@ -57,8 +42,8 @@ class New_enrol_model extends CI_Model {
 		}
 
 		  var $table = "pre_registration";  
-	      var $select_column = array("ctrl_num", "fname", "mname", "lname", "status");  
-	      var $order_column = array("ctrl_num", "fname", "mname", "lname", "status", null);  
+	      var $select_column = array("ctrl_num", "fname", "mname", "lname", "date_made", "status");  
+	      var $order_column = array("ctrl_num", "fname", "mname", "lname", "date_made", "status", null);  
 	      
 	      function make_query()  
 	      {  
@@ -69,7 +54,8 @@ class New_enrol_model extends CI_Model {
 	                $this->db->like("ctrl_num", $_POST["search"]["value"], 'after');  
 	                $this->db->or_like("fname", $_POST["search"]["value"], 'after');
 	                $this->db->or_like("mname", $_POST["search"]["value"], 'after');
-	                $this->db->or_like("lname", $_POST["search"]["value"], 'after');     
+	                $this->db->or_like("lname", $_POST["search"]["value"], 'after');
+	                $this->db->or_like("date_made", $_POST["search"]["value"], 'after');     
 	                $this->db->or_like("status", $_POST["search"]["value"], 'after');
 	                   
 	           } 

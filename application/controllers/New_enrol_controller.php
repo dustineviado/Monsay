@@ -94,6 +94,7 @@ class New_enrol_controller extends CI_Controller {
                 $sub_array[] = $row->fname;  
                 $sub_array[] = $row->mname;
                 $sub_array[] = $row->lname;
+                $sub_array[] = $row->date_made;
                 $sub_array[] = $row->status;
                 $sub_array[] = '<button type="button" name="delete" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->ctrl_num.'" class="btn addsubbtn3 btn-xs edit">Edit</button> <button type="button" name="confirm" id="'.$row->ctrl_num.'" class="btn addstubtn3 btn-xs confirm">Confirm</button>';
                 $data[] = $sub_array;  
