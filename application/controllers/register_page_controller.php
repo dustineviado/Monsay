@@ -37,10 +37,25 @@ class register_page_controller extends CI_Controller {
 		$this->form_validation->set_message('integer', 'The {field} must be a number');
 		if($this->form_validation->run())
 		{
-
-			$this->load->model('New_enrol_model');
-			$this->New_enrol_model->addstudent($data); 
-			// echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";
+			$data = array(
+				'fname'=>$this->input->post('studfname'),
+				'mname'=>$this->input->post('studmname'),
+				'lname'=>$this->input->post('studlname'),
+				'email'=>$this->input->post('studemail'),
+				'contact'=>$this->input->post('studcontact'),
+				'religion'=>$this->input->post('studreligion'),
+				'birthday'=>$this->input->post('studbirthday'),
+				'birthday'=>$this->input->post('studbirthday'),
+				'gender'=>$this->input->post('studgender'),
+				'address'=>$this->input->post('studaddress'),
+				'parent_guard'=>$this->input->post('studparent_guard'),
+				'pgcontact'=>$this->input->post('studpgcontact'),
+				'status'=>'Pending',
+				'date_made'=>date('Y-m-d H:i:s', strtotime('+7 HOURS')));
+			 	// echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";
+				$this->load->model('New_enrol_model');
+				$this->New_enrol_model->addstudent($data);  
+			
 			
 			 $validator['success'] = true;
 			 // $validator['messages'] = 'Successfully Registered';

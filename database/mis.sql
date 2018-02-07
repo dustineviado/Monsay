@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2018 at 04:57 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Feb 07, 2018 at 03:47 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -193,16 +193,18 @@ CREATE TABLE `pre_registration` (
   `contact` int(25) NOT NULL,
   `parent_guard` varchar(25) NOT NULL,
   `pgcontact` int(25) NOT NULL,
-  `status` varchar(25) NOT NULL
+  `status` varchar(25) NOT NULL,
+  `date_made` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pre_registration`
 --
 
-INSERT INTO `pre_registration` (`ctrl_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`) VALUES
-(1, 'Oh', 'Sean', 'Park', '2010-10-22', 0, 'ohsean@gmail.com', 'Roman Catholic', 'Female', 'Manila', 92134612, 'Paz Sig', 91235123, 'Pending'),
-(2, 'Kyrie', 'Drew', 'Irving', '2005-05-24', 0, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston', 91102231, 'Uncle Wes', 92132621, 'Pending');
+INSERT INTO `pre_registration` (`ctrl_num`, `fname`, `mname`, `lname`, `birthday`, `age`, `email`, `religion`, `gender`, `address`, `contact`, `parent_guard`, `pgcontact`, `status`, `date_made`) VALUES
+(1, 'Oh', 'Sean', 'Park', '2010-10-22', 0, 'ohsean@gmail.com', 'Roman Catholic', 'Female', 'Manila', 92134612, 'Paz Sig', 91235123, 'Pending', '0000-00-00 00:00:00'),
+(2, 'Kyrie', 'Drew', 'Irving', '2005-05-24', 0, 'uncledrew@gmail.com', 'Roman Catholic', 'Male', 'Boston', 91102231, 'Uncle Wes', 92132621, 'Pending', '0000-00-00 00:00:00'),
+(6, 'Red', 'Jumpsuit', 'Apparatus', '04/21/2013', 0, 'RJA@gmail.com', 'Roman Catholic', 'Male', 'kalsjdlajsdjas123123', 912381237, 'askdasdask', 12939121, 'Pending', '2018-02-07 01:56:57');
 
 -- --------------------------------------------------------
 
@@ -451,14 +453,12 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `pre_registration`
 --
 ALTER TABLE `pre_registration`
-  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
   MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
-
 --
 -- Constraints for dumped tables
 --

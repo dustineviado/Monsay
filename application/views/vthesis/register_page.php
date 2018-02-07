@@ -80,8 +80,11 @@
 							</div>
 							<div class="col-md-5">
 								<label for="studbirthday" class="col-form-label">Date of Birth</label>
-								<input id="studbirthday" name="studbirthday" value="<?php echo set_value('studbirthday');?>" type="date" class="form-control">
+								<input id="studbirthday" name="studbirthday" value="<?php echo set_value('studbirthday');?>" type="text" class="form-control">
 							</div>
+							<script>
+								$('#studbirthday').datepicker();
+							</script>
 						</div>
 						
 						<div class="row form-group">
@@ -137,13 +140,13 @@
 			success: function(response){
 				if(response.success == true)
 				{
-					 alert('success');
-					// $('#the-message').append('<div class ="alert alert-success">' + '<span class="fa fa-check"></span>' + 
-					// 	' You have Successfully Registered!' + '</div>');
+					 // alert('success');
+					$('#the-message').append('<div class ="alert alert-success">' + '<span class="fa fa-check"></span>' + 
+						' You have Successfully Registered!' + '</div>');
 
-					// $('#form-baby')[0].reset();
-					// $('text-danger').remove();
-					// $('.form-group').removeClass('has-error').removeClass('has-success');
+					$('#form-baby')[0].reset();
+					$('text-danger').remove();
+					$('.form-group').removeClass('has-error').removeClass('has-success');
 				}
 				else
 				{

@@ -182,12 +182,13 @@ redirect('login_controller/login_view');
 					<table id="newstudtable" class="table table-responsive table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th scope="col" width="15%">Control No.</th>
+								<th scope="col" width="5%">Control No.</th>
 								<th scope="col">Given Name</th>
 								<th scope="col">Middle Name</th>
 								<th scope="col">Last Name</th>
+								<th scope="col">Date Registered</th>
 								<th scope="col">Status</th>
-								<th scope="col">Action</th>
+								<th scope="col" width="25%	">Action</th>
 							</tr>
 						</thead>
 					</table>
