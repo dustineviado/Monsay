@@ -179,7 +179,7 @@ redirect('login_controller/login_view');
 							                		edit_data +="<label for='edittime' class='col-form-label formmodalfont'>Time</label><input id='edittime' name='edittime' type='text' class='form-control edittime' value='"+ data[i].time +"'>";
 							                		edit_data +="</div>";
 							                		edit_data +="<div class='col-md'>";
-							                		edit_data +="<label for='subid' class='col-form-label formmodalfont'>Subject ID</label><input id='subid' name='subid' type='text' class='form-control subid' readonly='' value='"+ data[i].subid +"'>";
+							                		edit_data +="<label for='editsubid' class='col-form-label formmodalfont'>Subject ID</label><input id='editsubid' name='editsubid' type='text' class='form-control editsubid' readonly='' value='"+ data[i].subid +"'>";
 							                		edit_data +="</div>";
 							                		edit_data +="<div class='col-md'>";
 							                		edit_data +="<label for='editsubject' class='col-form-label formmodalfont'>Subject Name</label><input id='editsubject' name='editsubject' type='text' class='form-control editsubject' readonly='' value='"+ data[i].subject +"'>";
@@ -192,7 +192,56 @@ redirect('login_controller/login_view');
 							                	$('#editbody').html(edit_data);
 							                }  
 							           });  
-							      });  
+							      });
+
+							      $(document).on('click', '#action3', function(event){  
+							           event.preventDefault();    
+							           var editscheid = [];
+							           var editday = [];
+							           var edittime = [];
+							           var editsubid = [];
+							           var editteacher = [];
+
+							           $('.editscheid').each(function(){
+							           		editscheid.push($(this).val());
+							           	});
+							           $('.editday').each(function(){
+							           		editday.push($(this).val());
+							           	});
+							           $('.edittime').each(function(){
+							           		edittime.push($(this).val());
+							           	});
+							           $('.editsubid').each(function(){
+							           		editsubid.push($(this).val());
+							           	});
+							           $('.editteacher').each(function(){
+							           		editteacher.push($(this).val());
+							           	});
+   											
+							           if(editscheid != '' && editday != '' && edittime != '' && editsubid != '' && editteacher != '')  
+							           {  
+							                $.ajax({  
+							                	type:"POST",
+							                     url:"<?php echo base_url() . 'schedules_controller/editschedulesubject'; ?>",  
+							                     data:{
+							                     	id:editscheid,
+							                     	day:editday,
+							                     	time:edittime,
+							                     	subid:editsubid,
+							                     	teachid:editteacher
+							                     }, 
+							                     success:function(data)  
+							                     {  
+							                          alert(data);  
+							                          $('#scheduleeditmodal').modal('hide');  
+							                     }  
+							                });  
+							           }  
+							           else  
+							           {  
+							                alert("All Fields are Required"); 
+							           }  
+							     	});  
 							      /*End of Edit Schedule JS*/
 
 							      /*Start View Schedule Javascript*/
@@ -420,7 +469,7 @@ redirect('login_controller/login_view');
 								</div>	
 					  		</div>
 							<div class="modal-footer">
-								<input type="submit" name="action" id="action" class="btn addsubbtn2" value="Proceed">
+								<input type="submit" name="action3" id="action3" class="btn addsubbtn2" value="Proceed">
 							</div>
 						</div>
 					</div>

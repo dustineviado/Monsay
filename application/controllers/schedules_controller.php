@@ -79,6 +79,29 @@ class schedules_controller extends CI_Controller {
 	           $this->schedules_model->scheduledelete($sid);  
 	           echo 'Schedule Deleted';
 	}
+
+	public function editschedulesubject(){
+		$count = count($this->input->post('id'));
+    	$id = $this->input->post('id');
+    	$day = $this->input->post('day');
+    	$time = $this->input->post('time');
+    	$subid = $this->input->post('subid');
+    	$teachid = $this->input->post('teachid');
+
+	    	for($i=0; $i<$count; $i++){
+
+			    	$scheduleedit_data = array(  
+				           $id[$i],
+				           $day[$i],
+				           $time[$i],
+				           $subid[$i],
+				           $teachid[$i]		
+				       );
+
+	    				$this->mdl->schedulesubjectedit($scheduleedit_data);
+	    			}
+	     echo 'Schedule Subject Added';
+	}
 	function fetch_user(){  
            $this->load->model("schedules_model");  
            $fetch_data = $this->schedules_model->make_datatables();  

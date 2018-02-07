@@ -12,6 +12,17 @@ class schedules_model extends CI_Model {
 		function addschedulesubject($data){
 			$this->db->insert('schedule_subject',$data);
 		}
+
+		function schedulesubjectedit($data){
+			$this->db->set('scheid',$data[0]);
+			$this->db->set('day',$data[1]);
+			$this->db->set('time',$data[2]);
+			$this->db->set('subid',$data[3]);
+			$this->db->set('teacher_id',$data[4]);
+			$this->db->where('scheid', $data[0]);
+			$this->db->where('subid', $data[3]);
+			$this->db->update('schedule_subject');
+		}
 		function scheduledelete($sid){
 	        $this->db->where('scheid', $sid);
 	        $this->db->delete('schedule');
