@@ -12,6 +12,14 @@ class student_model extends CI_Model {
 	        $this->db->where('id_num', $sid);
 	        $this->db->delete('student');
 		}
+		function optionget($sid){
+			$this->db->select('secid, section_name');
+			$this->db->from('section');
+			$this->db->where('year_level', $sid);
+			$query=$this->db->get();  
+           	return $query->result();
+
+		}
 		function studentedit1($sid){
 			$this->db->select('student.id_num, student.fname, student.mname, student.lname, student.email, student.birthday, student.age, student.contact, student.gender, student.religion, student.address, student.parent_guard, student.pgcontact, student.year, section.secid, section.section_name, student.status');
 			$this->db->from('student');

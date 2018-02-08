@@ -55,7 +55,7 @@ redirect('login_controller/login_view');
 							           var studhid = $('#studenthid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '' && studsection != '' && studstatus != '')  
+							           if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '---' && studsection != '' && studstatus != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
@@ -176,7 +176,27 @@ redirect('login_controller/login_view');
 							           {  
 							                return false;       
 							           }  
-							      });        
+							      });
+
+							      /* Start if Jquery combo box*/
+							      	$("#studentyear").change(function(){
+										var sid = $('#studentyear').val();
+											$.ajax({
+												url:"<?php echo base_url(); ?>student_controller/getoption",
+												method:"POST",
+												data:{sid:sid},
+												dataType:"json",
+												success: function(data){
+													var option_data='';
+							                	 	var i;
+							                	 		for(i=0; i<data.length; i++){
+							                	 			option_data += '<option value="'+ data[i].secid +'">'+ data[i].section_name +'</option>'
+														} 
+							                		$('#studentsection').html(option_data);
+							               			}   
+											});
+									});
+							      /* End of Jquery combo box*/ 
 							 });
 						</script>
 					<br>
@@ -307,6 +327,7 @@ redirect('login_controller/login_view');
 										<div class="col-md">
 											<label for="studentyear" class="col-form-label formmodalfont">Year</label>
 											<select id="studentyear" name="studentyear" class="form-control">
+												<option value="">---</option>
 											    <option value="Kinder">Kinder</option>
 											    <option value="Preparatory">Preparatory</option>
 											    <option value="Grade 1">Grade 1</option>
@@ -325,7 +346,9 @@ redirect('login_controller/login_view');
 										</div>
 										<div class="col-md">
 											<label for="studentsection" class="col-form-label formmodalfont">Section</label>
-											<input id="studentsection" name="studentsection" class="form-control" placeholder="Section">
+											<select id="studentsection" name="studentsection" class="form-control">
+												<option value="">---</option>
+											</select>	
 										</div>
 										<div class="col-md">
 											<label for="studentstatus" class="col-form-label formmodalfont">Status</label>

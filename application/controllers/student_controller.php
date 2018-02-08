@@ -71,6 +71,12 @@ class student_controller extends CI_Controller {
 	           $this->student_model->studentdelete($_POST["sid"]);  
 	           echo 'student Deleted';
 	}
+	public function getoption(){
+		$sid = $this->input->post('sid');
+		$data = $this->mdl->optionget($sid);
+		echo json_encode($data);
+
+	}
 	function fetch_user(){  
            $this->load->model("student_model");  
            $fetch_data = $this->student_model->make_datatables();  
