@@ -10,7 +10,6 @@ class student_controller extends CI_Controller {
 	public function index(){
 		$data['title'] = "Students | Ramon Magsaysay High School";
 		$this->load->view('templates/header',$data);
-		$this->load->view('templates/admin_sidebar', $data, 'refresh');
 		$this->load->view('vthesis/student',$data);
 		$this->load->view('templates/footer',$data);
 	}

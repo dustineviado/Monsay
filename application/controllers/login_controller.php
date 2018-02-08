@@ -6,7 +6,7 @@ class Login_controller extends CI_Controller {
 
 		parent::__construct();
 		$this->output->set_header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
-            $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate');
+            $this->output->set_header('Cache-Control: no-store, no-cache, must-recan_login');
             $this->output->set_header('Cache-Control: post-check=0, pre-check=0',false);
             $this->output->set_header('Pragma: no-cache');
 	}
@@ -27,7 +27,7 @@ class Login_controller extends CI_Controller {
 
 	
 	function login_view(){
-		echo('<script type="text/javascript">alert("You need to login again.");</script>');
+		echo('<script type="text/javascript">alert("You need to login!");</script>');
 		redirect(base_url(). 'login_controller' ,'refresh');
 	}
 	function login_validation()
@@ -40,11 +40,23 @@ class Login_controller extends CI_Controller {
 			$id_number = $this->input->post('id_number');
 			$password = $this->input->post('password');
 			$this->load->model('login_model');
+			$value = $this->input->post('selectlogin');
+			
 			if($this->login_model->can_login($id_number, $password))
 			{
 				$this->session->set_userdata('login_session', $id_number);
-				redirect(base_url() . 'admin_controller');
+				
+				if($value == 'Student')
+			{
+				redirect(base_url() . 'studlog_controller' , 'refresh');
 			}
+			else  if($value == 'Teacher')
+			{
+				redirect(base_url() . 'teacherlog_controller' , 'refresh');
+			}
+			redirect(base_url() . 'admin_controller');
+			}
+
 			else
 			{
 				 $this->session->set_flashdata('error', 'Invalid Id Number and Password');

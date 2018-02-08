@@ -14,8 +14,7 @@ class grading_controller extends CI_Controller {
 	public function index(){
 		$data['title'] = "Grading | Ramon Magsaysay High School";
 
-		$this->load->view('templates/header',$data);
-		$this->load->view('templates/admin_sidebar', $data, 'refresh');	
+		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/grading',$data);
 		$this->load->view('templates/footer',$data);
 	}
