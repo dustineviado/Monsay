@@ -16,7 +16,6 @@ class Subject_controller extends CI_Controller {
 		$data['title'] = "Subjects | Ramon Magsaysay High School";
 
 		$this->load->view('templates/header',$data);
-		$this->load->view('templates/admin_sidebar', $data, 'refresh');	
 		$this->load->view('vthesis/subject',$data);
 		$this->load->view('templates/footer',$data);
 

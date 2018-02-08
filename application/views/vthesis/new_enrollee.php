@@ -3,9 +3,62 @@
 if(! $username ){
 redirect('login_controller/login_view');
 }?>
+<br>
 <div class="container-fluid allfont">
 	<div class="row">
-		<div class="col-lg-1">
+		<div class="col-lg-2">
+			<style>
+body {
+    font-family: "helvetica", sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 230px;
+    background-color: #262626;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.5s;
+}
+.sidenav a:hover {
+    color: yellow;
+}
+
+#main {
+    padding: 16px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+
+<div id="sidebar" class="sidenav text-muted">
+	
+  <b><p style="font-family: 'helvetica';font-size: 20px; margin-left: 60px;">Welcome  </p></b>
+  <b><p style="font-family: 'helvetica'; font-size: 20px; margin-left: 50px;"><?php echo $this->session->userdata('login_session');?></p></b>
+  <br>
+  <br>
+  <a href="admin_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
+  <a href="teacher_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-male"> / <i class="fa fa-female">&nbsp;&nbsp;Teacher</a></i></i>
+  <a href="student_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-graduation-cap">&nbsp; &nbsp;Student</a></i>
+  <a href="subject_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-book">&nbsp;&nbsp;Subject</i></a>
+  <a href="section_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sort-numeric-asc">&nbsp;&nbsp;Section</i></a>
+  <a href="new_enrol_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-child">&nbsp;&nbsp;Enrollees</i></a>
+  <a href="schedules_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-calendar-check-o">&nbsp;&nbsp;Schedules</i></a>
+  <br>
+  <br>
+  <br>
+    <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
+  
+</div>
 		</div>
 		<div class="col-lg-10">
 			<br>
@@ -412,7 +465,5 @@ redirect('login_controller/login_view');
 
 		</div>
 
-		<div class="col-lg-1">
-		</div>
 	</div>
 </div>

@@ -1,3 +1,8 @@
+<?php  $username=$this->session->userdata('login_session');
+if(! $username ){
+redirect('login_controller/login_view');
+}?>
+<br>
 <script type="text/javascript">
 	$(document).ready(function(){
 
@@ -106,7 +111,57 @@
 </script>
 <div class="container-fluid allfont">
 	<div class="row">
-		<div class="col-lg-1">
+		<div class="col-lg-2">
+				<style>
+body {
+    font-family: "helvetica", sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 230px;
+    background-color: #262626;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.5s;
+}
+.sidenav a:hover {
+    color: yellow;
+}
+
+#main {
+    padding: 16px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+
+<div id="sidebar" class="sidenav text-muted">
+	
+  <b><p style="font-family: 'helvetica';font-size: 20px; margin-left: 60px;">Welcome  </p></b>
+  <b><p style="font-family: 'helvetica'; font-size: 20px; margin-left: 50px;"><?php echo $this->session->userdata('login_session');?></p></b>
+  <br>
+  <br>
+  <a href="teacherlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
+  <a href="grading_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-check">&nbsp;&nbsp;Grading</a></i>
+   <br>
+  <br>
+  <br>
+  <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
+  
+
+  
+</div>
+
 		</div>
 		<div class="col-lg-10">
 			<div class="container">
@@ -178,7 +233,6 @@
 			</div>
 			<!--start of add Schedule ID -->
 		</div>
-		<div class="col-lg-1">
-		</div>
+		
 	</div>
 </div>

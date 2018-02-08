@@ -2,8 +2,8 @@
 if(! $username ){
 redirect('login_controller/login_view');
 }?>
-
 <br>
+
 <div class="container-fluid">
 	<div class="row">
 
@@ -47,25 +47,29 @@ body {
   <b><p style="font-family: 'helvetica'; font-size: 20px; margin-left: 50px;"><?php echo $this->session->userdata('login_session');?></p></b>
   <br>
   <br>
-  <a href="studlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
-  <a href="#" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-star">&nbsp;&nbsp;Grades</a></i>
-   <br>
+ <a href="teacherlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i> 
+  <a href="grading_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-check">&nbsp;&nbsp;Grading</a></i>
   <br>
   <br>
-   <br>
-  <br>
-  <br> <br>
   <br>
   <br>
-  <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+   <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
   
 
   
 </div>
 	</div>
+
 	<div class="col-lg-10">
-		<h1 class="text-center"> Student Dashboard </h1>
-	</div>
+		<h1 class="text-center"> Teacher Dashboard </h1>
+</div>
+
 
 
 

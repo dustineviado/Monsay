@@ -16,7 +16,6 @@ class section_controller extends CI_Controller {
 		$data['title'] = "Sections | Ramon Magsaysay High School";
 
 		$this->load->view('templates/header',$data);
-		$this->load->view('templates/admin_sidebar', $data, 'refresh');
 		$this->load->view('vthesis/section',$data);
 		$this->load->view('templates/footer',$data);
 

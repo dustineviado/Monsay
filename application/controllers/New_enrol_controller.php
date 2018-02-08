@@ -16,7 +16,6 @@ class New_enrol_controller extends CI_Controller {
 		$data['title'] = "New Enrollee | Ramon Magsaysay High School";
 
 		$this->load->view('templates/header',$data);
-		$this->load->view('templates/admin_sidebar', $data, 'refresh');
 		$this->load->view('vthesis/new_enrollee',$data);
 		$this->load->view('templates/footer',$data);
 

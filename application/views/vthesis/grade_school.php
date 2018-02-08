@@ -49,7 +49,7 @@
 	<div class="container-fluid">
 		<div class="row">	
 			<div class="col-lg-6 pgbord">
-			<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px; color: white;">Photo Gallery <i class="fa fa-camera w3-spin" style="padding: 20px; color: blue;" ></i></h2>
+			<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px; color: white;">Photo Gallery <i class="fa fa-camera" style="padding: 20px; color: blue;" ></i></h2>
 		
 			<div class="front1">
    		 <img src="images/sample1.jpg" style="width: 100% ; height: 200px; padding: 10px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"></div>
@@ -158,7 +158,7 @@ function showSlides(n) {
 <!-- end of grade school photo gallery-->
 <!-- start of grade school video gallery -->
 <div class="col-lg-6 vgbord">
-<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px; color: white;">Video Gallery <i class="fa fa-video-camera w3-spin" style="padding: 20px; color: blue;"></i></h2>
+<h2 class="text-center" style="font-style: 'helvetica'; font-size: 40px; color: white;">Video Gallery <i class="fa fa-video-camera" style="padding: 20px; color: blue;"></i></h2>
 			
 
 <center>
