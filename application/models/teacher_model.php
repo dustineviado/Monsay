@@ -26,8 +26,8 @@ class teacher_model extends CI_Model {
 
 
 	var $table = "teacher";
-	var $select_column_teacher = array("teacher_id", "fullname", "advisory", "faculty",  "status");
-	var $order_column_teacher = array("teacher_id", "fullname",   "email", "advisory", "contact", null, null);
+	var $select_column_teacher = array("teacher_id", "fname", "lname", "department", "status");
+	var $order_column_teacher = array("teacher_id", "fname", "lname", "department", "status", null);
 
 	function make_query_teacher(){
 		$this->db->select($this->select_column_teacher);
@@ -35,9 +35,9 @@ class teacher_model extends CI_Model {
 		if(isset($_POST["search"]["value"]))
 		{
 			$this->db->like("teacher_id", $_POST["search"]["value"], 'after');
-			$this->db->or_like("fullname", $_POST["search"]["value"], 'after');
-			$this->db->or_like("advisory", $_POST["search"]["value"], 'after');
-			$this->db->or_like("faculty", $_POST["search"]["value"], 'after');
+			$this->db->or_like("fname", $_POST["search"]["value"], 'after');
+			$this->db->or_like("lname", $_POST["search"]["value"], 'after');
+			$this->db->or_like("department", $_POST["search"]["value"], 'after');
 			$this->db->or_like("status", $_POST["search"]["value"], 'after');
 
 		}

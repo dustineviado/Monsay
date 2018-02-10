@@ -83,7 +83,7 @@ body {
 							           },  
 							           "columnDefs":[  
 							                {  
-							                     "targets":[4],  
+							                     "targets":[5],  
 							                     "orderable":false,  
 							                },  
 							           ],  
@@ -94,6 +94,7 @@ body {
 							           var sectid = $('#sectionidname').val();  
 							           var sectname = $('#sectionname').val();  
 							           var sectlevel = $('#sectionlevel').val();
+							           var sectadviser = $('#teacherid').val();
 							           var schedid = $('#scheduleid').val();
 							           var secthid = $('#sectionhid').val();
 							           var hiddenid = $('#hiddenid').val();  
@@ -107,6 +108,7 @@ body {
 							                     	id:sectid,
 							                     	name:sectname,
 							                     	lvl:sectlevel,
+							                     	sectadv:sectadviser,
 							                     	sceid:schedid,
 							                     	hidden:secthid,
 							                     	hidid:hiddenid
@@ -140,6 +142,7 @@ body {
 							                     $('#sectionidname').val(data.sectionidname);
 							                     $('#sectionname').val(data.sectionname);
 							                     $('#sectionlevel').val(data.sectionlevel);
+							                     $('#teacherid').val(data.sectionadviser);
 							                     $('#scheduleid').val(data.scheduleid); 
 							                     $('#sectionhid').val("Edit");
 							                     $('#hiddenid').val(sid); 
@@ -181,6 +184,7 @@ body {
 								<th>Section ID</th>
 								<th>Section Name</th>
 								<th>Level</th>
+								<th>Adviser</th>
 								<th>Schedule ID</th>
 								<th>Action</th>
 							</tr>
@@ -208,11 +212,11 @@ body {
 									<div class="row form-group">
 										<div class="col-md">
 											<label for="sectionidname" class="col-form-label formmodalfont">Section ID</label>
-											<input id="sectionidname" name="sectionidname" type="text" class="form-control" placeholder="section ID">
+											<input id="sectionidname" name="sectionidname" type="text" class="form-control" placeholder="Section ID">
 										</div>
 										<div class="col-md">
 											<label for="sectionname" class="col-form-label formmodalfont">Section Name</label>
-											<input id="sectionname" name="sectionname" type="text" class="form-control" placeholder="section Name">
+											<input id="sectionname" name="sectionname" type="text" class="form-control" placeholder="Section Name">
 										</div>
 										<div class="col-md">
 											<label for="sectionlevel" class="col-form-label formmodalfont">Level</label>
@@ -232,6 +236,10 @@ body {
 											    <option value="Grade 11">Grade 11</option>
 											    <option value="Grade 12">Grade 12</option>
 										    </select>
+										</div>
+										<div class="col-md">
+											<label for="teacherid" class="col-form-label formmodalfont">Teacher ID</label>
+											<input id="teacherid" name="teacherid" type="text" class="form-control" placeholder="Teacher ID">
 										</div>
 										<div class="col-md">
 											<label for="scheduleid" class="col-form-label formmodalfont">Schedule ID</label>

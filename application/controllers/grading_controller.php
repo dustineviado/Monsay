@@ -36,6 +36,7 @@ class grading_controller extends CI_Controller {
 		$count = count($this->input->post('id'));
     	$id = $this->input->post('id');
     	$subid = $this->input->post('subid');
+    	$yearnum = $this->input->post('yearnum');
     	$grade = $this->input->post('grade');
     	$quarter = $this->input->post('quarter');
 
@@ -44,6 +45,7 @@ class grading_controller extends CI_Controller {
 			    	$grade_data = array(  
 				           'id_num'=>$id[$i],
 				           'subid'=>$subid[$i],
+				           'year'=>$yearnum[$i],
 				           'grade'=>$grade[$i],
 				           'quarter'=>$quarter	
 				       );

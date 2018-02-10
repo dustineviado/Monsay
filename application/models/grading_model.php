@@ -19,7 +19,7 @@ class grading_model extends CI_Model {
 		}
 
 		function getstudent($sid){
-			$this->db->select('id_num, fname, mname, lname');
+			$this->db->select('id_num, fname, mname, lname, year');
 			$this->db->from('student');
 			$this->db->where('secid',$sid);
 			$query=$this->db->get();  
