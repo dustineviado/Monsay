@@ -29,6 +29,7 @@ class section_controller extends CI_Controller {
 	                     'secid'=>$this->input->post('id'),
 	                     'section_name'=>$this->input->post('name'),
 	                     'year_level'=>$this->input->post('lvl'),
+	                     'teacher_id'=>$this->input->post('sectadv'),
 	                	 'scheid'=>$this->input->post('sceid'));  
 	               	
 	                $this->mdl->addsection($insert_data);
@@ -39,6 +40,7 @@ class section_controller extends CI_Controller {
 	                     'secid'=>$this->input->post('id'),
 	                     'section_name'=>$this->input->post('name'),
 	                     'year_level'=>$this->input->post('lvl'),
+	                     'teacher_id'=>$this->input->post('sectadv'),
 	                 	 'scheid'=>$this->input->post('sceid'));  
 	               	
 	                $this->mdl->sectionedit2($updated_data);
@@ -65,6 +67,7 @@ class section_controller extends CI_Controller {
                 $sub_array[] = $row->secid;
                 $sub_array[] = $row->section_name; 
                 $sub_array[] = $row->year_level;
+                $sub_array[] = $row->fname." ".$row->mname." ".$row->lname;
                 $sub_array[] = $row->scheid;   
                 $sub_array[] = '<button type="button" name="delete" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button>';
                 $data[] = $sub_array;  
@@ -86,6 +89,7 @@ class section_controller extends CI_Controller {
 	                $output['sectionidname'] = $row->secid;  
 	                $output['sectionname'] = $row->section_name;
 	                $output['sectionlevel'] = $row->year_level;
+	                $output['sectionadviser'] = $row->teacher_id;
 	                $output['scheduleid'] = $row->scheid;
 	           }  
 	           echo json_encode($output);  

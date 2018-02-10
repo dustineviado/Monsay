@@ -537,3 +537,23 @@
 	/* end of schedules*/
 	/* start of grading*/
 	/* end of grading*/
+
+	/*Start of School Year*/
+	.addsubbtnend{
+			font-family:Helvetica;
+			height:40px;
+			width:190px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 0px 10px 15px;
+			font-size:19px;
+		}
+		
+		.addsubbtnend:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+	/*End of School Year*/	

@@ -24,13 +24,14 @@ class teacher_controller extends CI_Controller {
 	 		if($hidden == "Add"){
 	                $insert_data = array(  
 	                     'teacher_id'=>$this->input->post('Tid'),
-	                     'fullname'=>$this->input->post('Tname'),
+	                     'fname'=>$this->input->post('Tfname'),
+	                     'mname'=>$this->input->post('Tmname'),
+	                     'lname'=>$this->input->post('Tlname'),
 	                     'birthday'=>$this->input->post('Tbday'),
 	                     'age'=>$this->input->post('Tage'),
 	                     'gender'=>$this->input->post('Tgender'),
 	                     'email'=>$this->input->post('Temail'),
-	                     'advisory'=>$this->input->post('Tadvisory'),
-	                     'faculty'=>$this->input->post('Tfaculty'),
+	                     'department'=>$this->input->post('Tdepartment'),
 	                     'address'=>$this->input->post('Taddress'),
 	                     'contact' =>$this->input->post('Tcontact'),
 	                     'status'=>$this->input->post('Tstatus'));
@@ -41,13 +42,14 @@ class teacher_controller extends CI_Controller {
 	           else if($hidden == "Edit"){
 	           		$updated_data = array(  
 	                     'teacher_id'=>$this->input->post('Tid'),
-	                     'fullname'=>$this->input->post('Tname'),
+	                     'fname'=>$this->input->post('Tfname'),
+	                     'mname'=>$this->input->post('Tmname'),
+	                     'lname'=>$this->input->post('Tlname'),
 	                     'birthday'=>$this->input->post('Tbday'),
 	                     'age'=>$this->input->post('Tage'),
 	                     'gender'=>$this->input->post('Tgender'),
 	                     'email'=>$this->input->post('Temail'),
-	                     'advisory'=>$this->input->post('Tadvisory'),
-	                     'faculty'=>$this->input->post('Tfaculty'),
+	                     'department'=>$this->input->post('Tdepartment'),
 	                     'address'=>$this->input->post('Taddress'),
 	                     'contact' =>$this->input->post('Tcontact'),
 	                     'status'=>$this->input->post('Tstatus'));	
@@ -79,9 +81,9 @@ class teacher_controller extends CI_Controller {
 		{
 			$sub_array = array();
 			$sub_array[] =$lalagyan->teacher_id;
-			$sub_array[] =$lalagyan->fullname;
-			$sub_array[] =$lalagyan->advisory;
-			$sub_array[] =$lalagyan->faculty;
+			$sub_array[] =$lalagyan->fname;
+			$sub_array[] =$lalagyan->lname;
+			$sub_array[] =$lalagyan->department;
 			$sub_array[] =$lalagyan->status;
 			$sub_array[] = '<button type="button" name="delete" id="'.$lalagyan->teacher_id.'" class="btn addsubbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$lalagyan->teacher_id.'" class="btn addsubbtn3 btn-xs edit">Edit</button> <button type="button" name="view" id="'.$lalagyan->teacher_id.'" class="btn addsubbtn3 btn-xs view">View</button>';
 			$data[] = $sub_array;
@@ -104,14 +106,15 @@ class teacher_controller extends CI_Controller {
 	           foreach($data as $lalagyan)  
 	           {  
 	                $output['teacher_id'] = $lalagyan->teacher_id;
-	                $output['teacher_name'] = $lalagyan->fullname;
+	                $output['teacher_fname'] = $lalagyan->fname;
+	                $output['teacher_mname'] = $lalagyan->mname;
+	                $output['teacher_lname'] = $lalagyan->lname;
 	                $output['teacherbday'] = $lalagyan->birthday;
 	                $output['teacherage'] = $lalagyan->age;
 	                $output['teachergender'] = $lalagyan->gender;
 	                $output['teacheremail'] = $lalagyan->email;
-	                $output['teacheradvisory'] = $lalagyan->advisory;
-	                $output['teacherfaculty'] = $lalagyan->faculty;
-	                $output['teacheraddress'] = $lalagyan->address;
+	                $output['teacherdepartment'] = $lalagyan->department;
+	                $output[' dress'] = $lalagyan->address;
 	                $output['teachercontact'] = $lalagyan->contact;
 	                $output['teacherstatus'] = $lalagyan->status;
 	           }  

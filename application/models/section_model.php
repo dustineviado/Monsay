@@ -30,18 +30,23 @@ class section_model extends CI_Model {
 		}
 
 		  var $table = "section";  
-	      var $select_column = array("secid", "section_name", "year_level", "scheid");  
-	      var $order_column = array("secid", "section_name", "year_level", "scheid", null);  
+	      var $select_column = array("section.secid", "section.section_name", "section.year_level", "teacher.fname", "teacher.mname", "teacher.lname", "section.scheid");  
+	      var $order_column = array("section.secid", "section.section_name", "section.year_level", "section.scheid", null);  
 	      
 	      function make_query()  
 	      {  
 	           $this->db->select($this->select_column);  
-	           $this->db->from($this->table);  
+	           $this->db->from($this->table);
+	           $this->db->join('teacher', 'teacher.teacher_id = section.teacher_id');  
 	           if(isset($_POST["search"]["value"]))  
 	           {  
 	                $this->db->like("secid", $_POST["search"]["value"]);  
 	                $this->db->or_like("section_name", $_POST["search"]["value"]);
-	                $this->db->or_like("year_level", $_POST["search"]["value"]);   
+	                $this->db->or_like("year_level", $_POST["search"]["value"]);
+	                $this->db->or_like("fname", $_POST["search"]["value"]);
+	                $this->db->or_like("mname", $_POST["search"]["value"]);
+	                $this->db->or_like("lname", $_POST["search"]["value"]);
+	                $this->db->or_like("scheid", $_POST["search"]["value"]);   
 	           }  
 	           if(isset($_POST["order"]))  
 	           {  

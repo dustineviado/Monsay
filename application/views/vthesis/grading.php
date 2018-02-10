@@ -56,6 +56,7 @@ redirect('login_controller/login_view');
 						stu_data +="<div class='col-md'>";
 						stu_data +="<label for='#subidnum' class='col-form-label formmodalfont'>Student ID</label>"
 						stu_data +="<input id='subidnum' name='subidnum' type='text' class='form-control subidnum' value='"+ sid2 +"' readonly=''>";
+						stu_data +="<input id='yearnum' name='yearnum' type='text' class='form-control yearnum' value='"+ data[i].year +"' hidden>";
 						stu_data +="</div>";
 						stu_data +="<div class='col-md'>";
 						stu_data +="<label for='#grade' class='col-form-label formmodalfont'>Grade</label>"
@@ -72,6 +73,7 @@ redirect('login_controller/login_view');
 			event.preventDefault();    
 			var idnum = [];
 			var subidnum = [];
+			var yearnum = [];
 			var grade = [];
 			var selquarter = $('.selquarter').val();
 
@@ -80,6 +82,9 @@ redirect('login_controller/login_view');
 			});
 			$('.subidnum').each(function(){
 				subidnum.push($(this).val());
+			});
+			$('.yearnum').each(function(){
+				yearnum.push($(this).val());
 			});
 			$('.grade').each(function(){
 				grade.push($(this).val());
@@ -92,6 +97,7 @@ redirect('login_controller/login_view');
 				 data:{
 						id:idnum,
 						subid:subidnum,
+						yearnum:yearnum,
 						grade:grade,
 						quarter:selquarter,
 						}, 
