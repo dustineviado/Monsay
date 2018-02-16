@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 08:28 AM
+-- Generation Time: Feb 16, 2018 at 05:33 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -88,8 +88,81 @@ CREATE TABLE `archive_grading` (
 --
 
 INSERT INTO `archive_grading` (`id_num`, `year`, `subid`, `grade`, `quarter`, `schoolyear`) VALUES
-(6, 'Kinder', 'M102', '89', 1, '2016-2017'),
-(234, 'Kinder', 'M102', '98', 1, '2016-2017');
+(6, 'Grade 1', 'H103', '88', 1, '3456345'),
+(234, 'Grade 1', 'H103', '70', 1, '3456345'),
+(321, 'Grade 1', 'H103', '90', 1, '3456345'),
+(6, 'Grade 1', 'M102', '99', 1, '3456345'),
+(234, 'Grade 1', 'M102', '99', 1, '3456345'),
+(321, 'Grade 1', 'M102', '99', 1, '3456345'),
+(6, 'Grade 1', 'H103', '88', 1, '3253678967'),
+(234, 'Grade 1', 'H103', '70', 1, '3253678967'),
+(321, 'Grade 1', 'H103', '90', 1, '3253678967'),
+(6, 'Grade 1', 'M102', '99', 1, '3253678967'),
+(234, 'Grade 1', 'M102', '99', 1, '3253678967'),
+(321, 'Grade 1', 'M102', '99', 1, '3253678967'),
+(6, 'Grade 1', 'H103', '88', 1, '2016-2017'),
+(234, 'Grade 1', 'H103', '70', 1, '2016-2017'),
+(321, 'Grade 1', 'H103', '90', 1, '2016-2017'),
+(6, 'Grade 1', 'M102', '99', 1, '2016-2017'),
+(234, 'Grade 1', 'M102', '99', 1, '2016-2017'),
+(321, 'Grade 1', 'M102', '99', 1, '2016-2017'),
+(6, 'Grade 10', 'M102', '90', 1, '5363'),
+(234, 'Grade 7', 'M102', '90', 1, '5363'),
+(321, 'Grade 10', 'M102', '90', 1, '5363'),
+(6, 'Grade 10', 'M102', '90', 1, '12412'),
+(234, 'Grade 7', 'M102', '90', 1, '12412'),
+(321, 'Grade 10', 'M102', '90', 1, '12412'),
+(6, 'Grade 10', 'M102', '90', 1, '32453'),
+(234, 'Grade 7', 'M102', '90', 1, '32453'),
+(321, 'Grade 10', 'M102', '90', 1, '32453'),
+(6, 'Grade 10', 'M102', '90', 1, '6574'),
+(234, 'Grade 7', 'M102', '90', 1, '6574'),
+(321, 'Grade 10', 'M102', '90', 1, '6574'),
+(6, 'Grade 10', 'M102', '90', 1, '2354'),
+(234, 'Grade 7', 'M102', '90', 1, '2354'),
+(321, 'Grade 10', 'M102', '90', 1, '2354'),
+(6, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(234, 'Grade 7', 'M102', '90', 1, '2014-2015'),
+(321, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(6, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(234, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(321, 'Grade 2', 'M102', '89', 1, '2014-2015'),
+(6, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(234, 'Grade 7', 'M102', '90', 1, '2014-2015'),
+(321, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(6, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(234, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(321, 'Grade 2', 'M102', '89', 1, '2014-2015'),
+(6, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(234, 'Grade 7', 'M102', '90', 1, '2014-2015'),
+(321, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(6, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(234, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(321, 'Grade 2', 'M102', '89', 1, '2014-2015'),
+(6, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(234, 'Grade 7', 'M102', '90', 1, '2014-2015'),
+(321, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(6, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(234, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(321, 'Grade 2', 'M102', '89', 1, '2014-2015'),
+(6, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(234, 'Grade 7', 'M102', '90', 1, '2014-2015'),
+(321, 'Grade 10', 'M102', '90', 1, '2014-2015'),
+(6, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(234, 'Grade 1', 'H103', '90', 1, '2014-2015'),
+(321, 'Grade 2', 'M102', '89', 1, '2014-2015'),
+(6, 'Grade 10', 'M102', '90', 1, '2017-2018'),
+(234, 'Grade 7', 'M102', '90', 1, '2017-2018'),
+(321, 'Grade 10', 'M102', '90', 1, '2017-2018'),
+(6, 'Grade 1', 'H103', '90', 1, '2017-2018'),
+(234, 'Grade 1', 'H103', '90', 1, '2017-2018'),
+(321, 'Grade 2', 'M102', '89', 1, '2017-2018'),
+(6, 'Grade 10', 'M102', '90', 1, '2019-2020'),
+(234, 'Grade 7', 'M102', '90', 1, '2019-2020'),
+(321, 'Grade 10', 'M102', '90', 1, '2019-2020'),
+(6, 'Grade 1', 'H103', '90', 1, '2019-2020'),
+(234, 'Grade 1', 'H103', '90', 1, '2019-2020'),
+(321, 'Grade 2', 'M102', '89', 1, '2019-2020');
 
 -- --------------------------------------------------------
 
@@ -102,14 +175,6 @@ CREATE TABLE `archive_schedule` (
   `schoolyear` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `archive_schedule`
---
-
-INSERT INTO `archive_schedule` (`scheid`, `schoolyear`) VALUES
-('SAM123', '2016-2017'),
-('SAM321', '2016-2017');
-
 -- --------------------------------------------------------
 
 --
@@ -121,18 +186,10 @@ CREATE TABLE `archive_schedule_subject` (
   `day` varchar(10) NOT NULL,
   `time` varchar(10) NOT NULL,
   `subid` varchar(10) DEFAULT NULL,
+  `room` varchar(10) NOT NULL,
   `teacher_id` int(20) DEFAULT NULL,
   `schoolyear` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `archive_schedule_subject`
---
-
-INSERT INTO `archive_schedule_subject` (`scheid`, `day`, `time`, `subid`, `teacher_id`, `schoolyear`) VALUES
-('SAM123', 'yown', '8:00-7:00 ', 'S101', 123, '2016-2017'),
-('SAM321', 'M/T/W/Th/F', '8:00-7:00 ', 'H103', 321, '2016-2017'),
-('SAM123', 'M/T/W/Th/F', '9:00-10:00', 'M102', 321, '2016-2017');
 
 -- --------------------------------------------------------
 
@@ -148,14 +205,6 @@ CREATE TABLE `archive_section` (
   `scheid` varchar(10) DEFAULT NULL,
   `schoolyear` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `archive_section`
---
-
-INSERT INTO `archive_section` (`secid`, `section_name`, `year_level`, `teacher_id`, `scheid`, `schoolyear`) VALUES
-('123', 'Amity', 'Kinder', 123, 'SAM123', '2016-2017'),
-('321', 'Bethlehem', 'Kinder', 321, 'SAM321', '2016-2017');
 
 -- --------------------------------------------------------
 
@@ -183,15 +232,6 @@ CREATE TABLE `archive_student` (
   `schoolyear` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `archive_student`
---
-
-INSERT INTO `archive_student` (`id_num`, `fname`, `mname`, `lname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`, `schoolyear`) VALUES
-(6, 'ralph jerome', '', '', '', '2013-06-11', 4, 1231231231, 'male', '', 'asdkasjdasd', 'Shing Shang Fu', 12123121, 'Kinder', '123', 'Enrolled', '2016-2017'),
-(234, 'jqeury', 'gewrgew', 'wergwerg', 'erger@gmail.com', '234234', 32, 3453456, 'Male', 'Roman Catholic', 'rth4y6', 'edhghe', 345345, 'Kinder', '123', 'Enrolled', '2016-2017'),
-(321, 'wefwe', 'f', 'qwer', 'wefw@gmail.com', '234', 23, 234235, 'Male', 'Roman Catholic', 'erg345', 'rtgrt', 345345, 'Kinder', '321', 'Enrolled', '2016-2017');
-
 -- --------------------------------------------------------
 
 --
@@ -205,15 +245,6 @@ CREATE TABLE `archive_subject` (
   `year_level` varchar(25) NOT NULL,
   `schoolyear` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `archive_subject`
---
-
-INSERT INTO `archive_subject` (`subid`, `subject`, `faculty`, `year_level`, `schoolyear`) VALUES
-('H103', 'Hekasi', 'History', 'Grade 4', '2016-2017'),
-('M102', 'Basic Math', 'Math', 'Grade 1', '2016-2017'),
-('S101', 'Biology', 'Science', 'Grade 2', '2016-2017');
 
 -- --------------------------------------------------------
 
@@ -231,19 +262,11 @@ CREATE TABLE `archive_teacher` (
   `gender` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `department` varchar(25) NOT NULL,
-  `address` varchar(25) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `contact` int(25) NOT NULL,
   `status` varchar(25) NOT NULL,
   `schoolyear` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `archive_teacher`
---
-
-INSERT INTO `archive_teacher` (`teacher_id`, `fname`, `mname`, `lname`, `birthday`, `age`, `gender`, `email`, `department`, `address`, `contact`, `status`, `schoolyear`) VALUES
-(123, 'wew', 'tae1', 'shit1', '2018-01-09', 25, 'Male', 'wew@gmail.com', 'Math', '523dfgew', 12342345, 'Active', '2016-2017'),
-(321, 'wefwef', 'tae2', 'shit2', '2017-12-15', 23, 'wfgwg', 'wefwe@gmail.com', 'wfwf', '234wef', 234234, 'Active', '2016-2017');
 
 -- --------------------------------------------------------
 
@@ -264,8 +287,12 @@ CREATE TABLE `grading` (
 --
 
 INSERT INTO `grading` (`id_num`, `subid`, `year`, `grade`, `quarter`) VALUES
-(6, 'M102', 'Kinder', '89', 1),
-(234, 'M102', 'Kinder', '98', 1);
+(6, 'M102', 'Grade 10', '90', 1),
+(234, 'M102', 'Grade 7', '90', 1),
+(321, 'M102', 'Grade 10', '90', 1),
+(6, 'H103', 'Grade 1', '90', 1),
+(234, 'H103', 'Grade 1', '90', 1),
+(321, 'M102', 'Grade 2', '89', 1);
 
 -- --------------------------------------------------------
 
@@ -338,8 +365,10 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`scheid`) VALUES
-('SAM123'),
-('SAM321');
+('sc000'),
+('sc011'),
+('sc021'),
+('sc031');
 
 -- --------------------------------------------------------
 
@@ -352,6 +381,7 @@ CREATE TABLE `schedule_subject` (
   `day` varchar(10) NOT NULL,
   `time` varchar(10) NOT NULL,
   `subid` varchar(10) DEFAULT NULL,
+  `room` varchar(10) NOT NULL,
   `teacher_id` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -359,10 +389,10 @@ CREATE TABLE `schedule_subject` (
 -- Dumping data for table `schedule_subject`
 --
 
-INSERT INTO `schedule_subject` (`scheid`, `day`, `time`, `subid`, `teacher_id`) VALUES
-('SAM123', 'yown', '8:00-7:00 ', 'S101', 123),
-('SAM321', 'M/T/W/Th/F', '8:00-7:00 ', 'H103', 321),
-('SAM123', 'M/T/W/Th/F', '9:00-10:00', 'M102', 321);
+INSERT INTO `schedule_subject` (`scheid`, `day`, `time`, `subid`, `room`, `teacher_id`) VALUES
+('sc000', 'M/T/W/Th/F', '9:00-10:00', 'S101', '123', 123),
+('sc011', 'M/T/W/Th/F', '8:00-7:00 ', 'H103', '123', 123),
+('sc021', 'M/T/W/Th/F', '11:00-12:0', 'M102', '123', 123);
 
 -- --------------------------------------------------------
 
@@ -383,8 +413,10 @@ CREATE TABLE `section` (
 --
 
 INSERT INTO `section` (`secid`, `section_name`, `year_level`, `teacher_id`, `scheid`) VALUES
-('123', 'Amity', 'Kinder', 123, 'SAM123'),
-('321', 'Bethlehem', 'Kinder', 321, 'SAM321');
+('000', 'Unassigned', 'Kinder', 123, 'sc000'),
+('011', 'Amity', 'Grade 1', 123, 'sc011'),
+('021', 'Amity', 'Grade 2', 123, 'sc021'),
+('031', 'Amity', 'Grade 3', 123, 'sc031');
 
 -- --------------------------------------------------------
 
@@ -416,9 +448,11 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id_num`, `fname`, `mname`, `lname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`) VALUES
-(6, 'ralph jerome', '', '', '', '2013-06-11', 4, 1231231231, 'male', '', 'asdkasjdasd', 'Shing Shang Fu', 12123121, 'Kinder', '123', 'Enrolled'),
-(234, 'jqeury', 'gewrgew', 'wergwerg', 'erger@gmail.com', '234234', 32, 3453456, 'Male', 'Roman Catholic', 'rth4y6', 'edhghe', 345345, 'Kinder', '123', 'Enrolled'),
-(321, 'wefwe', 'f', 'qwer', 'wefw@gmail.com', '234', 23, 234235, 'Male', 'Roman Catholic', 'erg345', 'rtgrt', 345345, 'Kinder', '321', 'Enrolled');
+(6, 'ralph jerome', 'g', 'rthrth', 'fwef@gmail.com', '2013-06-11', 4, 1231231231, 'Female', 'Christian', 'asdkasjdasd', 'Shing Shang Fu', 12123121, 'Grade 3', '031', 'Not Enrolled'),
+(123, 'rthrt', 'hrhret', 'hrrhrth', 'fwef@gmail.com', 'bday1', 123, 1234567890, 'Female', 'Iglesia ni Cristo', '1074 Corregidor street ma', 'guardians of the galaxy', 987654321, 'Grade 2', '021', 'Not Enrolled'),
+(234, 'jqeury', 'gewrgew', 'wergwerg', 'erger@gmail.com', '234234', 32, 3453456, 'Male', 'Roman Catholic', 'rth4y6', 'edhghe', 345345, 'Grade 3', '031', 'Not Enrolled'),
+(758, 'egter', 'g', 'erge', 'wefw@gmail.com', '45', 64, 43564476, 'Female', 'Born Again', 'Gen. Luna cor. Muralla St', 'guardians of the galaxy', 987654321, 'Grade 3', '031', 'Not Enrolled'),
+(45654, 'grbte', 'g', 'erg', 'jn2f2@gmail', 'bday1', 12, 1234567890, 'Male', 'Born Again', '1074 Corregidor Street Ma', 'guardians of the galaxy', 123, 'Grade 2', '021', 'Not Enrolled');
 
 -- --------------------------------------------------------
 
@@ -458,7 +492,7 @@ CREATE TABLE `teacher` (
   `gender` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `department` varchar(25) NOT NULL,
-  `address` varchar(25) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `contact` int(25) NOT NULL,
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -469,6 +503,7 @@ CREATE TABLE `teacher` (
 
 INSERT INTO `teacher` (`teacher_id`, `fname`, `mname`, `lname`, `birthday`, `age`, `gender`, `email`, `department`, `address`, `contact`, `status`) VALUES
 (123, 'wew', 'tae1', 'shit1', '2018-01-09', 25, 'Male', 'wew@gmail.com', 'Math', '523dfgew', 12342345, 'Active'),
+(242, 'rtyhr', 'rthrt', 'hrthrth', '0000-00-00', 23, 'Male', '25234@gmail.com', 'ewrgerwg', '1074 Corregidor Street Ma', 34523423, 'Active'),
 (321, 'wefwef', 'tae2', 'shit2', '2017-12-15', 23, 'wfgwg', 'wefwe@gmail.com', 'wfwf', '234wef', 234234, 'Active');
 
 -- --------------------------------------------------------
@@ -590,7 +625,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `archive_student`
 --
 ALTER TABLE `archive_student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pre_registration`
@@ -602,7 +637,7 @@ ALTER TABLE `pre_registration`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
+  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45655;
 
 --
 -- Constraints for dumped tables

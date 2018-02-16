@@ -91,11 +91,12 @@ body {
 
 							      $(document).on('click', '#action', function(event){  
 							           event.preventDefault();
+							           var sc = 'sc';
 							           var sectid = $('#sectionidname').val();  
 							           var sectname = $('#sectionname').val();  
 							           var sectlevel = $('#sectionlevel').val();
 							           var sectadviser = $('#teacherid').val();
-							           var schedid = $('#scheduleid').val();
+							           var schedid = sc+$('#sectionidname').val();
 							           var secthid = $('#sectionhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
@@ -151,13 +152,16 @@ body {
 							      });  
 
 							      $(document).on('click', '.delete', function(){  
-							           var sid = $(this).attr("id");  
+							           var sid = $(this).attr("id"); 
+							           var sid2 = $(this).attr("name"); 
 							           if(confirm("Are you sure you want to delete this?"))  
 							           {  
 							                $.ajax({  
 							                     url:"<?php echo base_url(); ?>section_controller/deletesection",  
 							                     method:"POST",  
-							                     data:{sid:sid},  
+							                     data:{sid:sid,
+							                     	   sid2:sid2
+							                     	  },  
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
@@ -238,15 +242,13 @@ body {
 										    </select>
 										</div>
 										<div class="col-md">
-											<label for="teacherid" class="col-form-label formmodalfont">Teacher ID</label>
+											<label for="teacherid" class="col-form-label formmodalfont">Adviser</label>
 											<input id="teacherid" name="teacherid" type="text" class="form-control" placeholder="Teacher ID">
 										</div>
-										<div class="col-md">
-											<label for="scheduleid" class="col-form-label formmodalfont">Schedule ID</label>
-											<input id="scheduleid" name="scheduleid" type="text" class="form-control" placeholder="Schedule ID">
+											<input type="hidden" id="scheduleid" name="scheduleid" type="text" class="form-control" placeholder="Schedule ID">
 											<input type="hidden" name="sectionhid" id="sectionhid" value="">
 											<input type="hidden" name="hiddenid" id="hiddenid">
-										</div>
+
 									</div> 
 					  		</div>
 

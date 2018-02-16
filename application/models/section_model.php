@@ -8,12 +8,20 @@ class section_model extends CI_Model {
 		}
 
 		function addsection($data){
+			$this->db->set('scheid',$data['scheid']);
+			$this->db->insert('schedule');
 
 			$this->db->insert('section',$data);
 		}
 
 		function sectiondelete($sid){
-	        $this->db->where('secid', $sid);
+			$this->db->where('scheid', $sid[1]);
+	        $this->db->delete('schedule_subject');
+
+			$this->db->where('scheid', $sid[1]);
+	        $this->db->delete('schedule');
+
+	        $this->db->where('secid', $sid[0]);
 	        $this->db->delete('section');
 		}
 

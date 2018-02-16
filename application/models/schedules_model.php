@@ -5,9 +5,6 @@ class schedules_model extends CI_Model {
 		function __construct(){
 			parent::__construct();
 		}
-		function addschedule($data){
-			$this->db->insert('schedule',$data);
-		}
 
 		function addschedulesubject($data){
 			$this->db->insert('schedule_subject',$data);
@@ -18,17 +15,18 @@ class schedules_model extends CI_Model {
 			$this->db->set('day',$data[1]);
 			$this->db->set('time',$data[2]);
 			$this->db->set('subid',$data[3]);
-			$this->db->set('teacher_id',$data[4]);
+			$this->db->set('room',$data[4]);
+			$this->db->set('teacher_id',$data[5]);
 			$this->db->where('scheid', $data[0]);
 			$this->db->where('subid', $data[3]);
 			$this->db->update('schedule_subject');
 		}
 		function scheduledelete($sid){
 	        $this->db->where('scheid', $sid);
-	        $this->db->delete('schedule');
+	        $this->db->delete('schedule_subject');
 		}
 		function scheduleedit1($sid){
-          	 $this->db->select('schedule_subject.scheid, schedule_subject.day, schedule_subject.time, schedule_subject.subid, subject.subject, subject.year_level, teacher.teacher_id, teacher.fullname');  
+          	 $this->db->select('schedule_subject.scheid, schedule_subject.room, schedule_subject.day, schedule_subject.time, schedule_subject.subid, subject.subject, subject.year_level, schedule_subject.scheid, teacher.teacher_id, teacher.fname, teacher.mname, teacher.lname');  
           	 $this->db->from('schedule');
           	 $this->db->join('schedule_subject', 'schedule_subject.scheid = schedule.scheid');
           	 $this->db->join('subject', 'subject.subid = schedule_subject.subid');
@@ -36,11 +34,6 @@ class schedules_model extends CI_Model {
           	 $this->db->where('schedule.scheid', $sid);
           	 $query=$this->db->get();  
            	 return $query->result();
-		}
-		function scheduleedit2($data){
-			$hiddenid = $this->input->post('hidid');
-			$this->db->where('id_num', $hiddenid);
-			$this->db->update('schedule', $data);
 		}
 		  var $table = "schedule";  
 	      var $select_column = array("scheid");  

@@ -114,7 +114,7 @@ class teacher_controller extends CI_Controller {
 	                $output['teachergender'] = $lalagyan->gender;
 	                $output['teacheremail'] = $lalagyan->email;
 	                $output['teacherdepartment'] = $lalagyan->department;
-	                $output[' dress'] = $lalagyan->address;
+	                $output['teacheraddress'] = $lalagyan->address;
 	                $output['teachercontact'] = $lalagyan->contact;
 	                $output['teacherstatus'] = $lalagyan->status;
 	           }  

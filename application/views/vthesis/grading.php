@@ -6,7 +6,7 @@ redirect('login_controller/login_view');
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		var sids = '321';  
+		var sids = '123';  
 		$.ajax({  
 		url:"<?php echo base_url() . 'grading_controller/displaysection'; ?>",  
 		method:"POST",  
@@ -44,20 +44,14 @@ redirect('login_controller/login_view');
 					var stu_data= '';
 					var i;
 					for(i=0; i<data.length; i++){
-						stu_data +="<div class='row form-row'>";	
-						stu_data +="<div class='col-md'>";
-						stu_data +="<label for='#idnum' class='col-form-label formmodalfont'>Student ID</label>"
-						stu_data +="<input id='idnum' name='idnum' type='text' class='form-control idnum' value='"+ data[i].id_num +"' readonly=''>";
-						stu_data +="</div>";
+						stu_data +="<div class='row form-row'>";
+						stu_data +="<input type='hidden' id='idnum' name='idnum' type='text' class='form-control idnum' value='"+ data[i].id_num +"' readonly=''>";						
 						stu_data +="<div class='col-md'>";
 						stu_data +="<label for='#namestud' class='col-form-label formmodalfont'>Student Name</label>"
-						stu_data +="<input id='namestud' name='namestud' type='text' class='form-control namestud' value='"+ data[i].fname + data[i].mname + data[i].lname +"' readonly=''>";
+						stu_data +="<input id='namestud' name='namestud' type='text' class='form-control namestud' value='"+data[i].lname+', '+ data[i].fname+' '+ data[i].mname +"' readonly=''>";
 						stu_data +="</div>";
-						stu_data +="<div class='col-md'>";
-						stu_data +="<label for='#subidnum' class='col-form-label formmodalfont'>Student ID</label>"
-						stu_data +="<input id='subidnum' name='subidnum' type='text' class='form-control subidnum' value='"+ sid2 +"' readonly=''>";
+						stu_data +="<input type='hidden' id='subidnum' name='subidnum' type='text' class='form-control subidnum' value='"+ sid2 +"' readonly=''>";
 						stu_data +="<input id='yearnum' name='yearnum' type='text' class='form-control yearnum' value='"+ data[i].year +"' hidden>";
-						stu_data +="</div>";
 						stu_data +="<div class='col-md'>";
 						stu_data +="<label for='#grade' class='col-form-label formmodalfont'>Grade</label>"
 						stu_data +="<input id='grade' name='grade' type='text' class='form-control grade'>";
