@@ -61,10 +61,10 @@
 				
 				<div class="col-md-5">
 					<div>	
-							<a href="main_body_controller" style="color:black;"><img id="rmhsimg" src="images/Rmhslogo.jpg">	
+							<a href="main_body_controller" style="color:black;"><img id="rmhsimg" src="images/hvea.jpg">	
 						<p> 
-							<span id="rmhstitle">RAMON MAGSAYSAY&nbsp;</span> <br>
-							<span id="rmhstitle2">HIGH SCHOOL</span>
+							<span id="rmhstitle">Haven of Virtue And&nbsp;</span> <br>
+							<span id="rmhstitle2">Excellence Academy Inc.</span>
 						</p>
 					</a>
 					</div>	
