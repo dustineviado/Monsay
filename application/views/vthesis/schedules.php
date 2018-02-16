@@ -63,12 +63,7 @@ body {
 				<div class="container">
 					<h1 class="studentfont">Schedules</h1>
 					<script type="text/javascript">
-							$(document).ready(function(){
-								$('#addmodalbtn').click(function(){  
-							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Schedule ID");  
-							           $('#schedulehid').val("Add");   
-							      });    
+							$(document).ready(function(){   
 							      var dataTable = $('#scheduletable').DataTable({  
 							           "processing":true,  
 							           "serverSide":true,
@@ -85,35 +80,6 @@ body {
 							                },  
 							           ],  
 							      });
-							      $(document).on('click', '#action', function(event){  
-							           event.preventDefault();
-							           var scheduleid = $('#scheduleid').val();
-							           var schedhid = $('#schedulehid').val();
-							           var hiddenid = $('#hiddenid').val();      
-							           
-							           if(scheduleid != '')  
-							           {  
-							                $.ajax({  
-							                	type:"POST",
-							                     url:"<?php echo base_url() . 'schedules_controller/scheduleaction'; ?>",  
-							                     data:{
-							                     	schedid:scheduleid,
-							                     	hidden:schedhid,
-							                     	hiddenid:hiddenid
-							                     }, 
-							                     success:function(data)  
-							                     {  
-							                          alert(data);  
-							                          $('#schedulemodal').modal('hide');  
-							                          $('#scheduletable').DataTable().ajax.reload();  
-							                     }  
-							                });  
-							           }  
-							           else  
-							           {  
-							                alert("All Fields are Required"); 
-							           }  
-							      });
 
 							      /*Start Add Schedule Subject*/
 							      var sid;
@@ -128,7 +94,7 @@ body {
 
 							     $('.insertrow').click(function(event){
 							      		event.preventDefault();
-									        $('#addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID' disabled value='$sid'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><div class='col-md'><label for='scheduleteacher' class='col-form-label formmodalfont'></label><input name='scheduleteacher' type='text' class='form-control scheduleteacher' placeholder='Teacher ID'></div><a href='#' class='remove_field'>X</a></div>"); 
+									        $('#addrowbody').append("<div class='row form-row addedrows'><div class='col-md'><label for='scheduleid2' class='col-form-label formmodalfont'></label><input name='scheduleid2' type='text' class='form-control scheduleid2' placeholder='Schedule ID' disabled value='$sid'></div><div class='col-md'><label for='scheduleday' class='col-form-label formmodalfont'></label><input name='scheduleday' type='text' class='form-control scheduleday' placeholder='Day'></div><div class='col-md'><label for='scheduletime' class='col-form-label formmodalfont'></label><input name='scheduletime' type='text' class='form-control scheduletime' placeholder='Time'></div><div class='col-md'><label for='schedulesubid' class='col-form-label formmodalfont'></label><input name='schedulesubid' type='text' class='form-control schedulesubid' placeholder='Subject ID'></div><div class='col-md'><label for='scheduleroom' class='col-form-label formmodalfont'></label><input name='scheduleroom' type='text' class='form-control scheduleroom' placeholder='Room'></div><div class='col-md'><label for='scheduleteacher' class='col-form-label formmodalfont'></label><input name='scheduleteacher' type='text' class='form-control scheduleteacher' placeholder='Teacher ID'></div><a href='#' class='remove_field'>X</a></div>"); 
 									        $("input[name*='scheduleid2']").val(sid);
 									    });
 									    
@@ -143,6 +109,7 @@ body {
 							           var scheduleday = [];
 							           var scheduletime = [];
 							           var schedulesubid = [];
+							           var scheduleroom = [];
 							           var scheduleteacher = [];
 
 							           $('.scheduleid2').each(function(){
@@ -157,11 +124,14 @@ body {
 							           $('.schedulesubid').each(function(){
 							           		schedulesubid.push($(this).val());
 							           	});
+							            $('.scheduleroom').each(function(){
+							           		scheduleroom.push($(this).val());
+							           	});
 							           $('.scheduleteacher').each(function(){
 							           		scheduleteacher.push($(this).val());
 							           	});
    											
-							           if(scheduleid != '' && scheduleday != '' && scheduletime != '' && schedulesubid != '' && scheduleteacher != '')  
+							           if(scheduleid != '' && scheduleday != '' && scheduletime != '' && schedulesubid != '' && scheduleroom != '' && scheduleteacher != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
@@ -171,6 +141,7 @@ body {
 							                     	day:scheduleday,
 							                     	time:scheduletime,
 							                     	subid:schedulesubid,
+							                     	room:scheduleroom,
 							                     	teachid:scheduleteacher
 							                     }, 
 							                     success:function(data)  
@@ -185,24 +156,7 @@ body {
 							                alert("All Fields are Required"); 
 							           }  
 							     	});
-
-										/*var original = $("#addrowbody").html();
-									    $(".insertrow").click(function(){
-										    $("#thisthis").clone().appendTo("#addrowbody");
-
-										    
-
-										    $('#schedule3modal').on('hidden.bs.modal', function () {
-											    $("#addrowbody").html(original);
-											})
-
-										    $('#addrowbody').on("click",".remove_field", function(e){
-									        	e.preventDefault(); 
-									        	$(this).parent('div').remove();
-									        });
-										});*/
-										
-										/*Start Add Schedule Subject*/
+							      /*End Add Schedule Subject*/
 
 								  /*Start of Edit Schedule JS*/
 							      $(document).on('click','.edit', function(){  
@@ -230,11 +184,12 @@ body {
 							                		edit_data +="<div class='col-md'>";
 							                		edit_data +="<label for='edittime' class='col-form-label formmodalfont'>Time</label><input id='edittime' name='edittime' type='text' class='form-control edittime' value='"+ data[i].time +"'>";
 							                		edit_data +="</div>";
-							                		edit_data +="<div class='col-md'>";
-							                		edit_data +="<label for='editsubid' class='col-form-label formmodalfont'>Subject ID</label><input id='editsubid' name='editsubid' type='text' class='form-control editsubid' readonly='' value='"+ data[i].subid +"'>";
-							                		edit_data +="</div>";
+							                		edit_data +="<input type='hidden' id='editsubid' name='editsubid' type='text' class='form-control editsubid' readonly='' value='"+ data[i].subid +"'>";
 							                		edit_data +="<div class='col-md'>";
 							                		edit_data +="<label for='editsubject' class='col-form-label formmodalfont'>Subject Name</label><input id='editsubject' name='editsubject' type='text' class='form-control editsubject' readonly='' value='"+ data[i].subject +"'>";
+							                		edit_data +="</div>";
+							                		edit_data +="<div class='col-md'>";
+							                		edit_data +="<label for='editroom' class='col-form-label formmodalfont'>Room</label><input id='editteacher' name='editroom' type='text' class='form-control editroom' value='"+ data[i].room+"'>";
 							                		edit_data +="</div>";
 							                		edit_data +="<div class='col-md'>";
 							                		edit_data +="<label for='editteacher' class='col-form-label formmodalfont'>Teacher ID</label><input id='editteacher' name='editteacher' type='text' class='form-control editteacher' value='"+ data[i].teacher_id +"'>";
@@ -252,6 +207,7 @@ body {
 							           var editday = [];
 							           var edittime = [];
 							           var editsubid = [];
+							           var editroom = [];
 							           var editteacher = [];
 
 							           $('.editscheid').each(function(){
@@ -266,11 +222,14 @@ body {
 							           $('.editsubid').each(function(){
 							           		editsubid.push($(this).val());
 							           	});
+							           $('.editroom').each(function(){
+							           		editroom.push($(this).val());
+							           	});
 							           $('.editteacher').each(function(){
 							           		editteacher.push($(this).val());
 							           	});
    											
-							           if(editscheid != '' && editday != '' && edittime != '' && editsubid != '' && editteacher != '')  
+							           if(editscheid != '' && editday != '' && edittime != '' && editsubid != '' && editroom != '' && editteacher != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",
@@ -280,6 +239,7 @@ body {
 							                     	day:editday,
 							                     	time:edittime,
 							                     	subid:editsubid,
+							                     	room:editroom,
 							                     	teachid:editteacher
 							                     }, 
 							                     success:function(data)  
@@ -318,8 +278,8 @@ body {
 							                		sched_data +='<td>'+data[i].time+'</td>';
 							                		sched_data +='<td>'+data[i].subject+'</td>';
 							                		sched_data +='<td>'+data[i].year_level+'</td>';
-							                		sched_data +='<td>'+data[i].teacher_id+'</td>';
-							                		sched_data +='<td>'+data[i].fullname+'</td>';
+							                		sched_data +='<td>'+data[i].room+'</td>';
+							                		sched_data +='<td>'+data[i].fname+' '+data[i].mname+' '+data[i].lname+'</td>';
 							                		sched_data +='</tr>';
 							                	} 
 							                	$('#bodytable').html(sched_data);
@@ -329,7 +289,7 @@ body {
 								
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id");  
-							           if(confirm("Are you sure you want to delete this?"))  
+							           if(confirm("Are you sure you want to clear this schedule?"))  
 							           {  
 							                $.ajax({  
 							                     url:"<?php echo base_url(); ?>schedules_controller/deleteschedule",  
@@ -350,10 +310,6 @@ body {
 							      /*End View Schedule Javascript*/        
 							 });
 						</script>
-					<br>
-					<div>
-						<button id="addmodalbtn" class="btn addschebtn" data-toggle="modal" data-target="#schedulemodal">Add Schedule ID</button>
-					</div>
 					<br>
 					<div class="table-responsive">
 						<table id="scheduletable" class="table table-striped">
@@ -431,7 +387,7 @@ body {
 												<th>Time</th>
 												<th>Subject</th>
 												<th>Year Level</th>
-												<th>Teacher ID</th>
+												<th>Room</th>
 												<th>Teacher Name</th>
 											</tr>
 										</thead>
@@ -483,6 +439,10 @@ body {
 										<div class="col-md">
 											<label for="schedulesubid" class="col-form-label formmodalfont">Subject ID</label>
 											<input name="schedulesubid" type="text" class="form-control schedulesubid" placeholder="Subject ID">
+										</div>
+										<div class="col-md">
+											<label for="scheduleroom" class="col-form-label formmodalfont">Room</label>
+											<input name="scheduleroom" type="text" class="form-control scheduleroom" placeholder="Room">
 										</div>
 										<div class="col-md">
 											<label for="scheduleteacher" class="col-form-label formmodalfont">Teacher ID</label>

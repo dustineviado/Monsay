@@ -14,6 +14,8 @@ class grading_model extends CI_Model {
           	$this->db->join('section', 'section.scheid = schedule_subject.scheid');
           	$this->db->join('subject', 'subject.subid = schedule_subject.subid');
           	$this->db->where('schedule_subject.teacher_id', $sid);
+          	$this->db->order_by('section.year_level', 'ASC');
+          	$this->db->order_by('section.section_name', 'ASC');
           	$query=$this->db->get();  
            	return $query->result();
 		}

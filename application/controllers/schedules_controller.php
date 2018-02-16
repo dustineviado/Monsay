@@ -13,41 +13,6 @@ class schedules_controller extends CI_Controller {
 		$this->load->view('vthesis/schedules',$data);
 		$this->load->view('templates/footer',$data);
 	}
-	public function scheduleaction(){
-			$hidden = $this->input->post('hidden');
-	 		
-	 		if($hidden == "Add"){
-	                $insert_data = array(  
-	                     'scheid'=>$this->input->post('schedid'));  
-	               		
-	                $this->mdl->addschedule($insert_data);
-	                echo 'Schedule Added';
-	           }
-	           else if($hidden == "Edit"){
-	           		$updated_data = array(  
-	                     'id_num'=>$this->input->post('id'),
-	                     'studname'=>$this->input->post('name'),
-	                     'email'=>$this->input->post('email'),
-	                     'birthday'=>$this->input->post('bday'),
-	                     'age'=>$this->input->post('age'),
-	                     'contact'=>$this->input->post('cont'),
-	                     'gender'=>$this->input->post('gend'),
-	                     'religion'=>$this->input->post('rel'),
-	                     'address'=>$this->input->post('addr'),
-	                     'parent_guard'=>$this->input->post('pargua'),
-	                     'pgcontact'=>$this->input->post('pgcont'),
-	                     'year'=>$this->input->post('yr'),
-	                     'section'=>$this->input->post('sect'),
-	                     'status'=>$this->input->post('stat'));
-	                       
-	               	
-	                $this->mdl->scheduleedit2($updated_data);
-	                echo 'Schedule Updated';
-	           }
-	           else{
-	           		echo 'Error';
-	           }
-      	}
 
     public function addschedulesubjectaction(){
     	$count = count($this->input->post('id'));
@@ -55,6 +20,7 @@ class schedules_controller extends CI_Controller {
     	$day = $this->input->post('day');
     	$time = $this->input->post('time');
     	$subid = $this->input->post('subid');
+    	$room = $this->input->post('room');
     	$teachid = $this->input->post('teachid');
 
 	    	for($i=0; $i<$count; $i++){
@@ -64,6 +30,7 @@ class schedules_controller extends CI_Controller {
 				           'day'=>$day[$i],
 				           'time'=>$time[$i],
 				           'subid'=>$subid[$i],
+				           'room'=>$room[$i],
 				           'teacher_id'=>$teachid[$i]		
 				       );
 
@@ -73,10 +40,10 @@ class schedules_controller extends CI_Controller {
     }
 
 	public function deleteschedule(){
-				$sid=$this->input->post('sid');
+			   $sid=$this->input->post('sid');
 		       $this->load->model("schedules_model");  
 	           $this->schedules_model->scheduledelete($sid);  
-	           echo 'Schedule Deleted';
+	           echo 'Schedule Cleared';
 	}
 
 	public function editschedulesubject(){
@@ -85,6 +52,7 @@ class schedules_controller extends CI_Controller {
     	$day = $this->input->post('day');
     	$time = $this->input->post('time');
     	$subid = $this->input->post('subid');
+    	$room = $this->input->post('room');
     	$teachid = $this->input->post('teachid');
 
 	    	for($i=0; $i<$count; $i++){
@@ -94,6 +62,7 @@ class schedules_controller extends CI_Controller {
 				           $day[$i],
 				           $time[$i],
 				           $subid[$i],
+				           $room[$i],
 				           $teachid[$i]		
 				       );
 
@@ -109,7 +78,7 @@ class schedules_controller extends CI_Controller {
            {  
                 $sub_array = array();  
                 $sub_array[] = $row->scheid;  
-                $sub_array[] = '<button type="button" name="view" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs view">View</button> <button type="button" name="addsched" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs addsched">Add</button> <button type="button" name="delete" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs edit">Edit</button>';
+                $sub_array[] = '<button type="button" name="view" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs view">View</button> <button type="button" name="addsched" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs addsched">Add</button> <button type="button" name="delete" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs delete">Clear</button> <button type="button" name="edit" id="'.$row->scheid.'" class="btn addstubtn3 btn-xs edit">Edit</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   
@@ -120,8 +89,8 @@ class schedules_controller extends CI_Controller {
            echo json_encode($output);  
       }
        function fetch_single_user()  
-	      {    
-	           $data = $this->mdl->scheduleedit1($_POST["sid"]); 
+	      {    $sid = $this->input->post('sid');
+	           $data = $this->mdl->scheduleedit1($sid); 
 	           echo json_encode($data);  
 	      }    
  }

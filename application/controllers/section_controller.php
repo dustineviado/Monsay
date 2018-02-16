@@ -52,8 +52,12 @@ class section_controller extends CI_Controller {
       	}
 
 	public function deletesection(){
-		       $this->load->model("section_model");  
-	           $this->section_model->sectiondelete($_POST["sid"]);  
+		       $this->load->model("section_model");
+		       $sid = array(
+		       			$this->input->post('sid'),
+	                    $this->input->post('sid2')
+		       );
+	           $this->section_model->sectiondelete($sid);  
 	           echo 'Section Deleted';
 	}
 
@@ -69,7 +73,7 @@ class section_controller extends CI_Controller {
                 $sub_array[] = $row->year_level;
                 $sub_array[] = $row->fname." ".$row->mname." ".$row->lname;
                 $sub_array[] = $row->scheid;   
-                $sub_array[] = '<button type="button" name="delete" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button>';
+                $sub_array[] = '<button type="button" name="'.$row->scheid.'" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   
