@@ -8,19 +8,13 @@
 					<h3 class="header1 text-center"> News</h3>
 					<p class="sent1"> 
 
-Postponement of the Administration of the 2017
-
-Language Assessment for Primary Grade and National Achievement Test for Grade 6 and 10
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </p>
 <br>
 <a href="http://www.deped.gov.ph/sites/default/files/memo/2017/DM_s2017_025.pdf" target="_blank" class="btn btn-default butt1" role="button"><i class="fa fa-files-o">Read More</i></a>
 	
-<p class="sent1">Administration of the National Career Assessment Examination for school year 2016-2017
-
-<p class="sent1">March 1 to 2, 2017
-
-All Grade 9 students in both public and private schools nationwaide.
+<p class="sent1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
  	</p>
  	<a href="http://www.deped.gov.ph/sites/default/files/memo/2017/DM_s2017_016.pdf" target="_blank" class="btn btn-default butt1" role="button"><i class="fa fa-files-o">Read More</i></a>
@@ -30,7 +24,7 @@ All Grade 9 students in both public and private schools nationwaide.
 
 <h3 class="header1 text-center">Important Weblinks</h3>
 
-<p class="sent3">Policy Guidelins on the Implementation of Grades 1 to 10 of the K to 12<br><br> Basic Education Curriculum (BEC) Effective School Year 2012-2013</p>
+<p class="sent3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <a href="http://www.deped.gov.ph/orders/do-31-s-2012" target="_blank" class="btn btn-default butt1" role="button"><i class="fa fa-files-o">Read More</i></a>
 
 

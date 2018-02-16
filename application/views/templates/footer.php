@@ -7,7 +7,7 @@
 					<span class="bur"><i class="fa fa-envelope">&nbsp;CONTACT US</i></span>
 						<hr class="hrline" />
 						<ul>
-							<li>Koro Koroso St. España, <br />Manila, Philippines</li>
+							<li>Block 10 Lot 2 <br>Camachile Subdivision, <br />Pasong Camachile 1, <br> General Trias Cavite</li>
 							<li>Phone: 405-3441</li>
 							<li>Email: Abudi@gmail.com</li>
 							<li><a href="#">WWW.Abudi.com</a></li>
@@ -61,7 +61,7 @@
 		</div>
 		
 		<div class="col-md-6 col-sm-6 text-center fill2">
-			<p class="text">© 2017, Ramon Magsaysay, All rights reserved</p> 
+			<p class="text">© 2017, Haven of Virtue and Excellence Academy Inc. All rights reserved</p> 
 		</div>
 		
 		<div class="col-md-6 col-sm-6 text-center fill2">

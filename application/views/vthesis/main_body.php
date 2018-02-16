@@ -38,7 +38,7 @@
 				</div>				
 				<div class="col-md-10">
 					<p class="what">
-						Why Ramon Magsaysay High School?
+						Why Haven of Virtue and Excellence Academy Inc.?
 					</p>
 					<p class="current">
 						Three reasons why:
@@ -56,21 +56,21 @@
 					<i class="fa fa-book iconsize whycon"></i><br>
 					<p>
 						<span class="whycaptxt1">K-12 READY</span> <br>
-						<span class="whycaptxt2">Ramon Magsaysay High School is K-12 ready school for the better future of your kids.</span>
+						<span class="whycaptxt2">Haven of Virtue and Excellence Academy Inc. is K-12 ready school for the better future of your kids.</span>
 					</p>
 				</div>
 				<div class="col-md-3">
 					<i class="fa fa-star-o iconsize whycon"></i><br>
 						<p>
 					<span class="whycaptxt1">EXCELLENCE</span> <br>
-					<span class="whycaptxt2">Ramon Magsaysay High School continues to uphold the culture of excellence.</span>
+					<span class="whycaptxt2">Haven of Virtue and Excellence Academy Inc. continues to uphold the culture of excellence.</span>
 					</p>
 				</div>
 				<div class="col-md-3">
 					<i class="fa fa-trophy iconsize whycon"></i><br>
 					<p>
 					<span class="whycaptxt1">LEADING</span> <br>
-					<span class="whycaptxt2">Ramon Magsaysay High School is one of the top three high schools here in manila.</span>
+					<span class="whycaptxt2">Haven of Virtue and Excellence Academy Inc. is one of the top three high schools here in manila.</span>
 					</p>
 				</div>
 				<div class="col-md">

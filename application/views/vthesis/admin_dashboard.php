@@ -13,11 +13,11 @@ body {
     font-family: "helvetica", sans-serif;
 }
 .sidenav {
-    height: 100%;
+    height: 650px;
     width: 230px;
     background-color: #262626;
     padding-top: 30px;
-    margin-top: 0px;
+    margin-bottom: 20px;
 }
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -63,7 +63,7 @@ body {
 	</div>
 	<div class="col-lg-10">
 		<h1 class="text-center"> Admin Dashboard  </h1>
-	</div>
+    	</div>
 	
 
 
