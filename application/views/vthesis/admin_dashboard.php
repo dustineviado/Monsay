@@ -14,10 +14,10 @@ body {
 }
 .sidenav {
     height: 650px;
-    width: 230px;
-    background-color: #262626;
+    width: 100%;
+    border: solid;
     padding-top: 30px;
-    margin-bottom: 20px;
+    margin: 0 auto;
 }
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -28,7 +28,7 @@ body {
     transition: 0.5s;
 }
 .sidenav a:hover {
-    color: yellow;
+    color: #ff66ff;
 }
 
 #main {
@@ -43,8 +43,8 @@ body {
 
 <div id="sidebar" class="sidenav text-muted">
 	
-  <b><p style="font-family: 'helvetica';font-size: 20px; margin-left: 60px;">Welcome  </p></b>
-  <b><p style="font-family: 'helvetica'; font-size: 20px; margin-left: 50px;"><?php echo $this->session->userdata('login_session');?></p></b>
+  <b><p class="text-center" style="font-family: 'helvetica';font-size: 30px; ">Welcome  </p></b>
+  <b><p  class="text-center" style="font-family: 'helvetica'; font-size: 20px;"><?php echo $this->session->userdata('login_session');?></p></b>
   <br>
   <br>
   <a href="admin_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
@@ -63,8 +63,9 @@ body {
 	</div>
 	<div class="col-lg-10">
 		<h1 class="text-center"> Admin Dashboard  </h1>
+    
     	</div>
-	
+	<br>
 
 
 

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class regcontrol extends CI_Controller {
 	public function index(){
-		$data['title'] = "Register|Ramon Magsaysay High School";
+		$data['title'] = "Register|Haven of Virtue and Excellence Academy Inc.";
 		$this->load->view('templates/header',$data);
 		$this->load->view('monsay/regview');
 		$this->load->view('templates/footer',$data);

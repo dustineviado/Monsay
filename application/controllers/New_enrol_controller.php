@@ -13,7 +13,7 @@ class New_enrol_controller extends CI_Controller {
 
 	public function index(){
 
-		$data['title'] = "New Enrollee | Ramon Magsaysay High School";
+		$data['title'] = "New Enrollee | Haven of Virtue and Excellence Academy Inc.";
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/new_enrollee',$data);
