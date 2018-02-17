@@ -14,39 +14,40 @@ class student_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 	}
 	public function studentaction(){
-		$this->form_validation->set_rules('studentfname','First Name','trim|required');
-		$this->form_validation->set_rules('studentmname','Middle Name','trim|required');
-		$this->form_validation->set_rules('studentlname','Last Name','trim|required');
-		$this->form_validation->set_rules('studentemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
-		$this->form_validation->set_rules('studentcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
-		$this->form_validation->set_rules('studentreligion','Religion','trim|required');
-		$this->form_validation->set_rules('studentbirthday','Birthday','trim|required');
-		$this->form_validation->set_rules('studentgender','Gender','trim|required');
-		$this->form_validation->set_rules('studentaddress','Address','trim|required');
-		$this->form_validation->set_rules('studentparent_guard','Parent/Guardian','trim|required');
-		$this->form_validation->set_rules('studentpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
-		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-		$this->form_validation->set_message('integer', 'The {field} must be a number');
-		$hidden = $this->input->post('hidden');
-	 		
-	 		if($this->form_validation->run() && $hidden == "Add"){
+		
+		// $this->form_validation->set_rules('studentfname','First Name','trim|required');
+		// $this->form_validation->set_rules('studentmname','Middle Name','trim|required');
+		// $this->form_validation->set_rules('studentlname','Last Name','trim|required');
+		// $this->form_validation->set_rules('studentemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
+		// $this->form_validation->set_rules('studentcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
+		// $this->form_validation->set_rules('studentreligion','Religion','trim|required');
+		// $this->form_validation->set_rules('studentbirthday','Birthday','trim|required');
+		// $this->form_validation->set_rules('studentgender','Gender','trim|required');
+		// $this->form_validation->set_rules('studentaddress','Address','trim|required');
+		// $this->form_validation->set_rules('studentparent_guard','Parent/Guardian','trim|required');
+		// $this->form_validation->set_rules('studentpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
+		// $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+		// $this->form_validation->set_message('integer', 'The {field} must be a number');
+		
+		$hidden = $this->input->post('hiddenid');
+	 		if($hidden == "Add"){
 	                $insert_data = array(  
-	                     'id_num'=>$this->input->post('id'),
-	                     'fname'=>$this->input->post('fame'),
-	                     'mname'=>$this->input->post('mame'),
-	                     'lname'=>$this->input->post('lame'),
-	                     'email'=>$this->input->post('email'),
-	                     'birthday'=>$this->input->post('bday'),
-	                     'age'=>$this->input->post('age'),
-	                     'contact'=>$this->input->post('cont'),
-	                     'gender'=>$this->input->post('gend'),
-	                     'religion'=>$this->input->post('rel'),
-	                     'address'=>$this->input->post('addr'),
-	                     'parent_guard'=>$this->input->post('pargua'),
-	                     'pgcontact'=>$this->input->post('pgcont'),
-	                     'year'=>$this->input->post('yr'),
-	                     'secid'=>$this->input->post('sect'),
-	                     'status'=>$this->input->post('stat'));  
+	                     'id_num'=>$this->input->post('studentid'),
+	                     'fname'=>$this->input->post('studentfname'),
+	                     'mname'=>$this->input->post('studentmname'),
+	                     'lname'=>$this->input->post('studentlname'),
+	                     'email'=>$this->input->post('studentemail'),
+	                     'birthday'=>$this->input->post('studentbirthday'),
+	                     'age'=>$this->input->post('studentage'),
+	                     'contact'=>$this->input->post('studentcontact'),
+	                     'gender'=>$this->input->post('studentgender'),
+	                     'religion'=>$this->input->post('studentreligion'),
+	                     'address'=>$this->input->post('studentaddress'),
+	                     'parent_guard'=>$this->input->post('studentparentguard'),
+	                     'pgcontact'=>$this->input->post('studentpgcontact'),
+	                     'year'=>$this->input->post('studentyear'),
+	                     'secid'=>$this->input->post('studentsection'),
+	                     'status'=>$this->input->post('studentstatus'));  
 	               		
 	                $this->mdl->addstudent($insert_data);
 	                echo 'Student Added';
