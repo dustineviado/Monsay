@@ -91,66 +91,25 @@ body {
 							                },  
 							           ],  
 							      });
-							      $(document).on('submit', '#addform', function(event){  
+							      $('#addform').on('submit', function(e){  
 							           event.preventDefault();
 							           var data = $(this).serialize();
-							           // var studid = $('#studentidname').val();  
-							           // var studfname = $('#studentfname').val();
-							           // var studmname = $('#studentmname').val();
-							           // var studlname = $('#studentlname').val();  
-							           // var studemail = $('#studentemail').val();
-							           // var studbirthday = $('#studentbirthday').val();
-							           // var studage = $('#studentage').val();
-							           // var studcontact = $('#studentcontact').val();
-							           // var studgender = $('#studentgender').val();
-							           // var studreligion = $('#studentreligion').val();
-							           // var studaddress = $('#studentaddress').val();
-							           // var studparentguard = $('#studentparentguard').val();
-							           // var studpgcontact = $('#studentpgcontact').val();
-							           // var studyear = $('#studentyear').val();
-							           // var studsection = $('#studentsection').val();
-							           // var studstatus = $('#studentstatus').val();
-							           // var studhid = $('#studenthid').val();
-							           // var hiddenid = $('#hiddenid').val();  
-							           
-							           // if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '---' && studsection != '' && studstatus != '')  
-							           // {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'student_controller/studentaction'; ?>",  
 							                     data:data,
-							                     // {
-							                     // 	id:studid,
-							                     // 	fame:studfname,
-							                     // 	mame:studmname,
-							                     // 	lame:studlname,
-							                     // 	email:studemail,
-							                     // 	bday:studbirthday,
-							                     // 	age:studage,
-							                     //    cont:studcontact,
-							                     // 	gend:studgender,
-							                     // 	rel:studreligion,
-							                     // 	addr:studaddress,
-							                     // 	pargua:studparentguard,
-							                     // 	pgcont:studpgcontact,
-							                     // 	yr:studyear,
-							                     // 	sect:studsection,
-							                     // 	stat:studstatus,
-							                     // 	hidden:studhid,
-							                     // 	hidid:hiddenid
-							                     // }, 
 							                     success:function(data)  
 							                     {  
-							                          alert(data);  
+							                     	if(data == 'Student Added' || data == 'Student Updated'){
+							                          alert(data);
 							                          $('#studentmodal').modal('hide');  
-							                          $('#studenttable').DataTable().ajax.reload();  
+							                          $('#studenttable').DataTable().ajax.reload();
+							                        }
+							                        else{
+							                          alert(data);
+							                        }    
 							                     }  
-							                });  
-							           // }  
-							           // else  
-							           // {  
-							           //      alert("All Fields are Required"); 
-							           // }  
+							                });   
 							      });
 							      $(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
@@ -412,8 +371,8 @@ body {
 										<div class="col-md">
 											<label for="studentstatus" class="col-form-label formmodalfont">Status</label>
 											<input id="studentstatus" name="studentstatus" class="form-control" placeholder="Status">
-											<input name="studenthid" id="studenthid" class="form-control" value="">
-											<input name="hiddenid" class="form-control" id="hiddenid">
+											<input type="hidden" name="studenthid" id="studenthid" class="form-control" value="">
+											<input type="hidden" name="hiddenid" class="form-control" id="hiddenid">
 										</div>
 									</div>   
 					  		</div>
