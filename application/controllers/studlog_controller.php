@@ -5,7 +5,7 @@ class Studlog_controller extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = "Ramon Magsaysay High School";
+		$data['title'] = "Haven of Virtue and Excellence Academy Inc.";
 		
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/student_dashboard',$data);

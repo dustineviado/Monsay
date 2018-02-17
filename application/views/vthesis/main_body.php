@@ -89,7 +89,7 @@
 					<hr class="hrline1">
 						<br/>
 						<p class="enroll">
-						Register now at RMHS
+						Register now at HVEA
 						</p>
 						<p class="enroll2">
 						You can register online with our Online Enrollment System 

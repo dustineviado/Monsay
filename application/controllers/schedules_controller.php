@@ -8,10 +8,11 @@ class schedules_controller extends CI_Controller {
         $this->load->helper('url_helper');
     }
 	public function index(){
-		$data['title'] = "Schedules | Ramon Magsaysay High School";
+		$data['title'] = "Schedules | Haven of Virtue and Excellence Academy Inc.";
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/schedules',$data);
 		$this->load->view('templates/footer',$data);
+		
 	}
 
     public function addschedulesubjectaction(){

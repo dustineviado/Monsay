@@ -6,7 +6,7 @@ class register_page_print_controller extends CI_Controller {
 	
 	public function index()
 	{
-		$data['title'] = "Register Print | Ramon Magsaysay High School";
+		$data['title'] = "Register Print | Haven of Virtue and Excellence Academy Inc.";
 		
 		$this->load->view('vthesis/register_page_print',$data);
 

@@ -12,7 +12,7 @@ class grading_controller extends CI_Controller {
     }
 
 	public function index(){
-		$data['title'] = "Grading | Ramon Magsaysay High School";
+		$data['title'] = "Grading | Haven of Virtue and Excellence Academy Inc.";
 
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/grading',$data);

@@ -8,10 +8,11 @@ class student_controller extends CI_Controller {
         $this->load->helper('url_helper');
     }
 	public function index(){
-		$data['title'] = "Students | Ramon Magsaysay High School";
+		$data['title'] = "Students | Haven of Virtue and Excellence Academy Inc.";
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/student',$data);
 		$this->load->view('templates/footer',$data);
+		
 	}
 	public function studentaction(){
 		

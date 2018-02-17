@@ -9,10 +9,11 @@ class teacher_controller extends CI_Controller {
     }
 	public function index()
 	{
-		$data['title'] = "Teacher | Ramon Magsaysay High School";
+		$data['title'] = "Teacher | Haven of Virtue and Excellence Academy Inc.";
 		$this->load->view('templates/header', $data);
 		$this->load->view('vthesis/teacher', $data);
 		$this->load->view('templates/footer', $data);
+
 	}
 		
 	public function teacheraction(){

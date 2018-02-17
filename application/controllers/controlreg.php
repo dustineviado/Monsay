@@ -6,7 +6,7 @@ class Controlreg extends CI_Controller {
 	
 	public function index()
 	{
-		$data['title'] = "Register | Ramon Magsaysay High School";
+		$data['title'] = "Register | Haven of Virtue and Excellence Academy Inc.";
 		
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/regview',$data);
