@@ -14,9 +14,22 @@ class student_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 	}
 	public function studentaction(){
-			$hidden = $this->input->post('hidden');
+		$this->form_validation->set_rules('studentfname','First Name','trim|required');
+		$this->form_validation->set_rules('studentmname','Middle Name','trim|required');
+		$this->form_validation->set_rules('studentlname','Last Name','trim|required');
+		$this->form_validation->set_rules('studentemail','Email','trim|required|valid_email|is_unique[pre_registration.email]', array('required'=>'You must provide a valid email address.','is_unique'=>'This email address already exists.'));
+		$this->form_validation->set_rules('studentcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
+		$this->form_validation->set_rules('studentreligion','Religion','trim|required');
+		$this->form_validation->set_rules('studentbirthday','Birthday','trim|required');
+		$this->form_validation->set_rules('studentgender','Gender','trim|required');
+		$this->form_validation->set_rules('studentaddress','Address','trim|required');
+		$this->form_validation->set_rules('studentparent_guard','Parent/Guardian','trim|required');
+		$this->form_validation->set_rules('studentpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+		$this->form_validation->set_message('integer', 'The {field} must be a number');
+		$hidden = $this->input->post('hidden');
 	 		
-	 		if($hidden == "Add"){
+	 		if($this->form_validation->run() && $hidden == "Add"){
 	                $insert_data = array(  
 	                     'id_num'=>$this->input->post('id'),
 	                     'fname'=>$this->input->post('fame'),
