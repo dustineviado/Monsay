@@ -112,8 +112,8 @@ body {
 							           var studhid = $('#studenthid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '---' && studsection != '' && studstatus != '')  
-							           {  
+							           // if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '---' && studsection != '' && studstatus != '')  
+							           // {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'student_controller/studentaction'; ?>",  
@@ -144,11 +144,11 @@ body {
 							                          $('#studenttable').DataTable().ajax.reload();  
 							                     }  
 							                });  
-							           }  
-							           else  
-							           {  
-							                alert("All Fields are Required"); 
-							           }  
+							           // }  
+							           // else  
+							           // {  
+							           //      alert("All Fields are Required"); 
+							           // }  
 							      });
 							      $(document).on('click','.edit', function(){  
 							           var sid = $(this).attr("id");  
@@ -302,14 +302,15 @@ body {
 										<div class="col-md">
 											<label for="studentfname" class="col-form-label formmodalfont">First Name</label>
 											<input id="studentfname" name="studentfname" type="text" class="form-control" placeholder="Student Name">
+											<?php echo form_error('studentfname','<div class="text-danger">','</div>'); ?>
 										</div>
 										<div class="col-md">
 											<label for="studentmname" class="col-form-label formmodalfont">Middle Name</label>
-											<input id="studentmname" name="studentmname" type="text" class="form-control" placeholder="Student Name">
+											<input id="studentmname" name="studentmname" type="text" class="form-control" placeholder="Middle Name">
 										</div>
 										<div class="col-md">
 											<label for="studentlname" class="col-form-label formmodalfont">Last Name</label>
-											<input id="studentlname" name="studentlname" type="text" class="form-control" placeholder="Student Name">
+											<input id="studentlname" name="studentlname" type="text" class="form-control" placeholder="Last Name">
 										</div>
 										<div class="col-md">
 											<label for="studentemail" class="col-form-label formmodalfont">Email</label>
@@ -323,10 +324,6 @@ body {
 										<div class="col-md">
 											<label for="studentbirthday" class="col-form-label formmodalfont">Birthday</label>
 											<input id="studentbirthday" name="studentbirthday" type="text" class="form-control" placeholder="Birthday">
-										</div>
-										<div class="col-md">
-											<label for="studentage" class="col-form-label formmodalfont">Age</label>
-											<input id="studentage" name="studentage" type="text" class="form-control" placeholder="Age">
 										</div>
 										<div class="col-md">
 											<label for="studentcontact" class="col-form-label formmodalfont">Contact</label>
