@@ -91,52 +91,54 @@ body {
 							                },  
 							           ],  
 							      });
-							      $(document).on('click', '#action', function(event){  
+							      $(document).on('submit', '#addform', function(event){  
 							           event.preventDefault();
-							           var studid = $('#studentidname').val();  
-							           var studfname = $('#studentfname').val();
-							           var studmname = $('#studentmname').val();
-							           var studlname = $('#studentlname').val();  
-							           var studemail = $('#studentemail').val();
-							           var studbirthday = $('#studentbirthday').val();
-							           var studage = $('#studentage').val();
-							           var studcontact = $('#studentcontact').val();
-							           var studgender = $('#studentgender').val();
-							           var studreligion = $('#studentreligion').val();
-							           var studaddress = $('#studentaddress').val();
-							           var studparentguard = $('#studentparentguard').val();
-							           var studpgcontact = $('#studentpgcontact').val();
-							           var studyear = $('#studentyear').val();
-							           var studsection = $('#studentsection').val();
-							           var studstatus = $('#studentstatus').val();
-							           var studhid = $('#studenthid').val();
-							           var hiddenid = $('#hiddenid').val();  
+							           var data = $(this).serialize();
+							           // var studid = $('#studentidname').val();  
+							           // var studfname = $('#studentfname').val();
+							           // var studmname = $('#studentmname').val();
+							           // var studlname = $('#studentlname').val();  
+							           // var studemail = $('#studentemail').val();
+							           // var studbirthday = $('#studentbirthday').val();
+							           // var studage = $('#studentage').val();
+							           // var studcontact = $('#studentcontact').val();
+							           // var studgender = $('#studentgender').val();
+							           // var studreligion = $('#studentreligion').val();
+							           // var studaddress = $('#studentaddress').val();
+							           // var studparentguard = $('#studentparentguard').val();
+							           // var studpgcontact = $('#studentpgcontact').val();
+							           // var studyear = $('#studentyear').val();
+							           // var studsection = $('#studentsection').val();
+							           // var studstatus = $('#studentstatus').val();
+							           // var studhid = $('#studenthid').val();
+							           // var hiddenid = $('#hiddenid').val();  
 							           
 							           // if(studid != '' && studfname != ''  && studmname != ''  && studlname != '' && studemail != '' && studbirthday != '' &&studentage != '' && studcontact != '' && studgender != '' && studreligion != '' && studaddress != '' && studparentguard != '' && studpgcontact != '' && studyear != '---' && studsection != '' && studstatus != '')  
 							           // {  
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'student_controller/studentaction'; ?>",  
-							                     data:{
-							                     	id:studid,
-							                     	fame:studfname,
-							                     	mame:studmname,
-							                     	lame:studlname,
-							                     	email:studemail,
-							                     	bday:studbirthday,
-							                     	age:studage,
-							                        cont:studcontact,
-							                     	gend:studgender,
-							                     	rel:studreligion,
-							                     	addr:studaddress,
-							                     	pargua:studparentguard,
-							                     	pgcont:studpgcontact,
-							                     	yr:studyear,
-							                     	sect:studsection,
-							                     	stat:studstatus,
-							                     	hidden:studhid,
-							                     	hidid:hiddenid
-							                     }, 
+							                     data:data,
+							                     // {
+							                     // 	id:studid,
+							                     // 	fame:studfname,
+							                     // 	mame:studmname,
+							                     // 	lame:studlname,
+							                     // 	email:studemail,
+							                     // 	bday:studbirthday,
+							                     // 	age:studage,
+							                     //    cont:studcontact,
+							                     // 	gend:studgender,
+							                     // 	rel:studreligion,
+							                     // 	addr:studaddress,
+							                     // 	pargua:studparentguard,
+							                     // 	pgcont:studpgcontact,
+							                     // 	yr:studyear,
+							                     // 	sect:studsection,
+							                     // 	stat:studstatus,
+							                     // 	hidden:studhid,
+							                     // 	hidid:hiddenid
+							                     // }, 
 							                     success:function(data)  
 							                     {  
 							                          alert(data);  
@@ -302,7 +304,6 @@ body {
 										<div class="col-md">
 											<label for="studentfname" class="col-form-label formmodalfont">First Name</label>
 											<input id="studentfname" name="studentfname" type="text" class="form-control" placeholder="Student Name">
-											<?php echo form_error('studentfname','<div class="text-danger">','</div>'); ?>
 										</div>
 										<div class="col-md">
 											<label for="studentmname" class="col-form-label formmodalfont">Middle Name</label>
@@ -324,6 +325,10 @@ body {
 										<div class="col-md">
 											<label for="studentbirthday" class="col-form-label formmodalfont">Birthday</label>
 											<input id="studentbirthday" name="studentbirthday" type="text" class="form-control" placeholder="Birthday">
+										</div>
+										<div class="col-md">
+											<label for="studentage" class="col-form-label formmodalfont">Age</label>
+											<input id="studentage" name="studentage" type="text" class="form-control" placeholder="Birthday">
 										</div>
 										<div class="col-md">
 											<label for="studentcontact" class="col-form-label formmodalfont">Contact</label>
@@ -407,8 +412,8 @@ body {
 										<div class="col-md">
 											<label for="studentstatus" class="col-form-label formmodalfont">Status</label>
 											<input id="studentstatus" name="studentstatus" class="form-control" placeholder="Status">
-											<input type="hidden" name="studenthid" id="studenthid" value="">
-											<input type="hidden" name="hiddenid" id="hiddenid">
+											<input name="studenthid" id="studenthid" class="form-control" value="">
+											<input name="hiddenid" class="form-control" id="hiddenid">
 										</div>
 									</div>   
 					  		</div>
