@@ -21,25 +21,40 @@ class Subject_controller extends CI_Controller {
 
 	}
 
+	function check_subid($key){
+		$key = $this->input->post('subid');
+		$this->load->model('subject_model');
+		$brat = $this->subject_model->id_exist($key);
+			echo $brat;
+			
+		
+	}
+
 	public function subjectaction(){
-			$hidden = $this->input->post('hidden');
+		$this->form_validation->set_rules('subjectidname', 'Subject ID', 'callback_check_subid');
+		$this->form_validation->set_rules('subjectname', 'Subject Name', 'required');
+		$this->form_validation->set_rules('subjectfaculty', 'Subject Faculty', 'required');
+		$this->form_validation->set_rules('subjectlevel', 'Level', 'required');
+		
+		if($this->form_validation->run()){
+			$hidden = $this->input->post('subjecthid');
 
 	 		if($hidden == "Add"){
 	                $insert_data = array(  
-	                     'subid'=>$this->input->post('id'),
-	                     'subject'=>$this->input->post('name'),
-	                     'faculty'=>$this->input->post('fac'),
-	                     'year_level'=>$this->input->post('lvl'));  
+	                     'subid'=>$this->input->post('subjectidname'),
+	                     'subject'=>$this->input->post('subjectname'),
+	                     'faculty'=>$this->input->post('subjectfaculty'),
+	                     'year_level'=>$this->input->post('subjectlevel'));  
 	               	
 	                $this->mdl->addsubject($insert_data);
 	                echo 'Subject Added';
 	           }
 	           else if($hidden == "Edit"){
 	           		$updated_data = array(  
-	                     'subid'=>$this->input->post('id'),
-	                     'subject'=>$this->input->post('name'),
-	                     'faculty'=>$this->input->post('fac'),
-	                     'year_level'=>$this->input->post('lvl'));  
+	                     'subid'=>$this->input->post('subjectidname'),
+	                     'subject'=>$this->input->post('subjectname'),
+	                     'faculty'=>$this->input->post('subjectfaculty'),
+	                     'year_level'=>$this->input->post('subjectlevel'));  
 	               	
 	                $this->mdl->subjectedit2($updated_data);
 	                echo 'Subject Updated';
@@ -47,6 +62,10 @@ class Subject_controller extends CI_Controller {
 	           else{
 	           		echo 'Error';
 	           }
+	        }
+	        else{
+	        	echo validation_errors();
+	        }   
       	}
 
 	public function deletesubject(){
