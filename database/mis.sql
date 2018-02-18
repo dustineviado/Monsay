@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2018 at 05:33 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Feb 18, 2018 at 03:59 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -425,7 +425,7 @@ INSERT INTO `section` (`secid`, `section_name`, `year_level`, `teacher_id`, `sch
 --
 
 CREATE TABLE `student` (
-  `id_num` int(20) NOT NULL,
+  `id_num` int(3) UNSIGNED ZEROFILL NOT NULL,
   `fname` varchar(50) NOT NULL,
   `mname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
@@ -448,11 +448,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id_num`, `fname`, `mname`, `lname`, `email`, `birthday`, `age`, `contact`, `gender`, `religion`, `address`, `parent_guard`, `pgcontact`, `year`, `secid`, `status`) VALUES
-(6, 'ralph jerome', 'g', 'rthrth', 'fwef@gmail.com', '2013-06-11', 4, 1231231231, 'Female', 'Christian', 'asdkasjdasd', 'Shing Shang Fu', 12123121, 'Grade 3', '031', 'Not Enrolled'),
-(123, 'rthrt', 'hrhret', 'hrrhrth', 'fwef@gmail.com', 'bday1', 123, 1234567890, 'Female', 'Iglesia ni Cristo', '1074 Corregidor street ma', 'guardians of the galaxy', 987654321, 'Grade 2', '021', 'Not Enrolled'),
-(234, 'jqeury', 'gewrgew', 'wergwerg', 'erger@gmail.com', '234234', 32, 3453456, 'Male', 'Roman Catholic', 'rth4y6', 'edhghe', 345345, 'Grade 3', '031', 'Not Enrolled'),
-(758, 'egter', 'g', 'erge', 'wefw@gmail.com', '45', 64, 43564476, 'Female', 'Born Again', 'Gen. Luna cor. Muralla St', 'guardians of the galaxy', 987654321, 'Grade 3', '031', 'Not Enrolled'),
-(45654, 'grbte', 'g', 'erg', 'jn2f2@gmail', 'bday1', 12, 1234567890, 'Male', 'Born Again', '1074 Corregidor Street Ma', 'guardians of the galaxy', 123, 'Grade 2', '021', 'Not Enrolled');
+(001, 'aksldjajsdkl', 'alsjdlkasjd', 'lkajsdklaj', 'jalskdj@gmail.com', 'aksjdalsj', 12, 19238128, 'Male', 'Roman Catholic', 'ajsdiajsd', 'adisdjaskj', 9123851, 'Grade 3', '031', 'Enrolled');
 
 -- --------------------------------------------------------
 
@@ -626,19 +622,16 @@ ALTER TABLE `teacher`
 --
 ALTER TABLE `archive_student`
   MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `pre_registration`
 --
 ALTER TABLE `pre_registration`
   MODIFY `ctrl_num` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_num` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45655;
-
+  MODIFY `id_num` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
