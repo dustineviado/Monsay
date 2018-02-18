@@ -68,8 +68,7 @@ body {
 
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
-							           $('.modal-title').text("Add Subject");  
-							  
+							           $('.modal-title').text("Add Subject");
 							           $('#subjecthid').val("Add");   
 							      });    
 
@@ -90,40 +89,25 @@ body {
 							           ],  
 							      });
 
-							      $(document).on('click', '#action', function(event){  
+							      $(document).on('submit', '#addform', function(event){  
 							           event.preventDefault();
-							           var subjid = $('#subjectidname').val();  
-							           var subjname = $('#subjectname').val();  
-							           var subjfac = $('#subjectfaculty').val(); 
-							           var subjlevel = $('#subjectlevel').val();
-							           var subjhid = $('#subjecthid').val();
-							           var hiddenid = $('#hiddenid').val();  
-							           
-							           if(subjid != '' && subjname != '' && subjfac != '' && subjlevel != '')  
-							           {  
+							           var data = $(this).serialize(); 
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'subject_controller/subjectaction'; ?>",  
-							                     data:{
-							                     	id:subjid,
-							                     	name:subjname,
-							                     	fac:subjfac,
-							                     	lvl:subjlevel,
-							                     	hidden:subjhid,
-							                     	hidid:hiddenid
-							                     }, 
+							                     data:data, 
 							                     success:function(data)  
 							                     {  
+							                        if(data == 'Subject Added' || data == 'Subject Updated'){  
 							                          alert(data);  
 							                          $('#subjectmodal').modal('hide');  
-							                          $('#lamesa234').DataTable().ajax.reload();  
+							                          $('#lamesa234').DataTable().ajax.reload();
+							                        }
+							                        else{
+							                          alert(data);
+							                        }    
 							                     }  
 							                });  
-							           }  
-							           else  
-							           {  
-							                alert("All Fields are Required"); 
-							           }  
 							      });
 
 							      $(document).on('click','.edit', function(){  

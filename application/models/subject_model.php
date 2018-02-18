@@ -85,7 +85,22 @@ class subject_model extends CI_Model {
 	           $this->db->select("*");  
 	           $this->db->from($this->table);  
 	           return $this->db->count_all_results();  
-	      }  
+	      }
+	      function id_exist($key){
+	      	$this->db->select('subid');
+	      	$this->db->where('subid', $key);
+	      	$query = $this->db->get('subject');
+	      	$row = $query->row();
+
+	      	if($query->num_rows() > 0)
+	      	{
+	      		return $row;
+	      	}
+	      	else
+	      	{
+	      		echo'Does not exist';
+	      	}
+	}    	
 }
 /* End of file subject_model.php */
 /* Location: ./application/models/subject_model.php */	 
