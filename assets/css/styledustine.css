@@ -1,6 +1,6 @@
 
 	/* start of css for header */
-		#rmhsimg{
+		.rmhsimg{
 			
 			cursor:pointer;
 			height:150px; 
@@ -9,7 +9,7 @@
 			margin:0px 25px 0px 0px;
 		}
 		
-		#rmhstitle{
+		.rmhstitle{
 			font-size:28px;
 			font-family:helvetica;
 			float:left;
@@ -17,7 +17,7 @@
 			margin:25px 0px 0px 0px;
 		}
 		
-		#rmhstitle2{
+		.rmhstitle2{
 			font-size:28px;
 			font-family:helvetica;
 			float:left;
@@ -25,27 +25,27 @@
 			margin:0px 0px 0px 0px;
 		}
 
-		#katawan{
+		.katawan{
 			margin:0;
 			padding:0;
 		}
 		
-		#asd2{
+		.asd2{
 			margin:-2px 0px 0px 0px;
 		}
 		
 		
-		#asd3{
+		.asd3{
 			color:#ffffff;
 			padding:12px 30px 10px;
 		}
 		
-		#asd3:hover{
-			color:#ffffff;
-			background-color:#3366ff;
+		.asd3:hover{
+			color:black;
+			background-color: yellow;
 		}
 		
-		#dropbg:hover{
+		.dropbg:hover{
 			color:#ffffff;
 			background-color:#3366ff;
 		}

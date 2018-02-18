@@ -47,12 +47,12 @@ padding-bottom: 5px;
 	color: #fff;
 }
 .footText ul li a:hover{
-	color:#3366ff;
+	color:#ff66ff;
 }
 .bur{
 	margin-left: 0px;
 	padding-left: 0px;
-	color:#ffff1a;
+	color:yellow;
 	font-family: 'Helvetica';
 	font-size: 20px;
 	font-weight: Bold;
@@ -94,7 +94,7 @@ padding-bottom: 5px;
 	border-radius: 25px;
 }
 .menu-social-icons i:hover{
-	background-color:#cccc00;
+	background-color:blue;
 }
 
 /*end of footer*/
