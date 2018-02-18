@@ -13,7 +13,7 @@ body {
     font-family: "helvetica", sans-serif;
 }
 .sidenav {
-    height: 650px;
+    height: 100%;
     width: 100%;
     border: solid;
     padding-top: 30px;
@@ -65,8 +65,7 @@ body {
 		<h1 class="text-center"> Admin Dashboard  </h1>
     
     	</div>
-	<br>
-
+	
 
 
 
@@ -81,3 +80,4 @@ body {
 
 
 	</div>
+<br>

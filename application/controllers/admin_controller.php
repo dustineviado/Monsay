@@ -8,10 +8,11 @@ class Admin_controller extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/admin_dashboard',$data);
 		$this->load->view('templates/footer',$data);
+		// $this->session->set_userdata('login_session');
 		// $value = $this->input->post('selectlogin');
-		// if( $value == 'Admin')
+		// if($this->session->userdata('login_session') == $value)
 		// {
-		// 	echo('pumasok');
+			
 		// }
 		// else if($value == 'Student')
 		// {

@@ -13,6 +13,20 @@ class teacher_controller extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('vthesis/teacher', $data);
 		$this->load->view('templates/footer', $data);
+		$value = $this->input->post('selectlogin');
+		if($this->session->userdata('login_session') == $value)
+		{
+			
+		}
+		else if($value == 'Student')
+		{
+			redirect(base_url() . 'login_controller');		
+		}
+		else if($value == 'Teacher'){
+			redirect(base_url() . 'login_controller');
+
+			
+		}
 
 	}
 		

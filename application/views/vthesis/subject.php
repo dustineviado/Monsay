@@ -1,5 +1,5 @@
-<?php  $username=$this->session->userdata('login_session');
-if(! $username ){
+<?php  $id_number=$this->session->userdata('login_session');
+if(! $id_number ){
 redirect('login_controller/login_view');
 }?>
 <br>

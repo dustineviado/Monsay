@@ -13,11 +13,11 @@ body {
     font-family: "helvetica", sans-serif;
 }
 .sidenav {
-    height: 500px;
-    width: 230px;
-    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    border: solid;
     padding-top: 30px;
-    margin-top: 0px;
+    margin: 0 auto;
 }
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -28,13 +28,13 @@ body {
     transition: 0.5s;
 }
 .sidenav a:hover {
-    color: yellow;
+    color: #ff66ff;
 }
 
 #main {
     padding: 16px;
 }
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
@@ -42,24 +42,23 @@ body {
 
 
 <div id="sidebar" class="sidenav text-muted">
-	
-  <b><p style="font-family: 'helvetica';font-size: 20px; margin-left: 60px;">Welcome  </p></b>
-  <b><p style="font-family: 'helvetica'; font-size: 20px; margin-left: 50px;"><?php echo $this->session->userdata('login_session');?></p></b>
+  
+  <b><p class="text-center" style="font-family: 'helvetica';font-size: 30px; ">Welcome  </p></b>
+  <b><p  class="text-center" style="font-family: 'helvetica'; font-size: 20px;"><?php echo $this->session->userdata('login_session');?></p></b>
   <br>
   <br>
- <a href="teacherlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i> 
+  <a href="teacherlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
   <a href="grading_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-check">&nbsp;&nbsp;Grading</a></i>
+   <br>
+  <br>
+   <br>
+  <br> <br>
   <br>
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-   <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
+    <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
+  
   
 
   
@@ -85,3 +84,4 @@ body {
 
 
 	</div>
+<br>
