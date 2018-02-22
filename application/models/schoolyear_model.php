@@ -78,6 +78,7 @@ class schoolyear_model extends CI_Model {
 			// 	$this->db->insert('archive_teacher');
 			// }
 
+			// $this->db->where('status', 'Not Enrolled');
 			// $studentquery = $this->db->get('student');
 			// foreach($studentquery->result() as $row){
 			// 	$this->db->set('id_num',$row->id_num);

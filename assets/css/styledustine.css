@@ -556,4 +556,34 @@
 			background-color:#ffff1a;
 			color:#000000;
 		}
-	/*End of School Year*/	
+
+		/*.lamesagrade{
+			height:500px;
+  			overflow-y: scroll;
+		}*/
+		/*End of School Year*/	
+
+		/*Start of Alumni*/
+		.alumnisubbtn{
+			font-family:Helvetica;
+			height:30px;
+			width:95px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 1px 1px 1px;
+			font-size:13px;
+		}
+		
+		.alumnisubbtn:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+		.alumnifont{
+				font-weight: bold;
+				font-size:30px;
+		}
+		/*End of Alumni*/
