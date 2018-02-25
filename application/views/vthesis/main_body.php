@@ -104,6 +104,5 @@
 			</div>
 		</div>
 
-<a href = "login_controller" style="font-family: 'helvetica'; font-size: 18px; margin-left: 1100px;"> Login </a> |<a href="news_controller" style="font-size: 18px; font-family: 'helvetica'; "> News </a> | <a href="main_body_controller" style="font-size: 18px; font-family:'helvetica';">Contact Us</a>
 
 </body>

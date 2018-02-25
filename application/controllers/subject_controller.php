@@ -14,9 +14,9 @@ class Subject_controller extends CI_Controller {
 	public function index(){
 
 		$data['title'] = "Subjects | Ramon Magsaysay High School";
-
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/subject',$data);
+		$this->load->view('vthesis/subject',$active);
 		$this->load->view('templates/footer',$data);
 
 	}

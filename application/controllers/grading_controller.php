@@ -13,9 +13,9 @@ class grading_controller extends CI_Controller {
 
 	public function index(){
 		$data['title'] = "Grading | Haven of Virtue and Excellence Academy Inc.";
-
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);	
-		$this->load->view('vthesis/grading',$data);
+		$this->load->view('vthesis/grading',$active);
 		$this->load->view('templates/footer',$data);
 	}
 

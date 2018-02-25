@@ -42,9 +42,10 @@ class Login_controller extends CI_Controller {
 			$this->load->model('login_model');
 			$value = $this->input->post('selectlogin');
 			
-			if($this->login_model->can_login($id_number, $password))
+			if($wala = $this->login_model->can_login($id_number, $password))
 			{
 				$this->session->set_userdata('login_session', $id_number);
+				$this->session->set_userdata('login_session2', $wala);
 				
 				if($value == 'Student')
 			{
@@ -54,9 +55,11 @@ class Login_controller extends CI_Controller {
 			{
 				redirect(base_url() . 'teacherlog_controller' , 'refresh');
 			}
-			redirect(base_url() . 'admin_controller');
+			else  if($value == 'Admin')
+			{
+				redirect(base_url() . 'admin_controller' , 'refresh');
 			}
-
+			}
 			else
 			{
 				 $this->session->set_flashdata('error', 'Invalid Id Number and Password');

@@ -14,9 +14,9 @@ class New_enrol_controller extends CI_Controller {
 	public function index(){
 
 		$data['title'] = "New Enrollee | Haven of Virtue and Excellence Academy Inc.";
-
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/new_enrollee',$data);
+		$this->load->view('vthesis/new_enrollee',$active);
 		$this->load->view('templates/footer',$data);
 
 

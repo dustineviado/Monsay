@@ -38,10 +38,13 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/styleralphadmin.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/edit-delete.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/w3.css');?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/croppie.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/video-js.css');?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap4.min.css');?>">
 	
 	<!-- js bootstrap -->
+		<script src="<?php echo base_url('assets/js/croppie.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/croppie.js');?>"></script>	
 		<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js');?>"></script>
 		<script src="<?php echo base_url('assets/js/video-js.js');?>"></script>
@@ -64,17 +67,23 @@
 							<a href="main_body_controller" style="color:black;"><img id="rmhsimg" src="images/hvea.jpg">	
 						<p> 
 							<span id="rmhstitle">Haven of Virtue And&nbsp;</span> <br>
-							<span id="rmhstitle2">Excellence Academy Inc.</span>
+							<b><span id="rmhstitle2">Excellence Academy Inc.</span></b>
 						</p>
 					</a>
 					</div>	
 				</div>
 				
-				<div class="col-md-5">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-3">
+					<a href = "login_controller" style="font-family: 'helvetica'; font-size: 18px; float: left; margin: 0 auto;"> Login&nbsp; </a> |<a href="news_controller" style="font-size: 18px; font-family: 'helvetica'; "> News </a> | <a href="main_body_controller" style="font-size: 18px; font-family:'helvetica';">Contact Us</a>
+
 					
 				</div>
 				
 				<div class="col-md-1">
+
 				</div>
 			
 			</div>
@@ -96,7 +105,7 @@
 									<a class="nav-link dropdown-toggle" id="asd3" id="dropdown2" aria-haspopup="true" aria-expanded="false" >About Us</a>
 										<div class="dropdown-menu dropdown-backdrop aria-labelledby="dropdown2">
 											<a class="dropdown-item" id="dropbg" href="visionmission_controller">Vision and Mission</a>
-											<a class="dropdown-item" id="dropbg" href="hymn_controller">RMHS Hymn</a>
+											<a class="dropdown-item" id="dropbg" href="hymn_controller">HVEA Hymn</a>
 											<a class="dropdown-item" id="dropbg" href="history_controller">History</a>
 										</div>
 								</li>
