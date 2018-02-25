@@ -68,6 +68,15 @@ class alumni_controller extends CI_Controller {
 
 		echo json_encode($datas);
 	}
+
+	public function printpage1(){
+
+		$newdata = $this->input->post('id_num');
+
+		$this->session->set_userdata('id',$newdata);
+
+		echo json_encode($newdata);
+	}
 }
 
 /* End of file alumni_controller.php */

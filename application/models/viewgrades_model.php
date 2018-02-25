@@ -57,7 +57,7 @@ class viewgrades_model extends CI_Model {
 		$this->db->select('subject.subject, grading.subid ');
 		$this->db->from('grading');
 		$this->db->join('subject', 'subject.subid = grading.subid');
-		$this->db->where('id_num',$sid[0]);
+		$this->db->where('id_num',$sid);
 		$this->db->order_by('subject.subject');
 		$this->db->order_by('quarter');
 		$query=$this->db->get();  

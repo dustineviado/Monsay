@@ -123,6 +123,7 @@ class schoolyear_model extends CI_Model {
 						}
 						else if($row->year == 'Preparatory'){
 							$this->db->set('year','Grade 1');
+							$this->db->set('secid','000');
 							$this->db->where('id_num', $row->id_num);
 							$this->db->update('student');
 						}
@@ -153,6 +154,7 @@ class schoolyear_model extends CI_Model {
 						}
 						else if($row->year == 'Grade 6'){
 							$this->db->set('year','Grade 7');
+							$this->db->set('secid','000');
 							$this->db->where('id_num', $row->id_num);
 							$this->db->update('student');
 						}

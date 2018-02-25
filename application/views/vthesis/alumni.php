@@ -88,6 +88,29 @@
 			});	
 		});
 		////////////////////////////////////////////////////////////////
+		$(document).on('click','.printgrades', function(event){
+			event.preventDefault();;
+			var id_num = $(this).attr("id");
+
+			$.ajax({  
+				url:"<?php echo base_url() . 'alumni_controller/printpage1'; ?>",  
+				method:"POST",
+				async:false,  
+				data:{
+					id_num:id_num
+				},  
+				dataType:"json",  
+				success:function(data){
+					if (data != ''){
+					window.open('alumniprint138_controller', 'Print Grades', "height=700,width=700");
+					}
+					else{
+						alert('Error data is empty');
+					}
+				}
+			});	
+		});
+		/////////////////////////////////////////////////////////////
 	});	
 </script>	
 <br/>

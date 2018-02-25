@@ -586,4 +586,89 @@
 				font-weight: bold;
 				font-size:30px;
 		}
+
+		.alumniprintfont{
+				font-weight:bold;
+				font-size:16px;
+		}
 		/*End of Alumni*/
+
+		/*printpages*/
+		 .printdiv{
+		 	border-style: solid;
+    		border-width: 1px;
+    		border-color:black;
+		 }
+
+		 .printtabletop{
+		 	width: 95%; 
+		 	margin: 15px auto; 
+		 	font-size: 9px!important;
+		 }
+		 .printlogo{
+		 	width: 80px;
+    		height: 80px;
+		 }
+
+		 .printschoolname{
+		 	width:150px; 
+		 	text-align: center;
+		 }
+
+		 .printschoolname{
+		 	width:150px; 
+		 	text-align: center;
+		 }
+
+		 .schoolnamefont{
+		 	font-weight: bold;
+		 }
+
+		 .printdate{
+		 	width:150px; 
+		 	text-align: center;
+		 }
+
+		 .printid{
+		 	font-size:15px;
+		 	margin:0;
+		 }
+
+		 .printidvalue{
+		 	font-weight: bold;
+		 	font-size:14px;
+		 	text-decoration:underline;
+		 	padding-bottom:0px;
+		 }
+
+		 .printid2{
+		 	font-size:15px;
+		 	margin:0;
+		 }
+
+		 .printidvalue2{
+		 	font-weight: bold;
+		 	font-size:14px;
+		 	text-decoration:none;
+		 	padding-bottom:0px;
+		 }
+
+		 .printbuttonstyle{
+		 	font-family:Helvetica;
+			height:30px;
+			width:70px;
+			background-color:#3366ff;
+			border:none;
+			border-style:none;
+			color:#ffffff;
+			padding: auto;
+			margin:0px 1px 1px 16px;
+			font-size:13px;
+		 }
+		
+		.printbuttonstyle:hover{
+			background-color:#ffff1a;
+			color:#000000;
+		}
+
+		/*printpages*/
