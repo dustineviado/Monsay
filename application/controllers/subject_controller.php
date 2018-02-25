@@ -20,53 +20,43 @@ class Subject_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 
 	}
-
-	function check_subid($key){
-		$key = $this->input->post('subid');
-		$this->load->model('subject_model');
-		$brat = $this->subject_model->id_exist($key);
-			echo $brat;
-			
+	// public function subjectaction(){
+	// 	$this->form_validation->set_rules('subjectidname', 'Subject ID', 'callback_check_subid');
+	// 	$this->form_validation->set_rules('subjectname', 'Subject Name', 'required');
+	// 	$this->form_validation->set_rules('subjectfaculty', 'Subject Faculty', 'required');
+	// 	$this->form_validation->set_rules('subjectlevel', 'Level', 'required');
 		
-	}
+	// 	if($this->form_validation->run()){
+	// 		$hidden = $this->input->post('subjecthid');
 
-	public function subjectaction(){
-		$this->form_validation->set_rules('subjectidname', 'Subject ID', 'callback_check_subid');
-		$this->form_validation->set_rules('subjectname', 'Subject Name', 'required');
-		$this->form_validation->set_rules('subjectfaculty', 'Subject Faculty', 'required');
-		$this->form_validation->set_rules('subjectlevel', 'Level', 'required');
-		
-		if($this->form_validation->run()){
-			$hidden = $this->input->post('subjecthid');
-
-	 		if($hidden == "Add"){
-	                $insert_data = array(  
-	                     'subid'=>$this->input->post('subjectidname'),
-	                     'subject'=>$this->input->post('subjectname'),
-	                     'faculty'=>$this->input->post('subjectfaculty'),
-	                     'year_level'=>$this->input->post('subjectlevel'));  
+	//  		if($hidden == "Add"){
+	//                 $insert_data = array(  
+	//                      'subid'=>$this->input->post('subjectidname'),
+	//                      'subject'=>$this->input->post('subjectname'),
+	//                      'faculty'=>$this->input->post('subjectfaculty'),
+	//                      'year_level'=>$this->input->post('subjectlevel'));  
 	               	
-	                $this->mdl->addsubject($insert_data);
-	                echo 'Subject Added';
-	           }
-	           else if($hidden == "Edit"){
-	           		$updated_data = array(  
-	                     'subid'=>$this->input->post('subjectidname'),
-	                     'subject'=>$this->input->post('subjectname'),
-	                     'faculty'=>$this->input->post('subjectfaculty'),
-	                     'year_level'=>$this->input->post('subjectlevel'));  
+	//                 $this->mdl->addsubject($insert_data);
+	//                 echo 'Subject Added';
+	//            }
+	//            else if($hidden == "Edit"){
+	//            		$updated_data = array(  
+	//                      'subid'=>$this->input->post('subjectidname'),
+	//                      'subject'=>$this->input->post('subjectname2'),
+	//                      'faculty'=>$this->input->post('subjectfaculty2'),
+	//                      'year_level'=>$this->input->post('subjectlevel2'));  
 	               	
-	                $this->mdl->subjectedit2($updated_data);
-	                echo 'Subject Updated';
-	           }
-	           else{
-	           		echo 'Error';
-	           }
-	        }
-	        else{
-	        	echo validation_errors();
-	        }   
-      	}
+	//                 $this->mdl->subjectedit2($updated_data);
+	//                 echo 'Subject Updated';
+	//            }
+	//            else{
+	//            		echo 'Error';
+	//            }
+	//         }
+	//         else{
+	//         	echo validation_errors();
+	//         }   
+ //      	}
 
 	public function deletesubject(){
 		       $this->load->model("subject_model");  
@@ -74,6 +64,70 @@ class Subject_controller extends CI_Controller {
 	           echo 'Subject Deleted';
 	}
 
+	function check_subid(){
+		$sid = $this->input->post('subjectidname');
+		$this->load->model('subject_model');
+		$exist = $this->subject_model->subid_exist($sid);
+		if($sid == '')
+		{
+			echo 'is required';	
+		}
+		else if($sid == $exist){
+			echo 'Subject ID already taken';
+		}
+		else if($sid !== $exist){
+			echo 'good ID';
+		}
+		else{
+			$this->addsub();
+		}
+
+	}
+	function check_subjname(){
+		$subname = $this->input->post('subjectname');
+
+		if($subname == ''){
+			echo 'Nonono';
+		}
+		else if($subname !== ''){
+			echo 'good name';
+		}
+		else{
+			$this->addsub();
+		}
+	}
+	function check_faculty(){
+		$faculty = $this->input->post('subjectfaculty');
+
+		if($faculty == ''){
+			echo 'Nonono';
+		}
+		else if($faculty !== ''){
+			echo 'good faculty';
+		}
+		else{
+			$this->addsub();
+		}
+	}
+	function addsub(){
+	$sid = $this->input->post('subjectidname');	
+	$subname = $this->input->post('subjectname');
+	$faculty = $this->input->post('subjectfaculty');
+
+	if($sid == '' || $subname == '' || $faculty == ''){
+		echo 'Oops!';
+	}
+	else{
+		$insert_data = array(  
+	    'subid'=>$this->input->post('subjectidname'),
+	    'subject'=>$this->input->post('subjectname'),
+	    'faculty'=>$this->input->post('subjectfaculty'),
+	    'year_level'=>$this->input->post('subjectlevel'));
+
+		$this->mdl->addsubject($insert_data);
+		echo 'Subject Added';
+		}
+	}
 	function fetch_user(){  
            $this->load->model("subject_model");  
            $fetch_data = $this->mdl->make_datatables();  
@@ -108,8 +162,54 @@ class Subject_controller extends CI_Controller {
 	                $output['subjectlevel'] = $row->year_level;
 	           }  
 	           echo json_encode($output);  
-	      }    
- }  
+	      }
+	function editsubject(){
+		$sid = $this->input->post('subjectID2');
+		$hidden = $this->input->post('hidid2');
+		$subname = $this->input->post('subjectname2');
+		$faculty = $this->input->post('subjectfaculty2');
 
+		if($subname == '' || $faculty == ''){
+			echo 'Oops!';
+		}
+		else if($hidden == "Edit"){
+			$update_data = array(
+				'subid'=>$this->input->post('subjectidname2'),
+				'subject'=>$this->input->post('subjectname2'),
+				'faculty'=>$this->input->post('subjectfaculty2'),
+				'year_level'=>$this->input->post('subjectlevel2'));
+
+			$this->mdl->subjectedit2($sid, $update_data);
+			echo 'Subject Successfully Updated';
+		}
+ }
+ 	function check_subjname2(){
+ 		$subname = $this->input->post('subjectname2');
+
+		if($subname == ''){
+			echo 'Nonono';
+		}
+		else if($subname !== ''){
+			echo 'good name';
+		}
+		else{
+			$this->editsubject();
+		}
+
+ 	}
+ 	function check_faculty2(){
+ 		$faculty = $this->input->post('subjectfaculty2');
+
+		if($faculty == ''){
+			echo 'Nonono';
+		}
+		else if($faculty !== ''){
+			echo 'good faculty';
+		}
+		else{
+			$this->editsubject();
+		}
+ 	}  
+}
 /* End of file  subject_controller.php */
 /* Location: ./application/controllers/ subject_controller.php */

@@ -137,6 +137,21 @@ body {
 												 $('#studentparentguard').val(data.studentparentguard);
 												 $('#studentpgcontact').val(data.studentpgcontact);
 												 $('#studentyear').val(data.studentyear);
+												 var sidid = $('#studentyear').val();
+													$.ajax({
+														url:"<?php echo base_url(); ?>student_controller/getoption",
+														method:"POST",
+														data:{sid:sidid},
+														dataType:"json",
+														success: function(data){
+															var option_data='';
+									                	 	var i;
+									                	 		for(i=0; i<data.length; i++){
+									                	 			option_data += '<option value="'+ data[i].secid +'">'+ data[i].section_name +'</option>'
+																} 
+									                		$('#studentsection').html(option_data);
+									               			}   
+													});
 												 $('#studentsection').val(data.studentsection);
 												 $('#studentstatus').val(data.studentstatus);
 							                     $('#studenthid').val("Edit");
@@ -258,7 +273,7 @@ body {
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="studentidname" class="col-form-label formmodalfont">Student ID</label>
-											<input id="studentidname" name="studentidname" type="text" class="form-control" placeholder="Student ID">
+											<input id="studentidname" name="studentidname" type="text" class="form-control" readonly="">
 										</div>
 										<div class="col-md">
 											<label for="studentfname" class="col-form-label formmodalfont">First Name</label>

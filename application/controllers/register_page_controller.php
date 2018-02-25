@@ -51,7 +51,7 @@ class register_page_controller extends CI_Controller {
 				'parent_guard'=>$this->input->post('studparent_guard'),
 				'pgcontact'=>$this->input->post('studpgcontact'),
 				'status'=>'Pending',
-				'date_made'=>date('Y-m-d H:i:s', strtotime('+7 HOURS')));
+				'date_made'=>date('Y-m-d h:i:s', strtotime('+7 HOURS')));
 			 	// echo "<script type = 'text/javascript'> alert('You have successfully registered!');</script>";
 				$this->load->model('New_enrol_model');
 				$this->New_enrol_model->addstudent($data);  

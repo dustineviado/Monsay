@@ -106,7 +106,7 @@ body {
 							           var newhid = $('#newstudhid').val();
 							           var hiddenid = $('#hiddenid').val();  
 							           
-							           if(fname != '' && mname != '' && lname != '' && email != '' && contact != '' && religion != '' && birthday != '' && age != '' && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
+							           if(fname != '' && mname != '' && lname != '' && email != '' && contact != '' && religion != '' && birthday != ''  && gender != '' && address != '' && parent_guard != '' && pgcontact != '')  
 							           {  
 							                $.ajax({  
 							                	type:"POST",

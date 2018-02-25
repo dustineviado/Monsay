@@ -7,6 +7,8 @@ class student_model extends CI_Model {
 		}
 		function addstudent($data){
 			$this->db->insert('student',$data);
+			$insert_id = $this->db->insert_id();
+			return $insert_id;
 		}
 		function studentdelete($sid){
 	        $this->db->where('id_num', $sid);
@@ -29,7 +31,7 @@ class student_model extends CI_Model {
            	return $query->result();
 		}
 		function studentedit2($data){
-			$hiddenid = $this->input->post('hidid');
+			$hiddenid = $this->input->post('hiddenid');
 			$this->db->where('id_num', $hiddenid);
 			$this->db->update('student', $data);
 		}
