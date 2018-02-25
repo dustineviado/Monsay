@@ -13,7 +13,7 @@ function can_login($id_number , $password)
 	$query = $this->db->get('type');
 	if($query->num_rows() > 0)
 	{	
-		return true;
+		return ($query);
 	}
 	else
 	{
@@ -21,5 +21,3 @@ function can_login($id_number , $password)
 	}
 }
 }
-/* End of file login_model.php */
-/* Location: ./application/models/login_model.php */

@@ -119,7 +119,7 @@ body {
 .sidenav {
     height: 100%;
     width: 100%;
-    border: solid;
+    background-color: white;
     padding-top: 30px;
     margin: 0 auto;
 }
@@ -133,6 +133,9 @@ body {
 }
 .sidenav a:hover {
     color: #ff66ff;
+    background-color: gray;
+    transition: .7s;
+
 }
 
 #main {
@@ -142,6 +145,10 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+.shtycss{
+	background-color: #ff66ff;
+}
+
 </style>
 
 
@@ -151,19 +158,18 @@ body {
   <b><p  class="text-center" style="font-family: 'helvetica'; font-size: 20px;"><?php echo $this->session->userdata('login_session');?></p></b>
   <br>
   <br>
-  <a href="teacherlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
-  <a href="grading_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-check">&nbsp;&nbsp;Grading</a></i>
-   <br>
-  <br>
-   <br>
-  <br> <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <a href="teacherlog_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;  "><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
+  <a href="grading_controller" class="<?=($menu=='active'?'shtycss':'')?>" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-check">&nbsp;&nbsp;Grading</a></i></i>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
-  
-
   
 </div>
 

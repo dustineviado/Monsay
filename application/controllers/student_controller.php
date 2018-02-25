@@ -9,8 +9,9 @@ class student_controller extends CI_Controller {
     }
 	public function index(){
 		$data['title'] = "Students | Haven of Virtue and Excellence Academy Inc.";
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/student',$data);
+		$this->load->view('vthesis/student',$active);
 		$this->load->view('templates/footer',$data);
 		
 	}

@@ -7,15 +7,14 @@ redirect('login_controller/login_view');
 <div class="container-fluid allfont">
 	<div class="row">
 		<div class="col-lg-2">
-		
-<style>
+	<style>
 body {
     font-family: "helvetica", sans-serif;
 }
 .sidenav {
     height: 100%;
     width: 100%;
-    border: solid;
+    background-color: white;
     padding-top: 30px;
     margin: 0 auto;
 }
@@ -29,10 +28,16 @@ body {
 }
 .sidenav a:hover {
     color: #ff66ff;
+    background-color: gray;
+    transition: .7s;
+
 }
 
 #main {
     padding: 16px;
+}
+.shtycss{
+	background-color: #ff66ff;
 }
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -47,15 +52,13 @@ body {
   <b><p  class="text-center" style="font-family: 'helvetica'; font-size: 20px;"><?php echo $this->session->userdata('login_session');?></p></b>
   <br>
   <br>
-  <a href="admin_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
+  <a href="admin_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;  "><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
   <a href="teacher_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-male"> / <i class="fa fa-female">&nbsp;&nbsp;Teacher</a></i></i>
-  <a href="student_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-graduation-cap">&nbsp; &nbsp;Student</a></i>
+  <a href="student_controller" class="<?=($menu=='active'?'shtycss':'')?>" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-graduation-cap">&nbsp; &nbsp;Student</a></i>
   <a href="subject_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-book">&nbsp;&nbsp;Subject</i></a>
   <a href="section_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sort-numeric-asc">&nbsp;&nbsp;Section</i></a>
   <a href="new_enrol_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-child">&nbsp;&nbsp;Enrollees</i></a>
   <a href="schedules_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-calendar-check-o">&nbsp;&nbsp;Schedules</i></a>
-  <br>
-  <br>
   <br>
     <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
   

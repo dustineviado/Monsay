@@ -9,8 +9,9 @@ class schedules_controller extends CI_Controller {
     }
 	public function index(){
 		$data['title'] = "Schedules | Haven of Virtue and Excellence Academy Inc.";
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);	
-		$this->load->view('vthesis/schedules',$data);
+		$this->load->view('vthesis/schedules',$active);
 		$this->load->view('templates/footer',$data);
 		
 	}

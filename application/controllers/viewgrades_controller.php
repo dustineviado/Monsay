@@ -13,8 +13,9 @@ class viewgrades_controller extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "View Grades | Haven of Virtue and Excellence Academy Inc.";
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);	
-		$this->load->view('vthesis/viewgrades',$data);
+		$this->load->view('vthesis/viewgrades',$active);
 		$this->load->view('templates/footer',$data);
 	}
 

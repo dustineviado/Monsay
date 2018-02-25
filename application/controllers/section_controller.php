@@ -14,9 +14,9 @@ class section_controller extends CI_Controller {
 	public function index(){
 
 		$data['title'] = "Sections | Haven of Virtue and Excellence Academy Inc.";
-
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/section',$data);
+		$this->load->view('vthesis/section',$active);
 		$this->load->view('templates/footer',$data);
 
 	}
