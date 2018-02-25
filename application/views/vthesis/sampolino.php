@@ -12,6 +12,7 @@
 						<label for="username" class="col-md-3 col-sm-4 control-label">Username</label>
 						<div class="col-md-9 col-sm-8">
 							<input type="text" name="username" id="username" class="form-control">
+							<span class = "text-danger" id="username_error"></span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -44,42 +45,28 @@
 </div>
 
 <script>
-	$('#form-user').submit(function(e){
-		e.preventDefault();
+	$(function(){
+	$("#username_error").hide();
 
-		var me =$(this);
+	var error_username = false;
 
-		$.ajax({
-			url: me.attr('action'),
-			type: 'POST',
-			data: me.serialize(),
-			dataType: 'json',
-			success: function(response){
-				if(response.success == true){
-					$('#the-message').append('<div class="alert alert-success">' + 'Data has been saved' + '</div');
-					$('.form-group').removeClass('has-error')
-									.removeClass('has-success');
-					$('.text-danger').remove();
-
-					me[0].reset();
-					$('.alert-success').delay(500).show(10, function() {
-						$(this).delay(3000).hide(10, function() {
-							$(this).remove();
-						});
-					})
-				}
-				else{
-						$.each(response.messages, function(key, value){
-						var element = $('#' + key);
-						element.closest('div.form-group')
-						.removeClass('has-error')
-						.addClass(value.length > 0 ? 'has-error': 'has-success')
-						.find('.text-danger').remove();
-						element.after(value);
-					});
-				}
-			}
-		});
+	$("#username").focusout(function(){
+		check_username();
 	});
+	function check_username(){
+		var uname = $('#username').val();
+
+			if(uname !== ''){
+				$('#username_error').hide();
+				$('#username').css("border-color", "#34F458");
+			}
+			else{
+				$('#username_error').html("Username is required");
+				$('#username_error').show();
+				$('#username').css("border-color", " #F90A0A");
+				error_username =true;
+			}
+	}
+});
 
 </script>

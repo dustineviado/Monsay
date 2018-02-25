@@ -26,7 +26,7 @@ class student_controller extends CI_Controller {
 		$this->form_validation->set_rules('studentgender','Gender','trim|required');
 		$this->form_validation->set_rules('studentaddress','Address','trim|required');
 		$this->form_validation->set_rules('studentparentguard','Parent/Guardian','trim|required');
-		$this->form_validation->set_rules('studentpgcontact','Contact','trim|required|integer|min_length[7]|max_length[11]');
+		$this->form_validation->set_rules('studentpgcontact','Parent/Guardian Contact','trim|required|integer|min_length[7]|max_length[11]');
 		$this->form_validation->set_error_delimiters('', '');
 		$this->form_validation->set_message('integer', 'The {field} must be a number');
 		
@@ -83,7 +83,7 @@ class student_controller extends CI_Controller {
 				}
 				else{
 					echo validation_errors();
-				}
+				}	
       	}
 	public function deletestudent(){
 		       $this->load->model("student_model");  
