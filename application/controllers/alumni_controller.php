@@ -14,9 +14,9 @@ class alumni_controller extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Alumni | Haven of Virtue and Excellence Academy Inc.";
-
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/alumni.php',$data);
+		$this->load->view('vthesis/alumni.php',$active);
 		$this->load->view('templates/footer',$data);
 	}
 

@@ -1,5 +1,10 @@
 /*start of login page */
 
+.hveaimg{
+	height: 200px;
+	width: 200px;
+	margin: 0 auto;
+}
 .login{
 	font-family:Helvetica;
 			height:40px;
