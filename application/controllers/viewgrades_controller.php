@@ -73,6 +73,18 @@ class viewgrades_controller extends CI_Controller {
 		echo json_encode($datas);
 	}
 
+	public function printpage1(){
+
+		$newdata = array(
+        'id' => $this->input->post('id_num'),
+        'schoolyear' => $this->input->post('schoolyear')
+		);
+
+		$this->session->set_userdata($newdata);
+
+		echo json_encode($newdata);
+	}
+
 }
 
 /* End of file viewgrades_controller.php */

@@ -17,7 +17,7 @@ redirect('login_controller/login_view');
 			gra_data += '<tr>';
 			gra_data += '<td>'+ data[i].year +'</td>';
 			gra_data += '<td>'+ data[i].schoolyear +'</td>';
-			gra_data += '<td><button id="'+ data[i].id_num +'" name="'+ data[i].schoolyear +'" class="btn addstubtn3 viewgrade">View</button></td>';
+			gra_data += '<td><button id="'+ data[i].id_num +'" name="'+ data[i].schoolyear +'" class="btn addstubtn3 viewgrade">View</button><button id="'+ data[i].id_num +'" name="'+ data[i].schoolyear +'" class="btn addstubtn3 printgrade">Print</button></td>';
 			gra_data += '</tr>';
 			} 
 			$('#bodytable').html(gra_data);
@@ -34,7 +34,7 @@ redirect('login_controller/login_view');
 			for(i=0; i<data.length; i++){
 			gra_data2 += '<tr>';
 			gra_data2 += '<td>'+ data[i].year +'</td>';
-			gra_data2 += '<td><button id="'+ data[i].id_num +'" name="" class="btn addstubtn3 viewgrade2">View</button></td>';
+			gra_data2 += '<td><button id="'+ data[i].id_num +'" name="" class="btn addstubtn3 viewgrade2">View</button>';
 			gra_data2 += '</tr>';
 			} 
 			$('#bodytable2').html(gra_data2);
@@ -46,6 +46,7 @@ redirect('login_controller/login_view');
 			$('#grades').modal('show');
 			var id_num = $(this).attr("id");
 			var schoolyear = $(this).attr("name");
+			$('#avghide').show();
 			$('#viewtable tbody tr').remove();
 
 			$.ajax({  
@@ -74,9 +75,13 @@ redirect('login_controller/login_view');
 								},  
 								dataType:"json",  
 								success:function(response){
+									var sum = 0;
 									$.each(response, function(index, response){
 										grade_data += '<td>'+ response.grade +'</td>';
-									});	
+										sum = sum + parseInt(response.grade);
+									});
+									sum = sum/4;
+									grade_data += '<td>'+ sum +'</td>';	
 								}
 							});
 						
@@ -93,6 +98,7 @@ redirect('login_controller/login_view');
 			$('#grades').modal('show');
 			var id_num = $(this).attr("id");
 			$('#viewtable tbody tr').remove();
+			$('#avghide').hide();
 
 			$.ajax({  
 				url:"<?php echo base_url() . 'viewgrades_controller/modalgrades2'; ?>",  
@@ -130,6 +136,32 @@ redirect('login_controller/login_view');
 					}
 				});
 			});	
+		//////////////////////////////////////////////////////////////////////////
+		$(document).on('click','.printgrade', function(event){
+			event.preventDefault();;
+			var id_num = $(this).attr("id");
+			var schoolyear = $(this).attr("name");
+
+			$.ajax({  
+				url:"<?php echo base_url() . 'viewgrades_controller/printpage1'; ?>",  
+				method:"POST",
+				async:false,  
+				data:{
+					id_num:id_num,
+					schoolyear:schoolyear
+				},  
+				dataType:"json",  
+				success:function(data){
+					if (data != ''){
+					window.open('printpage_controller', 'Print Grade', "height=700,width=700");
+					}
+					else{
+						alert('Error data is empty');
+					}
+				}
+			});	
+		});
+
 		//////////////////////////////////////////////////////////////////////////	
 	});
 </script>
@@ -250,6 +282,7 @@ body {
 												<th>2nd</th>
 												<th>3rd</th>
 												<th>4th</th>
+												<th id="avghide">Avg</th>
 											</tr>
 										</thead>
 										<tbody id="gradebody">
