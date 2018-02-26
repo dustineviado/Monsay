@@ -18,7 +18,7 @@ class teacher_model extends CI_Model {
            	return $query->result();
 		}
 		function teacheredit2($data){
-			$hiddenid = $this->input->post('hidid');
+			$hiddenid = $this->input->post('hiddenid');
 			$this->db->where('teacher_id', $hiddenid);
 			$this->db->update('teacher', $data);
 		}
@@ -70,5 +70,13 @@ class teacher_model extends CI_Model {
 	           $this->db->select("*");  
 	           $this->db->from($this->table);  
 	           return $this->db->count_all_results();  
-	      }    
+	      } 
+
+	      function idauto($sid){
+	      	$this->db->select_max('teacher_id');
+	      	$this->db->like('teacher_id', $sid, 'after');
+	      	$this->db->from('teacher');
+			$query = $this->db->get();
+			return $query->result();
+	      }   
 	}

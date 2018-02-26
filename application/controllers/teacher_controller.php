@@ -15,45 +15,57 @@ class teacher_controller extends CI_Controller {
 		$this->load->view('vthesis/teacher', $active);
 		$this->load->view('templates/footer', $data);
 	}
-		
+	
+	public function autoid(){
+		$idformat = $this->input->post('idformat');
+
+		$result = $this->mdl->idauto($idformat);
+
+		foreach($result as $data){
+			$datar = $data->teacher_id;
+		}
+
+		echo json_encode($datar);
+	}	
+
 	public function teacheraction(){
-			$hidden = $this->input->post('hidden');
+			$hidden = $this->input->post('teacherhid');
 			/*$postmalone = $_POST;
 			if(isset($postmalone)){
 				var_dump($postmalone); checking */
 			
 	 		if($hidden == "Add"){
 	                $insert_data = array(  
-	                     'teacher_id'=>$this->input->post('Tid'),
-	                     'fname'=>$this->input->post('Tfname'),
-	                     'mname'=>$this->input->post('Tmname'),
-	                     'lname'=>$this->input->post('Tlname'),
-	                     'birthday'=>$this->input->post('Tbday'),
-	                     'age'=>$this->input->post('Tage'),
-	                     'gender'=>$this->input->post('Tgender'),
-	                     'email'=>$this->input->post('Temail'),
-	                     'department'=>$this->input->post('Tdepartment'),
-	                     'address'=>$this->input->post('Taddress'),
-	                     'contact' =>$this->input->post('Tcontact'),
-	                     'status'=>$this->input->post('Tstatus'));
+	                     'teacher_id'=>$this->input->post('teacherid'),
+	                     'fname'=>$this->input->post('teacherfname'),
+	                     'mname'=>$this->input->post('teachermname'),
+	                     'lname'=>$this->input->post('teacherlname'),
+	                     'birthday'=>$this->input->post('bday'),
+	                     'age'=>$this->input->post('age'),
+	                     'gender'=>$this->input->post('gender'),
+	                     'email'=>$this->input->post('email'),
+	                     'department'=>$this->input->post('department'),
+	                     'address'=>$this->input->post('address'),
+	                     'contact' =>$this->input->post('contact'),
+	                     'status'=>$this->input->post('status'));
 	               		
 	                $this->mdl->addteacher($insert_data);
 	                echo 'Teacher Added';
 	           }
 	           else if($hidden == "Edit"){
 	           		$updated_data = array(  
-	                     'teacher_id'=>$this->input->post('Tid'),
-	                     'fname'=>$this->input->post('Tfname'),
-	                     'mname'=>$this->input->post('Tmname'),
-	                     'lname'=>$this->input->post('Tlname'),
-	                     'birthday'=>$this->input->post('Tbday'),
-	                     'age'=>$this->input->post('Tage'),
-	                     'gender'=>$this->input->post('Tgender'),
-	                     'email'=>$this->input->post('Temail'),
-	                     'department'=>$this->input->post('Tdepartment'),
-	                     'address'=>$this->input->post('Taddress'),
-	                     'contact' =>$this->input->post('Tcontact'),
-	                     'status'=>$this->input->post('Tstatus'));	
+	                     'teacher_id'=>$this->input->post('teacherid'),
+	                     'fname'=>$this->input->post('teacherfname'),
+	                     'mname'=>$this->input->post('teachermname'),
+	                     'lname'=>$this->input->post('teacherlname'),
+	                     'birthday'=>$this->input->post('bday'),
+	                     'age'=>$this->input->post('age'),
+	                     'gender'=>$this->input->post('gender'),
+	                     'email'=>$this->input->post('email'),
+	                     'department'=>$this->input->post('department'),
+	                     'address'=>$this->input->post('address'),
+	                     'contact' =>$this->input->post('contact'),
+	                     'status'=>$this->input->post('status'));	
 	                       
 	               	
 	                $this->mdl->teacheredit2($updated_data);
