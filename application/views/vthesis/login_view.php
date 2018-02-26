@@ -50,20 +50,23 @@
 <title><?php echo $title?></title>
 	<!--end of header-->
 </head>
-<body style="background-image: url(images/back.jpg); background-repeat: no-repeat; background-size: 1400px; background-position: center;"">
+<body style="background: url(images/back.jpg);
+	background-repeat: no-repeat;
+    background-size: cover;"
+  
 	<div class="container-fluid" >
 	<div class="row">
-	<div class="col-lg-2">
+	<div class="col-lg-3">
 	</div>
 
-	<div class="col-lg-8 " style="margin-top: 100px;" >
+	<div class="col-lg-6" style="margin-top: 80px;" >
 
-	<form method="post" action="<?php echo base_url(); ?>login_controller/login_validation">
+	<form method="post" action="<?php echo base_url(); ?>login_controller/login_validation" style="border: solid; border-radius: 10px; background: rgba(0, 0 , 0, .5); margin: 0 auto;">
 		<center>
 	<img src="images/hvea.png" class="hveaimg">
 	<br>
 	</center>
-	
+	<br>
 	<select class="form-control" name="selectlogin" style="width: 300px; margin: 0 auto;">
 		<option value="Admin">Admin</option>
         <option value="Student">Student</option>
@@ -71,14 +74,14 @@
       </select><br>
 
 
-	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-user"></i>
-		<label>Enter Id Number</label>
+	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-user" style="color: white;"></i>
+		<label style="color: white;">Enter Id Number</label>
 		<input type="text" name="id_number" class="form-control" required="">
 		<span class="text-danger"><?php echo form_error('id_number'); ?></span>
 
 	</div>
-	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-lock"></i>
-		<label>Enter Password</label>
+	<div class = "form-group" style="width: 300px; margin: 0 auto;"><i class="fa fa-lock" style="color: white;"></i>
+		<label style="color: white;">Enter Password</label>
 		<input type="password" name="password" class="form-control" required="">
 		<span class="text-danger"><?php echo form_error('password'); ?></span>
 	</div>
@@ -89,7 +92,7 @@
 	</div>
 </form>
 </div>
-<div class="col-lg-2" >
+<div class="col-lg-3" >
 	</div>
 </div>
 </div>
