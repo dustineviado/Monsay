@@ -109,9 +109,8 @@ body {
 
 							<div class="modal-body">
 									<div class="row form-row">
-										<div class="col-md">
-											<label for="teacherid" class="col-form-label formmodalfont">Teacher ID</label>
-											<input id="teacherid" name="teacherid" type="text" class="form-control" placeholder="Teacher ID">
+										<div>
+											<input type="hidden" id="teacherid" name="teacherid" type="text" class="form-control"">
 										</div>
 										<div class="col-md">
 											<label for="teacherfname" class="col-form-label formmodalfont">First Name</label>
@@ -275,9 +274,25 @@ body {
 							           $('#addform')[0].reset();  
 							           $('.modal-title').text("Add Teacher");  
 							           $('#teacherhid').val("Add");   
-							      
-							      });
-							      });    
+							      	   
+							      	   var d = new Date();
+							      	   var idformat = d.getFullYear();
+							      	   var finalid = 0;
+
+							      	   $.ajax({  
+							                url:"<?php echo base_url() . 'teacher_controller/autoid'; ?>",  
+							                method:"POST",  
+							                data:{idformat:idformat},  
+							                dataType:"json",  
+							                success:function(data)  
+							                {  	
+							                	finalid = 1 + parseInt(data);
+							                	$('#teacherid').val(finalid);  
+							                }  
+							           });	
+
+							     	 });
+							         
 
 
 
@@ -304,60 +319,26 @@ body {
 							      });
 
 
-
-
-
- 				$(document).on('click', '#action', function(event){  
+ 								$('#addform').on('submit', function(e){  
 							           event.preventDefault();
-							           var teacher_id = $('#teacherid').val();  
-							           var teacher_fname = $('#teacherfname').val();
-							           var teacher_mname = $('#teachermname').val();
-							           var teacher_lname = $('#teacherlname').val();  
-							           var teacherbirthday = $('#bday').val();
-							           var teacherage = $('#age').val();
-							           var teachergender = $('#gender').val();
-							           var teacheremail = $('#email').val();
-							           var teacherdepartment = $('#department').val();
-							           var teacheraddress = $('#address').val();
-							           var teachercontact = $('#contact').val();
-							           var teacherstatus = $('#status').val();
-							           var teacherhid = $('#teacherhid').val();
-							           var hiddenid = $('#hiddenid').val();  
-							           
-							           if(teacher_id != '' && teacher_fname != '' && teacher_mname != '' && teacher_lname != '' && teacherbirthday != '' && teacherage != '' &&teachergender != '' && teacheremail != '' && teacherdepartment != '' && teacheraddress != '' && teachercontact != '' && teacherstatus != '')  
-							           {  
+							           var data = $(this).serialize();
 							                $.ajax({  
 							                	type:"POST",
 							                     url:"<?php echo base_url() . 'teacher_controller/teacheraction'; ?>",  
-							                     data:{
-							                     	Tid:teacher_id,
-							                     	Tfname:teacher_fname,
-							                     	Tmname:teacher_mname,
-							                     	Tlname:teacher_lname,
-							                     	Tbday:teacherbirthday,
-							                     	Tage:teacherage,
-							                     	Tgender:teachergender,
-							                        Temail:teacheremail,
-							                     	Tdepartment:teacherdepartment,
-							                     	Taddress:teacheraddress,
-							                     	Tcontact:teachercontact,
-							                     	Tstatus:teacherstatus,
-							                     	hidden:teacherhid,
-							                     	hidid:hiddenid
-							                     }, 
+							                     data:data,
 							                     success:function(data)  
 							                     {  
-							                          alert(data);  
+							                     	if(data == 'Teacher Added' || data == 'Teacher Updated'){
+							                          alert(data);
 							                          $('#teachermodal').modal('hide');  
-							                          $('#Ttable').DataTable().ajax.reload();  
+							                          $('#Ttable').DataTable().ajax.reload();
+							                        }
+							                        else{
+							                          alert(data);
+							                        }    
 							                     }  
-							                });  
-							           }  
-							           else  
-							           {  
-							                alert("All Fields are Required"); 
-							           }  
-							      });
+							                });   
+							    });
 
 
 
@@ -438,7 +419,8 @@ body {
 							                return false;       
 							           }  
 							      });        
-							 
+	}); 
+
 </script>
 
 
