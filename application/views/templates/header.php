@@ -77,7 +77,7 @@
 					
 				</div>
 				<div class="col-md-3">
-					<a href = "login_controller" target="_" style="font-family: 'helvetica'; font-size: 18px; float: left; margin: 0 auto;"> Login&nbsp; </a> |<a href="news_controller" style="font-size: 18px; font-family: 'helvetica'; "> News </a> | <a href="main_body_controller" style="font-size: 18px; font-family:'helvetica';">Contact Us</a>
+					<a href = "login_controller " target="_" style="font-family: 'helvetica'; font-size: 18px; float: left; margin: 0 auto;"> Login&nbsp; </a> |<a href="news_controller" style="font-size: 18px; font-family: 'helvetica'; "> News </a> | <a href="main_body_controller" style="font-size: 18px; font-family:'helvetica';">Contact Us</a>
 
 					
 				</div>
