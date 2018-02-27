@@ -81,7 +81,7 @@ class teacher_model extends CI_Model {
 	           }  
 	           else  
 	           {  
-	                $this->db->order_by('teacher_id', 'DESC');  
+	                $this->db->order_by('teacher_id', 'asc');  
 	           }  
 	      
 	      }
@@ -116,5 +116,5 @@ class teacher_model extends CI_Model {
 
 	      function insertaddacc($data){
 			$this->db->insert('type',$data);
-		} 
+		  } 
 	}

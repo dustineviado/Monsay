@@ -22,6 +22,18 @@ class New_enrol_controller extends CI_Controller {
 
 	}	
 
+	public function autoid(){
+		$idformat = $this->input->post('idformat');
+
+		$result = $this->mdl->idauto($idformat);
+
+		foreach($result as $data){
+			$datar = $data->id_num;
+		}
+
+		echo json_encode($datar);
+	}
+
 	public function newStudAction(){
 			$hidden = $this->input->post('hidden');
 
@@ -54,7 +66,8 @@ class New_enrol_controller extends CI_Controller {
 	}
 	public function confirmEnrollee(){
 
-	                $confirm_data = array(  
+	                $confirm_data = array(
+	                	 'id_num'=>$this->input->post('userID'),
 	                     'fname'=>$this->input->post('studfname2'),
 	                     'mname'=>$this->input->post('studmname2'),
 	                     'lname'=>$this->input->post('studlname2'),
@@ -71,13 +84,19 @@ class New_enrol_controller extends CI_Controller {
 	                     'secid'=>$this->input->post('studsection2'),
 	                     'status'=>'Enrolled'); 
 
-	                $ctrlid = $this->input->post('userID'); 
+	                $ctrlid = $this->input->post('ctrlid'); 
 
 		$this->load->model('New_enrol_model');
 		$this->New_enrol_model->confirmation($confirm_data);
 		$this->New_enrol_model->confirmationdelete($ctrlid);
 		
-		
+		$insertaddacc = array(
+	    'user_type'=> 'Student',
+	    'id_number'=> $this->input->post('userID'),
+	    'email'=>$this->input->post('studemail2'),
+	    'password'=> '12345');
+		 $this->mdl->insertaddacc($insertaddacc);
+
 		redirect('New_enrol_controller', 'refresh');
 
 	}

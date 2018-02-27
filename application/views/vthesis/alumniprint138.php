@@ -62,7 +62,7 @@
 									<h5 class="schoolnamefont">Haven of Virtue and Excellence Academy Inc.</h5>
 									<h6 class="schoolnamefont">Form-137</h6>
 								</td>
-								<td class="printdate">Date Printed:</td>
+								<td class="printdate">Date Printed:  <span id="datetoday"></span></td>
 							</tr>	
 						</tbody>
 					</table>
@@ -79,11 +79,26 @@
 		</div>
 		<br>
 		<br>
-		<button onclick="printbtn()" id="printbtn" class="printbuttonstyle">Print</button>	
+		<button onclick="printbtn()" id="printbtn" class="btn printbuttonstyle">Print</button>	
 
 </body>		
 <script type="text/javascript">
 $(document).ready(function(){
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+			var yyyy = today.getFullYear();
+
+			if(dd<10) {
+			    dd = '0'+dd
+			} 
+
+			if(mm<10) {
+			    mm = '0'+mm
+			} 
+
+			today = mm + '/' + dd + '/' + yyyy;
+			$('#datetoday').text(today);
 
 			$.ajax({  
 				url:"<?php echo base_url() . 'alumniprint138_controller/getinfo'; ?>",  

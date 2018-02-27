@@ -20,13 +20,13 @@ class viewgrades_controller extends CI_Controller {
 	}
 
 	public function gradedisplay(){
-		$sid = $this->session->userdata($id_number);
+		$sid = $this->session->userdata('login_session');
 		$data = $this->mdl->displaygrade($sid);
 		echo json_encode($data);
 	}
 
 	public function gradedisplay2(){
-		$sid = $this->session->userdata($id_number);
+		$sid = $this->session->userdata('login_session');
 		$data = $this->mdl->displaygrade2($sid);
 		echo json_encode($data);
 	}

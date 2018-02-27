@@ -20,7 +20,7 @@ class teacherlog_controller extends CI_Controller {
 	}
 
 	function getschedule()  
-	      {    $sid = $this->session->userdata($id_number);
+	      {    $sid = $this->session->userdata('login_session');
 	           $data = $this->mdl->scheduleget($sid); 
 	           echo json_encode($data);  
 	      }

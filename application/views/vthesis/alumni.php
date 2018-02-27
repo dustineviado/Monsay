@@ -183,6 +183,7 @@ body {
 		</div>
 
 			<div class="col-lg-10">
+				<div class="container">
 				<h1 class="studentfont">Alumni</h1>
 				<br>
 					<div class=" table-responsive">
@@ -191,11 +192,12 @@ body {
 								<tr>
 									<th>Student ID</th>
 									<th>Student Name</th>
-									<th>Action</th>
+									<th>Action</th>	
 								</tr>
 							</thead>
 						</table>
 					</div>	
+				</div>
 				<br>
 				<!-- //////////////////////////////////////////////////////////////////// -->
 				<div class="container-fluid">
