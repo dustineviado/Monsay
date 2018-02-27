@@ -14,9 +14,9 @@ class schoolyear_controller extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Schoolyear | Haven of Virtue and Excellence Academy Inc.";
-
+		$active['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/schoolyear',$data);
+		$this->load->view('vthesis/schoolyear',$active);
 		$this->load->view('templates/footer',$data);
 	}
 
