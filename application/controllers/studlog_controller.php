@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Studlog_controller extends CI_Controller {
 
+	public function __construct(){
+       
+        parent::__construct();
+        $this->load->model('studlog_model','mdl');
+        $this->load->helper('url_helper');
+    }
+
 	public function index()
 	{
 		$data['title'] = "Haven of Virtue and Excellence Academy Inc.";
@@ -12,18 +19,11 @@ class Studlog_controller extends CI_Controller {
 		$this->load->view('templates/footer',$data);
 	}
 
-
-
-	
-
-
-
-
-
-
-
-
-
+	function getschedule()  
+	      {    $sid = $this->session->userdata($id_number);
+	           $data = $this->mdl->scheduleget($sid); 
+	           echo json_encode($data);  
+	      }
 
 }
 

@@ -4,13 +4,10 @@ redirect('login_controller/login_view');
 }?>
 <br>
 <script type="text/javascript">
-	$(document).ready(function(){
-
-		var sids = '123';  
+	$(document).ready(function(){ 
 		$.ajax({  
 		url:"<?php echo base_url() . 'grading_controller/displaysection'; ?>",  
 		method:"POST",  
-		data:{sid:sids},  
 		dataType:"json",  
 		success:function(data){
 			var sec_data='';

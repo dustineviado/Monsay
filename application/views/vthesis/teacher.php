@@ -1,4 +1,3 @@
-
 <?php  $id_number=$this->session->userdata('login_session');
 if(! $id_number ){
 redirect('login_controller/login_view');
@@ -289,8 +288,15 @@ body {
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
-							                	finalid = 1 + parseInt(data);
-							                	$('#teacherid').val(finalid);  
+							                	alert(data);
+							                	if(data == null){
+							                		finalid = idformat + '01';
+							                		$('#teacherid').val(finalid);
+							                	}
+							                	else{
+								                	finalid = 1 + parseInt(data);
+								                	$('#teacherid').val(finalid);  
+							                	}
 							                }  
 							           });	
 

@@ -107,6 +107,28 @@ date_default_timezone_set('Asia/Singapore');
 echo date('M - d - Y');
 ?>
 <script>
+                        $.ajax({  
+                              url:"<?php echo base_url() . 'teacherlog_controller/getschedule'; ?>",  
+                              method:"POST",  
+                              dataType:"json",  
+                              success:function(data)  
+                              {  
+                                var sched_data= '';
+                                var i;
+                                for(i=0; i<data.length; i++){ 
+                                  sched_data +='<tr class="d-flex">';
+                                  sched_data +='<td class="col">'+data[i].day+'</td>';
+                                  sched_data +='<td class="col">'+data[i].time+'</td>';
+                                  sched_data +='<td class="col">'+data[i].subject+'</td>';
+                                  sched_data +='<td class="col">'+data[i].section_name+'</td>';
+                                  sched_data +='<td class="col">'+data[i].year_level+'</td>';
+                                  sched_data +='<td class="col">'+data[i].room+'</td>';
+                                  sched_data +='</tr>';
+                                } 
+                                $('#bodytable').html(sched_data);
+                              }  
+                         });
+
 var d = new Date(<?php echo time() * 1000 ?>);
 function digitalClock() {
   d.setTime(d.getTime() + 1000);
@@ -128,27 +150,26 @@ window.onload = function() {
 </script>
 <div id="clock"> </div>
 </center>
-<h4><b><i>View my Schedules</i></b></h4>
-<a href="#" class="text-success"><h5><i class="fa fa-calendar"><u>&nbsp;&nbsp;Schedule</h5></i></a></u><br>
-<h4><b><i>You last signed in</i></b></h4>
-<?php 
-echo date('M - d - Y');
-?>
-<br>
-<br>
-<h4><b><i>Submit Grades</i></b></h4>
-<a href="grading_controller" class="text-success"><h5><i class="fa fa-check"><u>&nbsp;&nbsp;Grades</h5></i></a></u><br>
 
-</div>
-
-
-
-
-
-
-
-
-
+              <div class="container">
+                <h1 class="studentfont">Schedule</h1>
+                <div class="table-responsive">
+                  <table id="viewtable" class="table table-striped table-bordered">
+                    <thead class="thead-inverse">
+                      <tr class="d-flex">
+                        <th class="col">Day</th>
+                        <th class="col">Time</th>
+                        <th class="col">Subject</th>
+                         <th class="col">Section</th>
+                        <th class="col">Year Level</th>
+                        <th class="col">Room</th>
+                      </tr>
+                    </thead>
+                    <tbody id="bodytable">
+                    </tbody>
+                  </table>
+                </div>  
+              </div>
 
 
 </div>
