@@ -50,6 +50,15 @@ class teacher_controller extends CI_Controller {
 	                     'status'=>$this->input->post('status'));
 	               		
 	                $this->mdl->addteacher($insert_data);
+
+	                $insertaddacc = array(
+	                	'user_type'=> 'Teacher',
+	                	'id_number'=>$this->input->post('teacherid'),
+	                	'email'=>$this->input->post('email'),
+	                	'password'=> 'hveateachersdefaultpassword');
+
+	                $this->mdl->insertaddacc($insertaddacc);
+
 	                echo 'Teacher Added';
 	           }
 	           else if($hidden == "Edit"){

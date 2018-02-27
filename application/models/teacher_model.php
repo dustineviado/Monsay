@@ -8,10 +8,44 @@ class teacher_model extends CI_Model {
 	function addteacher($data){
 			$this->db->insert('teacher',$data);
 		}
+
 		function teacherdelete($Tid){
+
+			$this->db->where('teacher_id', $Tid);
+			$teacherquery = $this->db->get('teacher');
+			foreach($teacherquery->result() as $row){
+				$this->db->set('teacher_id',$row->teacher_id);
+				$this->db->set('fname',$row->fname);
+				$this->db->set('mname',$row->mname);
+				$this->db->set('lname',$row->lname);
+				$this->db->set('birthday',$row->birthday);
+				$this->db->set('age',$row->age);
+				$this->db->set('gender',$row->gender);
+				$this->db->set('email',$row->email);
+				$this->db->set('department',$row->department);
+				$this->db->set('address',$row->address);
+				$this->db->set('contact',$row->contact);
+				$this->db->set('status',$row->status);
+				$this->db->insert('archive_teacher');
+			}
+
+			$this->db->where('id_number', $Tid);
+			$teachertypequery = $this->db->get('type');
+			foreach($teachertypequery->result() as $row){
+				$this->db->set('user_type',$row->user_type);
+				$this->db->set('email',$row->email);
+				$this->db->set('id_number',$row->id_number);
+				$this->db->set('password',$row->password);
+				$this->db->insert('archive_type');
+			}
+
 	        $this->db->where('teacher_id', $Tid);
 	        $this->db->delete('teacher');
+
+	        $this->db->where('id_number', $Tid);
+	        $this->db->delete('type');
 		}
+
 		function teacheredit1($Tid){
 			 $this->db->where('teacher_id', $Tid);  
           	 $query=$this->db->get('teacher');  
@@ -78,5 +112,9 @@ class teacher_model extends CI_Model {
 	      	$this->db->from('teacher');
 			$query = $this->db->get();
 			return $query->result();
-	      }   
+	      }
+
+	      function insertaddacc($data){
+			$this->db->insert('type',$data);
+		} 
 	}
