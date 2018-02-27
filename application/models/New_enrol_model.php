@@ -7,6 +7,18 @@ class New_enrol_model extends CI_Model {
 			parent::__construct();
 		}
 
+		function idauto($sid){
+	      	$this->db->select_max('id_num');
+	      	$this->db->like('id_num', $sid, 'after');
+	      	$this->db->from('student');
+			$query = $this->db->get();
+			return $query->result();
+	      }
+
+	      function insertaddacc($data){
+			$this->db->insert('type',$data);
+		  } 
+
 		function addstudent($data){
 		$this->db->insert('pre_registration', $data);
 		}

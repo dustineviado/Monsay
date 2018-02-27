@@ -181,6 +181,20 @@ body {
 							           {  
 							                return false;       
 							           }  
+							      });
+
+							      $(document).on('click','.check', function(){  
+							           var sid = $(this).attr("id");  
+							           $.ajax({  
+							                url:"<?php echo base_url() . 'section_controller/checkcount'; ?>",  
+							                method:"POST",  
+							                data:{sid:sid},  
+							                dataType:"json",  
+							                success:function(data)  
+							                {  	
+							                	alert('There are '+data+' students in this section');
+							                }  
+							           });  
 							      });        
 							 });
 						</script>

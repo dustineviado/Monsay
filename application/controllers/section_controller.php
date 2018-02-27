@@ -21,6 +21,15 @@ class section_controller extends CI_Controller {
 
 	}
 
+	public function checkcount(){
+		$sid = $this->input->post('sid');
+
+		$data = $this->mdl->countcheck($sid);
+
+		echo json_encode($data);  
+	    
+	}
+
 	public function sectionaction(){
 			$hidden = $this->input->post('hidden');
 
@@ -73,7 +82,7 @@ class section_controller extends CI_Controller {
                 $sub_array[] = $row->year_level;
                 $sub_array[] = $row->fname." ".$row->mname." ".$row->lname;
                 $sub_array[] = $row->scheid;   
-                $sub_array[] = '<button type="button" name="'.$row->scheid.'" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button>';
+                $sub_array[] = '<button type="button" name="'.$row->scheid.'" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs delete">Delete</button> <button type="button" name="edit" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs edit">Edit</button> <button type="button" name="check" id="'.$row->secid.'" class="btn addsecbtn3 btn-xs check">Check</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   

@@ -14,6 +14,16 @@ class section_model extends CI_Model {
 			$this->db->insert('section',$data);
 		}
 
+		function countcheck($sid){
+			$this->db->select('student.id_num');
+			$this->db->from('section');
+			$this->db->join('student', 'student.secid = section.secid');
+			$this->db->where('student.secid', $sid);
+			$this->db->where('student.status', 'Enrolled');	
+			$query = $this->db->get();
+			return $query->num_rows();
+		}
+
 		function sectiondelete($sid){
 			$this->db->where('scheid', $sid[1]);
 	        $this->db->delete('schedule_subject');

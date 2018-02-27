@@ -20,14 +20,14 @@ class grading_controller extends CI_Controller {
 	}
 
 	public function displaysection(){
-		$sid =$this->session->userdata($id_number);
+		$sid =$this->session->userdata('login_session');
 		$data = $this->mdl->sectiondisplay($sid);
 		echo json_encode($data);
 
 	}
 
 	public function gettingstudents(){
-		$sid=$this->session->userdata($id_number);
+		$sid = $this->input->post('sid');
 		$data = $this->mdl->getstudent($sid);
 		echo json_encode($data);
 	}

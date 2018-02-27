@@ -133,7 +133,7 @@ body {
 									<div class="row form-row">
 										<div class="col-md">
 											<label for="bday" class="col-form-label formmodalfont">Birthday</label>
-											<input id="bday" name="bday" type="text" class="form-control" placeholder="Birthday">
+											<input id="bday" name="bday" type="date" class="form-control" placeholder="Birthday">
 										</div>
 										<div class="col-md">
 											<label for="age" class="col-form-label formmodalfont">Age</label>
@@ -181,7 +181,10 @@ body {
 										</div>
 										<div class="col-md">
 											<label for="status" class="col-form-label formmodalfont">Status</label>
-											<input id="status" name="status" class="form-control" placeholder="Status">
+											<select id="status" name="status" class="form-control">
+											    <option value="Male">Active</option>
+											    <option value="Female">Inactive</option>
+										    </select>
 										</div>
 										<input type="hidden" name="teacherhid" id="teacherhid" value="">
 										<input type="hidden" name="hiddenid" id="hiddenid">
@@ -288,7 +291,6 @@ body {
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
-							                	alert(data);
 							                	if(data == null){
 							                		finalid = idformat + '01';
 							                		$('#teacherid').val(finalid);

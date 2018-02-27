@@ -20,34 +20,34 @@ class schoolyear_model extends CI_Model {
 			}
 			
 
-			// $subjectquery = $this->db->get('subject');
-			// foreach($subjectquery->result() as $row){
-			// 	$this->db->set('subid',$row->subid);
-			// 	$this->db->set('subject',$row->subject);
-			// 	$this->db->set('faculty',$row->faculty);
-			// 	$this->db->set('year_level',$row->year_level);
-			// 	$this->db->set('schoolyear',$sid);
-			// 	$this->db->insert('archive_subject');
-			// }
+			$subjectquery = $this->db->get('subject');
+			foreach($subjectquery->result() as $row){
+				$this->db->set('subid',$row->subid);
+				$this->db->set('subject',$row->subject);
+				$this->db->set('faculty',$row->faculty);
+				$this->db->set('year_level',$row->year_level);
+				$this->db->set('schoolyear',$sid);
+				$this->db->insert('archive_subject');
+			}
 
-			// $schedulequery = $this->db->get('schedule');
-			// foreach($schedulequery->result() as $row){
-			// 	$this->db->set('scheid',$row->scheid);
-			// 	$this->db->set('schoolyear',$sid);
-			// 	$this->db->insert('archive_schedule');
-			// }
+			$schedulequery = $this->db->get('schedule');
+			foreach($schedulequery->result() as $row){
+				$this->db->set('scheid',$row->scheid);
+				$this->db->set('schoolyear',$sid);
+				$this->db->insert('archive_schedule');
+			}
 
-			// $schedulesubjectquery = $this->db->get('schedule_subject');
-			// foreach($schedulesubjectquery->result() as $row){
-			// 	$this->db->set('scheid',$row->scheid);
-			// 	$this->db->set('day',$row->day);
-			// 	$this->db->set('time',$row->time);
-			// 	$this->db->set('subid',$row->subid);
-			//  $this->db->set('room',$row->room);
-			// 	$this->db->set('teacher_id',$row->teacher_id);
-			// 	$this->db->set('schoolyear',$sid);
-			// 	$this->db->insert('archive_schedule_subject');
-			// }
+			$schedulesubjectquery = $this->db->get('schedule_subject');
+			foreach($schedulesubjectquery->result() as $row){
+				$this->db->set('scheid',$row->scheid);
+				$this->db->set('day',$row->day);
+				$this->db->set('time',$row->time);
+				$this->db->set('subid',$row->subid);
+			 $this->db->set('room',$row->room);
+				$this->db->set('teacher_id',$row->teacher_id);
+				$this->db->set('schoolyear',$sid);
+				$this->db->insert('archive_schedule_subject');
+			}
 
 			// $sectionquery = $this->db->get('section');
 			// foreach($sectionquery->result() as $row){
@@ -174,19 +174,27 @@ class schoolyear_model extends CI_Model {
 							$this->db->update('student');
 						}
 						else if($row->year == 'Grade 10'){
-							$this->db->set('year','Grade 11');
-							$this->db->where('id_num', $row->id_num);
-							$this->db->update('student');
-						}
-						else if($row->year == 'Grade 11'){
-							$this->db->set('year','Grade 12');
-							$this->db->where('id_num', $row->id_num);
-							$this->db->update('student');
-						}
-						else if($row->year == 'Grade 12'){
-							$this->db->set('year','Graduated');
-							$this->db->where('id_num', $row->id_num);
-							$this->db->update('student');
+								$this->db->set('id_num',$row->id_num);
+								$this->db->set('fname',$row->fname);
+								$this->db->set('mname',$row->mname);
+								$this->db->set('lname',$row->lname);
+								$this->db->set('email',$row->email);
+								$this->db->set('birthday',$row->birthday);
+								$this->db->set('age',$row->age);
+								$this->db->set('contact',$row->contact);
+								$this->db->set('gender',$row->gender);
+								$this->db->set('religion',$row->religion);
+								$this->db->set('address',$row->address);
+								$this->db->set('parent_guard',$row->parent_guard);
+								$this->db->set('pgcontact',$row->pgcontact);
+								$this->db->set('year',$row->year);
+								$this->db->set('secid',$row->secid);
+								$this->db->set('status', 'Graduated');
+								$this->db->where('id_num', $row->id_num);
+								$this->db->insert('archive_student');
+
+								$this->db->where('id_num', $row->id_num);
+	        					$this->db->delete('student');
 						}
 			
 			}
@@ -216,6 +224,8 @@ class schoolyear_model extends CI_Model {
 			$this->db->update('student');
 
 			//$this->db->truncate('schedule_subject');
+			//$this->db->truncate('grading');
+
 
 		}
 

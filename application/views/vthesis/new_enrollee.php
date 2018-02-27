@@ -180,7 +180,28 @@ body {
 							           });  
 							      });  
 
-							      $(document).on('click','.confirm', function(){  
+							      $(document).on('click','.confirm', function(){
+							      	   var d = new Date();
+							      	   var idformat = d.getFullYear();
+							      	   var finalid = 0;
+
+							      	   $.ajax({  
+							                url:"<?php echo base_url() . 'New_enrol_controller/autoid'; ?>",  
+							                method:"POST",  
+							                data:{idformat:idformat},  
+							                dataType:"json",  
+							                success:function(data)  
+							                {
+							                	if(data == null){
+							                		finalid = idformat + '001';
+							                		$('#userID').val(finalid);
+							                	}
+							                	else{
+								                	finalid = 1 + parseInt(data);
+								                	$('#userID').val(finalid);  
+							                	}
+							                }  
+							          	 });	  
 							           var sid = $(this).attr("id"); 
 							           
 							           $.ajax({  
@@ -206,8 +227,6 @@ body {
 												 $('#studparent_guard2').val(data.studparent_guard);
 												 $('#studpgcontact2').val(data.studpgcontact);
 												 $('#studstatus').val(data.studstatus);
-												 // $('#newstudhid').val("Confirm");
-							           			 $('#userID').val(sid);
 								            }  
 							           });  
 
@@ -448,7 +467,8 @@ body {
 
 								<div class="row form-group">
 									<!-- <input type="hidden" name="newstudhid" id="newstudhid" value=""> -->
-									<input type="hidden" name="userID" id="userID">
+									<input name="userID" id="userID">
+									<input name="ctrlid" id="ctrlid">
 					  				
 					  			</div>
 					  		</div>
