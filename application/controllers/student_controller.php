@@ -95,7 +95,6 @@ class student_controller extends CI_Controller {
 		$sid = $this->input->post('sid');
 		$data = $this->mdl->optionget($sid);
 		echo json_encode($data);
-
 	}
 	function fetch_user(){  
            $this->load->model("student_model");  
@@ -147,4 +146,3 @@ class student_controller extends CI_Controller {
 	           echo json_encode($output);  
 	      }    
  }
-   

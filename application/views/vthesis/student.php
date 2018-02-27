@@ -30,9 +30,7 @@ body {
     color: #ff66ff;
     background-color: gray;
     transition: .7s;
-
 }
-
 #main {
     padding: 16px;
 }
@@ -213,7 +211,6 @@ body {
 							                return false;       
 							           }  
 							      });
-
 							      /* Start if Jquery combo box*/
 							      	$("#studentyear").change(function(){
 										var sid = $('#studentyear').val();
