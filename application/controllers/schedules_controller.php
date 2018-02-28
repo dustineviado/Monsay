@@ -12,10 +12,20 @@ class schedules_controller extends CI_Controller {
 		$active['menu']='active';
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/schedules',$active);
-		$this->load->view('templates/footer',$data);
-		
-	}
-
+		if($this->session->userdata('user_type') == 'Admin'){
+		}
+		else if($this->session->userdata('user_type') == 'Student'){
+				redirect('studlog_controller','refresh');
+			
+		}
+		else if($this->session->userdata('user_type') =='Teacher'){
+				redirect('teacherlog_controller','refresh');
+		}
+		else if($this->session->userdata('user_type')==null){
+			redirect('main_body_controller','refresh');
+		}
+    }
+	
     public function addschedulesubjectaction(){
     	$count = count($this->input->post('id'));
     	$id = $this->input->post('id');

@@ -17,7 +17,22 @@ class grading_controller extends CI_Controller {
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/grading',$active);
 		$this->load->view('templates/footer',$data);
+		 if($this->session->userdata('user_type') == 'Teacher'){
 	}
+	else if($this->session->userdata('user_type') == 'Student'){
+				
+				redirect('studlog_controller','refresh');
+			
+		}
+		else if($this->session->userdata('user_type') =='Admin'){
+				redirect('admin_controller','refresh');
+		}
+		else if($this->session->userdata('user_type')==null){
+
+			redirect('main_body_controller','refresh');
+		}
+    }
+	
 
 	public function displaysection(){
 		$sid =$this->session->userdata('login_session');

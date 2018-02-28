@@ -13,6 +13,18 @@ class student_controller extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/student',$active);
 		$this->load->view('templates/footer',$data);
+		if($this->session->userdata('user_type') == 'Admin'){
+		}
+		else if($this->session->userdata('user_type') == 'Student'){
+				redirect('studlog_controller','refresh');
+			
+		}
+		else if($this->session->userdata('user_type') =='Teacher'){
+				redirect('teacherlog_controller','refresh');
+		}
+		else if($this->session->userdata('user_type')==null){
+			redirect('main_body_controller','refresh');
+		}
 		
 	}
 	public function studentaction(){

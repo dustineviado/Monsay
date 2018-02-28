@@ -18,8 +18,21 @@ class Subject_controller extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('vthesis/subject',$active);
 		$this->load->view('templates/footer',$data);
+	if($this->session->userdata('user_type') == 'Admin'){
+		}
+		else if($this->session->userdata('user_type') == 'Student'){
+				redirect('studlog_controller','refresh');
+			
+		}
+		else if($this->session->userdata('user_type') =='Teacher'){
+				redirect('teacherlog_controller','refresh');
+		}
+		else if($this->session->userdata('user_type')==null){
+			redirect('main_body_controller','refresh');
+		}
+    }
 
-	}
+	
 	// public function subjectaction(){
 	// 	$this->form_validation->set_rules('subjectidname', 'Subject ID', 'callback_check_subid');
 	// 	$this->form_validation->set_rules('subjectname', 'Subject Name', 'required');
