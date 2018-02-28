@@ -95,5 +95,17 @@ class student_model extends CI_Model {
 	           $this->db->select("*");  
 	           $this->db->from($this->table);  
 	           return $this->db->count_all_results();  
-	      }  
+	      }
+
+	      function idauto($sid){
+	      	$this->db->select_max('id_num');
+	      	$this->db->like('id_num', $sid, 'after');
+	      	$this->db->from('student');
+			$query = $this->db->get();
+			return $query->result();
+	      }
+	      
+	      function insertaddacc($data){
+			$this->db->insert('type',$data);
+		  }   
 }
