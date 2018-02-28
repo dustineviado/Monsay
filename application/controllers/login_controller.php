@@ -41,35 +41,57 @@ class Login_controller extends CI_Controller {
 			$password = $this->input->post('password');
 			$this->load->model('login_model');
 			$value = $this->input->post('selectlogin');
-			
-			if($wala = $this->login_model->can_login($id_number, $password))
+			if($value == 'Student')
 			{
-				$this->session->set_userdata('login_session', $id_number);
-				$this->session->set_userdata('login_session2', $wala);
+				$data = $this->login_model->student_login($id_number, $password);
+				$this->session->set_userdata($data[0]);
 				
-				if($value == 'Student')
-			{
-				redirect(base_url() . 'studlog_controller' , 'refresh');
+				//$this->session->set_userdata('login_session', $select);
+				
+				if($data == false){
+					$this->session->set_flashdata('error', 'Invalid Id Number and Password');
+				    redirect(base_url() . 'login_controller');
+				}
+				 else{
+
+				 redirect(base_url() . 'studlog_controller' , 'refresh');
+				}
 			}
-			else  if($value == 'Teacher')
-			{
-				redirect(base_url() . 'teacherlog_controller' , 'refresh');
-			}
+
+		
 			else  if($value == 'Admin')
 			{
+				$data = $this->login_model->admin_login($id_number, $password);
+				$this->session->set_userdata($data[0]);
+				
+				//$this->session->set_userdata('login_session', $select);
+				
+				if($data == false){
+					$this->session->set_flashdata('error', 'Invalid Id Number and Password');
+				    redirect(base_url() . 'login_controller');
+				}
+				else{
 				redirect(base_url() . 'admin_controller' , 'refresh');
+				}
 			}
-			}
-			else
+			
+			else  if($value == 'Teacher')
 			{
-				 $this->session->set_flashdata('error', 'Invalid Id Number and Password');
-				 redirect(base_url() . 'login_controller');
+				$data = $this->login_model->teacher_login($id_number, $password);
+				$this->session->set_userdata($data[0]);
+				
+				//$this->session->set_userdata('login_session', $select);
+				
+				if($data == false){
+					$this->session->set_flashdata('error', 'Invalid Id Number and Password');
+				    redirect(base_url() . 'login_controller');
+				}
+				else{
+				 redirect(base_url() . 'teacherlog_controller' , 'refresh');
+				}
 			}
 		}
-		else
-		{
-			$this->login();
-		}
+		
 	}
 	function enter(){
 		if($this->session->userdata('login_session') != '')
@@ -85,10 +107,11 @@ function logout()
 	{
 		
 		$this->session->sess_destroy('login_session');
-		$this->session->unset_userdata('login_session');
+		$this->session->unset_userdata('login_session');	
 		redirect(base_url() . 'main_body_controller', 'refresh');
 		
 	}
 
 	
 }
+

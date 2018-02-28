@@ -1,7 +1,8 @@
-<?php  $username=$this->session->userdata('login_session');
-if(! $username ){
+<?php  
+if(! $_SESSION){
 redirect('login_controller/login_view');
 }?>
+
 
 <br>
 <div class="container-fluid">
@@ -15,26 +16,24 @@ body {
 .sidenav {
     height: 100%;
     width: 100%;
+
     background-color: white;
     padding-top: 30px;
     margin: 0 auto;
-}
+} 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.5s;
 }
 .sidenav a:hover {
-    color: #ff66ff;
-    background-color: gray;
-    transition: .7s;
+    color: black;
+    background-color: #00ffaa;
+    transition: .7;
 
-}
-.shtycss{
-  background-color: #ff66ff;
 }
 
 #main {
@@ -44,45 +43,26 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-.profile-pic {
-    height: 150px;
-    width: 150px;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: multiply;
-    transition: all .3s ease;
-
+.shtycss{
+  background-color: #ff9999;
 }
-
-.profile-pic:hover {
-    background-color: rgba(0,0,0,.5);
-    z-index: 10000;
-    color: #fff;
-    transition: all .3s;
-    text-decoration: none;
-}
-#upload_link{
-    text-decoration:none;
-}
-#upload{
-    display:none
-}
-
 </style>
 
 
 <div id="sidebar" class="sidenav text-muted">
   
-  <b><p class="text-center" style="font-family: 'helvetica';font-size: 30px; ">Welcome  </p></b>
-  <b><p  class="text-center" style="font-family: 'helvetica'; font-size: 20px;"><?php echo $this->session->userdata('login_session');?></p></b>
+  <b><p class="text-center" style="font-family: 'helvetica';font-size: 30px; color: black; ">Welcome  </p></b>
+  <b><p  class="text-center" style="font-family: 'helvetica'; font-size: 20px; color: black;"><?php echo $this->session->userdata('id_number');?></p></b>
   <br>
   <br>
-  <a href="studlog_controller" class="<?=($menu=='active'?'shtycss':'')?>" style="font-family:   'helvetica'; font-weight: bold; font-size: 20px;  "><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
-  <a href="viewgrades_controller" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;"><i class="fa fa-star-o">&nbsp;&nbsp;Grades</a></i>
+  <a href="studlog_controller" class="<?=($menu=='active'?'shtycss':'')?>" style="font-family:  'helvetica'; font-weight: bold; font-size: 20px;  "><i class="fa fa-home">&nbsp;&nbsp;Home</a></i>
+  <a href="viewgrades_controller" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-star-o">&nbsp; &nbsp;Grades</a></i>
+
+
   <br>
+  <br><br><br><br><br><br>
 
     <a href="<?php echo base_url(); ?>login_controller/logout" style="font-family:  'helvetica'; font-weight: bold;   font-size: 20px;"><i class="fa fa-sign-out">&nbsp;&nbsp;Sign Out</i></a>
-  
 
   
 </div>

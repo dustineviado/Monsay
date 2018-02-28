@@ -17,7 +17,22 @@ class viewgrades_controller extends CI_Controller {
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/viewgrades',$active);
 		$this->load->view('templates/footer',$data);
-	}
+		if($this->session->userdata('user_type') == 'Student'){
+		}
+	else if($this->session->userdata('user_type') == 'Teacher'){
+					
+				redirect('teacherlog_controller', 'refresh');
+			
+		}
+		else if($this->session->userdata('user_type') == 'Admin'){
+				redirect('admin_controller','refresh');
+		}
+		else if($this->session->userdata('user_type')==null){
+
+			redirect('main_body_controller','refresh');
+		}
+    }
+	
 
 	public function gradedisplay(){
 		$sid = $this->session->userdata('login_session');
