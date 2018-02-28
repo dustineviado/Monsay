@@ -27,6 +27,18 @@ class student_controller extends CI_Controller {
 		}
 		
 	}
+	public function autoid(){
+		$idformat = $this->input->post('idformat');
+
+		$result = $this->mdl->idauto($idformat);
+
+		foreach($result as $data){
+			$datar = $data->id_num;
+		}
+
+		echo json_encode($datar);
+	}
+
 	public function studentaction(){
 		
 		// $this->form_validation->set_rules('studentfname','First Name','trim|required');
@@ -64,7 +76,16 @@ class student_controller extends CI_Controller {
 			                     'status'=>$this->input->post('studentstatus'));  
 			               		
 			                $this->mdl->addstudent($insert_data);
-			                // redirect('student_controller', 'refresh');
+
+			            $insertaddacc = array(
+	                	'user_type'=> 'Student',
+	                	'id_number'=>$this->input->post('studentidname'),
+	                	'email'=>$this->input->post('studentemail'),
+	                	'password'=> '12345');
+
+	               		 $this->mdl->insertaddacc($insertaddacc);
+
+			                redirect('student_controller', 'refresh');
 			        }
 					else{
 						echo 'Error';

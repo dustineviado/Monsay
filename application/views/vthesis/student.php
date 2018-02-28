@@ -80,7 +80,31 @@ body {
 								$('#addmodalbtn').click(function(){  
 							           $('#addform')[0].reset();  
 							           $('.modal-title').text("Add Student");  
-							           $('#studenthid').val("Add");   
+							           $('#studenthid').val("Add");
+
+							           var d = new Date();
+							      	   var idformat = d.getFullYear();
+							      	   var finalid = 0;
+
+							      	   $.ajax({  
+							                url:"<?php echo base_url() . 'student_controller/autoid'; ?>",  
+							                method:"POST",  
+							                data:{idformat:idformat},  
+							                dataType:"json",  
+							                success:function(data)  
+							                {
+							                	if(data == null){
+							                		finalid = idformat + '0001';
+							                		$('#teacherid').val(finalid);
+							                	}
+							                	else{
+								                	finalid = 1 + parseInt(data);
+								                	$('#studentidname').val(finalid);  
+							                	}
+							                }  
+							           });	
+
+							     	    
 							      });    
 							      var dataTable = $('#studenttable').DataTable({  
 							           "processing":true,  
@@ -676,6 +700,7 @@ body {
 				      		<div class="modal-body">
 									<div class="row form-row">
 										<div class="col-md">
+											<input type="hidden" id="studentidname" name="studentidname" type="text" class="form-control" readonly="">
 											<label for="studentfname" class="col-form-label formmodalfont">First Name</label>
 											<input id="studentfname" name="studentfname" type="text" class="form-control" placeholder="First Name">
 											<span class="text-danger" id="studentfname_error"></span>
