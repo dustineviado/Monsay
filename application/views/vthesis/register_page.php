@@ -80,11 +80,8 @@
 							</div>
 							<div class="col-md-5">
 								<label for="studbirthday" class="col-form-label">Date of Birth</label>
-								<input id="studbirthday" name="studbirthday" value="<?php echo set_value('studbirthday');?>" type="text" class="form-control">
+								<input id="studbirthday" name="studbirthday" value="<?php echo set_value('studbirthday');?>" type="date" class="form-control">
 							</div>
-							<script>
-								$('#studbirthday').datepicker();
-							</script>
 						</div>
 						
 						<div class="row form-group">

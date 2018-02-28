@@ -20,20 +20,31 @@ class student_model extends CI_Model {
 			$this->db->where('year_level', $sid);
 			$query=$this->db->get();  
            	return $query->result();
-
+		}
+		function email_exist($email){
+			$this->db->select('email');
+			$this->db->from('student');
+			$this->db->where('email', $email);
+			$query = $this->db->get();
+			if($query->num_rows() > 0){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
 		}
 		function studentedit1($sid){
-			$this->db->select('student.id_num, student.fname, student.mname, student.lname, student.email, student.birthday, student.age, student.contact, student.gender, student.religion, student.address, student.parent_guard, student.pgcontact, student.year, section.secid, section.section_name, student.status');
+			$this->db->select('student.id_num, student.fname, student.mname, student.lname, student.email, student.birthday, student.contact, student.gender, student.religion, student.address, student.parent_guard, student.pgcontact, student.year, section.secid, section.section_name, student.status');
 			$this->db->from('student');
 			$this->db->join('section', 'section.secid = student.secid');
 			 $this->db->where('id_num', $sid);  
           	 $query=$this->db->get();  
            	return $query->result();
 		}
-		function studentedit2($data){
-			$hiddenid = $this->input->post('hiddenid');
-			$this->db->where('id_num', $hiddenid);
-			$this->db->update('student', $data);
+		function studentedit2($sid, $updated_data){
+			$this->db->where('id_num', $sid);
+			$this->db->update('student', $updated_data);
 		}
 		  var $table = "student";  
 	      var $select_column = array("student.id_num", "student.fname", "student.mname", "student.lname", "student.year", "section.section_name");  
