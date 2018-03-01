@@ -45,6 +45,13 @@ class New_enrol_controller extends CI_Controller {
 		echo json_encode($datar);
 	}
 
+	public function getoption(){
+		$sid = $this->input->post('sid');
+		$data = $this->mdl->optionget($sid);
+		echo json_encode($data);
+
+	}
+	
 	public function newStudAction(){
 			$hidden = $this->input->post('hidden');
 

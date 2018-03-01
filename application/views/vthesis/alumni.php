@@ -26,6 +26,7 @@ redirect('login_controller/login_view');
 		////////////////////////////////////////////////////////////////
 		$(document).on('click','.viewgrades', function(event){
 			event.preventDefault();
+			$('.modal-title').text("View Grades");
 			$('#grades').modal('show');
 			var id_num = $(this).attr("id");
 			$('#viewtable table').remove();
@@ -232,7 +233,6 @@ body {
 								</div>		
 					  		</div>
 							<div class="modal-footer">
-								<input type="submit" name="printgrade" id="action3" class="btn addsubbtn2" value="Print">
 							</div>
 						</div>
 					</div>

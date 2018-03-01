@@ -10,10 +10,46 @@ class student_model extends CI_Model {
 			$insert_id = $this->db->insert_id();
 			return $insert_id;
 		}
+
 		function studentdelete($sid){
 	        $this->db->where('id_num', $sid);
+			$studentquery = $this->db->get('student');
+			foreach($studentquery->result() as $row){
+				$this->db->set('id_num',$row->id_num);
+				$this->db->set('fname',$row->fname);
+				$this->db->set('mname',$row->mname);
+				$this->db->set('lname',$row->lname);
+				$this->db->set('email',$row->email);
+				$this->db->set('birthday',$row->birthday);
+				$this->db->set('contact',$row->contact);
+				$this->db->set('gender',$row->gender);
+				$this->db->set('religion',$row->religion);
+				$this->db->set('address',$row->address);
+				$this->db->set('parent_guard',$row->parent_guard);
+				$this->db->set('pgcontact',$row->pgcontact);
+				$this->db->set('year',$row->year);
+				$this->db->set('secid',$row->secid);
+				$this->db->set('status','Leaved');
+				$this->db->insert('archive_student');
+			}
+
+			$this->db->where('id_number', $sid);
+			$studenttypequery = $this->db->get('type');
+			foreach($studenttypequery->result() as $row){
+				$this->db->set('user_type',$row->user_type);
+				$this->db->set('email',$row->email);
+				$this->db->set('id_number',$row->id_number);
+				$this->db->set('password',$row->password);
+				$this->db->insert('archive_type');
+			}
+
+			$this->db->where('id_num', $sid);
 	        $this->db->delete('student');
+
+	        $this->db->where('id_number', $sid);
+	        $this->db->delete('type');
 		}
+
 		function optionget($sid){
 			$this->db->select('secid, section_name');
 			$this->db->from('section');

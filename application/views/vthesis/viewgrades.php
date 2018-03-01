@@ -81,7 +81,7 @@ redirect('login_controller/login_view');
 										grade_data += '<td>'+ response.grade +'</td>';
 										sum = sum + parseInt(response.grade);
 									});
-									sum = sum/4;
+									sum = Math.round(sum/4);
 									grade_data += '<td>'+ sum +'</td>';	
 								}
 							});
