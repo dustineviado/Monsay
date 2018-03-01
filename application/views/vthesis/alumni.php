@@ -118,6 +118,27 @@ redirect('login_controller/login_view');
 			});	
 		});
 		/////////////////////////////////////////////////////////////
+		$(document).on('click', '.retrieve', function(){  
+							           var sid = $(this).attr("id");  
+							           if(confirm("Are you sure you want to retrieve this student?"))  
+							           {  
+							                $.ajax({  
+							                     url:"<?php echo base_url(); ?>alumni_controller/retrievestudent",  
+							                     method:"POST",  
+							                     data:{sid:sid},  
+							                     success:function(data)  
+							                     {  
+							                          alert(data);  
+							                          $('#alumnitable').DataTable().ajax.reload();  
+							                     }  
+							                });  
+							           }  
+							           else  
+							           {  
+							                return false;       
+							           }  
+							      });
+		/////////////////////////////////////////////////////////////
 	});	
 </script>	
 <br/>
