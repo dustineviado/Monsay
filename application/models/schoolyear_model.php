@@ -96,7 +96,7 @@ class schoolyear_model extends CI_Model {
 			// 	$this->db->set('pgcontact',$row->pgcontact);
 			// 	$this->db->set('year',$row->year);
 			// 	$this->db->set('secid',$row->secid);
-			// 	$this->db->set('status',$row->status);
+			// 	$this->db->set('status','Inactive');
 			// 	$this->db->set('schoolyear',$sid);
 			// 	$this->db->insert('archive_student');
 			// }
