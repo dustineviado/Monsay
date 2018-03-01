@@ -78,9 +78,38 @@ body {
 					<script type="text/javascript">
 							$(document).ready(function(){
 								$('#addmodalbtn').click(function(){  
-							           $('#addform')[0].reset();  
+							           $('#addform')[0].reset();
+							           $('#studentfname').removeAttr('style');
+										         $('#studentfname_error').hide();
+										         $('#studentmname').removeAttr('style');
+										         $('#studentmname_error').hide();
+										         $('#studentlname').removeAttr('style');
+										         $('#studentlname_error').hide();
+										         $('#studentemail').removeAttr('style');
+										         $('#studentemail_error').hide();
+										         $('#studentbirthday').removeAttr('style');
+										         $('#studentbirthday_error').hide();
+										         $('#studentcontact').removeAttr('style');
+										         $('#studentcontact_error').hide();
+										         $('#studentgender').removeAttr('style');
+										         $('#studentgender_error').hide();  
+										         $('#studentreligion').removeAttr('style');
+										         $('#studentreligion_error').hide();
+										         $('#studentaddress').removeAttr('style');
+										         $('#studentaddress_error').hide();
+										         $('#studentparentguard').removeAttr('style');
+										         $('#studentparentguard_error').hide();
+										         $('#studentpgcontact').removeAttr('style');
+										         $('#studentpgcontact_error').hide();
+										         $('#studentyear').removeAttr('style');
+										         $('#studentyear_error').hide();
+										         $('#studentsection').removeAttr('style');
+										         $('#studentsection_error').hide();
+										         $('#studentstatus').removeAttr('style');
+										         $('#studentstatus_error').hide();   
 							           $('.modal-title').text("Add Student");  
 							           $('#studenthid').val("Add");
+
 
 							           var d = new Date();
 							      	   var idformat = d.getFullYear();
@@ -141,29 +170,9 @@ body {
 											var status= $("#studentstatus").val();
 							                var counter = 0;
 							                var base_url = window.location;
-							                // $.ajax({  
-							                // 	type:"POST",
-							                //      url: base_url + '/studentaction',  
-							                //      data:{fname:fname,
-							                //      	   	mname:mname,
-							                //      		lname:lname,
-							                //      		bday:bday,
-							                //      		email:email,
-							                //      		studcont:studcont,
-							                //      		gender:gender,
-							                //      		religion:religion,
-							                //      		address:address,
-							                //      		parentguard:parentguard,
-							                //      		pgcont:pgcont,
-							                //      		year:year,
-							                //      		sec:sec,
-							                //      		status:status,
-							                //      		counter:counter},
-							                //      success:function(data)
-							                //      {
 							                     console.log(data);
 							                if(fname == ''){
-							                	$('#studentfname_error').html('First Name is Required.');
+							                	$('#studentfname_error').html('First Name is Required.').show();
 							                	$('#studentfname').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -172,7 +181,7 @@ body {
 							                		$('#studentfname').css('border-color', '#34F458');
 							                	}
 							                if(mname == ''){
-							                	$('#studentmname_error').html('Middle Name is Required.');
+							                	$('#studentmname_error').html('Middle Name is Required.').show();
 							                	$('#studentmname').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -181,7 +190,7 @@ body {
 							                		$('#studentmname').css('border-color', '#34F458');
 							                	}
 							                if(lname == ''){
-							                	$('#studentlname_error').html('Last Name is Required.');
+							                	$('#studentlname_error').html('Last Name is Required.').show();
 							                	$('#studentlname').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -190,7 +199,7 @@ body {
 							                		$('#studentlname').css('border-color', '#34F458');
 							                	}
 							                if(bday == ''){
-							                	$('#studentbirthday_error').html('Birthday is Required');
+							                	$('#studentbirthday_error').html('Birthday is Required').show();
 							                	$('#studentbirthday').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -199,7 +208,7 @@ body {
 							                		$('#studentbirthday').css('border-color', '#34F458');
 							                	}
 							                if(email == ''){
-							                	$('#studentemail_error').html('Email is Required')
+							                	$('#studentemail_error').html('Email is Required').show()
 							                	.css('color', '#F90A0A');
 							                	$('#studentemail').css('border-color', '#F90A0A');
 							                	counter++;
@@ -209,7 +218,7 @@ body {
 							                		$('#studentemail').css('border-color', '#34F458');
 							                	}
 							                if(studcont == ''){
-							                	$('#studentcontact_error').html('Contact is Required');
+							                	$('#studentcontact_error').html('Contact is Required').show();
 							                	$('#studentcontact').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -218,7 +227,7 @@ body {
 							                		$('#studentcontact').css('border-color', '#34F458');
 							                	}
 							                if(gender == ''){
-							                	$('#studentgender_error').html('Gender is Required');
+							                	$('#studentgender_error').html('Gender is Required').show();
 							                	$('#studentgender').css('border-color', '#F90A0A');
 							                }
 							                else{
@@ -226,7 +235,7 @@ body {
 							                		$('#studentgender').css('border-color', '#34F458');
 							                	}
 							                if(religion == ''){
-							                	$('#studentreligion_error').html('Religion is Required');
+							                	$('#studentreligion_error').html('Religion is Required').show();
 							                	$('#studentreligion').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -235,7 +244,7 @@ body {
 							                		$('#studentreligion').css('border-color', '#34F458');
 							                	}
 							                if(address == ''){
-							                	$('#studentaddress_error').html('Address is Required');
+							                	$('#studentaddress_error').html('Address is Required').show();
 							                	$('#studentaddress').css('border-color', '#F90A0A');
 							                }
 							                else{
@@ -243,7 +252,7 @@ body {
 							                		$('#studentaddress').css('border-color', '#34F458');
 							                	}
 							                if(parentguard == ''){
-							                	$('#studentparentguard_error').html('Parent/Guardian is Required');
+							                	$('#studentparentguard_error').html('Parent/Guardian is Required').show();
 							                	$('#studentparentguard').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -252,7 +261,7 @@ body {
 							                		$('#studentparentguard').css('border-color', '#34F458');
 							                	}
 							                if(pgcont == ''){
-							                	$('#studentpgcontact_error').html('P/G Contact is Required');
+							                	$('#studentpgcontact_error').html('P/G Contact is Required').show();
 							                	$('#studentpgcontact').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -261,7 +270,7 @@ body {
 							                		$('#studentpgcontact').css('border-color', '#34F458');
 							                	}
 							                if(year == ''){
-							                	$('#studentyear_error').html('Year Level is Required');
+							                	$('#studentyear_error').html('Year Level is Required').show();
 							                	$('#studentyear').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -270,7 +279,7 @@ body {
 							                		$('#studentyear').css('border-color', '#34F458');
 							                	}
 							                if(sec == ''){
-							                	$('#studentsection_error').html('Section is Required');
+							                	$('#studentsection_error').html('Section is Required').show();
 							                	$('#studentsection').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -279,7 +288,7 @@ body {
 							                		$('#studentsection').css('border-color', '#34F458');
 							                	}
 							                if(status == ''){
-							                	$('#studentstatus_error').html('Status is Required');
+							                	$('#studentstatus_error').html('Status is Required').show();
 							                	$('#studentstatus').css('border-color', '#F90A0A');
 							                	counter++;
 							                }
@@ -289,12 +298,22 @@ body {
 							                	}
 
 							                if(counter==0){
-							                	$('#addform').submit();
-							                	$('#studenttable').DataTable().ajax.reload();
+							                	var data = $('#addform').serialize();
+							           				var base_url = window.location;
+							           				
+							           				$.ajax({
+							           					url: base_url + '/studentaction',
+							           					method: "POST",
+							           					data:data,
+							           					success:function(data){
+							           						console.log(data);
+							           						alert(data);
+							           						$('#studentmodal').modal('hide');
+							           						$('#studenttable').DataTable().ajax.reload();
+							           				}
+							           			});
 							                }
-							           //   }
-							           // });     
-							    });
+							    		});
 
 							    $('#studentemail').keyup(function(){
 							                	var email = $('#studentemail').val();
@@ -316,7 +335,7 @@ body {
 							    					else{
 							    						// alert('no');
 							    						$('#studentemail_error').html(data)
-							    						.css('color', '#F90A0A');
+							    						.css('color', '#F90A0A').show();
 							    						$('#studentemail').css('border-color', '#F90A0A');
 							    					}
 							              	}
@@ -385,6 +404,34 @@ body {
 							                success:function(data)  
 							                {  	
 							                	 $('#addform3')[0].reset();
+							                	 $('#studentfname3').removeAttr('style');
+										         $('#studentfname3_error').hide();
+										         $('#studentmname3').removeAttr('style');
+										         $('#studentmname3_error').hide();
+										         $('#studentlname3').removeAttr('style');
+										         $('#studentlname3_error').hide();
+										         $('#studentemail3').removeAttr('style');
+										         $('#studentemail3_error').hide();
+										         $('#studentbirthday3').removeAttr('style');
+										         $('#studentbirthday3_error').hide();
+										         $('#studentcontact3').removeAttr('style');
+										         $('#studentcontact3_error').hide();
+										         $('#studentgender3').removeAttr('style');
+										         $('#studentgender3_error').hide();  
+										         $('#studentreligion3').removeAttr('style');
+										         $('#studentreligion3_error').hide();
+										         $('#studentaddress3').removeAttr('style');
+										         $('#studentaddress3_error').hide();
+										         $('#studentparentguard3').removeAttr('style');
+										         $('#studentparentguard3_error').hide();
+										         $('#studentpgcontact3').removeAttr('style');
+										         $('#studentpgcontact3_error').hide();
+										         $('#studentyear3').removeAttr('style');
+										         $('#studentyear3_error').hide();
+										         $('#studentsection3').removeAttr('style');
+										         $('#studentsection3_error').hide();
+										         $('#studentstatus3').removeAttr('style');
+										         $('#studentstatus3_error').hide(); 
 							                	 $('.modal-title').text("Edit Student"); 
 							                     $('#studentmodal3').modal('show');  
 							                     $('#studentidname3').val(data.studentidname);
@@ -423,7 +470,7 @@ body {
 							                }  
 							           });  
 							      });
-							      $(document).on('submit','#addform3', function(event){
+							      $(document).on('click','#action3', function(event){
 							      		event.preventDefault();
 							      		var data = $(this).serialize();
 							      		$.ajax({ 
@@ -582,9 +629,74 @@ body {
 							                	}
 
 							                if(counter==0){
-							                	$('#addform3').submit();
-							                	$('#studenttable').DataTable().ajax.reload();
+							                	var data = $('#addform3').serialize();
+							           				var base_url = window.location;
+							           				
+							           				$.ajax({
+							           					url: base_url + '/editstudent',
+							           					method: "POST",
+							           					data:data,
+							           					success:function(data){
+							           						console.log(data);
+							           						alert(data);
+							           						$('#studentmodal3').modal('hide');
+							           						$('#studenttable').DataTable().ajax.reload();
+							           				}
+							           			});
+
 							                }
+							      });
+											$('#studentcontact3').keyup(function(){
+							                	var studcont = $('#studentcontact3').val();
+							                	var base_url = window.location;
+							               
+							                	$.ajax({
+							                		url: base_url + '/check_studcontact',
+							                		method:"POST",
+							                		data:{studcont:studcont},
+							                		success:function(data){ 
+							                		console.log(data);
+							                		
+							    					if(data == 'true'){
+							    					$('#studentcontact3').css('border-color', '#34F458');
+							    					$('#studentcontact3_error').hide();
+							    					// alert('ni');
+							    					}            		
+							    					else{
+							    						// alert('no');
+							    						$('#studentcontact3_error').html(data)
+							    						.css('color', '#F90A0A');
+							    						$('#studentcontact3_error').show();
+							    						$('#studentcontact3').css('border-color', '#F90A0A');
+							    					}
+							              	}
+							             });
+							      });
+							      $('#studentpgcontact3').keyup(function(){
+							                	var pgcont = $('#studentpgcontact3').val();
+							                	var base_url = window.location;
+							               
+							                	$.ajax({
+							                		url: base_url + '/check_pgcontact',
+							                		method:"POST",
+							                		data:{pgcont:pgcont},
+							                		success:function(data){ 
+							                		console.log(data);
+							                		
+							    					if(data == 'true'){
+							    					$('#studentpgcontact3').css('border-color', '#34F458');
+							    					$('#studentpgcontact3_error').hide();
+							    					// alert('ni');
+							    					}            		
+							    					else{
+							    						// alert('no');
+							    						$('#studentpgcontact3_error').html(data)
+							    						.css('color', '#F90A0A');
+							    						$('#studentpgcontact3_error').show();
+							    						$('#studentpgcontact3').css('border-color', '#F90A0A');
+							    					}
+							              	}
+							             });
 							      });
 
 								$(document).on('click','.view', function(){  
@@ -598,23 +710,38 @@ body {
 							                {  	
 							                	 $('.modal-title').text("View Student"); 
 							                     $('#student2modal').modal('show');  
-							                     $('#student2idname').text(data.studentidname);
-							                     $('#student2fname').text(data.studentfname);
-							                     $('#student2mname').text(data.studentmname);
-							                     $('#student2lname').text(data.studentlname);
-							                     $('#student2email').text(data.studentemail);
-											     $('#student2birthday').text(data.studentbirthday);
-												 $('#student2age').text(data.studentage);
-												 $('#student2contact').text(data.studentcontact);
-												 $('#student2gender').text(data.studentgender);
-												 $('#student2religion').text(data.studentreligion);
-												 $('#student2address').text(data.studentaddress);
-												 $('#student2parentguard').text(data.studentparentguard);
-												 $('#student2pgcontact').text(data.studentpgcontact);
-												 $('#student2year').text(data.studentyear);
-												 $('#student2section').text(data.studentsection);
-												 $('#student2sectionname').text(data.studentsectionname);
-												 $('#student2status').text(data.studentstatus); 
+							                     $('#student2idname').val(data.studentidname);
+							                     $('#student2fname').val(data.studentfname);
+							                     $('#student2mname').val(data.studentmname);
+							                     $('#student2lname').val(data.studentlname);
+							                     $('#student2email').val(data.studentemail);
+											     $('#student2birthday').val(data.studentbirthday);
+												 $('#student2age').val(data.studentage);
+												 $('#student2contact').val(data.studentcontact);
+												 $('#student2gender').val(data.studentgender);
+												 $('#student2religion').val(data.studentreligion);
+												 $('#student2address').val(data.studentaddress);
+												 $('#student2parentguard').val(data.studentparentguard);
+												 $('#student2pgcontact').val(data.studentpgcontact);
+												 $('#student2year').val(data.studentyear);
+												 var sidid = $('#student2year').val();
+													$.ajax({
+														url:"<?php echo base_url(); ?>student_controller/getoption",
+														method:"POST",
+														data:{sid:sidid},
+														dataType:"json",
+														success: function(data){
+															var option_data='';
+									                	 	var i;
+									                	 		for(i=0; i<data.length; i++){
+									                	 			option_data += '<option value="'+ data[i].secid +'">'+ data[i].section_name +'</option>'
+																} 
+									                		$('#student2section').html(option_data);
+									               			}   
+													});
+												 $('#student2section').val(data.studentsection);
+												 $('#student2sectionname').val(data.studentsectionname);
+												 $('#student2status').val(data.studentstatus); 
 							                }  
 							           });  
 							      });
@@ -706,7 +833,7 @@ body {
 				<div class="modal fade" id="studentmodal" tabindex="-1" role="dialog" aria-labelledby="addstudentmodal" aria-hidden="true">
 				  	<div class="modal-dialog modal-lg" role="document">
 				   		
-				  		<form method="post" id="addform" action="student_controller/studentaction">
+				  		<form method="post" id="addform">
 				   		<div class="modal-content">
 							<div class="modal-header">
 				        		<h1 class="modal-title" id="addstudentmodal"><b></b></h1>
@@ -883,14 +1010,17 @@ body {
 										<div class="col-md">
 											<label for="studentmname3" class="col-form-label formmodalfont">Middle Name</label>
 											<input id="studentmname3" name="studentmname3" type="text" class="form-control" placeholder="Middle Name">
+											<span class="text-danger" id="studentmname3_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="studentlname3" class="col-form-label formmodalfont">Last Name</label>
 											<input id="studentlname3" name="studentlname3" type="text" class="form-control" placeholder="Last Name">
+											<span class="text-danger" id="studentlname3_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="studentemail3" class="col-form-label formmodalfont">Email</label>
-											<input id="studentemail3" name="studentemail3" type="text" class="form-control" placeholder="Email">
+											<input id="studentemail3" name="studentemail3" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="studentemail3_error"></span>
 										</div>
 									</div>
 
@@ -900,10 +1030,12 @@ body {
 										<div class="col-md">
 											<label for="studentbirthday3" class="col-form-label formmodalfont">Birthday</label>
 											<input id="studentbirthday3" name="studentbirthday3" type="text" class="form-control" placeholder="Birthday">
+											<span class="text-danger" id="studentbirthday3_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="studentcontact3" class="col-form-label formmodalfont">Contact</label>
 											<input id="studentcontact3" name="studentcontact3" type="text" class="form-control" placeholder="Contact">
+											<span class="text-danger" id="studentcontact3_error"></span>
 										</div>
 									</div>
 
@@ -916,6 +1048,7 @@ body {
 											    <option value="Male">Male</option>
 											    <option value="Female">Female</option>
 										    </select>
+										    <span class="text-danger" id="studentgender3_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="studentreligion3" class="col-form-label formmodalfont">Religion</label>
@@ -925,6 +1058,7 @@ body {
 												<option value="Iglesia ni Cristo">Iglesia Ni Cristo</option>
 												<option value="Muslim">Muslim</option>
 											</select>	
+											<span class="text-danger" id="studentreligion3_error"></span>
 										</div>
 									</div>
 
@@ -934,6 +1068,7 @@ body {
 										<div class="col-md">
 											<label for="studentaddress3" class="col-form-label formmodalfont">Address</label>
 											<input id="studentaddress3" name="studentaddress3" class="form-control" placeholder="Address">
+											<span class="text-danger" id="studentaddress3_error"></span>
 										</div>
 									</div>
 
@@ -943,10 +1078,12 @@ body {
 										<div class="col-md">
 											<label for="studentparentguard3" class="col-form-label formmodalfont">Parent or Guardian</label>
 											<input id="studentparentguard3" name="studentparentguard3" class="form-control" placeholder="Parent or Guardian">
+											<span class="text-danger" id="studentparentguard3_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="studentpgcontact3" class="col-form-label formmodalfont">P/G Contact</label>
 											<input id="studentpgcontact3" name="studentpgcontact3" class="form-control" 	placeholder="P/G Contact">
+											<span class="text-danger" id="studentpgcontact3_error"></span>
 										</div>
 									</div>
 
@@ -972,20 +1109,23 @@ body {
 											    <option value="Grade 11">Grade 11</option>
 											    <option value="Grade 12">Grade 12</option>
 										    </select>
+										    <span class="text-danger" id="studentyear3_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="studentsection3" class="col-form-label formmodalfont">Section</label>
 											<select id="studentsection3" name="studentsection3" class="form-control">
 												<option value="">---</option>
 											</select>	
+											<span class="text-danger" id="studentsection3_error"></span>
 										</div>
 										<div class="col-md">
-											<label for="studentstatus3" class="col-form-label formmodalfont">Religion</label>
+											<label for="studentstatus3" class="col-form-label formmodalfont">Status</label>
 											<select id="studentstatus3" name="studentstatus3" class="form-control">
 											    <option value="Enrolled">Enrolled</option>
 											    <option value="Not Enrolled">Not Enrolled</option>
 											    <option value="Inactive">Inactive</option>
 											</select>
+											<span class="text-danger" id="studentstatus3_error"></span>
 											<input type="hidden" name="edithid" id="edithid" class="form-control" value="">
 											<input type="hidden" name="editID" class="form-control" id="editID">
 										</div>
@@ -1014,56 +1154,141 @@ body {
 				      		</div>	
 				      		<div class="pre-scrollable">
 				      		<div class="modal-body">
-									<h6 class="potgraph">Student ID:</h6>
-									<p id="student2idname"></p>
+									<div class="modal-body">
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="student2idname" class="col-form-label formmodalfont">Student ID</label>
+											<input id="student2idname" name="student2idname" type="text" class="form-control" readonly="">
+										</div>
+										<div class="col-md">
+											<label for="studentfname" class="col-form-label formmodalfont">First Name</label>
+											<input id="student2fname" name="student2fname" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="student2fname_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="studen2tmname" class="col-form-label formmodalfont">Middle Name</label>
+											<input id="student2mname" name="student2mname" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="studentmname_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="student2mname`lname" class="col-form-label formmodalfont">Last Name</label>
+											<input id="student2lname" name="student2lname" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="student2lname_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="studen2temail" class="col-form-label formmodalfont">Email</label>
+											<input id="student2email" name="student2email" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="student2email_error"></span>
+										</div>
+									</div>
 
-									<h6 class="potgraph">First Name:</h6>
-									<p id="student2fname"></p>
+									<br/>
 
-									<h6 class="potgraph">Middle Name:</h6>
-									<p id="student2mname"></p>
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="student2birthday" class="col-form-label formmodalfont">Birthday</label>
+											<input id="student2birthday" name="student2birthday" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="student2birthday_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="student2contact" class="col-form-label formmodalfont">Contact</label>
+											<input id="student2contact" name="student2contact" type="text" class="form-control" readonly="">
+											<span class="text-danger" id="student2contact_error"></span>
+										</div>
+									</div>
 
-									<h6 class="potgraph">Last Name:</h6>
-									<p id="student2lname"></p>
+									<br/>
 
-									<h6 class="potgraph">Email:</h6>
-									<p id="student2email"></p>
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="student2gender" class="col-form-label formmodalfont">Gender</label>
+											<select id="student2gender" name="student2gender" class="form-control" readonly="">
+											    <option value="Male">Male</option>
+											    <option value="Female">Female</option>
+										    </select>
+										    <span class="text-danger" id="studentgender_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="student2religion" class="col-form-label formmodalfont">Religion</label>
+											<select id ="student2religion" name="student2religion" class="form-control" readonly="">
+												<option value="Roman Catholic">Roman Catholic</option>
+												<option value="Born Again">Born Again</option>
+												<option value="Iglesia ni Cristo">Iglesia Ni Cristo</option>
+												<option value="Muslim">Muslim</option>
+											</select>	
+											<span class="text-danger" id="student2religion_error"></span>
+										</div>
+									</div>
 
-									<h6 class="potgraph">Birthday:</h6>
-									<p id="student2birthday"></p>
+									<br/>
 
-									<h6 class="potgraph">Age:</h6>
-									<p id="student2age"></p>
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="student2address" class="col-form-label formmodalfont">Address</label>
+											<input id="student2address" name="student2address" class="form-control" readonly="">
+											<span class="text-danger" id="student2address_error"></span>
+										</div>
+									</div>
 
-									<h6 class="potgraph">Contact:</h6>
-									<p id="student2contact"></p>
+									<br/>
 
-									<h6 class="potgraph">Gender:</h6>
-									<p id="student2gender"></p>
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="student2parentguard" class="col-form-label formmodalfont">Parent or Guardian</label>
+											<input id="student2parentguard" name="student2parentguard" class="form-control" readonly="">
+											<span class="text-danger" id="studentparentguard_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="student2pgcontact" class="col-form-label formmodalfont">P/G Contact</label>
+											<input id="student2pgcontact" name="student2pgcontact" class="form-control" 	readonly="">
+											<span class="text-danger" id="student2pgcontact_error"></span>
+										</div>
+									</div>
 
-									<h6 class="potgraph">Religion:</h6>
-									<p id="student2religion"></p>
-									
-									<h6 class="potgraph">Address:</h6>
-									<p id="student2address"></p>
+									<br/>
 
-									<h6 class="potgraph">Parent or Guardian:</h6>
-									<p id="student2parentguard"></p>
-
-									<h6 class="potgraph">P/G Contact:</h6>
-									<p id="student2pgcontact"></p>
-
-									<h6 class="potgraph">Year:</h6>
-									<p id="student2year"></p>
-
-									<h6 class="potgraph">Section ID:</h6>
-									<p id="student2section"></p>
-
-									<h6 class="potgraph">Section Name:</h6>
-									<p id="student2sectionname"></p>
-
-									<h6 class="potgraph">Status:</h6>
-									<p id="student2status"></p>
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="student2year" class="col-form-label formmodalfont">Year</label>
+											<select id="student2year" name="student2year" class="form-control" readonly="">
+												<option value="">---</option>
+											    <option value="Kinder">Kinder</option>
+											    <option value="Preparatory">Preparatory</option>
+											    <option value="Grade 1">Grade 1</option>
+											    <option value="Grade 2">Grade 2</option>
+											    <option value="Grade 3">Grade 3</option>
+											    <option value="Grade 4">Grade 4</option>
+											    <option value="Grade 5">Grade 5</option>
+											    <option value="Grade 6">Grade 6</option>
+											    <option value="Grade 7">Grade 7</option>
+											    <option value="Grade 8">Grade 8</option>
+											    <option value="Grade 9">Grade 9</option>
+											    <option value="Grade 10">Grade 10</option>
+											    <option value="Grade 11">Grade 11</option>
+											    <option value="Grade 12">Grade 12</option>
+										    </select>
+										    <span class="text-danger" id="studentyear_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="student2section" class="col-form-label formmodalfont">Section</label>
+											<select id="student2section" name="student2section" class="form-control" readonly="">
+												<option value="">---</option>
+											</select>	
+											<span class="text-danger" id="student2section_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="student2status" class="col-form-label formmodalfont">Status</label>
+											<select id="student2status" name="student2status" class="form-control" readonly="">
+											    <option value="Enrolled">Enrolled</option>
+											    <option value="Not Enrolled">Not Enrolled</option>
+											    <option value="Inactive">Inactive</option>
+											</select>
+											<span class="text-danger" id="student2status_error"></span>
+											<input type="hidden" name="edithid" id="edithid" class="form-control" value="">
+											<input type="hidden" name="editID" class="form-control" id="editID">
+										</div>
+									</div>   
+					  		</div>
 					  		</div>
 							<div class="modal-footer">
 							</div>

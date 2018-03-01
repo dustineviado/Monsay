@@ -85,6 +85,32 @@ class teacher_model extends CI_Model {
 	           }  
 	      
 	      }
+	      function id_exist($sid){
+			$this->db->select('teacher_id');
+			$this->db->from('teacher');
+			$this->db->where('teacher_id', $sid);
+			$query = $this->db->get();
+			if($query->num_rows() > 0){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
+		 function id_exist2($teacherid){
+			$this->db->select('teacher_id');
+			$this->db->from('teacher');
+			$this->db->where('teacher_id', $teacherid);
+			$query = $this->db->get();
+			if($query->num_rows() > 0){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
 	      function make_datatables_teacher(){  
 	           $this->make_query_teacher();  
 	           if($_POST["length"] != -1);  
