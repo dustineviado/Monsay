@@ -95,7 +95,7 @@ body {
 							                {
 							                	if(data == null){
 							                		finalid = idformat + '0001';
-							                		$('#teacherid').val(finalid);
+							                		$('#studentidname').val(finalid);
 							                	}
 							                	else{
 								                	finalid = 1 + parseInt(data);
@@ -654,6 +654,24 @@ body {
 							                	 			option_data += '<option value="'+ data[i].secid +'">'+ data[i].section_name +'</option>'
 														} 
 							                		$('#studentsection').html(option_data);
+							               			}   
+											});
+									});
+
+									$("#studentyear3").change(function(){
+										var sid = $('#studentyear3').val();
+											$.ajax({
+												url:"<?php echo base_url(); ?>student_controller/getoption",
+												method:"POST",
+												data:{sid:sid},
+												dataType:"json",
+												success: function(data){
+													var option_data='';
+							                	 	var i;
+							                	 		for(i=0; i<data.length; i++){
+							                	 			option_data += '<option value="'+ data[i].secid +'">'+ data[i].section_name +'</option>'
+														} 
+							                		$('#studentsection3').html(option_data);
 							               			}   
 											});
 									});

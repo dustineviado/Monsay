@@ -253,7 +253,25 @@ body {
 							           {  
 							                return false;       
 							           }  
-							      });        
+							      });
+
+							      $("#studyear2").change(function(){
+										var sid = $('#studyear2').val();
+											$.ajax({
+												url:"<?php echo base_url(); ?>New_enrol_controller/getoption",
+												method:"POST",
+												data:{sid:sid},
+												dataType:"json",
+												success: function(data){
+													var option_data='';
+							                	 	var i;
+							                	 		for(i=0; i<data.length; i++){
+							                	 			option_data += '<option value="'+ data[i].secid +'">'+ data[i].section_name +'</option>'
+														} 
+							                		$('#studsection2').html(option_data);
+							               			}   
+											});
+									});        
 							 });
 						</script>
 					<br>
@@ -462,15 +480,17 @@ body {
 										</div>
 										<div class="col-md">
 											<label for="studsection2" class="col-form-label formmodalfont">Section</label>
-											<input id="studsection2" name="studsection2" type="text" class="form-control">
+											<select id="studsection2" name="studsection2" type="text" class="form-control">
+												<option value="">---</option>
+											</select>
 										</div>
 									</div>
 
 
 								<div class="row form-group">
 									<!-- <input type="hidden" name="newstudhid" id="newstudhid" value=""> -->
-									<input name="userID" id="userID">
-									<input name="ctrlid" id="ctrlid">
+									<input type="hidden" name="userID" id="userID">
+									<input type="hidden" name="ctrlid" id="ctrlid">
 					  				
 					  			</div>
 					  		</div>

@@ -19,6 +19,14 @@ class New_enrol_model extends CI_Model {
 			$this->db->insert('type',$data);
 		  } 
 
+		  function optionget($sid){
+			$this->db->select('secid, section_name');
+			$this->db->from('section');
+			$this->db->where('year_level', $sid);
+			$query=$this->db->get();  
+           	return $query->result();
+		}
+		
 		function addstudent($data){
 		$this->db->insert('pre_registration', $data);
 		}
