@@ -42,7 +42,7 @@ class alumni_controller extends CI_Controller {
                 $sub_array = array();  
                 $sub_array[] = $row->id_num;  
                 $sub_array[] = $row->fname.' '.$row->mname.' '.$row->lname;  
-                $sub_array[] = '<button type="button" name="viewgrades" id="'.$row->id_num.'" class="btn alumnisubbtn btn-xs viewgrades">View Grades</button> <button type="button" name="print" id="'.$row->id_num.'" class="btn alumnisubbtn btn-xs printgrades">Print Grades</button>';
+                $sub_array[] = '<button type="button" name="viewgrades" id="'.$row->id_num.'" class="btn alumnisubbtn btn-xs viewgrades">View Grades</button> <button type="button" name="print" id="'.$row->id_num.'" class="btn alumnisubbtn btn-xs printgrades">Print Grades</button> <button type="button" name="retrieve" id="'.$row->id_num.'" class="btn alumnisubbtn btn-xs retrieve">Retrieve</button>';
                 $data[] = $sub_array;  
            }  
            $output = array(   
@@ -57,6 +57,12 @@ class alumni_controller extends CI_Controller {
 		$sid = $this->input->post('id_num');
 		$data = $this->mdl->yearall($sid);
 		echo json_encode($data);
+	}
+
+	public function retrievestudent(){
+
+	           $this->mdl->studentretrieve($_POST["sid"]);  
+	           echo 'Student Retrieved';
 	}
 
 	public function allsubjects(){

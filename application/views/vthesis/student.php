@@ -620,7 +620,7 @@ body {
 							      });
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id");  
-							           if(confirm("Are you sure you want to delete this?"))  
+							           if(confirm("Are you sure you want to archive this student?"))  
 							           {  
 							                $.ajax({  
 							                     url:"<?php echo base_url(); ?>student_controller/deletestudent",  

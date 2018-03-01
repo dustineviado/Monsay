@@ -54,6 +54,45 @@ class alumni_model extends CI_Model {
 	           return $this->db->count_all_results();  
 	      }
 
+	      function studentretrieve($sid){
+	        $this->db->where('id_num', $sid);
+			$studentquery = $this->db->get('archive_student');
+			foreach($studentquery->result() as $row){
+				$this->db->set('id_num',$row->id_num);
+				$this->db->set('fname',$row->fname);
+				$this->db->set('mname',$row->mname);
+				$this->db->set('lname',$row->lname);
+				$this->db->set('email',$row->email);
+				$this->db->set('birthday',$row->birthday);
+				$this->db->set('contact',$row->contact);
+				$this->db->set('gender',$row->gender);
+				$this->db->set('religion',$row->religion);
+				$this->db->set('address',$row->address);
+				$this->db->set('parent_guard',$row->parent_guard);
+				$this->db->set('pgcontact',$row->pgcontact);
+				$this->db->set('year',$row->year);
+				$this->db->set('secid',$row->secid);
+				$this->db->set('status','Not Enrolled');
+				$this->db->insert('student');
+			}
+
+			$this->db->where('id_number', $sid);
+			$studenttypequery = $this->db->get('archive_type');
+			foreach($studenttypequery->result() as $row){
+				$this->db->set('user_type',$row->user_type);
+				$this->db->set('email',$row->email);
+				$this->db->set('id_number',$row->id_number);
+				$this->db->set('password',$row->password);
+				$this->db->insert('type');
+			}
+
+			$this->db->where('id_num', $sid);
+	        $this->db->delete('archive_student');
+
+	        $this->db->where('id_number', $sid);
+	        $this->db->delete('archive_type');
+		}
+
 	     function yearall($sid){
 			$this->db->distinct();
 			$this->db->select('year, schoolyear');
