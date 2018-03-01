@@ -32,6 +32,7 @@ class teacherlog_controller extends CI_Controller {
 		else if($this->session->userdata('user_type')==null){
 
 			redirect('main_body_controller','refresh');
+			
 		}
     }
 	
