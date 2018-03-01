@@ -77,9 +77,19 @@ body {
 							$(document).ready(function(){
 
 								$('#addmodalbtn').click(function(){  
-							           $('#addform')[0].reset();  
+							           $('#addform')[0].reset();
+							           $('#sectionidname').removeAttr('style');
+							           $('#sectionidname_error').hide();
+							           $('#sectionname').removeAttr('style');
+							           $('#sectionname_error').hide();
+							           $('#sectionlevel').removeAttr('style');
+							           $('#sectionlevel_error').hide();
+							           $('#teacherid').removeAttr('style');
+							           $('#teacherid_error').hide();        
 							           $('.modal-title').text("Add Section");  
-							           $('#sectionhid').val("Add");   
+							           $('#sectionhid').val("Add");
+							           
+
 							      });    
 
 							      var dataTable = $('#sectiontable').dataTable({  
@@ -106,39 +116,132 @@ body {
 							           var sectname = $('#sectionname').val();  
 							           var sectlevel = $('#sectionlevel').val();
 							           var sectadviser = $('#teacherid').val();
-							           var schedid = sc+$('#sectionidname').val();
 							           var secthid = $('#sectionhid').val();
-							           var hiddenid = $('#hiddenid').val();  
-							           
-							           if(sectid != '' && sectname != '' && sectlevel != '' && schedid != '')  
-							           {  
-							                $.ajax({  
-							                	type:"POST",
-							                     url:"<?php echo base_url() . 'section_controller/sectionaction'; ?>",  
-							                     data:{
-							                     	id:sectid,
-							                     	name:sectname,
-							                     	lvl:sectlevel,
-							                     	sectadv:sectadviser,
-							                     	sceid:schedid,
-							                     	hidden:secthid,
-							                     	hidid:hiddenid
-							                     }, 
-							                     success:function(data)  
-							                     {  
-							                          alert(data);  
-							                          $('#sectionmodal').modal('hide');  
-							                          $('#sectiontable').DataTable().ajax.reload();  
-							                     }  
-							                });  
-							           }  
-							           else  
-							           {  
-							                alert("All Fields are Required"); 
-							           }  
-							      });
+							           var hiddenid = $('#hiddenid').val();
+							           var check = $('#titser').val();  
+							           var counter = 0;
 
-							      $(document).on('click','.edit', function(){  
+							           		if(sectid == ''){
+							           			$('#sectionidname_error').html('Section ID is required.')
+							           			.css('color', '#F90A0A');
+							           			$('#sectionidname_error').show();
+							           			$('#sectionidname').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		else{
+							           			$('#sectionidname_error').hide();
+							           			$('#sectionidname').css('border-color', '#34F458');
+							           		}
+							           		if(sectname == ''){
+							           			$('#sectionname_error').html('Section Name is required.');
+							           			$('#sectionname_error').show();
+							           			$('#sectionname').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		else{
+							           			$('#sectionname_error').hide();
+							           			$('#sectionname').css('border-color', '#34F458');
+							           		}
+							           		if(sectlevel == ''){
+							           			$('#sectionlevel_error').html('Section Level is required.');
+							           			$('#sectionlevel_error').show();
+							           			$('#sectionlevel').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		else{
+							           			$('#sectionlevel_error').hide();
+							           			$('#sectionlevel').css('border-color', '#34F458');
+							           		}
+							           		if(sectadviser == ''){
+							           			$('#teacherid_error').html('Teacher ID is required.')
+							           			.css('color', '#F90A0A');
+							           			$('#teacherid_error').show();
+							           			$('#teacherid').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		
+							           		if(counter == 0 && check == 'true' ){
+							           				var data = $('#addform').serialize();
+							           				var base_url = window.location;
+							           				var check= $('#titser').val();
+							           				
+							           				$.ajax({
+							           					url: base_url + '/sectionaction',
+							           					method: "POST",
+							           					data:data,
+							           					success:function(data){
+							           						console.log(data);
+							           						alert(data);
+							           						$('#sectionmodal').modal('hide');
+							           						$('#sectiontable').DataTable().ajax.reload();
+							           					
+							           				}
+							           			});
+							           		}
+
+							      });
+							      			$('#sectionidname').keyup(function(e){
+							      				e.preventDefault();
+							                	var sectid = $('#sectionidname').val();
+							                	var base_url = window.location;
+							               
+							                	$.ajax({
+							                		url: base_url + '/check_sectid',
+							                		method:"POST",
+							                		data:{sectid:sectid},
+							                		success:function(data){ 
+							                		console.log(data);
+							                		
+							    					if(data == 'true'){
+							    					$('#sectionidname_error').html('Section ID is Valid' + '&nbsp;&nbsp;' +'<span class="fa fa-check"></span>')
+							    					.css('color', '#34F458');
+							    					$('#sectionidname_error').show();
+							    					$('#sectionidname').css('border-color', '#34F458');
+							    					// alert('ni');
+							    					}            		
+							    					else{
+							    						// alert('no');
+							    						$('#sectionidname_error').html(data)
+							    						.css('color', '#F90A0A');
+							    						$('#sectionidname').css('border-color', '#F90A0A');
+							    					}
+							              	}
+							             });   	
+
+							      });
+							      			$('#teacherid').keyup(function(e){
+							      				e.preventDefault();
+							      				var sectadviser = $('#teacherid').val();
+							      				var base_url = window.location;
+
+							      				$.ajax({
+							      					url: base_url + '/check_teacher',
+							      					method:"POST",
+							      					data:{sectadviser:sectadviser},
+							      					success:function(data){
+							      					console.log(data);
+							      					// alert('Hi');
+							      					if(data == 'true'){
+							      						$('#teacherid_error').html('Teacher ID is Valid' + '&nbsp;&nbsp;' +'<span class="fa fa-check"></span>')
+							      							.css('color', '#34F458');
+							      						$('#teacherid_error').show();
+							      						$('#teacherid').css('border-color', '#34F458');
+							      						$check = $('#titser').val("true");
+
+
+							      						}
+							      					else if(data == 'false'){
+							      						$('#teacherid_error').html('Teacher ID does not exist')
+							      						.css('color', '#F90A0A');
+							      						$('#teacherid_error').show();	
+							      						$('#teacherid').css('border-color', '#F90A0A');
+							      						}
+							      					}
+							      				});
+							      			});
+
+							      $(document).on('click','.edit', function(e){
+							     		e.preventDefault();  
 							           var sid = $(this).attr("id");  
 							           $.ajax({  
 							                url:"<?php echo base_url() . 'section_controller/fetch_single_user'; ?>",  
@@ -147,19 +250,117 @@ body {
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
-							                	 $('#addform')[0].reset();
+							                	console.log(data);
+							                	 $('#addform2')[0].reset();
+							                	 $('#sectionidname2').removeAttr('style');
+										         $('#sectionidname2_error').hide();
+										         $('#sectionname2').removeAttr('style');
+										         $('#sectionname2_error').hide();
+										         $('#sectionlevel2').removeAttr('style');
+										         $('#sectionlevel2_error').hide();
+										         $('#teacherid2').removeAttr('style');
+										         $('#teacherid2_error').hide();   
 							                	 $('.modal-title').text("Edit Section"); 
-							                     $('#sectionmodal').modal('show');  
-							                     $('#sectionidname').val(data.sectionidname);
-							                     $('#sectionname').val(data.sectionname);
-							                     $('#sectionlevel').val(data.sectionlevel);
-							                     $('#teacherid').val(data.sectionadviser);
-							                     $('#scheduleid').val(data.scheduleid); 
-							                     $('#sectionhid').val("Edit");
-							                     $('#hiddenid').val(sid); 
+							                     $('#sectionmodal2').modal('show');  
+							                     $('#sectionidname2').val(data.sectionidname);
+							                     $('#sectionname2').val(data.sectionname);
+							                     $('#sectionlevel2').val(data.sectionlevel);
+							                     $('#teacherid2').val(data.sectionadviser);
+							                     $('#scheduleid2').val(data.scheduleid); 
+							                     $('#sectionhid2').val("Edit");
+							                     $('#hiddenid2').val(sid); 
 							                }  
 							           });  
-							      });  
+							      }); 
+							      $(document).on('click', '#action2', function(event){  
+							           event.preventDefault();
+							           var sc = 'sc';
+							           var sectid = $('#sectionidname2').val();  
+							           var sectname = $('#sectionname2').val();  
+							           var sectlevel = $('#sectionlevel2').val();
+							           var sectadviser2 = $('#teacherid2').val();
+							           var secthid = $('#sectionhid2').val();
+							           var hiddenid = $('#hiddenid2').val(); 
+							           var check2 = $('#titser2').val(); 
+							           var counter = 0;
+
+							           		if(sectname == ''){
+							           			$('#sectionname2_error').html('Section Name is required.');
+							           			$('#sectionname2_error').show();
+							           			$('#sectionname2').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		else{
+							           			$('#sectionname2_error').hide();
+							           			$('#sectionname2').css('border-color', '#34F458');
+							           		}
+							           		if(sectlevel == ''){
+							           			$('#sectionlevel2_error').html('Section Level is required.');
+							           			$('#sectionlevel2_error').show();
+							           			$('#sectionlevel2').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		else{
+							           			$('#sectionlevel2_error').hide();
+							           			$('#sectionlevel2').css('border-color', '#34F458');
+							           		}
+							           		if(sectadviser2 == ''){
+							           			$('#teacherid2_error').html('Teacher ID is required.')
+							           			.css('color', '#F90A0A');
+							           			$('#teacherid2_error').show();
+							           			$('#teacherid2').css('border-color', '#F90A0A');
+							           			counter++;
+							           		}
+							           		if(counter == 0 && check2 == 'true' ){
+							           				var data = $('#addform2').serialize();
+							           				var base_url = window.location;
+							           				var check2 = $('#titser2').val();
+							           				
+							           				$.ajax({
+							           					url: base_url + '/editsection',
+							           					method: "POST",
+							           					data:data,
+							           					success:function(data){
+							           						console.log(data);
+							           						alert(data);
+							           						$('#sectionmodal2').modal('hide');
+							           						$('#sectiontable').DataTable().ajax.reload();
+							           					
+							           				}
+							           			});
+							           		}
+							      });
+							      			$('#teacherid2').keyup(function(e){
+							      				e.preventDefault();
+							      				var sectadviser2 = $('#teacherid2').val();
+							      				var base_url = window.location;
+
+							      				$.ajax({
+							      					url: base_url +'/check_teacher2',
+							      					method:"POST",
+							      					data:{sectadviser2:sectadviser2},
+							      					success:function(data){
+							      						console.log(data);
+							      						if(data=='true'){
+							      							$('#teacherid2_error').html('Teacher ID is Valid' + '&nbsp;&nbsp;' +'<span class="fa fa-check"></span>')
+							    								.css('color', '#34F458');
+							    							$('#teacherid2_error').show();
+							    							$('#teacherid2').css('border-color', '#34F458');
+							    							$('#teacherid2_error').show();
+							    							// alert(sectadviser);
+							    							$check2 = $('#titser2').val('true');
+							      						}
+							      						else if(data == 'false'){
+							      							$('#teacherid2_error').html('Teacher ID does not exist'+ '&nbsp;&nbsp;' +'<span class="fa fa-remove"></span>')
+								    						.css('color', '#F90A0A');
+								    						$('#teacherid2').css('border-color', '#F90A0A');
+								    						$check2 = $('#titser2').val('false');
+								    						// alert(sectadviser);
+							      						}
+							      					}
+							      				});
+							      			}); 
+
 
 							      $(document).on('click', '.delete', function(){  
 							           var sid = $(this).attr("id"); 
@@ -241,10 +442,12 @@ body {
 										<div class="col-md">
 											<label for="sectionidname" class="col-form-label formmodalfont">Section ID</label>
 											<input id="sectionidname" name="sectionidname" type="text" class="form-control" placeholder="Section ID">
+											<span id="sectionidname_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="sectionname" class="col-form-label formmodalfont">Section Name</label>
 											<input id="sectionname" name="sectionname" type="text" class="form-control" placeholder="Section Name">
+											<span class="text-danger" id="sectionname_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="sectionlevel" class="col-form-label formmodalfont">Level</label>
@@ -264,14 +467,17 @@ body {
 											    <option value="Grade 11">Grade 11</option>
 											    <option value="Grade 12">Grade 12</option>
 										    </select>
+										    <span class="text-danger" id="sectionlevel_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="teacherid" class="col-form-label formmodalfont">Adviser</label>
 											<input id="teacherid" name="teacherid" type="text" class="form-control" placeholder="Teacher ID">
+											<span  id="teacherid_error"></span>
 										</div>
 											<input type="hidden" id="scheduleid" name="scheduleid" type="text" class="form-control" placeholder="Schedule ID">
 											<input type="hidden" name="sectionhid" id="sectionhid" value="">
 											<input type="hidden" name="hiddenid" id="hiddenid">
+											<input type="hidden" name="titser" id="titser" value="">
 
 									</div> 
 					  		</div>
@@ -283,6 +489,73 @@ body {
 							</div>
 						</div>
 					</div>
+					<!-- End of Modal Add -->
+				<div class="container-fluid">
+				<div class="modal fade" id="sectionmodal2" tabindex="-1" role="dialog" aria-labelledby="editsectionmodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		
+				  		<form method="post" id="addform2">
+				   		<div class="modal-content">
+							<div class="modal-header">
+				        		<h1 class="modal-title" id="editsectionmodal"><b></b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>	
+
+				      		<div class="modal-body">
+									<div class="row form-group">
+										<div class="col-md">
+											<label for="sectionidname2" class="col-form-label formmodalfont">Section ID</label>
+											<input id="sectionidname2" name="sectionidname2" type="text" class="form-control" readonly="">
+											<span id="sectionidname2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="sectionname2" class="col-form-label formmodalfont">Section Name</label>
+											<input id="sectionname2" name="sectionname2" type="text" class="form-control" placeholder="Section Name">
+											<span class="text-danger" id="sectionname2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="sectionlevel2" class="col-form-label formmodalfont">Level</label>
+											<select id="sectionlevel2" name="sectionlevel2" class="form-control">
+											    <option value="Kinder">Kinder</option>
+											    <option value="Preparatory">Preparatory</option>
+											    <option value="Grade 1">Grade 1</option>
+											    <option value="Grade 2">Grade 2</option>
+											    <option value="Grade 3">Grade 3</option>
+											    <option value="Grade 4">Grade 4</option>
+											    <option value="Grade 5">Grade 5</option>
+											    <option value="Grade 6">Grade 6</option>
+											    <option value="Grade 7">Grade 7</option>
+											    <option value="Grade 8">Grade 8</option>
+											    <option value="Grade 9">Grade 9</option>
+											    <option value="Grade 10">Grade 10</option>
+											    <option value="Grade 11">Grade 11</option>
+											    <option value="Grade 12">Grade 12</option>
+										    </select>
+										    <span class="text-danger" id="sectionlevel2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="teacherid2" class="col-form-label formmodalfont">Adviser</label>
+											<input id="teacherid2" name="teacherid2" type="text" class="form-control" placeholder="Teacher ID">
+											<span  id="teacherid2_error"></span>
+										</div>
+											<input type="hidden" id="scheduleid2" name="scheduleid2" type="text" class="form-control" placeholder="Schedule ID">
+											<input type="hidden" name="sectionhid2" id="sectionhid2" value="">
+											<input type="hidden" name="hiddenid2" id="hiddenid2">
+											<input type="hidden" name="titser2" id="titser2" value="">
+
+									</div> 
+					  		</div>
+
+							<div class="modal-footer">
+								<input type="submit" name="action2" id="action2" class="btn addsubbtn2" value="Proceed">
+							</div>
+							</form>
+							</div>
+						</div>
+					</div>
+					<!-- End Edit -->
 				</div>
 		</div>
 	</div>

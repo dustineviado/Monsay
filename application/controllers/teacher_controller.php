@@ -55,7 +55,6 @@ class teacher_controller extends CI_Controller {
 	                     'mname'=>$this->input->post('teachermname'),
 	                     'lname'=>$this->input->post('teacherlname'),
 	                     'birthday'=>$this->input->post('bday'),
-	                     'age'=>$this->input->post('age'),
 	                     'gender'=>$this->input->post('gender'),
 	                     'email'=>$this->input->post('email'),
 	                     'department'=>$this->input->post('department'),
@@ -75,7 +74,14 @@ class teacher_controller extends CI_Controller {
 
 	                echo 'Teacher Added';
 	           }
-	           else if($hidden == "Edit"){
+	        else {
+	        	echo 'Error';
+	        }      
+      	}
+    public function editteacher(){
+    	$hidden = $this->input->post('teacherhid');
+
+    	 if($hidden == "Edit"){
 	           		$updated_data = array(  
 	                     'teacher_id'=>$this->input->post('teacherid'),
 	                     'fname'=>$this->input->post('teacherfname'),
@@ -97,9 +103,28 @@ class teacher_controller extends CI_Controller {
 	           else{
 	           		echo 'Error';
 	           }
-      	}
+    }
 
-
+    public function check_email(){
+    	$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[teacher.email]',
+			array('is_unique'=>'This Email is already taken.'));
+		if($this->form_validation->run()){
+			echo 'true'; 
+		}
+		else{			
+			echo validation_errors();
+		}
+    }
+    public function check_contact(){
+		$this->form_validation->set_rules('cont','Contact','trim|required|integer|min_length[7]|max_length[11]');
+		$this->form_validation->set_message('integer', 'The {field} must be a number');
+		if($this->form_validation->run()){
+			echo 'true';
+		}
+		else{
+			echo validation_errors();
+		}
+	}
 
 	public function deleteteacher(){
 		       $this->load->model("teacher_model");  

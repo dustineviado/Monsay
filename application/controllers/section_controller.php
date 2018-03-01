@@ -42,36 +42,92 @@ class section_controller extends CI_Controller {
 		echo json_encode($data);  
 	    
 	}
+	public function check_teacher(){
+		$sid = $this->input->post('sectadviser');
+		$this->load->model('teacher_model');
+		$exist = $this->teacher_model->id_exist($sid);
+		// var_dump($exist);
+		if($sid == $exist){
+			echo 'true';
+			// $this->sectionaction();
+		}
+		else if($sid != $exist){
+			echo 'false';
+		}
+		// 	$this->form_validation->set_rules('sectionadviser', 'Teacher ID', 'required|is_unique[teacher.teacher_id]',
+		// 	array('is_unique'=>'This Teacher ID is Valid.'));
+		// if($this->form_validation->run()){
+		// 	echo 'true'; 
+		// }
+		// else{			
+		// 	echo validation_errors();
+		// }
+	}
+	public function check_teacher2(){
+		$teacherid = $this->input->post('sectadviser2');
+		$this->load->model('teacher_model');
+		$exist = $this->teacher_model->id_exist2($teacherid);
+		// var_dump($exist);	
+		if($teacherid == $exist){
+			echo 'true';
+		}
+		else if($teacherid != $exist){
+			echo 'false';
+		}
+	}
+	public function check_sectid(){
+		$this->form_validation->set_rules('sectid', 'Subject ID', 'required|is_unique[section.secid]',
+			array('is_unique'=>'This Subject ID is already taken.'));
+		if($this->form_validation->run()){
+			echo 'true'; 
+		}
+		else{			
+			echo validation_errors();
+		}
+	}
 
 	public function sectionaction(){
-			$hidden = $this->input->post('hidden');
-
+			$hidden = $this->input->post('sectionhid');
+			$scheid = $this->input->post('sectionidname');
+			$scheid = 'sc'.$scheid;	
 	 		if($hidden == "Add"){
 	                $insert_data = array(  
-	                     'secid'=>$this->input->post('id'),
-	                     'section_name'=>$this->input->post('name'),
-	                     'year_level'=>$this->input->post('lvl'),
-	                     'teacher_id'=>$this->input->post('sectadv'),
-	                	 'scheid'=>$this->input->post('sceid'));  
+	                     'secid'=>$this->input->post('sectionidname'),
+	                     'section_name'=>$this->input->post('sectionname'),
+	                     'year_level'=>$this->input->post('sectionlevel'),
+	                     'teacher_id'=>$this->input->post('teacherid'),
+	                	 'scheid'=> $scheid);  
 	               	
 	                $this->mdl->addsection($insert_data);
 	                echo 'Section Added';
+	                // redirect('section_controller', 'refresh');
 	           }
-	           else if($hidden == "Edit"){
-	           		$updated_data = array(  
-	                     'secid'=>$this->input->post('id'),
-	                     'section_name'=>$this->input->post('name'),
-	                     'year_level'=>$this->input->post('lvl'),
-	                     'teacher_id'=>$this->input->post('sectadv'),
-	                 	 'scheid'=>$this->input->post('sceid'));  
-	               	
-	                $this->mdl->sectionedit2($updated_data);
-	                echo 'Section Updated';
-	           }
+	           
 	           else{
 	           		echo 'Error';
 	           }
+		// print_r($_POST);
       	}
+    public function editsection(){
+    		$sid = $this->input->post('hiddenid2');
+    		$hidden = $this->input->post('sectionhid2');
+    		$scheid = $this->input->post('sectionidname2');
+    		$scheid = 'sc'.$scheid;
+    			if($hidden == 'Edit'){
+    				$updated_data = array(
+    					'secid'=>$this->input->post('sectionidname2'),
+    					'section_name'=>$this->input->post('sectionname2'),
+    					'year_level'=>$this->input->post('sectionlevel2'),
+    					'teacher_id'=>$this->input->post('teacherid2'),
+    					'scheid'=>$scheid);
+    				$this->mdl->sectionedit2($sid, $updated_data);
+    				echo 'Section Updated';
+    			}
+    			else{
+    				echo 'error';
+    			}
+    	// print_r($_POST);
+    }
 
 	public function deletesection(){
 		       $this->load->model("section_model");

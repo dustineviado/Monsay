@@ -41,10 +41,9 @@ class section_model extends CI_Model {
            	return $query->result();
 		}
 
-		function sectionedit2($data){
-			$hiddenid = $this->input->post('hidid');
-			$this->db->where('secid', $hiddenid);
-			$this->db->update('section', $data);
+		function sectionedit2($sid, $updated_data){
+			$this->db->where('secid', $sid);
+			$this->db->update('section', $updated_data);
 		}
 
 		  var $table = "section";  

@@ -120,14 +120,17 @@ body {
 										<div class="col-md">
 											<label for="teacherfname" class="col-form-label formmodalfont">First Name</label>
 											<input id="teacherfname" name="teacherfname" type="text" class="form-control" placeholder="First Name">
+											<span class="text-danger" id="teacherfname_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="teachermname" class="col-form-label formmodalfont">Middle Name</label>
 											<input id="teachermname" name="teachermname" type="text" class="form-control" placeholder="Middle Name">
+											<span class="text-danger" id="teachermname_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="teacherlname" class="col-form-label formmodalfont">Last Name</label>
 											<input id="teacherlname" name="teacherlname" type="text" class="form-control" placeholder="Last Name">
+											<span class="text-danger" id="teacherlname_error"></span>
 										</div>
 									</div>
 
@@ -137,21 +140,24 @@ body {
 										<div class="col-md">
 											<label for="bday" class="col-form-label formmodalfont">Birthday</label>
 											<input id="bday" name="bday" type="date" class="form-control" placeholder="Birthday">
+											<span class="text-danger" id="bday_error"></span>
 										</div>
-										<div class="col-md">
+										<!-- <div class="col-md">
 											<label for="age" class="col-form-label formmodalfont">Age</label>
 											<input id="age" name="age" type="text" class="form-control" placeholder="Age">
-										</div>
+										</div> -->
 										<div class="col-md">
 											<label for="gender" class="col-form-label formmodalfont">Gender</label>
 											<select id="gender" name="gender" class="form-control">
 											    <option value="Male">Male</option>
 											    <option value="Female">Female</option>
 										    </select>
+										    <span class="text-danger" id="gender_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="email" class="col-form-label formmodalfont">Email</label>
 											<input id="email" name="email" type="text" class="form-control" placeholder="Email">
+											<span id="email_error"></span>
 										</div>
 									</div>
 
@@ -161,8 +167,7 @@ body {
 										<div class="col-md">
 											<label for="department" class="col-form-label formmodalfont">Department</label>
 											<input id="department" name="department" type="text" class="form-control" placeholder="Department">
-									
-											
+											<span class="text-danger" id="department_error"></span>
 										</div>
 									</div>
 
@@ -172,6 +177,7 @@ body {
 										<div class="col-md">
 											<label for="address" class="col-form-label formmodalfont">Address</label>
 											<input id="address" name="address" class="form-control" placeholder="Address">
+											<span class="text-danger" id="address_error"></span>
 										</div>
 									</div>
 
@@ -181,6 +187,7 @@ body {
 										<div class="col-md">
 											<label for="contact" class="col-form-label formmodalfont">Contact</label>
 											<input id="contact" name="contact" class="form-control" placeholder="Contact">
+											<span class="text-danger" id="contact_error"></span>
 										</div>
 										<div class="col-md">
 											<label for="status" class="col-form-label formmodalfont">Status</label>
@@ -188,6 +195,7 @@ body {
 											    <option value="Male">Active</option>
 											    <option value="Female">Inactive</option>
 										    </select>
+										    <span class="text-danger" id="status_error"></span>
 										</div>
 										<input type="hidden" name="teacherhid" id="teacherhid" value="">
 										<input type="hidden" name="hiddenid" id="hiddenid">
@@ -199,9 +207,117 @@ body {
 					  		<div class="modal-footer">
 								<input type="submit" name="action" id="action" class="btn gobtn" value="Proceed">
 							</div>
+<!-- END ADD TEACHER MODAL -->
+<div class="container-fluid">
+				<div class="modal fade" id="teachermodal2" tabindex="-1" role="dialog" aria-labelledby="editteachermodal" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg" role="document">
+				   		
+				  		<form method="post" id="addform2">
+				   		<div class="modal-content">
+							<div class="modal-header">
+				        		<h1 class="modal-title" id="editteachermodal"><b></b></h1>
+				      			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				         			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>
 
 
 
+							<div class="modal-body">
+									<div class="row form-row">
+										<div>
+											<input type="hidden" id="teacherid2" name="teacherid2" type="text" class="form-control"">
+										</div>
+										<div class="col-md">
+											<label for="teacherfname2" class="col-form-label formmodalfont">First Name</label>
+											<input id="teacherfname2" name="teacherfname2" type="text" class="form-control" placeholder="First Name">
+											<span class="text-danger" id="teacherfname2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="teachermname2" class="col-form-label formmodalfont">Middle Name</label>
+											<input id="teachermname2" name="teachermname2" type="text" class="form-control" placeholder="Middle Name">
+											<span class="text-danger" id="teachermname2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="teacherlname2" class="col-form-label formmodalfont">Last Name</label>
+											<input id="teacherlname2" name="teacherlname2" type="text" class="form-control" placeholder="Last Name">
+											<span class="text-danger" id="teacherlname2_error"></span>
+										</div>
+									</div>
+
+									<br/>
+
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="bday2" class="col-form-label formmodalfont">Birthday</label>
+											<input id="bday2" name="bday2" type="date" class="form-control" placeholder="Birthday">
+											<span class="text-danger" id="bday2_error"></span>
+										</div>
+										<!-- <div class="col-md">
+											<label for="age" class="col-form-label formmodalfont">Age</label>
+											<input id="age" name="age" type="text" class="form-control" placeholder="Age">
+										</div> -->
+										<div class="col-md">
+											<label for="gender2" class="col-form-label formmodalfont">Gender</label>
+											<select id="gender2" name="gender2" class="form-control">
+											    <option value="Male">Male</option>
+											    <option value="Female">Female</option>
+										    </select>
+										    <span class="text-danger" id="gender2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="email2" class="col-form-label formmodalfont">Email</label>
+											<input id="email2" name="email2" type="text" class="form-control" placeholder="Email">
+											<span id="email2_error"></span>
+										</div>
+									</div>
+
+									<br/>
+
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="department2" class="col-form-label formmodalfont">Department</label>
+											<input id="department2" name="department2" type="text" class="form-control" placeholder="Department">
+											<span class="text-danger" id="department2_error"></span>
+										</div>
+									</div>
+
+									<br/>
+
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="address2" class="col-form-label formmodalfont">Address</label>
+											<input id="address2" name="address2" class="form-control" placeholder="Address">
+											<span class="text-danger" id="address2_error"></span>
+										</div>
+									</div>
+
+									<br/>
+
+									<div class="row form-row">
+										<div class="col-md">
+											<label for="contact2" class="col-form-label formmodalfont">Contact</label>
+											<input id="contact2" name="contact" class="form-control" placeholder="Contact">
+											<span class="text-danger" id="contact2_error"></span>
+										</div>
+										<div class="col-md">
+											<label for="status2" class="col-form-label formmodalfont">Status</label>
+											<select id="status2" name="status2" class="form-control">
+											    <option value="Male">Active</option>
+											    <option value="Female">Inactive</option>
+										    </select>
+										    <span class="text-danger" id="status2_error"></span>
+										</div>
+										<input type="hidden" name="teacherhid2" id="teacherhid2" value="">
+										<input type="hidden" name="hiddenid2" id="hiddenid2">
+									</div>
+
+									<br/>
+					  		</div>
+
+					  		<div class="modal-footer">
+								<input type="submit" name="action2" id="action2" class="btn gobtn" value="Proceed">
+							</div>
 
 
 
@@ -333,30 +449,186 @@ body {
 							      });
 
 
- 								$('#addform').on('submit', function(e){  
-							           event.preventDefault();
-							           var data = $(this).serialize();
-							                $.ajax({  
-							                	type:"POST",
-							                     url:"<?php echo base_url() . 'teacher_controller/teacheraction'; ?>",  
-							                     data:data,
-							                     success:function(data)  
-							                     {  
-							                     	if(data == 'Teacher Added' || data == 'Teacher Updated'){
-							                          alert(data);
-							                          $('#teachermodal').modal('hide');  
-							                          $('#Ttable').DataTable().ajax.reload();
-							                        }
-							                        else{
-							                          alert(data);
-							                        }    
-							                     }  
-							                });   
-							    });
+ 								$('#action').on('click', function(e){  
+							           e.preventDefault();
+											var data;     		
+											var fname= $("#teacherfname").val();
+											var mname= $("#teachermname").val();
+											var lname= $("#teacherlname").val();
+											var bday= $("#bday").val();
+											var email =$("#email").val();
+											var cont= $("#contact").val();
+											var gend= $("#gender").val();
+											var address= $("#address").val();
+											var status= $("#status").val();
+											var dept = $('#department').val();
+							                var counter = 0;     
+
+							                if(fname == ''){
+							                	$('#teacherfname_error').html('First Name is Required.');
+							                	$('#teacherfname').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                	else{
+							                		$('#teacherfname_error').hide();
+							                		$('#teacherfname').css('border-color', '#34F458');
+							                	}
+							                if(mname == ''){
+							                	$('#teachermname_error').html('Middle Name is Required.');
+							                	$('#teachermname').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#teachermname_error').hide();
+							                		$('#teachermname').css('border-color', '#34F458');
+							                	}
+							                if(lname == ''){
+							                	$('#teacherlname_error').html('Last Name is Required.');
+							                	$('#teacherlname').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#teacherlname_error').hide();
+							                		$('#teacherlname').css('border-color', '#34F458');
+							                	}
+							                if(bday == ''){
+							                	$('#bday_error').html('Birthday is Required.');
+							                	$('#bday').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                	else{
+							                		$('#bday_error').hide();
+							                		$('#bday').css('border-color', '#34F458');
+							                	}
+							                if(gend == ''){
+							                	$('#gender_error').html('Gender is Required.');
+							                	$('#gender').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#gender_error').hide();
+							                		$('#gender').css('border-color', '#34F458');
+							                	}
+							                if(address == ''){
+							                	$('#address_error').html('Address is Required.');
+							                	$('#address').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#address_error').hide();
+							                		$('#address').css('border-color', '#34F458');
+							                	}
+							                if(email == ''){
+							                	$('#email_error').html('Email is Required.');
+							                	$('#email').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                	else{
+							                		$('#email_error').hide();
+							                		$('#email').css('border-color', '#34F458');
+							                	}
+							                if(cont == ''){
+							                	$('#contact_error').html('Contact is Required.');
+							                	$('#contact').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#contact_error').hide();
+							                		$('#contact').css('border-color', '#34F458');
+							                	}
+							                if(status == ''){
+							                	$('#status_error').html('Status is Required.');
+							                	$('#status').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#status_error').hide();
+							                		$('#status').css('border-color', '#34F458');
+							                	}
+							                if(dept == ''){
+							                	$('#department_error').html('Department is required.');
+							                	$('#department').css('border-color', '#F90A0A');
+							                	counter++;
+							                }		      
+							                	else{
+							                		$('#department_error').hide();
+							                		$('#department').css('border-color', '#34F458');
+							                	}
+							                if(counter == 0){
+							                	var data = $('#addform').serialize();
+							           			var base_url = window.location;
+							           				$.ajax({
+							           					url: base_url + '/teacheraction',
+							           					method: "POST",
+							           					data:data,
+							           					success:function(data){
+							           						console.log(data);
+							           						alert(data);
+							           						$('#teachermodal').modal('hide');
+							           						$('#Ttable').DataTable().ajax.reload();
+							           					}
+							           				});
+							                }
+							    	});	
+										$('#email').keyup(function(){
+							                	var email = $('#email').val();
+							                	var base_url = window.location;
+							               
+							                	$.ajax({
+							                		url: base_url + '/check_email',
+							                		method:"POST",
+							                		data:{email:email},
+							                		success:function(data){ 
+							                		console.log(data);
+							                		
+							    					if(data == 'true'){
+							    					$('#email_error').html('Email is Valid' + '&nbsp;&nbsp;' +'<span class="fa fa-check"></span>')
+							    					.css('color', '#34F458').show();
+							    					$('#email').css('border-color', '#34F458');
+							    					// alert('ni');
+							    					}            		
+							    					else{
+							    						// alert('no');
+							    						$('#email_error').html(data)
+							    						.css('color', '#F90A0A');
+							    						$('#email').css('border-color', '#F90A0A');
+							    					}
+							              	}
+							             });   	
+
+							      });
+										$('#contact').keyup(function(){
+							                	var cont = $('#contact').val();
+							                	var base_url = window.location;
+							               
+							                	$.ajax({
+							                		url: base_url + '/check_contact',
+							                		method:"POST",
+							                		data:{cont:cont},
+							                		success:function(data){ 
+							                		console.log(data);
+							                		
+							    					if(data == 'true'){
+							    					$('#contact').css('border-color', '#34F458');
+							    					$('#contact_error').hide();
+							    					// alert('ni');
+							    					}            		
+							    					else{
+							    						// alert('no');
+							    						$('#contact_error').html(data)
+							    						.css('color', '#F90A0A');
+							    						$('#contact_error').show();
+							    						$('#contact').css('border-color', '#F90A0A');
+							    					}
+							              	}
+							             });
+							      });
 
 
 
-  					 $(document).on('click','.edit', function(){  
+
+  					 $(document).on('click','.edit', function(e){
+  					 e.preventDefault();  
 							           var Tid = $(this).attr("id");  
 							           $.ajax({  
 							                url:"<?php echo base_url() . 'teacher_controller/fetch_single_user_teacher'; ?>",  
@@ -365,23 +637,23 @@ body {
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
-							                	 $('#addform')[0].reset();
+							                	 $('#addform2')[0].reset();
 							                	 $('.modal-title').text("Edit Teacher"); 
-							                     $('#teachermodal').modal('show');  
-							                     $('#teacherid').val(data.teacher_id);
-							                     $('#teacherfname').val(data.teacher_fname);
-							                     $('#teachermname').val(data.teacher_mname);
-							                     $('#teacherlname').val(data.teacher_lname);
-							                     $('#bday').val(data.teacherbday);
-											     $('#age').val(data.teacherage);
-												 $('#gender').val(data.teachergender);
-												 $('#email').val(data.teacheremail);
-												 $('#department').val(data.teacherdepartment);
-												 $('#address').val(data.teacheraddress);
-												 $('#contact').val(data.teachercontact);
-												 $('#status').val(data.teacherstatus);
-												 $('#teacherhid').val("Edit");
-							                     $('#hiddenid').val(Tid); 
+							                     $('#teachermodal2').modal('show');  
+							                     $('#teacherid2').val(data.teacher_id);
+							                     $('#teacherfname2').val(data.teacher_fname);
+							                     $('#teachermname2').val(data.teacher_mname);
+							                     $('#teacherlname2').val(data.teacher_lname);
+							                     $('#bday2').val(data.teacherbday);
+											     $('#age2').val(data.teacherage);
+												 $('#gender2').val(data.teachergender);
+												 $('#email2').val(data.teacheremail);
+												 $('#department2').val(data.teacherdepartment);
+												 $('#address2').val(data.teacheraddress);
+												 $('#contact2').val(data.teachercontact);
+												 $('#status2').val(data.teacherstatus);
+												 $('#teacherhid2').val("Edit");
+							                     $('#hiddenid2').val(Tid); 
 							                }  
 							           });  
 							      });  
@@ -436,16 +708,3 @@ body {
 	}); 
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
