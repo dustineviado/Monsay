@@ -89,7 +89,7 @@ body {
 								<th scope="col">First Name</th>
 								<th scope="col">Last Name</th>
 								<th scope="col">Department</th>
-								<th scope="col">Status</th>
+								<th scope="col">Highest Degree</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -190,11 +190,8 @@ body {
 											<span class="text-danger" id="contact_error"></span>
 										</div>
 										<div class="col-md">
-											<label for="status" class="col-form-label formmodalfont">Status</label>
-											<select id="status" name="status" class="form-control">
-											    <option value="Male">Active</option>
-											    <option value="Female">Inactive</option>
-										    </select>
+											<label for="status" class="col-form-label formmodalfont">Highest Degree</label>
+											<input id="status" name="status" class="form-control" placeholder="Highest Degree">
 										    <span class="text-danger" id="status_error"></span>
 										</div>
 										<input type="hidden" name="teacherhid" id="teacherhid" value="">
@@ -207,6 +204,10 @@ body {
 					  		<div class="modal-footer">
 								<input type="submit" name="action" id="action" class="btn gobtn" value="Proceed">
 							</div>
+						</div>
+					</div>
+				</div>		
+
 <!-- END ADD TEACHER MODAL -->
 <div class="container-fluid">
 				<div class="modal fade" id="teachermodal2" tabindex="-1" role="dialog" aria-labelledby="editteachermodal" aria-hidden="true">
@@ -301,11 +302,8 @@ body {
 											<span class="text-danger" id="contact2_error"></span>
 										</div>
 										<div class="col-md">
-											<label for="status2" class="col-form-label formmodalfont">Status</label>
-											<select id="status2" name="status2" class="form-control">
-											    <option value="Male">Active</option>
-											    <option value="Female">Inactive</option>
-										    </select>
+											<label for="status2" class="col-form-label formmodalfont">Highest Degree</label>
+											<input id="status2" name="status2" class="form-control" placeholder="Highest Degree">
 										    <span class="text-danger" id="status2_error"></span>
 										</div>
 										<input type="hidden" name="teacherhid2" id="teacherhid2" value="">
@@ -318,20 +316,12 @@ body {
 					  		<div class="modal-footer">
 								<input type="submit" name="action2" id="action2" class="btn gobtn" value="Proceed">
 							</div>
-
-
-
-
-
-
-
-</div>
+						</div>
 </form>
 						</div>
 					</div>
 
 				</div>
-			</div>
 
 			<div class="container-fluid">
 				<div class="modal fade" id="teacher2modal" tabindex="-1" role="dialog" aria-labelledby="viewteachermodal" aria-hidden="true">
@@ -353,28 +343,26 @@ body {
 									<p id="teacher2name"></p>
 
 									<h6 class="potgraph">Birthday:</h6>
-									<p id="birthday2"></p>
+									<p id="birthday2id"></p>
 
-									<h6 class="potgraph">Age:</h6>
-									<p id="age2"></p>
 
 									<h6 class="potgraph">Gender:</h6>
-									<p id="gender2"></p>
+									<p id="gender2id"></p>
 
 									<h6 class="potgraph">Email:</h6>
-									<p id="email2"></p>
+									<p id="email2id"></p>
 
 									<h6 class="potgraph">Department:</h6>
-									<p id="department2"></p>
+									<p id="department2id"></p>
 									
 									<h6 class="potgraph">Address:</h6>
-									<p id="address2"></p>
+									<p id="address2id"></p>
 
 									<h6 class="potgraph">Contact:</h6>
-									<p id="contact2"></p>
+									<p id="contact2id"></p>
 
 									<h6 class="potgraph">Status:</h6>
-									<p id="status2"></p>
+									<p id="status2id"></p>
 
 					  		</div>
 						</div>
@@ -536,7 +524,7 @@ body {
 							                		$('#contact_error').hide();
 							                		$('#contact').css('border-color', '#34F458');
 							                	}
-							                if(status == ''){
+							                if(status == ''){	
 							                	$('#status_error').html('Status is Required.');
 							                	$('#status').css('border-color', '#F90A0A');
 							                	counter++;
@@ -637,7 +625,7 @@ body {
 							                dataType:"json",  
 							                success:function(data)  
 							                {  	
-							                	 $('#addform2')[0].reset();
+							                	 // $('#addform2')[0].reset();
 							                	 $('.modal-title').text("Edit Teacher"); 
 							                     $('#teachermodal2').modal('show');  
 							                     $('#teacherid2').val(data.teacher_id);
@@ -645,7 +633,6 @@ body {
 							                     $('#teachermname2').val(data.teacher_mname);
 							                     $('#teacherlname2').val(data.teacher_lname);
 							                     $('#bday2').val(data.teacherbday);
-											     $('#age2').val(data.teacherage);
 												 $('#gender2').val(data.teachergender);
 												 $('#email2').val(data.teacheremail);
 												 $('#department2').val(data.teacherdepartment);
@@ -656,7 +643,129 @@ body {
 							                     $('#hiddenid2').val(Tid); 
 							                }  
 							           });  
-							      });  
+							      });
+
+							      $('#action2').on('click', function(e){  
+							           e.preventDefault();
+											var data;     		
+											var fname= $("#teacherfname2").val();
+											var mname= $("#teachermname2").val();
+											var lname= $("#teacherlname2").val();
+											var bday= $("#bday2").val();
+											var email =$("#email2").val();
+											var cont= $("#contact2").val();
+											var gend= $("#gender2").val();
+											var address= $("#address2").val();
+											var status= $("#status2").val();
+											var dept = $('#department2').val();
+							                var counter = 0;     
+
+							                if(fname == ''){
+							                	$('#teacherfname2_error').html('First Name is Required.');
+							                	$('#teacherfname2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                	else{
+							                		$('#teacherfname2_error').hide();
+							                		$('#teacherfname2').css('border-color', '#34F458');
+							                	}
+							                if(mname == ''){
+							                	$('#teachermname2_error').html('Middle Name is Required.');
+							                	$('#teachermname2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#teachermname2_error').hide();
+							                		$('#teachermname2').css('border-color', '#34F458');
+							                	}
+							                if(lname == ''){
+							                	$('#teacherlname2_error').html('Last Name is Required.');
+							                	$('#teacherlname2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#teacherlname2_error').hide();
+							                		$('#teacherlname2').css('border-color', '#34F458');
+							                	}
+							                if(bday == ''){
+							                	$('#bday2_error').html('Birthday is Required.');
+							                	$('#bday2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                	else{
+							                		$('#bday2_error').hide();
+							                		$('#bday2').css('border-color', '#34F458');
+							                	}
+							                if(gend == ''){
+							                	$('#gender2_error').html('Gender is Required.');
+							                	$('#gender2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#gender2_error').hide();
+							                		$('#gender2').css('border-color', '#34F458');
+							                	}
+							                if(address == ''){
+							                	$('#address2_error').html('Address is Required.');
+							                	$('#address2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#address2_error').hide();
+							                		$('#address2').css('border-color', '#34F458');
+							                	}
+							                if(email == ''){
+							                	$('#email2_error').html('Email is Required.');
+							                	$('#email2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                	else{
+							                		$('#email2_error').hide();
+							                		$('#email2').css('border-color', '#34F458');
+							                	}
+							                if(cont == ''){
+							                	$('#contact2_error').html('Contact is Required.');
+							                	$('#contact2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#contact2_error').hide();
+							                		$('#contact2').css('border-color', '#34F458');
+							                	}
+							                if(status == ''){
+							                	$('#status2_error').html('Status is Required.');
+							                	$('#status2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }
+							                else{
+							                		$('#status2_error').hide();
+							                		$('#status2').css('border-color', '#34F458');
+							                	}
+							                if(dept == ''){
+							                	$('#department2_error').html('Department is required.');
+							                	$('#department2').css('border-color', '#F90A0A');
+							                	counter++;
+							                }		      
+							                	else{
+							                		$('#department2_error').hide();
+							                		$('#department2').css('border-color', '#34F458');
+							                	}
+							                if(counter == 0){
+							                	var data = $('#addform2').serialize();
+							           			var base_url = window.location;
+							           				$.ajax({
+							           					url: base_url + '/editteacher',
+							           					method: "POST",
+							           					data:data,
+							           					success:function(data){
+							           						console.log(data);
+							           						alert(data);
+							           						$('#teachermodal2').modal('hide');
+							           						$('#Ttable').DataTable().ajax.reload();
+							           					}
+							           				});
+							                }
+							            });  
 
 
 
@@ -673,14 +782,13 @@ body {
 							                     $('#teacher2modal').modal('show');  
 							                     $('#teacher2id').text(data.teacher_id);
 							                     $('#teacher2name').text(data.teacher_fname+" "+data.teacher_mname+" "+data.teacher_lname);
-							                     $('#birthday2').text(data.teacherbday);
-											     $('#age2').text(data.teacherage);
-												 $('#gender2').text(data.teachergender);
-												 $('#email2').text(data.teacheremail);
-												 $('#department2').text(data.teacherdepartment);
-												 $('#address2').text(data.teacheraddress);
-												 $('#contact2').text(data.teachercontact);
-												 $('#status2').text(data.teacherstatus);
+							                     $('#birthday2id').text(data.teacherbday);
+												 $('#gender2id').text(data.teachergender);
+												 $('#email2id').text(data.teacheremail);
+												 $('#department2id').text(data.teacherdepartment);
+												 $('#address2id').text(data.teacheraddress);
+												 $('#contact2id').text(data.teachercontact);
+												 $('#status2id').text(data.teacherstatus);
 							                }  
 							           });  
 							      });

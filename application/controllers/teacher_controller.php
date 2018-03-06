@@ -68,7 +68,7 @@ class teacher_controller extends CI_Controller {
 	                	'user_type'=> 'Teacher',
 	                	'id_number'=>$this->input->post('teacherid'),
 	                	'email'=>$this->input->post('email'),
-	                	'password'=> 'hveateachersdefaultpassword');
+	                	'password'=> 'hveateacher');
 
 	                $this->mdl->insertaddacc($insertaddacc);
 
@@ -79,25 +79,25 @@ class teacher_controller extends CI_Controller {
 	        }      
       	}
     public function editteacher(){
-    	$hidden = $this->input->post('teacherhid');
+    	$sid = $this->input->post('hiddenid2');
+    	$hidden = $this->input->post('teacherhid2');
 
     	 if($hidden == "Edit"){
 	           		$updated_data = array(  
-	                     'teacher_id'=>$this->input->post('teacherid'),
-	                     'fname'=>$this->input->post('teacherfname'),
-	                     'mname'=>$this->input->post('teachermname'),
-	                     'lname'=>$this->input->post('teacherlname'),
-	                     'birthday'=>$this->input->post('bday'),
-	                     'age'=>$this->input->post('age'),
-	                     'gender'=>$this->input->post('gender'),
-	                     'email'=>$this->input->post('email'),
-	                     'department'=>$this->input->post('department'),
-	                     'address'=>$this->input->post('address'),
-	                     'contact' =>$this->input->post('contact'),
-	                     'status'=>$this->input->post('status'));	
+	                     'teacher_id'=>$this->input->post('teacherid2'),
+	                     'fname'=>$this->input->post('teacherfname2'),
+	                     'mname'=>$this->input->post('teachermname2'),
+	                     'lname'=>$this->input->post('teacherlname2'),
+	                     'birthday'=>$this->input->post('bday2'),
+	                     'gender'=>$this->input->post('gender2'),
+	                     'email'=>$this->input->post('email2'),
+	                     'department'=>$this->input->post('department2'),
+	                     'address'=>$this->input->post('address2'),
+	                     'contact' =>$this->input->post('contact2'),
+	                     'status'=>$this->input->post('status2'));	
 	                       
 	               	
-	                $this->mdl->teacheredit2($updated_data);
+	                $this->mdl->teacheredit2($sid, $updated_data);
 	                echo 'Teacher Updated';
 	           }
 	           else{
@@ -171,7 +171,6 @@ class teacher_controller extends CI_Controller {
 	                $output['teacher_mname'] = $lalagyan->mname;
 	                $output['teacher_lname'] = $lalagyan->lname;
 	                $output['teacherbday'] = $lalagyan->birthday;
-	                $output['teacherage'] = $lalagyan->age;
 	                $output['teachergender'] = $lalagyan->gender;
 	                $output['teacheremail'] = $lalagyan->email;
 	                $output['teacherdepartment'] = $lalagyan->department;

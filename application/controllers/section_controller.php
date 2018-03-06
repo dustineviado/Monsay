@@ -77,7 +77,7 @@ class section_controller extends CI_Controller {
 	}
 	public function check_sectid(){
 		$this->form_validation->set_rules('sectid', 'Subject ID', 'required|is_unique[section.secid]',
-			array('is_unique'=>'This Subject ID is already taken.'));
+			array('is_unique'=>'This Section ID is already taken.'));
 		if($this->form_validation->run()){
 			echo 'true'; 
 		}

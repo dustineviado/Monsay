@@ -51,10 +51,9 @@ class teacher_model extends CI_Model {
           	 $query=$this->db->get('teacher');  
            	return $query->result();
 		}
-		function teacheredit2($data){
-			$hiddenid = $this->input->post('hiddenid');
-			$this->db->where('teacher_id', $hiddenid);
-			$this->db->update('teacher', $data);
+		function teacheredit2($sid, $updated_data){
+			$this->db->where('teacher_id', $sid);
+			$this->db->update('teacher', $updated_data);
 		}
 
 
