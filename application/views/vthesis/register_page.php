@@ -71,7 +71,7 @@
 							</div>
 						</div>
 						<div class="row form-group">
-						<div class="col-md">
+							<div class="col-md">
 								<label for="studgender" class="col-form-label formmodalfont">Sex</label>
 								<select id="studgender" value="<?php echo set_value('studgender');?>" name="studgender" class="form-control" placeholder="Sex">
 									<option value="Male">Male</option>
@@ -105,7 +105,23 @@
 								
 							</div>
 						</div>
-							
+						<br/>	
+
+								<div class="form-check">
+									<input class="" type="checkbox" name="check1" id="requirements1" value="1">
+									<label class="" for="requirements1">Birth Certificate</label>
+								</div>
+								
+								<div class="form-check">
+									<input class="" type="checkbox" name="check2" id="requirements2" value="1">
+									<label class="" for="requirements1">Good Moral</label>
+								</div>
+								
+								<div class="form-check">
+									<input class="" type="checkbox" name="check3" id="requirements3" value="1">
+									<label class="" for="requirements1">Form-137</label>
+								</div>
+								
 						<br />
 						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
@@ -114,6 +130,7 @@
 							</div>
 						</div>
 					</form>
+					<br/>
 					<br/>
 				  </div>
 			  </div>

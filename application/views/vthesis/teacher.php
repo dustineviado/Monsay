@@ -83,7 +83,7 @@ body {
 
 
 <table id="Ttable" class="table table-striped">
-						<thead class="thead-inverse">
+						<thead class="tablethead">
 							<tr>
 								<th scope="col">Teacher ID</th>
 								<th scope="col">First Name</th>

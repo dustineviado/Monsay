@@ -409,7 +409,7 @@ body {
 					<br>
 
 					<table id="sectiontable" class="table table-striped">
-						<thead class="thead-inverse">
+						<thead class="tablethead">
 							<tr>
 								<th>Section ID</th>
 								<th>Section Name</th>

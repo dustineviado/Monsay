@@ -279,7 +279,7 @@ body {
 					<br>
 
 					<table id="newstudtable" class="table table-responsive table-striped">
-						<thead class="thead-inverse">
+						<thead class="tablethead">
 							<tr>
 								<th scope="col" width="5%">Control No.</th>
 								<th scope="col">Given Name</th>

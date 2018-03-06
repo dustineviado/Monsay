@@ -212,7 +212,7 @@ body {
 				<br>
 					<div class=" table-responsive">
 						<table id="alumnitable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-							<thead class="thead-inverse">
+							<thead class="tablethead">
 								<tr>
 									<th>Student ID</th>
 									<th>Student Name</th>

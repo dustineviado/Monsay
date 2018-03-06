@@ -812,7 +812,7 @@ body {
 					<br>
 
 					<table id="studenttable" class="table table-striped">
-						<thead class="thead-inverse">
+						<thead class="tablethead">
 							<tr>
 								<th>Student ID</th>
 								<th>Given Name</th>
