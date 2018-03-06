@@ -13,13 +13,25 @@ class teacherlog_controller extends CI_Controller {
 
 	public function index()
 	{
-		
+				$output = array();
+			    $sid = $_SESSION['id_number'];
+	            $dataname= $this->mdl->nameget($sid);
+	            foreach($dataname as $row){
+	            	$output['fname'] = $row->fname;
+	            	$output['mname'] = $row->mname;
+	            	$output['lname'] = $row->lname;
+	            }
+
+
+	    $data['fullname'] = $output['fname'].' '.$output['mname'].' '.$output['lname'];
 		$data['title'] = "Haven of Virtue and Excellence Academy Inc.";
-		$active['menu']='active';
+		$data['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/teacher_dashboard',$active);
+		$this->load->view('vthesis/teacher_dashboard',$data);
 		$this->load->view('templates/footer',$data);
-		if($this->session->userdata('user_type') == 'Teacher'){
+
+
+	if($this->session->userdata('user_type') == 'Teacher'){
 	}
 	else if($this->session->userdata('user_type') == 'Student'){
 				
@@ -38,11 +50,12 @@ class teacherlog_controller extends CI_Controller {
 	
 	
 
-	function getschedule()  
-	      {    $sid = $_SESSION['id_number'];
+	function getschedule(){    
+			   $sid = $_SESSION['id_number'];
 	           $data = $this->mdl->scheduleget($sid); 
 	           echo json_encode($data);  
 	      }
+
 }
 
 /* End of file teacherlog_controller.php */

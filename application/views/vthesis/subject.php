@@ -322,7 +322,7 @@ body {
 					<br>
 					<div class=" table-responsive">
 						<table id="lamesa234" class="table table-striped table-bordered" cellspacing="0" width="100%">
-							<thead class="thead-inverse">
+							<thead class="tablethead">
 								<tr>
 									<th>Subject Code</th>
 									<th>Subject Name</th>

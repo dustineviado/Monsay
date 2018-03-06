@@ -12,6 +12,7 @@ class schedules_controller extends CI_Controller {
 		$active['menu']='active';
 		$this->load->view('templates/header',$data);	
 		$this->load->view('vthesis/schedules',$active);
+		$this->load->view('templates/footer',$data);
 		if($this->session->userdata('user_type') == 'Admin'){
 		}
 		else if($this->session->userdata('user_type') == 'Student'){

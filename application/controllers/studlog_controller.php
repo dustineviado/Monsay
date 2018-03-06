@@ -14,12 +14,24 @@ class Studlog_controller extends CI_Controller {
     }
 
 	public function index()
-	{
+	{	
+
 		if($this->session->userdata('user_type') == 'Student'){
+			$output = array();
+			    $sid = $_SESSION['id_number'];
+	            $dataname= $this->mdl->nameget($sid);
+	            foreach($dataname as $row){
+	            	$output['fname'] = $row->fname;
+	            	$output['mname'] = $row->mname;
+	            	$output['lname'] = $row->lname;
+	            }
+
+
+	    $data['fullname'] = $output['fname'].' '.$output['mname'].' '.$output['lname'];
 		$data['title'] = "Haven of Virtue and Excellence Academy Inc.";
-		$active['menu']='active';
+		$data['menu']='active';
 		$this->load->view('templates/header',$data);
-		$this->load->view('vthesis/student_dashboard',$active);
+		$this->load->view('vthesis/student_dashboard',$data);
 		$this->load->view('templates/footer',$data);
 
        

@@ -21,6 +21,15 @@ class studlog_model extends CI_Model {
            	 return $query->result();
 		}
 
+     function nameget($sid){
+               $this->db->select('fname, mname, lname');
+               $this->db->from('student');
+               $this->db->where('id_num', $sid);
+               $query=$this->db->get();  
+               return $query->result();
+
+     }      
+
 }
 
 /* End of file studlog_model.php */

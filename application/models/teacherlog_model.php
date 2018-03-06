@@ -20,6 +20,15 @@ class teacherlog_model extends CI_Model {
            	 return $query->result();
 		}
 
+     function nameget($sid){
+               $this->db->select('fname, mname, lname');
+               $this->db->from('teacher');
+               $this->db->where('teacher_id', $sid);
+               $query=$this->db->get();  
+               return $query->result();
+
+     }     
+
 }
 
 /* End of file teacherlog_model.php */

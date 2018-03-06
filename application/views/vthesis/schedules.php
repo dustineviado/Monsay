@@ -324,7 +324,7 @@ body {
 					<br>
 					<div class="table-responsive">
 						<table id="scheduletable" class="table table-striped">
-							<thead class="thead-inverse">
+							<thead class="tablethead">
 								<tr>
 									<th>Schedule ID</th>
 									<th>Action</th>
@@ -391,7 +391,7 @@ body {
 				      		<div class="modal-body">
 				      			<div class="table-responsive">
 									<table id="viewtable" class="table table-striped">
-										<thead class="thead-inverse">
+										<thead class="tablethead">
 											<tr>
 												<th>Schedule Id</th>
 												<th>Day</th>
