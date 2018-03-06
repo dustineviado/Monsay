@@ -78,24 +78,17 @@ class Subject_controller extends CI_Controller {
 	}
 
 	function check_subid(){
-		$sid = $this->input->post('subjectidname');
-		$this->load->model('subject_model');
-		$exist = $this->subject_model->subid_exist($sid);
-		if($sid == '')
-		{
-			echo 'is required';	
+		$this->form_validation->set_rules('subid', 'Subject ID', 'required|is_unique[subject.subid]',
+			array('is_unique'=>'This Subject ID is already taken.'));
+		if($this->form_validation->run()){
+			echo 'true'; 
 		}
-		else if($sid == $exist){
-			echo 'Subject ID already taken';
+		else{			
+			echo validation_errors();
 		}
-		else if($sid !== $exist){
-			echo 'good ID';
-		}
-		else{
-			$this->addsub();
-		}
+}
 
-	}
+
 	function check_subjname(){
 		$subname = $this->input->post('subjectname');
 
@@ -123,14 +116,10 @@ class Subject_controller extends CI_Controller {
 		}
 	}
 	function addsub(){
+	$hidden = $this->input->post('subjecthid');
 	$sid = $this->input->post('subjectidname');	
-	$subname = $this->input->post('subjectname');
-	$faculty = $this->input->post('subjectfaculty');
 
-	if($sid == '' || $subname == '' || $faculty == ''){
-		echo 'Oops!';
-	}
-	else{
+	if($hidden == "Add"){
 		$insert_data = array(  
 	    'subid'=>$this->input->post('subjectidname'),
 	    'subject'=>$this->input->post('subjectname'),
@@ -139,6 +128,9 @@ class Subject_controller extends CI_Controller {
 
 		$this->mdl->addsubject($insert_data);
 		echo 'Subject Added';
+		}
+		else{
+			echo 'Error';
 		}
 	}
 	function fetch_user(){  
@@ -179,13 +171,7 @@ class Subject_controller extends CI_Controller {
 	function editsubject(){
 		$sid = $this->input->post('subjectID2');
 		$hidden = $this->input->post('hidid2');
-		$subname = $this->input->post('subjectname2');
-		$faculty = $this->input->post('subjectfaculty2');
-
-		if($subname == '' || $faculty == ''){
-			echo 'Oops!';
-		}
-		else if($hidden == "Edit"){
+		 if($hidden == "Edit"){
 			$update_data = array(
 				'subid'=>$this->input->post('subjectidname2'),
 				'subject'=>$this->input->post('subjectname2'),

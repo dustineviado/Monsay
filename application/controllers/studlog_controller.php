@@ -40,7 +40,7 @@ class Studlog_controller extends CI_Controller {
 	}
 
 	function getschedule()  
-	      {    $sid = $this->session->userdata('login_session');
+	      {    $sid = $_SESSION['id_number'];
 	           $data = $this->mdl->scheduleget($sid); 
 	           echo json_encode($data);  
 	      }

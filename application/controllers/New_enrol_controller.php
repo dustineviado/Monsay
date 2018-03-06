@@ -91,7 +91,6 @@ class New_enrol_controller extends CI_Controller {
 	                     'lname'=>$this->input->post('studlname2'),
 	                     'email'=>$this->input->post('studemail2'),
 	                     'birthday'=>$this->input->post('studbirthday2'),
-	                     'age'=>$this->input->post('studage2'),
 	                     'contact'=>$this->input->post('studcontact2'),
 	                     'gender'=>$this->input->post('studgender2'),
 	                     'religion'=>$this->input->post('studreligion2'),

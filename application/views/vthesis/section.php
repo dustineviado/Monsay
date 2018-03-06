@@ -235,6 +235,7 @@ body {
 							      						.css('color', '#F90A0A');
 							      						$('#teacherid_error').show();	
 							      						$('#teacherid').css('border-color', '#F90A0A');
+							      						$check = $('#titser').val("false");
 							      						}
 							      					}
 							      				});

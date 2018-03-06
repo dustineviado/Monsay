@@ -35,7 +35,7 @@ class grading_controller extends CI_Controller {
 	
 
 	public function displaysection(){
-		$sid =$this->session->userdata('login_session');
+		$sid =$_SESSION['id_number'];
 		$data = $this->mdl->sectiondisplay($sid);
 		echo json_encode($data);
 
